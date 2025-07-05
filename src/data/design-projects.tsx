@@ -63,7 +63,11 @@ export const PDProjects = [
       "This was the product created with my group for my Product Design module. After interviewing multiple students around campus, we discovered that many face the issue of being unable to prop up their phone to view media comfortably. Therefore, we designed and created a product that allowed users to prop up their phone horizontally or vertically while being a portable and lightweight card holder.",
     src: [lawks1, lawks3, lawks2],
     date: "2024",
-    skills: ["3D Modelling and Prototyping", "Computer Aided Design (CAD)", "TinkerCad"],
+    skills: [
+      "3D Modelling and Prototyping",
+      "Computer Aided Design (CAD)",
+      "TinkerCad",
+    ],
     link: "https://www.figma.com/proto/jCGPHu0P1Uk1iWxlpmD1FU/Zenith?page-id=73%3A1027&node-id=299-1810&node-type=FRAME&viewport=3014%2C-5449%2C0.88&t=9HbyaxOebRZJfAZt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=299%3A118&show-proto-sidebar=1",
   },
 ];

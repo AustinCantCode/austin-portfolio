@@ -13,7 +13,7 @@ export default function CodingProjects() {
   return (
     <main className="text-center text-white bg-none space-y-20 ">
       <FeaturedProjects />
-            <VideoCarousel selectedSkills={selectedSkills} />
+      <VideoCarousel selectedSkills={selectedSkills} />
 
       <SkillsSection
         selectedSkills={selectedSkills}

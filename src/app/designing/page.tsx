@@ -9,7 +9,7 @@ import { designCategories } from "@data/design-projects";
 
 const categoryComponents = {
   "UI/UX": UIUXProjects,
-  "Product": PDProjects,
+  Product: PDProjects,
   // "Graphic": GDProjects,
 };
 

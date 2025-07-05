@@ -1,9 +1,9 @@
 import { Separator } from "@components/ui/separator";
 
 type TitleProps = {
-  className? : string,
-  header?: string
-}
+  className?: string;
+  header?: string;
+};
 
 export default function Title(props: TitleProps) {
   return (

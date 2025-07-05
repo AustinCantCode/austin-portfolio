@@ -112,9 +112,7 @@ export default function Homepage() {
           <div>
             <h3 className="pb-2">Designing</h3>
             <div className="border-l-2 pl-4">
-              <p>
-                Over 2 years doing product, UI/UX and graphic designs
-              </p>
+              <p>Over 2 years doing product, UI/UX and graphic designs</p>
               <p>
                 Experienced with design softwares such as Adobe Photoshop, Adobe
                 Illustrator, Figma etc.

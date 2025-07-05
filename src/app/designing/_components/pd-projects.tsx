@@ -1,8 +1,5 @@
 // COMPONENTS
 import Image from "next/image";
-import { Button } from "@components/ui/button";
-import Link from "next/link";
-import { Icon } from "@iconify/react";
 
 // DATA
 import { PDProjects as PD } from "@data/design-projects";
@@ -30,10 +27,10 @@ export default function PDProjects() {
               </div>
             ))}
             <div className="bg-white rounded-md p-4 col-span-3 mt-8 text-black">
-            <p className="col-span-3 font-semibold text-center">
-              {project.skills.join(", ")}
-            </p>
-            <p className="col-span-3">{project.description}</p>
+              <p className="col-span-3 font-semibold text-center">
+                {project.skills.join(", ")}
+              </p>
+              <p className="col-span-3">{project.description}</p>
             </div>
           </div>
         ))}

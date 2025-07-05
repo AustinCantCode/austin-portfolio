@@ -21,16 +21,14 @@ export interface VideoCarouselProps {
   selectedSkills: string[];
 }
 
-export default function VideoCarousel({
-  selectedSkills,
-}: VideoCarouselProps) {
+export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
   const plugin = useRef(
     AutoScroll({
       speed: 0.8,
       stopOnMouseEnter: false,
       stopOnInteraction: false,
       stopOnFocusIn: true,
-    })
+    }),
   );
   let filteredProjects;
   if (selectedSkills.length === 0) {
@@ -39,7 +37,7 @@ export default function VideoCarousel({
     filteredProjects = projects.filter(
       (project) =>
         Array.isArray(project.skills) &&
-        selectedSkills.every((skill) => project.skills.includes(skill))
+        selectedSkills.every((skill) => project.skills.includes(skill)),
     );
   }
 

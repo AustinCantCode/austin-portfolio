@@ -5,7 +5,13 @@ import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const pathname = usePathname();
-  const pages = ["/achievements", "/participation", "/coding", "/homepage", "/designing"];
+  const pages = [
+    "/achievements",
+    "/participation",
+    "/coding",
+    "/homepage",
+    "/designing",
+  ];
 
   for (let i = 0; i < pages.length; i++) {
     if (pathname === pages[i]) {

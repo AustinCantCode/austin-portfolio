@@ -3,11 +3,11 @@ import Image from "next/image";
 
 // TYPES
 type CardProps = {
-  title?: string,
-  sender?: string,
-  description?: string
-  src?: string
-}
+  title?: string;
+  sender?: string;
+  description?: string;
+  src?: string;
+};
 
 export default function Certificate(props: CardProps) {
   return (
