@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\Temp Calc.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "ef9701c3fAw800iFi300lLPcHtdairx6zxAq0101bUSZbnGg",
+      "assetId": "hlCXIw5GyABt5hlMZ535AL00ipeHBp9ERAFSy9L2BDyo",
+      "playbackId": "8ErWjYxZWf5hDJNPn8GvJmCVkL851AM8q1VeDsNNQIs"
+    }
+  },
+  "createdAt": 1750649383042,
+  "updatedAt": 1750649397304,
+  "size": 25592483,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/8ErWjYxZWf5hDJNPn8GvJmCVkL851AM8q1VeDsNNQIs.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/8ErWjYxZWf5hDJNPn8GvJmCVkL851AM8q1VeDsNNQIs/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAkAAQAcJQBOgCHgk8WmSSAAAP734THg0kGUs5C3tXzDNRD602zmapy4HB93bzoecF3R+EVtebc5EDiRnvUKRv5Ms63zEEf4wYTYjmDM759dgzyglLQA"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\Coin Flip.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "q6UU7Rw8b5UhkAGi00s8TEr1Evngh6LqsW26lXfnnP7o",
+      "assetId": "h2yQnCyk8Ut2QmotcKEDPJHvU3afUiEKcOaMaEdZ4ng",
+      "playbackId": "P00L3pU99D01yFteWIX5Cq023ODm02crhmC2A17O9VUCk1g"
+    }
+  },
+  "createdAt": 1750649383024,
+  "updatedAt": 1750649389901,
+  "size": 2768427,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/P00L3pU99D01yFteWIX5Cq023ODm02crhmC2A17O9VUCk1g.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/P00L3pU99D01yFteWIX5Cq023ODm02crhmC2A17O9VUCk1g/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAkAAQAcJZQCdACVB0QMgAD+jib/tmGk+2ImqoKoiJS5eWuzpbRErAhysCtDwk2q303v2+Z+0kh1qiebuFHw5KSIZCITyU8TW32qycPAmozuhF9k7iBzBlrCTYAA"
+}

@@ -1,0 +1,58 @@
+.backgroundImg {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(70%);
+}
+
+.backgroundText {
+  color: white;
+  z-index: 1;
+  letter-spacing: 0.4vh;
+  background-color: hsla(0, 0%, 100%, 0.25);
+  padding: 4vh 1vh;
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+.nameText {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 6vh;
+  letter-spacing: 0.6vh;
+}
+
+.descriptionText {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2vh;
+  padding: 2vh 5vh;
+}
+
+.homepageBackground {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.discoverButton {
+  background-color: #ffffff00;
+  color: hsl(0, 0%, 80%);
+  padding: 6px 14px;
+  border: solid 2px hsl(0, 0%, 50%);
+  border-radius: 6px;
+  transition: ease-in-out 200ms;
+}
+
+.discoverButton:hover {
+  background-color: #ffffff00;
+  color: white;
+  padding: 6px 14px;
+  border: solid 2px white;
+  border-radius: 6px;
+}

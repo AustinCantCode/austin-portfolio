@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\Stopwatch Demo.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "RNmd4nd9q801WCYxKg01hp02v5UUPrb801mGoxd5SZ4knPs",
+      "assetId": "z9UrOQ31ofSeqy3d01YZjy02SQ501zTmqCVYPKd29AUsxo",
+      "playbackId": "AxgL4i2SN4WxdRfHaxw16zRy2DtVDBH7NrUqKHeqfeo"
+    }
+  },
+  "createdAt": 1750649383032,
+  "updatedAt": 1750649409819,
+  "size": 33426683,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/AxgL4i2SN4WxdRfHaxw16zRy2DtVDBH7NrUqKHeqfeo.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/AxgL4i2SN4WxdRfHaxw16zRy2DtVDBH7NrUqKHeqfeo/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAkAAQAcJYwCdAEfa7T+UBwA/v5RQWRZtU6zYTDEu42P8dKjG8R77ZMR/lyD9sHSNZNC2vl3lnvuEXaIdShTn76f9ydMf4K4d6Lf8fgAAA=="
+}

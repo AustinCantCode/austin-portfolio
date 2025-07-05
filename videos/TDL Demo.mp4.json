@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\TDL Demo.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "wo92DrQ2DbRwISlgS2dPpPMXq5yYtJOJ6ZiQhu4fjBM",
+      "assetId": "s6wVgVOX3tUhFpfNgsQWhYfn4kpR3SBgJ4h9YUOIjeM",
+      "playbackId": "CZu6U4xgFJjXeA01Xy7sQYf00fN02T00N95RgS5mteID9OA"
+    }
+  },
+  "createdAt": 1750649798976,
+  "updatedAt": 1750649805504,
+  "size": 3530881,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/CZu6U4xgFJjXeA01Xy7sQYf00fN02T00N95RgS5mteID9OA.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/CZu6U4xgFJjXeA01Xy7sQYf00fN02T00N95RgS5mteID9OA/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAkAAQAcJaQAAudelK89AAD+rHTTo+K6GY3BjIKZbDq/BnywmeAOSjoXfbtmITZA8AAA"
+}

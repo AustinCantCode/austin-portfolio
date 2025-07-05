@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\8Ball Demo.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "iyQMYkhkHMKT6faJR6Kl4z3OH01HyoQc00UI9p47qYhlI",
+      "assetId": "VOWRTHcQfSR14GUETcq5Ah31reS9zfU19q6MHvMj7mA",
+      "playbackId": "sHk9PG5sOBw27fxGQiUlTzdKKGKTnocTnlgxZQZLg9E"
+    }
+  },
+  "createdAt": 1750649383015,
+  "updatedAt": 1750649390273,
+  "size": 2839547,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/sHk9PG5sOBw27fxGQiUlTzdKKGKTnocTnlgxZQZLg9E.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/sHk9PG5sOBw27fxGQiUlTzdKKGKTnocTnlgxZQZLg9E/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkAAQAcJaQAAudl1d0AAP7+GFcu/qxAuGTyKt+OWIwAAAA="
+}

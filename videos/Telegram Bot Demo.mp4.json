@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\Telegram Bot Demo.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "902t8BwhcrllAAk4kIDfKmqC4eL3oBvhl183pVV01700sU",
+      "assetId": "h602l6b8sKlfSBHkvrascD016GvZAhsJnwuzQPIYLSpjY",
+      "playbackId": "3SvPy01qQrkAe1J9hG6Ds017vNmM2vPhK1lAGDebkVGFY"
+    }
+  },
+  "createdAt": 1750649383030,
+  "updatedAt": 1750649415833,
+  "size": 72698049,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/3SvPy01qQrkAe1J9hG6Ds017vNmM2vPhK1lAGDebkVGFY.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/3SvPy01qQrkAe1J9hG6Ds017vNmM2vPhK1lAGDebkVGFY/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAkAAQAcJaQAAtz+ndFHAAD+/pHcz45F8q/VuHMAF8p+5jH/YrToSsqEAA=="
+}

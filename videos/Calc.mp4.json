@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\Calc.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "i2ygjNQ34fmlZCTYNYni7012701SP02PNOmnTsrckUheCk",
+      "assetId": "6T6nrnP7dB6pdc8SL301oZh4QluJss00eZLv1DIKS5WAU",
+      "playbackId": "747adhNKHWuhPeI61uNPzv01IK2JvPwKnm4004bwMhzbU"
+    }
+  },
+  "createdAt": 1750649383012,
+  "updatedAt": 1750649389493,
+  "size": 1680355,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/747adhNKHWuhPeI61uNPzv01IK2JvPwKnm4004bwMhzbU.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/747adhNKHWuhPeI61uNPzv01IK2JvPwKnm4004bwMhzbU/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAkAAQAcJZwAAp0+q4IAAP78rKn3o8WFLdju38bJSbJvh5ecVCbzQSJF+Kfpyb4dNNCcAAA="
+}
