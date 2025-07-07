@@ -13,7 +13,7 @@ export default function Homepage() {
   }, []);
 
   return (
-    <main className="relative overflow-hidden min-h-screen flex justify-center bg-black">
+    <main className="px-4 md:px-0 relative overflow-hidden min-h-screen flex justify-center bg-black">
       {/* Background Layers */}
       <div className={"absolute inset-0 z-0" + fadeIn} />
       <div className="absolute inset-0 bg-twinkling z-10" />

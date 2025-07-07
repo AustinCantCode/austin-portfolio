@@ -56,10 +56,10 @@ export default function ProfileImage(props: ProfileImageProps) {
       ref={logoRef}
       onClick={flipLogo}
       id="ASLogo"
-      width={props.width || 500}
+      width={props.width || 100}
       height={500}
       className={
-        "max-w-60 transition-all duration-300 rounded-full " +
+        "transition-all duration-300 rounded-full " +
         (props.className || "")
       }
       priority={true}
