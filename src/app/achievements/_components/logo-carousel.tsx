@@ -52,7 +52,7 @@ export default function LogoCarousel(props: LogoCarouselProps) {
               src={item.image || ""}
               className="max-w-25"
               draggable="false"
-              loading="lazy"
+              priority={true} 
             />
           </CarouselItem>
         ))}
