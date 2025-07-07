@@ -22,7 +22,6 @@ export default function PDProjects() {
                   quality={100}
                   className="w-full max-w-5xl rounded-md mx-auto border-0 hover:scale-105 active:scale-102 transition-all hover:shadow-[0_0_25px_0px_rgb(255,255,255)]"
                   loading="eager"
-                  priority={true}
                 />
               </div>
             ))}

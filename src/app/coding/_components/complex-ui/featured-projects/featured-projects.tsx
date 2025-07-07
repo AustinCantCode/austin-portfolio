@@ -25,7 +25,6 @@ export default function FeaturedProjects() {
                   quality={100}
                   className="p-2"
                   loading="eager"
-                  priority={true}
                 />
               </DialogTrigger>
               <PopUpContent props={project} />

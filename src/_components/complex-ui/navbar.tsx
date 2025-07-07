@@ -44,7 +44,6 @@ export default function Navbar() {
                 width={90}
                 height={90}
                 quality={100}
-                loading="eager"
                 priority={true}
                 className="rounded-full transition-all hover:shadow-[0_0_25px_8px_rgb(255,255,255)] hover:outline-white/0"
               />

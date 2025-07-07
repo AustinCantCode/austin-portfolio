@@ -62,7 +62,6 @@ export default function ProfileImage(props: ProfileImageProps) {
         "max-w-60 transition-all duration-300 rounded-full " +
         (props.className || "")
       }
-      loading="eager"
       priority={true}
     />
   );

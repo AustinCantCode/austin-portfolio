@@ -21,7 +21,6 @@ export default function UIUXProjects() {
               alt="Picture of Project"
               quality={100}
               className="min-w-full col-span-1 p-8"
-              loading="eager"
               priority={true}
             />
             <div className="col-span-1 p-8 space-y-4">
@@ -65,7 +64,6 @@ export default function UIUXProjects() {
               alt="Picture of Project"
               quality={100}
               className="min-w-full col-span-1 p-8"
-              loading="eager"
               priority={true}
             />
           </div>
