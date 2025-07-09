@@ -43,7 +43,7 @@ export default function LogoCarousel(props: LogoCarouselProps) {
         {props.achievementLogos.map((item, index) => (
           <CarouselItem
             key={index}
-            className="md:basis-1/2 lg:basis-1/8 flex items-center py-3"
+            className="basis-1/3 md:basis-1/5 lg:basis-1/8 flex items-center py-3"
           >
             <Image
               width={100}
