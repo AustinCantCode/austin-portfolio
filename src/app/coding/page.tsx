@@ -11,7 +11,7 @@ export default function CodingProjects() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   return (
-    <main className="text-center text-white bg-none space-y-20 ">
+    <main className="text-center text-white bg-none space-y-20 fade-in">
       <FeaturedProjects />
       <VideoCarousel selectedSkills={selectedSkills} />
 

@@ -15,7 +15,7 @@ const categoryComponents = {
 
 export default function DesignProjects() {
   return (
-    <main>
+    <main className="fade-in">
       <Tabs defaultValue="UI/UX">
         <TabsList className="mx-auto w-full max-w-5xl gap-x-8 rounded-md bg-white/0 text-white dark">
           {designCategories.map((category, index) => {

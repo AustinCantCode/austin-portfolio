@@ -7,7 +7,7 @@ import { PDProjects as PD } from "@data/design-projects";
 export default function PDProjects() {
   {
     return (
-      <div className="space-y-8 rounded-md p-8 bg-white/15">
+      <div className="space-y-8 rounded-md p-8 bg-white/15 text-white">
         {PD.map((project, index) => (
           <div
             className="grid grid-cols-3 place-items-center gap-x-8"
@@ -25,7 +25,7 @@ export default function PDProjects() {
                 />
               </div>
             ))}
-            <div className="bg-white rounded-md p-4 col-span-3 mt-8 text-black">
+            <div className="col-span-full mt-8">
               <p className="col-span-3 font-semibold text-center">
                 {project.skills.join(", ")}
               </p>

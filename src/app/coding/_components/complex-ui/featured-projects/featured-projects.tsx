@@ -9,7 +9,7 @@ import featuredProjects from "@data/featured-coding-projects";
 
 export default function FeaturedProjects() {
   return (
-    <div className="fade-in">
+    <div>
       <Title header="My Featured Projects" />
       <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto place-items-center">
         {featuredProjects.map((project, index) => (

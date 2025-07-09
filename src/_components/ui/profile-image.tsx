@@ -59,8 +59,7 @@ export default function ProfileImage(props: ProfileImageProps) {
       width={props.width || 100}
       height={500}
       className={
-        "transition-all duration-300 rounded-full " +
-        (props.className || "")
+        "transition-all duration-300 rounded-full " + (props.className || "")
       }
       priority={true}
     />

@@ -36,7 +36,7 @@ export default function Navbar() {
             {/* Logo fixed at the left */}
             <Link
               href="/"
-              className="absolute left-0 translate-x-10  md:translate-x-20 md:translate-y-0"
+              className="absolute left-0 translate-x-10 md:translate-x-20 md:translate-y-0"
             >
               <Image
                 src={ASLogo.src}
@@ -49,7 +49,7 @@ export default function Navbar() {
               />
             </Link>
             {/* Desktop Nav centered */}
-            <div className="hidden md:flex justify-evenly w-full max-w-5xl mx-auto bg-white/15 md:py-4 md:rounded-full">
+            <div className="hidden lg:flex justify-evenly w-full max-w-5xl mx-auto bg-white/15 md:py-4 md:rounded-full">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -70,7 +70,7 @@ export default function Navbar() {
             <Button
               variant="austin"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -83,7 +83,7 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="md:hidden border-t-2 border-b-2 mt-4">
+            <div className="lg:hidden border-t-2 border-b-2 mt-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}

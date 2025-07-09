@@ -11,6 +11,7 @@ export default function Footer() {
     "/coding",
     "/homepage",
     "/designing",
+    "/contact",
   ];
 
   for (let i = 0; i < pages.length; i++) {

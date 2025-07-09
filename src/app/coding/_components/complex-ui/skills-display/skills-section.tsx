@@ -33,7 +33,7 @@ export default function SkillsSection({
       {/* Frontend Section */}
       <div>
         <Title header="Front-end Development" className="col-span-full" />
-        <div className="grid md:grid-cols-4 gap-8 mx-auto max-w-5xl fade-in">
+        <div className="grid md:grid-cols-4 gap-8 mx-auto max-w-5xl">
           {frontendSkills.map((skills, index) => (
             <SkillsCard
               key={index}
