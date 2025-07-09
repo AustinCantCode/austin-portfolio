@@ -1,38 +1,30 @@
 "use client";
+
+// IMAGES
 import ASLogo from "../../../public/AS-Circle-Logo.png";
+
+// REACT HOOKS
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+
+// COMPONENTS
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Button } from "@components/ui/button";
 
-const navItems = [
-  { label: "Home", href: "/homepage", icon: "lucide:home" },
-  {
-    label: "Achievements",
-    href: "/achievements",
-    icon: "mdi:achievement-variant-outline",
-  },
-  { label: "Coding", href: "/coding", icon: "mingcute:code-line" },
-  {
-    label: "Designing",
-    href: "/designing",
-    icon: "fluent:design-ideas-16-regular",
-  },
-  { label: "Participation", href: "/participation", icon: "charm:person" },
-  { label: "Contact", href: "/contact", icon: "solar:phone-linear" },
-];
+// DATA
+import navbarItems from "@data/navbar-items";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  for (let i = 0; i < navItems.length; i++) {
-    if (pathname === navItems[i].href) {
+  for (let i = 0; i < navbarItems.length; i++) {
+    if (pathname === navbarItems[i].href) {
       return (
         <nav className="relative mt-4 mb-16">
-          <div className="relative flex items-center justify-end md:justify-evenly p-4 ">
+          <div className="relative flex items-center justify-end lg:justify-evenly p-4 ">
             {/* Logo fixed at the left */}
             <Link
               href="/"
@@ -50,7 +42,7 @@ export default function Navbar() {
             </Link>
             {/* Desktop Nav centered */}
             <div className="hidden lg:flex justify-evenly w-full max-w-5xl mx-auto bg-white/15 md:py-4 md:rounded-full">
-              {navItems.map((item) => (
+              {navbarItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -84,7 +76,7 @@ export default function Navbar() {
           {/* Mobile Menu */}
           {isOpen && (
             <div className="lg:hidden border-t-2 border-b-2 mt-4">
-              {navItems.map((item) => (
+              {navbarItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
