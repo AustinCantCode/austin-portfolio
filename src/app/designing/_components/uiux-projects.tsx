@@ -13,7 +13,7 @@ export default function UIUXProjects() {
       {UIUX.map((project, index) => {
         return index % 2 === 0 ? (
           <div
-            className="rounded-md overflow-hidden transition-all grid grid-cols-2 bg-white text-black"
+            className="rounded-md overflow-hidden transition-all grid sm:grid-col-1 lg:grid-cols-2 bg-white text-black"
             key={index}
           >
             <Image
@@ -25,7 +25,9 @@ export default function UIUXProjects() {
             />
             <div className="col-span-1 p-8 space-y-4">
               <div className="flex justify-between items-center">
-                <p className="text-[4vh] font-semibold m-0">{project.title}</p>
+                <p className="text-2xl md:text-4xl font-semibold m-0">
+                  {project.title}
+                </p>
                 <Link href={project.link} target="_blank">
                   <Button variant="default" size="sm">
                     <Icon icon="tabler:external-link" />
@@ -33,20 +35,22 @@ export default function UIUXProjects() {
                   </Button>
                 </Link>
               </div>
-              <p className="text-[2vh] font-semibold">
+              <p className="text-lg font-semibold">
                 {project.skills.join(", ")}
               </p>
-              <p className="text-[1.6vh]">{project.description}</p>
+              <p className="text-sm md:text-base">{project.description}</p>
             </div>
           </div>
         ) : (
           <div
-            className="rounded-md overflow-hidden transition-all grid grid-cols-2 bg-white text-black"
+            className="rounded-md overflow-hidden transition-all grid sm:grid-col-1 lg:grid-cols-2 bg-white text-black"
             key={index}
           >
             <div className="col-span-1 p-8 space-y-4">
               <div className="flex justify-between items-center">
-                <p className="text-[4vh] font-semibold m-0">{project.title}</p>
+                <p className="text-2xl md:text-4xl font-semibold m-0">
+                  {project.title}
+                </p>
                 <Link href={project.link} target="_blank">
                   <Button variant="default" size="sm">
                     <Icon icon="tabler:external-link" />
@@ -54,10 +58,10 @@ export default function UIUXProjects() {
                   </Button>
                 </Link>
               </div>
-              <p className="text-[2vh] font-semibold">
+              <p className="text-lg font-semibold">
                 {project.skills.join(", ")}
               </p>
-              <p className="text-[1.6vh]">{project.description}</p>
+              <p className="text-sm md:text-base">{project.description}</p>
             </div>
             <Image
               src={project.src}

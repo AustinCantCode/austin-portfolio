@@ -46,13 +46,14 @@ export default function LogoCarousel(props: LogoCarouselProps) {
             className="basis-1/3 md:basis-1/5 lg:basis-1/8 flex items-center py-3"
           >
             <Image
-              width={100}
-              height={100}
+              width={200}
+              height={200}
               alt="logo"
               src={item.image || ""}
               className="max-w-25"
               draggable="false"
               priority={true}
+              quality={100}
             />
           </CarouselItem>
         ))}

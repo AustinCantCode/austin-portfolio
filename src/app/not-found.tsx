@@ -4,27 +4,25 @@ import Link from "next/link";
 
 export default function ErrorPage() {
   return (
-    <div className="flex items-center mt-40 flex-col space-y-8">
-      <p className="font-bold text-red-600 text-2xl">
-        You are not supposed to be here...
-      </p>
+    <div className="flex items-center my-30 flex-col space-y-8 text-white mx-4">
+      <p className="font-bold text-lg md:text-2xl">You are not supposed to be here...</p>
       <Image
-        src="https://i.makeagif.com/media/10-15-2017/pCIzHR.gif"
-        alt="Darth Vader GIF"
+        src="https://media.tenor.com/7Ev3mwetMFsAAAAM/angry-cat-cat.gif"
+        alt="Cat GIF"
         unoptimized
-        width={80}
-        height={80}
+        width={400}
+        height={400}
         quality={100}
-        loading="lazy"
-        className="w-full max-w-3xl"
+        priority={true}
+        className="rounded-md"
       />
 
-      <p className="text-center text-white">
-        Just kidding! This page is not found.
+      <p className="text-center text-base md:text-lg">
+        Just kidding!
         <br />
-        Return to the homepage by clicking below.
+        Click below to return to the homepage .
       </p>
-      <Link href="/">
+      <Link href="/homepage">
         <Button variant={"austin"} size={"lg"}>
           Return Home
         </Button>

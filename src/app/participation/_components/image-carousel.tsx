@@ -31,9 +31,9 @@ export default function ImageCarousel(props: ImageCarouselProps) {
                 src={item || ""}
                 className="min-w-full min-h-full object-cover"
                 draggable="false"
-                loading="lazy"
+                priority={true}
               />
-              <div className="absolute top-2 right-2 bg-white/15 bg-opacity-60 text-white text-xs px-2.5 py-1 m-2 rounded-full">
+              <div className="absolute top-2 right-2 bg-white/15 text-white text-base px-3.5 py-1 m-4 rounded-full">
                 {index + 1}/{props.images.length}
               </div>
             </div>

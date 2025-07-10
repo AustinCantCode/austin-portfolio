@@ -47,7 +47,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={
-                    `gap-x-2 text-md font-medium transition-colors px-3 py-1.5 rounded-full flex items-center ` +
+                    `gap-x-2 text-base font-medium transition-colors px-3 py-1.5 rounded-full flex items-center ` +
                     (pathname === item.href
                       ? "bg-white text-black"
                       : "text-white hover:bg-white/15")
