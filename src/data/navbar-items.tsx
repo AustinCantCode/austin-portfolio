@@ -15,4 +15,4 @@ const navbarItems = [
   { label: "Contact", href: "/contact", icon: "solar:phone-linear" },
 ];
 
-export default navbarItems
+export default navbarItems;

@@ -1,14 +1,22 @@
 // PICTURES
 // UIUX
-import quizzy from "../../public/Design Projects/quizzy.png";
-import fresko from "../../public/Design Projects/fresko.png";
-import hg from "../../public/Design Projects/hidden gems app.png";
-import sp from "../../public/Design Projects/sp app.png";
+import quizzy from "../../public/Design Projects/UIUX/quizzy.png";
+import fresko from "../../public/Design Projects/UIUX/fresko.png";
+import hg from "../../public/Design Projects/UIUX/hidden gems app.png";
+import sp from "../../public/Design Projects/UIUX/sp app.png";
 
 // PRODUCT
 import lawks1 from "../../public/Design Projects/Product Design/LAWKS/lawks_1.png";
 import lawks2 from "../../public/Design Projects/Product Design/LAWKS/lawks_2.png";
 import lawks3 from "../../public/Design Projects/Product Design/LAWKS/lawks_3.png";
+
+// GRAPHIC
+import watch1 from "../../public/Design Projects/Graphic Design/watch-1.jpg";
+import watch2 from "../../public/Design Projects/Graphic Design/watch-2.jpg";
+import watch3 from "../../public/Design Projects/Graphic Design/watch-3.jpg";
+import fire from "../../public/Design Projects/Graphic Design/fire.jpg";
+import chupachups from "../../public/Design Projects/Graphic Design/chupachups.jpg";
+import mm from "../../public/Design Projects/Graphic Design/magical-moments.jpg";
 
 export const designCategories = ["UI/UX", "Product", "Graphic"];
 
@@ -69,5 +77,32 @@ export const PDProjects = [
       "TinkerCad",
     ],
     link: "https://www.figma.com/proto/jCGPHu0P1Uk1iWxlpmD1FU/Zenith?page-id=73%3A1027&node-id=299-1810&node-type=FRAME&viewport=3014%2C-5449%2C0.88&t=9HbyaxOebRZJfAZt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=299%3A118&show-proto-sidebar=1",
+  },
+];
+
+export const GDProjects = [
+  {
+    id: "watch1",
+    src: watch1,
+  },
+  {
+    id: "watch2",
+    src: watch2,
+  },
+  {
+    id: "watch3",
+    src: watch3,
+  },
+  {
+    id: "fire",
+    src: fire,
+  },
+  {
+    id: "mm",
+    src: mm,
+  },
+  {
+    id: "chupachups",
+    src: chupachups,
   },
 ];

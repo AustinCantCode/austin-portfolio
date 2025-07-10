@@ -2,6 +2,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import UIUXProjects from "./_components/uiux-projects";
 import PDProjects from "./_components/pd-projects";
+import GDProjects from "./_components/gd-projects";
 
 // DATA
 import { designCategories } from "@data/design-projects";
@@ -9,13 +10,13 @@ import { designCategories } from "@data/design-projects";
 const categoryComponents = {
   "UI/UX": UIUXProjects,
   Product: PDProjects,
-  // "Graphic": GDProjects,
+  Graphic: GDProjects,
 };
 
 export default function DesignProjects() {
   return (
     <main className="fade-in">
-      <Tabs defaultValue="UI/UX">
+      <Tabs defaultValue="Graphic">
         <TabsList className="mx-auto w-full max-w-5xl md:gap-x-8 bg-white/0 text-white dark">
           {designCategories.map((category, index) => {
             return (

@@ -5,7 +5,9 @@ import Link from "next/link";
 export default function ErrorPage() {
   return (
     <div className="flex items-center my-30 flex-col space-y-8 text-white mx-4">
-      <p className="font-bold text-lg md:text-2xl">You are not supposed to be here...</p>
+      <p className="font-bold text-lg md:text-2xl">
+        You are not supposed to be here...
+      </p>
       <Image
         src="https://media.tenor.com/7Ev3mwetMFsAAAAM/angry-cat-cat.gif"
         alt="Cat GIF"

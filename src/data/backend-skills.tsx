@@ -8,7 +8,7 @@ import mysql from "../../public/Coding Projects/Logos/mysql.png";
 import tableplus from "../../public/Coding Projects/Logos/tableplus.png";
 
 // DATA
-import colors from "./colors";
+import { bgColors as colors } from "./colors";
 
 const backendSkills = [
   {

@@ -8,7 +8,7 @@ import js from "../../public/Coding Projects/Logos/js.png";
 import react from "../../public/Coding Projects/Logos/react.png";
 
 // DATA
-import colors from "./colors";
+import { bgColors as colors } from "./colors";
 
 const frontendSkills = [
   {
