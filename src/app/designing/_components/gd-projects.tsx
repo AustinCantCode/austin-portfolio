@@ -8,7 +8,6 @@ import { useState } from "react";
 // DATA
 import { GDProjects as GD } from "@data/design-projects";
 import { textColors as colors } from "@data/colors";
-import Title from "@components/ui/title";
 
 export default function GDProjects() {
   const numberValue = {
@@ -28,7 +27,7 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor()),
+    GD.map(() => getRandomColor())
   );
 
   const handleImageClick = () => {
@@ -36,17 +35,22 @@ export default function GDProjects() {
     setPinColors(newColors);
   };
   return (
-    <div className="grid grid-cols-3">
-      <Title
-        header="Graphics Design made with Adobe Photoshop"
-        className="col-span-3"
-      />
+    <div className="grid sm:grid-cols-1 md:grid-cols-3 mx-4">
+      <div className="flex justify-baseline gap-x-8 items-center bg-white/15 p-4 w-full mx-auto rounded-lg md:col-span-3 mb-8">
+        <Icon width={80} height={80} icon={"devicon:photoshop"} />
+        <div className="grid gap-y-2">
+          <p className="font-semibold text-2xl md:text-4xl m-0 p-0">
+            Made with Adobe Photoshop
+          </p>
+          <p className="m-0 p-0">View my work below!</p>
+        </div>
+      </div>
       {GD.map((project, index) => (
         <div
           className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
           key={index}
         >
-          <div className="cursor-pointer transition-all hover:scale-102 active:scale-98 elect-none">
+          <div className="cursor-pointer transition-all hover:scale-102 active:scale-98 select-none">
             <Icon
               icon="ion:pin"
               width={30}
