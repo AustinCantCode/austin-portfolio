@@ -43,10 +43,10 @@ export default function GDProjects() {
       />
       {GD.map((project, index) => (
         <div
-          className="col-span-1 text-center place-items-center px-2.5 py-4 bg-white"
+          className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
           key={index}
         >
-          <div className="cursor-pointer transition-all hover:scale-102 active:scale-100 elect-none">
+          <div className="cursor-pointer transition-all hover:scale-102 active:scale-98 elect-none">
             <Icon
               icon="ion:pin"
               width={30}
@@ -55,7 +55,7 @@ export default function GDProjects() {
             />
             <Image
               src={project.src}
-              className="w-max cursor-pointer"
+              className="w-max cursor-pointer hover:shadow-[0px_0px_14px_rgba(0,0,0,0.5)]"
               onClick={handleImageClick}
               alt="Image of Project"
             />
