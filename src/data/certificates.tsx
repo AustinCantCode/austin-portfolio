@@ -31,6 +31,9 @@ import GithubCert3 from "../../public/Achievements/Linkedin Certificates/Github3
 import GithubCert4 from "../../public/Achievements/Linkedin Certificates/Github4.jpeg";
 import GithubCert5 from "../../public/Achievements/Linkedin Certificates/Github5.jpeg";
 
+// ROBOCUP
+import Robocup from "../../public/Achievements/Robocup.png"
+
 // AMAZON WEB SERVICES + SCS
 const aws = {
   header: "Amazon Web Services (AWS) / Singapore Computer Society (SCS)",
@@ -129,6 +132,19 @@ const linkedIn = {
   ],
 };
 
+// ROBOCUP
+const robocup = {
+  header: "RoboCup 2025",
+  data: [
+    {
+      title: "CERTIFICATE OF REGOGNITION",
+      sender: "RoboCup Singapore",
+      src: Robocup,
+      description: "For the assisting in the RoboCup 2025 as a student volunteer.",
+    },
+  ],
+}
+
 // SECONDARY SCHOOL
 const secondarySchool = {
   header: "Compassvale Secondary School",
@@ -226,6 +242,7 @@ const certificates = {
   batey,
   github,
   linkedIn,
+  robocup,
   secondarySchool,
 };
 
