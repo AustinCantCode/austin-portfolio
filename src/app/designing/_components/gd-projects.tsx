@@ -35,7 +35,7 @@ export default function GDProjects() {
     setPinColors(newColors);
   };
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-3 mx-4">
+    <div className="grid sm:grid-cols-1 md:grid-cols-3">
       <div className="flex justify-baseline gap-x-8 items-center bg-white/15 p-4 w-full mx-auto rounded-lg md:col-span-3 mb-8">
         <Icon width={80} height={80} icon={"devicon:photoshop"} />
         <div className="grid gap-y-2">

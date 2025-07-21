@@ -6,6 +6,8 @@ import hg from "../../public/Design Projects/UIUX/hidden gems app.png";
 import sp from "../../public/Design Projects/UIUX/sp app.png";
 
 // PRODUCT
+import lawksLogo from "../../public/Design Projects/Product Design/LAWKS/lawks_logo.png"
+
 import lawks1 from "../../public/Design Projects/Product Design/LAWKS/lawks_1.png";
 import lawks2 from "../../public/Design Projects/Product Design/LAWKS/lawks_2.png";
 import lawks3 from "../../public/Design Projects/Product Design/LAWKS/lawks_3.png";
@@ -67,6 +69,7 @@ export const PDProjects = [
   {
     id: "lawks",
     title: "The LAWKS Mini",
+    logo: lawksLogo,
     description:
       "This was the product created with my group for my Product Design module. After interviewing multiple students around campus, we discovered that many face the issue of being unable to prop up their phone to view media comfortably. Therefore, we designed and created a product that allowed users to prop up their phone horizontally or vertically while being a portable and lightweight card holder.",
     src: [lawks1, lawks3, lawks2],
