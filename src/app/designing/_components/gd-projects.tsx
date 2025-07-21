@@ -42,7 +42,7 @@ export default function GDProjects() {
           <p className="font-semibold text-2xl md:text-4xl m-0 p-0">
             Made with Adobe Photoshop
           </p>
-          <p className="m-0 p-0">View my work below!</p>
+          <p className="m-0 p-0">Click on the artworks to make them bigger!</p>
         </div>
       </div>
       {GD.map((project, index) => (
@@ -59,8 +59,8 @@ export default function GDProjects() {
             />
             <Image
               src={project.src}
-              className="w-max cursor-pointer hover:shadow-[0px_0px_14px_rgba(0,0,0,0.5)]"
-              onClick={handleImageClick}
+              className="w-max cursor-pointer hover:shadow-[0px_0px_14px_rgba(0,0,0,0.5)] transition-all active:scale-200"
+              onMouseEnter={handleImageClick}
               alt="Image of Project"
             />
           </div>
