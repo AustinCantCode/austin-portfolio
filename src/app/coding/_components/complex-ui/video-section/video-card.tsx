@@ -30,14 +30,14 @@ export default function VideoCard(props: VideoCardProps) {
         <form>
           <DialogTrigger asChild>
             <div>
-              <div className="flex justify-between py-3 px-4 whitespace-nowrap items-baseline">
+              <div className="flex justify-between p-3 whitespace-nowrap items-baseline">
                 <h5 className="m-0">{props.title}</h5>
                 <p className="m-0 text-sm">{props.date}</p>
               </div>
               <Image
                 src={props.thumbnail}
                 alt="Thumbnail of Project"
-                className="min-w-full"
+                className="min-w-full px-2"
                 loading="lazy"
                 quality={1}
               />
@@ -65,9 +65,9 @@ export default function VideoCard(props: VideoCardProps) {
           </DialogContent>
         </form>
       </Dialog>
-      <h6 className="m-0 py-3 px-4 text-left whitespace-nowrap">
+      <p className="whitespace-pre-wrap text-center text-sm md:text-base p-3 m-0">
         {props.skills.join(" / ")}
-      </h6>
+      </p>
     </div>
   );
 }

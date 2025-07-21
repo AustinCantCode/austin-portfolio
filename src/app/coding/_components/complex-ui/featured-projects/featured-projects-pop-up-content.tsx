@@ -19,6 +19,7 @@ export interface Project {
   src: string | StaticImageData;
   images: (string | StaticImageData)[];
   link?: string;
+  slogan: string;
 }
 
 export interface PopUpContentProps {
@@ -29,7 +30,7 @@ export default function PopUpContent(props: PopUpContentProps) {
   const project = props.props;
   return (
     <DialogContent
-      className="sm:max-w-[425px] min-w-[65vw] p-0 m-0 border-0 text-left py-4"
+      className="sm:max-w-[425px] min-w-[80vw] p-0 m-0 border-0 text-left py-4"
       showCloseButton={false}
     >
       <DialogHeader>
@@ -37,10 +38,15 @@ export default function PopUpContent(props: PopUpContentProps) {
           <Image
             src={project.src}
             quality={100}
-            className="w-full max-w-14 rounded-full"
+            className="w-full max-w-15 rounded-full"
             alt="Project Logo"
           />
-          <DialogTitle>{project.title}</DialogTitle>
+          <div className="text-left grid gap-y-1">
+            <DialogTitle className="text-left font-semibold m-0 p-0">
+              {project.title}
+            </DialogTitle>
+            <p className="m-0 p-0 text-sm">{project.slogan}</p>
+          </div>
           {project.link ? (
             <Link href={project.link} target="_blank" className="ml-auto">
               <Button variant="default" size="sm">
@@ -50,8 +56,11 @@ export default function PopUpContent(props: PopUpContentProps) {
           ) : null}
         </div>
       </DialogHeader>
+      <p className="text-base block md:hidden font-semibold px-4">
+        To view project images, please view this on a larger screen.
+      </p>
       <ImageCarousel images={project.images} />
-      <DialogDescription className="whitespace-pre-wrap text-left text-[1vw] px-4">
+      <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4">
         {project.description}
       </DialogDescription>
     </DialogContent>

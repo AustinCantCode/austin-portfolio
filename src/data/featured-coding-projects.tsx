@@ -89,10 +89,11 @@ const featuredProjects = [
     ],
     role: "Backend Developer",
     link: "https://t.me/Teleprojectchatbot",
+    slogan: "Ask freely with TeleGPT!",
   },
   {
     id: "GOWHERE",
-    title: "GoWhere Singapore",
+    title: "GoWhere",
     description:
       "This application was developed to assist users in discovering and booking tourist attractions across Singapore. It aims to enhance the travel experience by offering a user-friendly platform for exploring available destinations and managing bookings efficiently.\n\nAs a Full-stack Software Developer, I was responsible for implementing key user and admin functionalities. My contributions included developing authentication features such as login, registration, and password recovery, as well as user profile management and a rewards system. On the admin side, I built dashboards and tools for managing users and rewards, ensuring administrative control over the platform.",
     src: GOWHERE,
@@ -108,10 +109,11 @@ const featuredProjects = [
       "PostgreSQL",
     ],
     link: "https://gowhere-ambphgb0g9hbfcf7.southeastasia-01.azurewebsites.net/homepage/html/login.html",
+    slogan: "Go anywhere with GoWhere!",
   },
   {
     id: "SHOPLY",
-    title: "Shoply Singapore",
+    title: "Shoply",
     description:
       "This is the first full-stack project I have developed using HTML, CSS, JavaScript, Node.js, MySQL, PostgreSQL and Prisma for the Database Systems module I was taking in Singapore Polytechnic.\n\nThis is a simple online shopping website where users can view, review, favourite and checkout multiple products. Using JavaScript /Node.js for the logic, PostgreSQL for database management and Prisma for the Object-relational mapping, I ensured that the backend of this website is fully functional and able to create, retrieve, update and delete data from my PostgreSQL server. Along with the user interface, which I created and designed with HTML and CSS to give the website a more finished and clean look.",
     src: SHOPLY,
@@ -127,6 +129,7 @@ const featuredProjects = [
       "Prisma",
     ],
     link: "",
+    slogan: "Shop freely with Shoply!",
   },
 ];
 

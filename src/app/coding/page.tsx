@@ -14,7 +14,6 @@ export default function CodingProjects() {
     <main className="text-center text-white bg-none space-y-20 fade-in">
       <FeaturedProjects />
       <VideoCarousel selectedSkills={selectedSkills} />
-
       <SkillsSection
         selectedSkills={selectedSkills}
         setSelectedSkills={setSelectedSkills}
