@@ -24,7 +24,7 @@ export default function PDProjects() {
                 alt="Picture of Certificate"
                 quality={100}
                 className="w-full max-w-25 bg-red-500 p-2 rounded-md"
-                loading="eager"
+                priority={true}
               />
             </div>
             <div className="grid grid-cols-3 place-items-center gap-x-2">
@@ -35,7 +35,7 @@ export default function PDProjects() {
                     alt="Picture of Certificate"
                     quality={100}
                     className="rounded-md hover:scale-115 active:scale-220 transition-all "
-                    loading="eager"
+                    priority={true}
                   />
                 </div>
               ))}
