@@ -8,6 +8,7 @@ import { useState } from "react";
 // DATA
 import { GDProjects as GD } from "@data/design-projects";
 import { textColors as colors } from "@data/colors";
+import ClickableImage from "@components/ui/clickable-image";
 
 export default function GDProjects() {
   const numberValue = {
@@ -27,16 +28,16 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor()),
+    GD.map(() => getRandomColor())
   );
 
-  const handleImageClick = () => {
+  const changePinColor = () => {
     const newColors = GD.map(() => getRandomColor());
     setPinColors(newColors);
   };
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-3">
-      <div className="flex justify-baseline gap-x-8 items-center bg-white/15 p-4 w-full mx-auto rounded-lg md:col-span-3 mb-8">
+    <div className="rounded-md border-8 border-white">
+      <div className="flex justify-baseline gap-x-8 items-center bg-white p-4 w-full mx-auto text-black md:col-span-3">
         <Icon width={80} height={80} icon={"devicon:photoshop"} />
         <div className="grid gap-y-2">
           <p className="font-semibold text-2xl md:text-4xl m-0 p-0">
@@ -45,27 +46,24 @@ export default function GDProjects() {
           <p className="m-0 p-0">Click on the artworks to make them bigger!</p>
         </div>
       </div>
-      {GD.map((project, index) => (
-        <div
-          className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
-          key={index}
-        >
-          <div className="cursor-pointer transition-all hover:scale-102 active:scale-98 select-none">
-            <Icon
-              icon="ion:pin"
-              width={30}
-              height={30}
-              className={`mx-auto translate-y-3 ${colors[pinColors[index]]}`}
-            />
-            <Image
-              src={project.src}
-              className="w-max cursor-pointer hover:shadow-[0px_0px_14px_rgba(0,0,0,0.5)] transition-all active:scale-200"
-              onMouseEnter={handleImageClick}
-              alt="Image of Project"
-            />
+      <div className="grid sm:grid-cols-1 md:grid-cols-3">
+        {GD.map((project, index) => (
+          <div
+            className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
+            key={index}
+          >
+            <div className="cursor-pointer transition-all select-none" onMouseEnter={changePinColor}>
+              <Icon
+                icon="ion:pin"
+                width={30}
+                height={30}
+                className={`mx-auto translate-y-3 z-50 ${colors[pinColors[index]]}`}
+              />
+              <ClickableImage src={project.src} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>{" "}
     </div>
   );
 }
