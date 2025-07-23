@@ -8,6 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@components/ui/carousel";
+import Title from "@components/ui/title";
 
 // LOGO
 import Logo from "../../../../../../public/AS-Circle-Logo.png";
@@ -41,34 +42,35 @@ export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
   }
 
   return (
-      <Carousel
-        opts={{
-          align: "center",
-          loop: true,
-        }}
-        plugins={[plugin.current]}
-        className="w-full"
-      >
-        <CarouselContent>
-          {filteredProjects.map((project) => (
-            <CarouselItem
-              key={project.id}
-              className="md:basis-1/2 lg:basis-1/3 flex items-center user-select-none"
-            >
-              <section id={project.id} className="min-w-full">
-                <VideoCard
-                  key={project.id}
-                  title={project.title || "Untitled Video"}
-                  date={project.date || "Unknown Date"}
-                  thumbnail={project.thumbnail || Logo}
-                  src={project.src || Logo}
-                  description={project.description || ""}
-                  skills={project.skills || ""}
-                />
-              </section>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+    <Carousel
+      opts={{
+        align: "center",
+        loop: true,
+      }}
+      plugins={[plugin.current]}
+      className="w-full"
+    >
+      <Title header="My Other Projects" />
+      <CarouselContent>
+        {filteredProjects.map((project) => (
+          <CarouselItem
+            key={project.id}
+            className="md:basis-1/2 lg:basis-1/3 flex items-center user-select-none bg-white/15 py-8"
+          >
+            <section id={project.id} className="min-w-full">
+              <VideoCard
+                key={project.id}
+                title={project.title || "Untitled Video"}
+                date={project.date || "Unknown Date"}
+                thumbnail={project.thumbnail || Logo}
+                src={project.src || Logo}
+                description={project.description || ""}
+                skills={project.skills || ""}
+              />
+            </section>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
 }
