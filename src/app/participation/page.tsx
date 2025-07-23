@@ -10,7 +10,7 @@ export default function Participation() {
   return events.map((event, index) => {
     return (
       <div
-        className="card p-4 overflow-hidden transition-all max-w-3xl mx-auto m-10 fade-in"
+        className="card p-8 overflow-hidden transition-all max-w-3xl mx-auto m-10 fade-in"
         key={index}
       >
         <Header date={event.date} title={event.title} logo={event.logo} />
