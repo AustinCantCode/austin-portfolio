@@ -32,7 +32,11 @@ import GithubCert4 from "../../public/Achievements/Linkedin Certificates/Github4
 import GithubCert5 from "../../public/Achievements/Linkedin Certificates/Github5.jpeg";
 
 // ROBOCUP
-import Robocup from "../../public/Achievements/Robocup.png"
+import Robocup from "../../public/Achievements/Robocup.png";
+
+// SOLOLEARN
+import SoloLearnHTML from "../../public/Achievements/SoloLearn HTML.jpg";
+import SoloLearnCSS from "../../public/Achievements/SoloLearn CSS.jpg";
 
 // AMAZON WEB SERVICES + SCS
 const aws = {
@@ -132,6 +136,27 @@ const linkedIn = {
   ],
 };
 
+// SOLOLEARN
+const sololearn = {
+  header: "SoloLearn",
+  data: [
+    {
+      title: "Introduction to HTML",
+      sender: "SoloLearn",
+      src: SoloLearnHTML,
+      description:
+        "For the successfully completing the course and demonstrating theoretical and practical understanding.",
+    },
+    {
+      title: "Introduction to CSS",
+      sender: "SoloLearn",
+      src: SoloLearnCSS,
+      description:
+        "For the successfully completing the course and demonstrating theoretical and practical understanding.",
+    },
+  ],
+};
+
 // ROBOCUP
 const robocup = {
   header: "RoboCup 2025",
@@ -140,10 +165,53 @@ const robocup = {
       title: "CERTIFICATE OF REGOGNITION",
       sender: "RoboCup Singapore",
       src: Robocup,
-      description: "For the assisting in the RoboCup 2025 as a student volunteer.",
+      description:
+        "For the assisting in the RoboCup 2025 as a student volunteer.",
     },
   ],
-}
+};
+
+// GITHUB
+const github = {
+  header: "GitHub | LinkedIn Learning",
+  data: [
+    {
+      title: "CAREER ESSENTIALS IN GITHUB PROFESSIONAL CERTIFICATE",
+      sender: "LinkedIn Learning",
+      src: GithubCert1,
+      description:
+        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+    },
+    {
+      title: "PRACTICAL GITHUB PROJECT MANAGEMENT AND COLLABORATIONS",
+      sender: "LinkedIn Learning",
+      src: GithubCert2,
+      description:
+        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+    },
+    {
+      title: "PRACTICAL GITHUB COPILOT",
+      sender: "LinkedIn Learning",
+      src: GithubCert3,
+      description:
+        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+    },
+    {
+      title: "PRACTICAL GITHUB CODE SEARCH",
+      sender: "LinkedIn Learning",
+      src: GithubCert4,
+      description:
+        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+    },
+    {
+      title: "PRACTICAL GITHUB ACTIONS",
+      sender: "LinkedIn Learning",
+      src: GithubCert5,
+      description:
+        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+    },
+  ],
+};
 
 // SECONDARY SCHOOL
 const secondarySchool = {
@@ -195,50 +263,9 @@ const secondarySchool = {
   ],
 };
 
-// GITHUB
-const github = {
-  header: "GitHub | LinkedIn Learning",
-  data: [
-    {
-      title: "CAREER ESSENTIALS IN GITHUB PROFESSIONAL CERTIFICATE",
-      sender: "LinkedIn Learning",
-      src: GithubCert1,
-      description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
-    },
-    {
-      title: "PRACTICAL GITHUB PROJECT MANAGEMENT AND COLLABORATIONS",
-      sender: "LinkedIn Learning",
-      src: GithubCert2,
-      description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
-    },
-    {
-      title: "PRACTICAL GITHUB COPILOT",
-      sender: "LinkedIn Learning",
-      src: GithubCert3,
-      description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
-    },
-    {
-      title: "PRACTICAL GITHUB CODE SEARCH",
-      sender: "LinkedIn Learning",
-      src: GithubCert4,
-      description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
-    },
-    {
-      title: "PRACTICAL GITHUB ACTIONS",
-      sender: "LinkedIn Learning",
-      src: GithubCert5,
-      description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
-    },
-  ],
-};
-
 const certificates = {
   aws,
+  sololearn,
   batey,
   github,
   linkedIn,

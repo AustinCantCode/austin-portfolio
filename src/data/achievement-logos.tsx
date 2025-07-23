@@ -9,6 +9,7 @@ import pa from "../../public/Achievements/Logos/pa.png";
 import stem from "../../public/Achievements/Logos/stem.png";
 import cvss from "../../public/Achievements/Logos/cvss.png";
 import scs from "../../public/Achievements/Logos/scs.jpg";
+import sololearn from "../../public/Achievements/Logos/sololearn.png";
 
 const achievementLogos = [
   {
@@ -50,6 +51,10 @@ const achievementLogos = [
   {
     id: 10,
     image: scs,
+  },
+  {
+    id: 11,
+    image: sololearn,
   },
 ];
 
