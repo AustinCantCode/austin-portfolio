@@ -15,6 +15,7 @@ import LICert2 from "../../public/Achievements/Linkedin Certificates/HTML.jpeg";
 import LICert3 from "../../public/Achievements/Linkedin Certificates/React.jpeg";
 import LICert4 from "../../public/Achievements/Linkedin Certificates/Illustrator.jpeg";
 import LICert5 from "../../public/Achievements/Linkedin Certificates/Tinkercad.jpeg";
+import LICert6 from "../../public/Achievements/Linkedin Certificates/JavaScript.jpg";
 
 // Secondary School Certificates
 import EdusaveAcadAchievement from "../../public/Achievements/Edusave Acad Achievement.png";
@@ -274,3 +275,11 @@ const certificates = {
 };
 
 export default certificates;
+
+// ADD TO NEW MOZILLA CERT SECTION WHEN CERT IS COMPLETED
+// {
+//   title: "JavaScript Essential Training",
+//   sender: "LinkedIn Learning",
+//   src: LICert6,
+//   description: "For the completion of this course by LinkedIn Learning.",
+// },
