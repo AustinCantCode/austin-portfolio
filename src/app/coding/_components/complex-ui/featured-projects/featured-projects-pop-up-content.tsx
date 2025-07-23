@@ -60,7 +60,7 @@ export default function PopUpContent(props: PopUpContentProps) {
         To view project images, please view this on a larger screen.
       </p>
       <ImageCarousel images={project.images} />
-      <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4">
+      <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4 text-black">
         {project.description}
       </DialogDescription>
     </DialogContent>

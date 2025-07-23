@@ -25,7 +25,7 @@ export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
   const plugin = useRef(
     AutoScroll({
       speed: 0.8,
-      stopOnMouseEnter: false,
+      stopOnMouseEnter: true,
       stopOnInteraction: false,
       stopOnFocusIn: true,
     }),
@@ -55,7 +55,7 @@ export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
         {filteredProjects.map((project) => (
           <CarouselItem
             key={project.id}
-            className="md:basis-1/2 lg:basis-1/3 flex items-center user-select-none bg-white/15 py-8"
+            className="md:basis-1/2 lg:basis-1/3 flex items-center user-select-none bg-white/15 py-10"
           >
             <section id={project.id} className="min-w-full">
               <VideoCard

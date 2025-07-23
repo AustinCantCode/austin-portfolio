@@ -25,7 +25,7 @@ export interface VideoCardProps {
 
 export default function VideoCard(props: VideoCardProps) {
   return (
-    <div className="card rounded-md transition-all border-0">
+    <div className="card rounded-md transition-all border-0 hover:scale-105 active:scale-102">
       <Dialog>
         <form>
           <DialogTrigger asChild>
@@ -44,7 +44,7 @@ export default function VideoCard(props: VideoCardProps) {
             </div>
           </DialogTrigger>
           <DialogContent
-            className="sm:max-w-[425px] min-w-[65vw] p-4 m-0 text-left"
+            className="sm:max-w-[425px] min-w-[65vw] px-2 md:px-4 m-0 text-left"
             showCloseButton={false}
           >
             <div className="flex justify-between items-start">
@@ -59,7 +59,7 @@ export default function VideoCard(props: VideoCardProps) {
               </DialogClose>
             </div>
             <Video src={props.src} className="min-w-full" />
-            <DialogDescription className="text-black text-[1.2vw]">
+            <DialogDescription className="text-black md:text-[1.2vw]">
               {props.description}
             </DialogDescription>
           </DialogContent>
