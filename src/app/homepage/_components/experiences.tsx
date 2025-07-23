@@ -2,7 +2,7 @@ import experiences from "@data/homepage-experiences";
 
 export default function Experiences() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-x-4">
       <div className="bg-white/15 rounded-md p-3 sm:p-4 w-full">
         <h3 className="pb-2">Education</h3>
 
