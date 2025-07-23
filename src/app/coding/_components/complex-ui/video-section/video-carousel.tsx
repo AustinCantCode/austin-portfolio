@@ -28,7 +28,7 @@ export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
       stopOnMouseEnter: false,
       stopOnInteraction: false,
       stopOnFocusIn: true,
-    })
+    }),
   );
   let filteredProjects;
   if (selectedSkills.length === 0) {
@@ -37,7 +37,7 @@ export default function VideoCarousel({ selectedSkills }: VideoCarouselProps) {
     filteredProjects = projects.filter(
       (project) =>
         Array.isArray(project.skills) &&
-        selectedSkills.every((skill) => project.skills.includes(skill))
+        selectedSkills.every((skill) => project.skills.includes(skill)),
     );
   }
 

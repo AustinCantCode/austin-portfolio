@@ -6,7 +6,7 @@ import hg from "../../public/Design Projects/UIUX/hidden gems app.png";
 import sp from "../../public/Design Projects/UIUX/sp app.png";
 
 // PRODUCT
-import lawksLogo from "../../public/Design Projects/Product Design/LAWKS/lawks_logo.png"
+import lawksLogo from "../../public/Design Projects/Product Design/LAWKS/lawks_logo.png";
 
 import lawks1 from "../../public/Design Projects/Product Design/LAWKS/lawks_1.png";
 import lawks2 from "../../public/Design Projects/Product Design/LAWKS/lawks_2.png";

@@ -27,7 +27,7 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor())
+    GD.map(() => getRandomColor()),
   );
 
   const handleImageClick = () => {

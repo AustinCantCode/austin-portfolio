@@ -15,7 +15,12 @@ export default function ContactCards() {
     <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-8">
       {contactDetails.map((details, index) => {
         return (
-          <Link href={details.link} key={index} target="_blank">
+          <Link
+            href={details.link}
+            key={index}
+            target="_blank"
+            className=" hover:scale-105 active:scale-102 transition-all"
+          >
             <Card
               onClick={() => {
                 if (details.title === "Curriculum Vitae (CV)") {

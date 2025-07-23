@@ -10,7 +10,7 @@ import Title from "@components/ui/title";
 export default function FeaturedProjects() {
   return (
     <div className="max-w-5xl mx-auto">
-      <Title header="Featured Projects"/>
+      <Title header="Featured Projects" />
       <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-1 md:grid-cols-3 place-items-center bg-white/15 py-4 rounded-md">
         {featuredProjects.map((project, index) => (
           <div
