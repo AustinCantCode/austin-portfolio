@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Name() {
   const [nameOutput, setNameOutput] = useState("");
   const [textVisible, setTextVisible] = useState("invisible");
-  const [buttonVisible, setButtonVisible] = useState("mt-2 invisible");
+  const [buttonVisible, setButtonVisible] = useState("mt-2 hidden");
 
   useEffect(() => {
     const name = "AUSTIN SIA";
