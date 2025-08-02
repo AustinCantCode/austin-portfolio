@@ -1,3 +1,5 @@
+"use client";
+
 // COMPONENTS
 import Image from "next/image";
 import { Icon } from "@iconify/react";
@@ -9,6 +11,14 @@ export interface HeaderProps {
   logo: string | StaticImageData;
   title: string;
   date: string;
+}
+
+function handleRedirect() {
+  const confirmDelete = confirm("Would you like to view Austin's Instagram?");
+
+  if (confirmDelete) {
+    window.open("https://www.instagram.com/aus.txnn/", "_blank");
+  }
 }
 
 export default function Header(props: HeaderProps) {
@@ -35,6 +45,7 @@ export default function Header(props: HeaderProps) {
         width="30"
         height="30"
         className="text-black cursor-pointer"
+        onClick={handleRedirect}
       />
     </div>
   );
