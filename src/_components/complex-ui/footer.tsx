@@ -17,7 +17,7 @@ export default function Footer() {
   for (let i = 0; i < pages.length; i++) {
     if (pathname === pages[i]) {
       return (
-        <div className="flex justify-between py-4 bg-white md:px-4 mt-20 items-center">
+        <div className="flex justify-between py-4 bg-white md:px-12 mt-20 items-center">
           <div className="flex gap-x-6 md:gap-x-8 scale-85 md:scale-100">
             <Link
               href="https://mail.google.com/mail/?view=cm&fs=1&to=austin.sia1515@gmail.com&su=Let%27s%20get%20in%20touch!&body=Hi%20Austin%2C%20I%20came%20across%20your%20portfolio%20and%20was%20really%20impressed%20with%20your%20work.%20I%27d%20love%20to%20connect%20and%20explore%20potential%20opportunities%20to%20collaborate!"
