@@ -24,10 +24,10 @@ export default function Header(props: HeaderProps) {
           className="max-w-12 max-h-12 md:max-w-15 md:max-h-15 rounded-full border-2 border-gray-300"
         />
         <div>
-          <p className="text-[2.2vh] md:text-[2.8vh] font-semibold m-0 p-0 text-lg">
+          <p className="text-base md:text-2xl font-semibold m-0 p-0">
             {props.title}
           </p>
-          <p className="text-[1.6vh] md:text-[2vh] m-0 p-0">{props.date}</p>
+          <p className="text-base m-0 p-0">{props.date}</p>
         </div>
       </div>
       <Icon

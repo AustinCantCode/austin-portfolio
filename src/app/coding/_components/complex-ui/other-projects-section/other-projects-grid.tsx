@@ -32,7 +32,11 @@ export default function OtherProjectsGrid({
       <Title header="My Other Projects" />
       <div className="grid md:grid-cols-3 gap-4 px-2 md:px-0">
         {filteredProjects.map((project) => (
-          <section id={project.id} className="min-w-full col-span-1" key={project.id}>
+          <section
+            id={project.id}
+            className="min-w-full col-span-1"
+            key={project.id}
+          >
             <ProjectCard
               key={project.id}
               title={project.title || "Untitled Video"}

@@ -73,7 +73,7 @@ const events = [
     text: "I attended RoboCup 2025 at the Singapore Science Centre as a student volunteer to assist their operations on Day 1 and Day 3.\n\nDay 1 | 4th April (Media Team)\nI manned the shirt distribution booth helping distribute the RoboCup T-Shirts to all the attendees from various schools or groups, ensuring that the amount of shirts was accurate to what was requested. Afterwards, I managed to view a game of soccer played by robots both inside and outside of the event hall, quite an interesting sight to see in today’s modern age.\n\nDay 3 | 5th April (Operations Team)\nBehind the stage, I assisted with the trophy sortation and presentation during the awards ceremony. I sorted out all the trophies according to category and age group and brought them to the front table to be displayed and sorted.\n\nI assisted with the keying of data for the slides used during the ceremony. As the latest results for the winning teams were being updated, I was tasked with updating the slides accurately and efficiently so they could be ready on time for the ceremony. Afterwards, I was tasked to help sort out the trophies based off category and age group, and display them in the front so it could be easily given to the teams, it was a tedious and tiring duty but my team completed it swiftly and precisely for a smooth prize presentation ceremony.",
   },
   {
-    title: "SOC Shenzhen Overseas Study Trip 2024",
+    title: "SOC Shenzhen Overseas Study Trip",
     date: "2024",
     logo: SPSOCLogo,
     src: [
@@ -112,7 +112,7 @@ const events = [
     text: "During my semester break in September 2024, I participated in the Singapore Polytechnic Batey Hackathon, focusing on the entrepreneurship for start ups created by students, allowing them to further propel and market their business to other like-minded individuals. My team, Zenith Technologies, created the Fresko app, which aims to reduce food wastage by tracking food expiry dates and providing notifications and recipe suggestions for food that is near expiry. This idea secured us a place in the grand finals of this hackathon.",
   },
   {
-    title: "Singapore Technology Week 2024",
+    title: "Singapore Technology Week",
     date: "2024",
     logo: SGTechLogo,
     src: [

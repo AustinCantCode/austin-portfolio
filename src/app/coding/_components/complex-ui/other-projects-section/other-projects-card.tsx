@@ -26,7 +26,10 @@ export interface VideoCardProps {
 
 export default function VideoCard(props: VideoCardProps) {
   return (
-    <div className="card rounded-md transition-all border-0 hover:scale-105 active:scale-102" key={props.id}>
+    <div
+      className="card rounded-md transition-all border-0 hover:scale-105 active:scale-102"
+      key={props.id}
+    >
       <Dialog>
         <form>
           <DialogTrigger asChild>
