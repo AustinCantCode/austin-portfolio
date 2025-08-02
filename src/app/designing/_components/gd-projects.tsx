@@ -27,7 +27,7 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor()),
+    GD.map(() => getRandomColor())
   );
 
   const changePinColor = () => {
@@ -35,8 +35,8 @@ export default function GDProjects() {
     setPinColors(newColors);
   };
   return (
-    <div className="rounded-md border-8 border-white">
-      <div className="flex justify-baseline gap-x-8 items-center bg-white p-4 w-full mx-auto text-black md:col-span-3">
+    <div>
+      <div className="flex justify-baseline gap-x-8 items-center bg-white p-4 w-full mx-auto text-black md:col-span-3 rounded-t-md">
         <Icon width={80} height={80} icon={"devicon:photoshop"} />
         <div className="grid gap-y-2">
           <p className="font-semibold text-2xl md:text-4xl m-0 p-0">
@@ -45,10 +45,10 @@ export default function GDProjects() {
           <p className="m-0 p-0">Click on the artworks to make them bigger!</p>
         </div>
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-3">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 px-4 pb-8 bg-white rounded-b-md">
         {GD.map((project, index) => (
           <div
-            className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
+            className="col-span-1 text-center place-items-center"
             key={index}
           >
             <div
@@ -65,7 +65,7 @@ export default function GDProjects() {
             </div>
           </div>
         ))}
-      </div>{" "}
+      </div>
     </div>
   );
 }
