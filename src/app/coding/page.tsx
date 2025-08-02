@@ -4,7 +4,7 @@ import { useState } from "react";
 
 // COMPONENTS
 import SkillsSection from "./_components/complex-ui/skills-display/skills-section";
-import VideoCarousel from "./_components/complex-ui/video-section/video-carousel";
+import OtherProjectsGrid from "./_components/complex-ui/other-projects-section/other-projects-grid";
 import FeaturedProjects from "./_components/complex-ui/featured-projects/featured-projects";
 
 export default function CodingProjects() {
@@ -13,7 +13,7 @@ export default function CodingProjects() {
   return (
     <main className="text-center text-white bg-none space-y-20 fade-in">
       <FeaturedProjects />
-      <VideoCarousel selectedSkills={selectedSkills} />
+      <OtherProjectsGrid selectedSkills={selectedSkills} />
       <SkillsSection
         selectedSkills={selectedSkills}
         setSelectedSkills={setSelectedSkills}

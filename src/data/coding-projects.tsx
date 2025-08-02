@@ -4,7 +4,6 @@ import rpsgame from "../../videos/RPS.mp4.json";
 import calculator from "../../videos/Calc.mp4.json";
 import coinflip from "../../videos/Coin Flip.mp4.json";
 import tempconverter from "../../videos/Temp Calc.mp4.json";
-import chatbot from "../../videos/Telegram Bot Demo.mp4.json";
 import rps from "../../videos/RPS Demo.mp4.json";
 import stopwatch from "../../videos/Stopwatch Demo.mp4.json";
 import ttt from "../../videos/TTT.mp4.json";
@@ -16,7 +15,6 @@ import rpsgameTN from "../../public/Coding Projects/Thumbnail/RPS game.png";
 import calculatorTN from "../../public/Coding Projects/Thumbnail/Calc.png";
 import coinflipTN from "../../public/Coding Projects/Thumbnail/Coin Flip.png";
 import tempconverterTN from "../../public/Coding Projects/Thumbnail/Temp Calc.png";
-import chatbotTN from "../../public/Coding Projects/Thumbnail/Telegram Bot.png";
 import rpsconsoleTN from "../../public/Coding Projects/Thumbnail/RPS console.png";
 import stopwatchTN from "../../public/Coding Projects/Thumbnail/Stopwatch.png";
 import tttTN from "../../public/Coding Projects/Thumbnail/TTT.png";
@@ -81,16 +79,6 @@ const codingProjects = [
     src: coinflip,
     date: "2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
-  },
-  {
-    id: "chatbot",
-    title: "ChatGPT Telegram Bot",
-    description:
-      "A Telegram bot powered by ChatGPT for interactive conversations.",
-    thumbnail: chatbotTN,
-    src: chatbot,
-    date: "2024",
-    skills: ["JavaScript", "Node.js"],
   },
   {
     id: "stopwatch",
