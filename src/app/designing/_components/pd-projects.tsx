@@ -31,7 +31,7 @@ export default function PDProjects() {
             <div className="grid md:grid-cols-3 place-items-center gap-y-8 md:gap-x-4 py-4">
               {project.src.map((image, index) => (
                 <div className="grid col-span-1 m-0 " key={index}>
-                <ClickableImage src={image} rounded="md" />
+                  <ClickableImage src={image} rounded="md" />
                 </div>
               ))}
             </div>

@@ -15,6 +15,7 @@ import Image from "next/image";
 import type { StaticImageData } from "next/image";
 
 export interface VideoCardProps {
+  id?: string;
   title: string;
   date?: string;
   thumbnail: string | StaticImageData;
@@ -25,7 +26,7 @@ export interface VideoCardProps {
 
 export default function VideoCard(props: VideoCardProps) {
   return (
-    <div className="card rounded-md transition-all border-0 hover:scale-105 active:scale-102">
+    <div className="card rounded-md transition-all border-0 hover:scale-105 active:scale-102" key={props.id}>
       <Dialog>
         <form>
           <DialogTrigger asChild>

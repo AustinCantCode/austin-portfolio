@@ -27,7 +27,7 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor())
+    GD.map(() => getRandomColor()),
   );
 
   const changePinColor = () => {
@@ -51,7 +51,10 @@ export default function GDProjects() {
             className="col-span-1 text-center place-items-center px-2 py-4 bg-white"
             key={index}
           >
-            <div className="cursor-pointer transition-all select-none" onMouseEnter={changePinColor}>
+            <div
+              className="cursor-pointer transition-all select-none"
+              onMouseEnter={changePinColor}
+            >
               <Icon
                 icon="ion:pin"
                 width={30}

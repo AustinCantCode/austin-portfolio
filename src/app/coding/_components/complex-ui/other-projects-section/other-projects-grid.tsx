@@ -1,7 +1,4 @@
-import { useRef } from "react";
-
 // COMPONENTS
-import AutoScroll from "embla-carousel-auto-scroll";
 import ProjectCard from "./other-projects-card";
 import Title from "@components/ui/title";
 
@@ -26,7 +23,7 @@ export default function OtherProjectsGrid({
     filteredProjects = projects.filter(
       (project) =>
         Array.isArray(project.skills) &&
-        selectedSkills.every((skill) => project.skills.includes(skill))
+        selectedSkills.every((skill) => project.skills.includes(skill)),
     );
   }
 
@@ -35,7 +32,7 @@ export default function OtherProjectsGrid({
       <Title header="My Other Projects" />
       <div className="grid md:grid-cols-3 gap-4 px-2 md:px-0">
         {filteredProjects.map((project) => (
-          <section id={project.id} className="min-w-full col-span-1">
+          <section id={project.id} className="min-w-full col-span-1" key={project.id}>
             <ProjectCard
               key={project.id}
               title={project.title || "Untitled Video"}

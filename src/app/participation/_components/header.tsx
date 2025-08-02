@@ -12,7 +12,6 @@ export interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
-
   return (
     <div className="flex justify-between items-center">
       <div className="flex justify-between space-x-4 items-center">

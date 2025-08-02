@@ -1,11 +1,16 @@
-import { Dialog, DialogHeader, DialogContent, DialogTrigger } from "@components/ui/dialog";
+import {
+  Dialog,
+  DialogHeader,
+  DialogContent,
+  DialogTrigger,
+} from "@components/ui/dialog";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import Image, { StaticImageData } from "next/image";
 
 interface ClickableImageProps {
   src: StaticImageData | string;
   alt?: string;
-  rounded? : string;
+  rounded?: string;
 }
 
 export default function ClickableImage({
@@ -26,18 +31,18 @@ export default function ClickableImage({
       </DialogTrigger>
       <DialogHeader>
         <DialogTitle></DialogTitle>
-      <DialogContent
-        showCloseButton={false}
-        className={`p-2 m-0 border-0 min-w-fit rounded-${rounded ? rounded : "none"}`}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          quality={100}
-          className={`rounded-${rounded ? rounded : "none"} w-full h-full`}
-          priority={true}
-        />
-      </DialogContent>
+        <DialogContent
+          showCloseButton={false}
+          className={`p-2 m-0 border-0 min-w-fit rounded-${rounded ? rounded : "none"}`}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            quality={100}
+            className={`rounded-${rounded ? rounded : "none"} w-full h-full`}
+            priority={true}
+          />
+        </DialogContent>
       </DialogHeader>
     </Dialog>
   );
