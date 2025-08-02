@@ -3,7 +3,7 @@ import Header from "./_components/header";
 
 export default function Contact() {
   return (
-    <main className="text-white space-y-16 px-2 fade-in">
+    <main className="text-white space-y-16 fade-in pb-[12%]">
       <Header />
       <ContactCards />
     </main>
