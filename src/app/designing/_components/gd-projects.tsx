@@ -1,7 +1,6 @@
 "use client";
 
 // COMPONENTS
-import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 

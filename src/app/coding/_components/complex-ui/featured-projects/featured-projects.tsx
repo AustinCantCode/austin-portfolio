@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
   return (
     <div className="max-w-5xl mx-auto">
       <Title header="Featured Projects" />
-      <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-1 md:grid-cols-3 place-items-center bg-white/15 py-4 rounded-md">
+      <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-1 md:grid-cols-3 place-items-center rounded-md">
         {featuredProjects.map((project, index) => (
           <div
             className="card rounded-md overflow-hidden transition-all max-w-75 hover:scale-105 active:scale-102 hover:shadow-[0_0_25px_0px_rgb(255,255,255)]"
