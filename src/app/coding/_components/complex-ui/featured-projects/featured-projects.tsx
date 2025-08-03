@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
                   </div>
                   <Icon
                     icon="iconamoon:arrow-right-2-light"
-                    width={60}
+                    width={50}
                     className="ml-auto my-auto mr-4 hidden md:block"
                   />
                 </div>
