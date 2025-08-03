@@ -36,7 +36,9 @@ export default function FeaturedProjects() {
                     <p className="text-sm md:text-base m-0 mt-2">
                       {project.slogan}
                     </p>
-                    <p className="m-0 text-xs md:text-sm mt-4">{project.date}</p>
+                    <p className="m-0 text-xs md:text-sm mt-4">
+                      {project.date}
+                    </p>
                   </div>
                   <Icon
                     icon="iconamoon:arrow-right-2-light"
