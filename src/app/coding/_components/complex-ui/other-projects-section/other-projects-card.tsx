@@ -35,7 +35,7 @@ export default function VideoCard(props: VideoCardProps) {
           <DialogTrigger asChild>
             <div>
               <div className="flex justify-between whitespace-nowrap items-baseline p-3">
-                <h5 className="m-0">{props.title}</h5>
+                <p className="m-0 p-0 font-semibold text-base">{props.title}</p>
                 <p className="m-0 text-sm">{props.date}</p>
               </div>
               <Image
@@ -69,7 +69,7 @@ export default function VideoCard(props: VideoCardProps) {
           </DialogContent>
         </form>
       </Dialog>
-      <p className="whitespace-pre-wrap text-center text-sm md:text-x py-3 m-0">
+      <p className="whitespace-pre-wrap text-center text-sm py-3 m-0">
         {props.skills.join(" / ")}
       </p>
     </div>
