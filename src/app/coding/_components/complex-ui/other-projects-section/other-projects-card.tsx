@@ -62,7 +62,7 @@ export default function VideoCard(props: VideoCardProps) {
                 />
               </DialogClose>
             </div>
-            <Video src={props.src} className="min-w-full" />
+            <Video src={props.src} className="min-w-full" autoplay={true} />
             <DialogDescription className="text-black text-base md:text-lg">
               {props.description}
             </DialogDescription>
