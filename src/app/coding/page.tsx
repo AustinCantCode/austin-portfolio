@@ -13,11 +13,11 @@ export default function CodingProjects() {
   return (
     <main className="text-center text-white bg-none space-y-20 fade-in">
       <FeaturedProjects />
-      <OtherProjectsGrid selectedSkills={selectedSkills} />
       <SkillsSection
         selectedSkills={selectedSkills}
         setSelectedSkills={setSelectedSkills}
       />
+      <OtherProjectsGrid selectedSkills={selectedSkills} />
     </main>
   );
 }
