@@ -5,7 +5,6 @@ This portfolio showcases my design and software development work, skills, and pr
 
 ## 🌐 Live Webpage
 
-Check out the live webpage here
 https://austinsia.com
 
 ## 🛠️ Tech Stack
