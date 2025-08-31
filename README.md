@@ -20,5 +20,5 @@ https://austinsia.com
 
 If you'd like to collaborate or reach out
 
-**Email:** [austin.sia1515@gmail.com](mailto:austin.sia1515@gmail.com)
-**LinkedIn:** [linkedin.com/in/austinsia](https://linkedin.com/in/austinsia)
+- **Email:** [austin.sia1515@gmail.com](mailto:austin.sia1515@gmail.com)
+- **LinkedIn:** [linkedin.com/in/austinsia](https://linkedin.com/in/austinsia)
