@@ -91,7 +91,7 @@ const batey = {
   header: "SP Batey Hackathon",
   data: [
     {
-      title: "EDUSAVE CERTIFICATE OF ACADEMIC ACHIEVEMENT 2022",
+      title: "BATEY HACKATHON FINALIST",
       sender: "Singapore Polytechnic, Batey Hackathon",
       description:
         " During my semester break in September 2024, I participated in the Singapore Polytechnic Batey Hackathon, focusing on the entrepreneurship for start ups created by students, allowing them to further propel and market their business to other like-minded individuals. My team, Zenith Technologies, created the Fresko app, which aims to reduce food wastage by tracking food expiry dates and providing notifications and recipe suggestions for food that is near expiry. This idea was a big hit and secured us a place in the grand finals of the hackathon.",
@@ -142,14 +142,14 @@ const sololearn = {
   header: "SoloLearn",
   data: [
     {
-      title: "Introduction to HTML",
+      title: "INTRODUCTION TO HTML",
       sender: "SoloLearn",
       src: SoloLearnHTML,
       description:
         "For the successfully completing the course and demonstrating theoretical and practical understanding.",
     },
     {
-      title: "Introduction to CSS",
+      title: "INTRODUCTION TO CSS",
       sender: "SoloLearn",
       src: SoloLearnCSS,
       description:
