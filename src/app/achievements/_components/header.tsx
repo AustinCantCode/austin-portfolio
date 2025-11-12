@@ -13,7 +13,7 @@ export default function Header(props: CertificateCount) {
   return (
     <div>
       <Title
-        header={`A total of ${props.certificateCount} Certificates from ${achievementLogos.length} different institutions and platforms`}
+        header={`${props.certificateCount} Certificates total from ${achievementLogos.length} different institutions and platforms`}
       />
       <LogoCarousel achievementLogos={achievementLogos} />
     </div>

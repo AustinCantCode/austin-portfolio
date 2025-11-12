@@ -15,7 +15,6 @@ import LICert2 from "../../public/Achievements/Linkedin Certificates/HTML.jpeg";
 import LICert3 from "../../public/Achievements/Linkedin Certificates/React.jpeg";
 import LICert4 from "../../public/Achievements/Linkedin Certificates/Illustrator.jpeg";
 import LICert5 from "../../public/Achievements/Linkedin Certificates/Tinkercad.jpeg";
-// import LICert6 from "../../public/Achievements/Linkedin Certificates/JavaScript.jpg";
 
 // Secondary School Certificates
 import EdusaveAcadAchievement from "../../public/Achievements/Edusave Acad Achievement.png";
@@ -24,6 +23,11 @@ import MeritBursary from "../../public/Achievements/MERIT BURSARY.png";
 import YeaAward from "../../public/Achievements/YEA Award.png";
 import CvssGpaAward from "../../public/Achievements/CVSS GPA Award.png";
 import OnNLevel from "../../public/Achievements/O and N Level Certificate.png";
+
+// Mozilla Certificates
+import JavaScriptCert1 from "../../public/Achievements/Linkedin Certificates/JavaScript1.jpg";
+import JavaScriptCert2 from "../../public/Achievements/Linkedin Certificates/JavaScript2.jpg";
+import JavaScriptCert3 from "../../public/Achievements/Linkedin Certificates/JavaScript3.jpg";
 
 // GitHub Certificates
 import GithubCert1 from "../../public/Achievements/Linkedin Certificates/Github1.jpeg";
@@ -171,7 +175,33 @@ const robocup = {
     },
   ],
 };
-
+// MOZILLA
+const mozilla = {
+  header: "Mozilla | LinkedIn Learning",
+  data: [
+    {
+      title: "JAVASCRIPT FOUNDATIONS PROFESSIONAL CERTIFICATE",
+      sender: "LinkedIn Learning",
+      src: JavaScriptCert3,
+      description:
+        "For the completion of 2/2 Mozilla courses by LinkedIn Learning.",
+    },
+    {
+      title: "JAVASCRIPT ESSENTIAL TRAINING",
+      sender: "LinkedIn Learning",
+      src: JavaScriptCert1,
+      description:
+        "For the completion of 1/2 Mozilla courses by LinkedIn Learning.",
+    },
+    {
+      title: "LEARNING THE JAVASCRIPT LANGUAGE",
+      sender: "LinkedIn Learning",
+      src: JavaScriptCert2,
+      description:
+        "For the completion of 1/2 Mozilla courses by LinkedIn Learning.",
+    },
+  ],
+};
 // GITHUB
 const github = {
   header: "GitHub | LinkedIn Learning",
@@ -179,9 +209,9 @@ const github = {
     {
       title: "CAREER ESSENTIALS IN GITHUB PROFESSIONAL CERTIFICATE",
       sender: "LinkedIn Learning",
-      src: GithubCert1,
+      src: GithubCert5,
       description:
-        "For the completion of 1/4 Github courses by LinkedIn Learning.",
+        "For the completion of 4/4 Github courses by LinkedIn Learning.",
     },
     {
       title: "PRACTICAL GITHUB PROJECT MANAGEMENT AND COLLABORATIONS",
@@ -207,7 +237,7 @@ const github = {
     {
       title: "PRACTICAL GITHUB ACTIONS",
       sender: "LinkedIn Learning",
-      src: GithubCert5,
+      src: GithubCert1,
       description:
         "For the completion of 1/4 Github courses by LinkedIn Learning.",
     },
@@ -268,6 +298,7 @@ const certificates = {
   aws,
   sololearn,
   batey,
+  mozilla,
   github,
   linkedIn,
   robocup,
@@ -275,11 +306,3 @@ const certificates = {
 };
 
 export default certificates;
-
-// ADD TO NEW MOZILLA CERT SECTION WHEN CERT IS COMPLETED
-// {
-//   title: "JavaScript Essential Training",
-//   sender: "LinkedIn Learning",
-//   src: LICert6,
-//   description: "For the completion of this course by LinkedIn Learning.",
-// },
