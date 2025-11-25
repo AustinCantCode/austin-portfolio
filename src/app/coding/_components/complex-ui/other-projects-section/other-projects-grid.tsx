@@ -6,7 +6,7 @@ import Title from "@components/ui/title";
 import Logo from "../../../../../../public/AS-Circle-Logo.png";
 
 // DATA
-import projects from "@data/coding-projects";
+import projects from "@data/other-coding-projects";
 
 // TYPES
 export interface OtherProjectsGridProps {
@@ -30,7 +30,7 @@ export default function OtherProjectsGrid({
   return (
     <div className="max-w-5xl mx-auto">
       <Title header="My Other Projects" />
-      <div className="grid md:grid-cols-2 gap-4 px-2 md:px-0">
+      <div className="grid md:grid-cols-3 gap-4 px-2 md:px-0">
         {filteredProjects.map((project) => (
           <section
             id={project.id}

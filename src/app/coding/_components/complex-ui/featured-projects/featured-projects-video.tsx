@@ -3,7 +3,6 @@ export interface Video {
 }
 
 export default function VideoDisplay(video: Video) {
-  console.log(video.video);
   return (
     <video controls className="w-full hidden md:block px-4" autoPlay={true}>
       <source src={video.video[0]} type="video/mp4" />
