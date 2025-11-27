@@ -236,7 +236,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
         {/* Date */}
         <div className="flex flex-col justify-start">
           <TimelineTime className="text-right pr-4 text-base">
-            {startDate.length >= 4
+            {startDate.length > 4
               ? "Started in " + startDate
               : startDate.length <= 4
                 ? "Expected to start in " + startDate
