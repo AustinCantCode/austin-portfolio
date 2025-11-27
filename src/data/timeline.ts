@@ -19,7 +19,7 @@ export const timelineData = [
   },
   {
     id: 3,
-    title: "Applying for University",
+    title: "University",
     subtext: "Aiming to complete my degree",
     startDate: "2028",
     endDate: "2031",
