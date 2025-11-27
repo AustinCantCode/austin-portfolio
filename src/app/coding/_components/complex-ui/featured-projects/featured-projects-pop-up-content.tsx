@@ -78,7 +78,16 @@ export default function PopUpContent(props: PopUpContentProps) {
         <VideoDisplay video={project.video} />
       ) : null}
       <DialogHeader className="flex-row w-fit text-left text-base md:text-lg text-black font-semibold px-4">
-        {project.skills.join(", ")}
+        <div className="flex-row space-x-2 mr-auto">
+          {project.skills.map((item, id) => (
+            <span
+              key={id}
+              className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
+            >
+              {item}
+            </span>
+          ))}
+        </div>{" "}
       </DialogHeader>
       <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4 text-black">
         {project.description}
