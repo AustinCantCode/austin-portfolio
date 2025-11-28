@@ -52,40 +52,42 @@ const aws = {
       sender: "Amazon Web Services (AWS)",
       src: AWSCert1,
       description:
-        " For the completion of 1/5 generative AI courses by Amazon Web Services",
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
     {
       title: "PLANNING A GENERATIVE AI PROJECT",
       sender: "Amazon Web Services (AWS)",
       src: AWSCert2,
       description:
-        " For the completion of 1/5 generative AI courses by Amazon Web Services",
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
     {
       title: "RESPONSIBLE ARTIFICIAL INTELLIGENCE PRACTICES",
       sender: "Amazon Web Services (AWS)",
       src: AWSCert3,
       description:
-        " For the completion of 1/5 generative AI courses by Amazon Web Services",
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
     {
       title: "FOUNDATION OF PROMPT ENGINEERING",
       sender: "Amazon Web Services (AWS)",
       src: AWSCert4,
       description:
-        " For the completion of 1/5 generative AI courses by Amazon Web Services",
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
     {
       title: "NO-CODE LEARNING AND GENERATIVE AI ON AWS",
       sender: "Amazon Web Services (AWS)",
       src: AWSCert5,
       description:
-        " For the completion of 1/5 generative AI courses by Amazon Web Services",
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
     {
       title: "SCS-AWS GENAI (FOUNDATIONAL) PROGRAMME",
       sender: "Amazon Web Services (AWS), Singapore Computer Society (SCS)",
       src: SCSAWSCERT,
+      description:
+        "For the completion of 1/5 generative AI courses by Amazon Web Services",
     },
   ],
 };

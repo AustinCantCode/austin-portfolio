@@ -29,7 +29,7 @@ export default function ImageCarousel(props: ImageCarouselProps) {
       stopOnMouseEnter: false,
       stopOnInteraction: false,
       stopOnFocusIn: true,
-    })
+    }),
   );
 
   return (
