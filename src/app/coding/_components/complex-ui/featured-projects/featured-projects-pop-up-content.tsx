@@ -15,7 +15,6 @@ import { Icon } from "@iconify/react";
 
 // TYPES
 import type { StaticImageData } from "next/image";
-import { Dialog } from "@radix-ui/react-dialog";
 export interface Project {
   id?: string;
   title: string;

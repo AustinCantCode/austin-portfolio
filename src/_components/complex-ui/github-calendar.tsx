@@ -14,8 +14,10 @@ export default function GitHubCalendar({
       "https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js";
     script.async = true;
     script.onload = () => {
+      /* eslint-disable @typescript-eslint/ban-ts-comment */
       // @ts-ignore
       if (window.GitHubCalendar) {
+        /* eslint-disable @typescript-eslint/ban-ts-comment */
         // @ts-ignore
         window.GitHubCalendar(".calendar", username, { responsive: true });
       }

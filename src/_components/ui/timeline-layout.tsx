@@ -49,7 +49,6 @@ interface TimelineLayoutProps {
 export const TimelineLayout = ({
   items,
   size = "md",
-  iconColor,
   customIcon,
   animate = true,
   connectorColor,
