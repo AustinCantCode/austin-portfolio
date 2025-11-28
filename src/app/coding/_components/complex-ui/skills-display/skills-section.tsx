@@ -19,15 +19,7 @@ export type Skill = {
   color?: string;
 };
 
-export interface SkillsSectionProps {
-  selectedSkills: string[];
-  setSelectedSkills: React.Dispatch<React.SetStateAction<string[]>>;
-}
-
-export default function SkillsSection({
-  selectedSkills,
-  setSelectedSkills,
-}: SkillsSectionProps) {
+export default function SkillsSection() {
   return (
     <main className="space-y-20">
       {/* Frontend Section */}
@@ -41,8 +33,6 @@ export default function SkillsSection({
               src={skills.src || Logo}
               proficiency={skills.proficiency}
               indicatorColor={skills.color}
-              selectedTitles={selectedSkills}
-              setSelectedTitles={setSelectedSkills}
             />
           ))}
         </div>
@@ -58,8 +48,6 @@ export default function SkillsSection({
               src={skills.src || Logo}
               proficiency={skills.proficiency}
               indicatorColor={skills.color}
-              selectedTitles={selectedSkills}
-              setSelectedTitles={setSelectedSkills}
             />
           ))}
         </div>

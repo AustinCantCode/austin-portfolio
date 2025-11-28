@@ -14,40 +14,13 @@ export interface SkillsCardProps {
   src?: string | StaticImageData;
   proficiency?: number;
   indicatorColor?: string;
-  selectedTitles: string[];
-  setSelectedTitles: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export default function SkillsCard(props: SkillsCardProps) {
-  const {
-    title,
-    src,
-    proficiency,
-    indicatorColor,
-    selectedTitles,
-    setSelectedTitles,
-  } = props;
-
-  const isSelected = selectedTitles.includes(title);
-
-  function setButtonState() {
-    if (!isSelected) {
-      setSelectedTitles((prev: string[]) => [...prev, title]);
-    } else {
-      setSelectedTitles((prev: string[]) => prev.filter((t) => t !== title));
-    }
-  }
-
-  const buttonClass = isSelected
-    ? "bg-white text-black"
-    : "bg-white/15 text-white";
-  const progressBarColor = isSelected ? "bg-zinc-300" : "bg-white";
+  const { title, src, proficiency, indicatorColor } = props;
 
   return (
-    <Card
-      onClick={setButtonState}
-      className={`${buttonClass} w-full max-w-xs px-4 transition hover:duration-300 active:duration-60 ease-in-out hover:bg-white/25 active:scale-95 cursor-pointer border-0 mx-auto`}
-    >
+    <Card className="w-full max-w-xs px-4 transition hover:duration-300 active:duration-60 ease-in-out active:scale-90 border-0 mx-auto cursor-pointer active:animate-spin hover:scale-95">
       <div className="flex items-center space-x-4">
         <Image
           src={src || Logo}
@@ -59,7 +32,7 @@ export default function SkillsCard(props: SkillsCardProps) {
       </div>
       <Progress
         value={proficiency}
-        className={progressBarColor}
+        className={"bg-zinc-300"}
         indicatorColor={indicatorColor}
       />
     </Card>

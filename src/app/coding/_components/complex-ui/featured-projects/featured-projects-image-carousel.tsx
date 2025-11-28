@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 
 // COMPONENTS
@@ -27,7 +29,7 @@ export default function ImageCarousel(props: ImageCarouselProps) {
       stopOnMouseEnter: false,
       stopOnInteraction: false,
       stopOnFocusIn: true,
-    }),
+    })
   );
 
   return (

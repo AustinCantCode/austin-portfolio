@@ -13,25 +13,12 @@ export interface OtherProjectsGridProps {
   selectedSkills: string[];
 }
 
-export default function OtherProjectsGrid({
-  selectedSkills,
-}: OtherProjectsGridProps) {
-  let filteredProjects;
-  if (selectedSkills.length === 0) {
-    filteredProjects = projects;
-  } else {
-    filteredProjects = projects.filter(
-      (project) =>
-        Array.isArray(project.skills) &&
-        selectedSkills.every((skill) => project.skills.includes(skill)),
-    );
-  }
-
+export default function OtherProjectsGrid() {
   return (
     <div className="max-w-5xl mx-auto">
       <Title header="My First Projects" />
       <div className="grid md:grid-cols-2 gap-4 px-2 md:px-0">
-        {filteredProjects.map((project) => (
+        {projects.map((project) => (
           <section
             id={project.id}
             className="min-w-full col-span-1"
@@ -42,9 +29,15 @@ export default function OtherProjectsGrid({
               title={project.title || "Untitled Video"}
               date={project.date || "Unknown Date"}
               thumbnail={project.thumbnail || Logo}
-              src={project.src || Logo}
+              src={typeof project.src === "string" ? project.src : ""}
               description={project.description || ""}
-              skills={project.skills || ""}
+              skills={
+                Array.isArray(project.skills)
+                  ? project.skills
+                  : project.skills
+                    ? [project.skills]
+                    : []
+              }
             />
           </section>
         ))}
