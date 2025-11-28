@@ -35,9 +35,16 @@ export default function UIUXProjects() {
                   </Button>
                 </Link>
               </div>
-              <p className="text-lg font-semibold">
-                {project.skills.join(", ")}
-              </p>
+              <div className="flex-row space-x-2 py-2 mr-auto font-semibold">
+                {project.skills.map((item, id) => (
+                  <span
+                    key={id}
+                    className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
               <p className="text-sm md:text-base">{project.description}</p>
             </div>
           </div>
@@ -58,9 +65,16 @@ export default function UIUXProjects() {
                   </Button>
                 </Link>
               </div>
-              <p className="text-lg font-semibold">
-                {project.skills.join(", ")}
-              </p>
+              <div className="flex-row space-x-2 py-2 mr-auto font-semibold">
+                {project.skills.map((item, id) => (
+                  <span
+                    key={id}
+                    className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
               <p className="text-sm md:text-base">{project.description}</p>
             </div>
             <Image

@@ -16,9 +16,16 @@ export default function PDProjects() {
                 <p className="text-2xl md:text-4xl font-semibold m-0">
                   {project.title}
                 </p>
-                <p className="font-semibold m-0 p-0 text-xs md:text-base">
-                  {project.skills.join(", ")}
-                </p>
+                <div className="flex-row space-x-2 py-2 mr-auto font-semibold">
+                  {project.skills.map((item, id) => (
+                    <span
+                      key={id}
+                      className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
               <Image
                 src={project.logo}
