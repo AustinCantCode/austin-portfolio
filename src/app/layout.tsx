@@ -13,21 +13,35 @@ export const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Austin Sia",
+  title: "Austin Sia | Portfolio",
   description:
-    "The personal portfolio of Austin Sia. Explore projects in web development, UI/UX, and software design.",
+    "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
+  keywords: [
+    "Software Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Full-Stack Developer",
+    "Web Developer",
+    "Information Technology",
+    "Computer Science",
+    "Entrepreneur",
+    "Designer",
+    "Portfolio",
+    "Next.js",
+    "React",
+  ],
   icons: {
     icon: "/AS-Circle-Logo.png",
   },
   openGraph: {
     title: "Austin Sia",
     description:
-      "The personal portfolio of Austin Sia. Explore projects in web development, UI/UX, and software design.",
+      "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
     url: "https://austinsia.com",
-    siteName: "AustinSia",
+    siteName: "Austin's Portfolio",
     images: [
       {
-        url: "https://austinsia.com/AS-Circle-Logo.png",
+        url: "../../public/AS-Circle-Logo.png",
         width: 500,
         height: 500,
         alt: "AS Logo",
@@ -47,6 +61,8 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased overflow-x-hidden`}>
         <Navbar />
         <SpeedInsights />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://austinsia.com" />
         <div
           className="fixed inset-0 bg-stars bg-black -z-20"
           aria-hidden="true"

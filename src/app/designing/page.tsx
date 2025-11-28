@@ -1,3 +1,6 @@
+// METADATA
+import { Metadata } from "next";
+
 // COMPONENTS
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import UIUXProjects from "./_components/uiux-projects";
@@ -6,6 +9,43 @@ import GDProjects from "./_components/gd-projects";
 
 // DATA
 import { designCategories } from "@data/design-projects";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Austin Sia | Design Projects",
+    description:
+      "Highlighting my design projects, blending creativity and functionality to craft engaging, user-focused, and visually appealing UI, products and graphics.",
+    keywords: [
+      "Software Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Full-Stack Developer",
+      "Web Developer",
+      "Information Technology",
+      "Computer Science",
+      "Entrepreneur",
+      "Designer",
+      "Portfolio",
+      "Next.js",
+      "React",
+    ],
+    openGraph: {
+      title: "Austin Sia | Coding Projects",
+      description:
+        "Highlighting my design projects, blending creativity and functionality to craft engaging, user-focused, and visually appealing UI, products and graphics.",
+      url: "https://austinsia.com",
+      siteName: "Austin's Portfolio",
+      images: [
+        {
+          url: "../../public/AS-Circle-Logo.png",
+          width: 500,
+          height: 500,
+        },
+      ],
+      type: "website",
+    },
+  };
+}
 
 const categoryComponents = {
   "UI/UX": UIUXProjects,
