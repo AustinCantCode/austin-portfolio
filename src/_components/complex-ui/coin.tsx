@@ -22,7 +22,7 @@ export default function Coin(props: {
       45,
       container.clientWidth / container.clientHeight,
       0.1,
-      1000
+      1000,
     );
     camera.position.set(0, 0, 2.6);
 
@@ -140,7 +140,7 @@ export default function Coin(props: {
 
       if (flipping) {
         const elapsed = performance.now() - flipStart;
-        let progress = Math.min(elapsed / flipDuration, 1);
+        const progress = Math.min(elapsed / flipDuration, 1);
 
         // Smooth easing
         const eased =
@@ -177,7 +177,7 @@ export default function Coin(props: {
       renderer.dispose();
       container.removeChild(renderer.domElement);
     };
-  }, []);
+  }, [props.onHover, props.onLoad]);
 
   return (
     <div ref={containerRef} className={`${props.className} cursor-pointer`} />

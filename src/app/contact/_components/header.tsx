@@ -1,4 +1,3 @@
-import ProfileImage from "@components/ui/profile-image";
 import Coin from "@components/complex-ui/coin";
 
 export default function Header() {
