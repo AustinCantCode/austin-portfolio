@@ -28,13 +28,13 @@ export default function Navbar() {
             {/* Logo fixed at the left */}
             <Link
               href="/"
-              className="absolute left-0 translate-x-10 md:translate-x-20 md:translate-y-0"
+              className="absolute left-0 translate-x-10 md:translate-x-15 md:translate-y-0"
             >
               <Image
                 src={ASLogo.src}
                 alt="Austin's Logo"
-                width={90}
-                height={90}
+                width={100}
+                height={100}
                 quality={100}
                 priority={true}
                 className="rounded-full transition-all hover:shadow-[0_0_25px_8px_rgb(255,255,255)] hover:outline-white/0"
