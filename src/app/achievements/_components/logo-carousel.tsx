@@ -27,7 +27,7 @@ export default function LogoCarousel(props: LogoCarouselProps) {
       stopOnMouseEnter: false,
       stopOnInteraction: false,
       stopOnFocusIn: false,
-    })
+    }),
   );
   return (
     <Carousel
