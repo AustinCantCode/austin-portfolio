@@ -57,7 +57,7 @@ const Timeline = React.forwardRef<HTMLOListElement, TimelineProps>(
         aria-label="Timeline"
         className={cn(
           timelineVariants({ size }),
-          "relative min-h-[600px] w-full max-w-2xl mx-auto py-8",
+          "relative min-h-[600px] max-w-xl mx-auto py-8",
           className,
         )}
         {...props}
@@ -261,7 +261,9 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
               iconSize={iconsize}
             />
           </div>
-          {showConnector && <div className="h-60 w-0.5 bg-border mt-2" />}
+          {showConnector && (
+            <div className="h-[50vh] md:h-[25vh] lg:h-[35vh] w-0.5 bg-border mt-2" />
+          )}
         </div>
 
         {/* Content */}
@@ -499,7 +501,7 @@ const TimelineDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("max-w-sm text-sm text-muted-foreground", className)}
+    className={cn(" text-xs md:text-sm text-muted-foreground pr-10", className)}
     {...props}
   />
 ));

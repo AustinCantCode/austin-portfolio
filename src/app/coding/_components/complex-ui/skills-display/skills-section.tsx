@@ -25,7 +25,7 @@ export default function SkillsSection() {
       {/* Frontend Section */}
       <div>
         <Title header="Front-end Development" className="col-span-full" />
-        <div className="grid md:grid-cols-4 gap-8 mx-auto max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-5xl px-2 md:px-0">
           {frontendSkills.map((skills, index) => (
             <SkillsCard
               key={index}
@@ -40,7 +40,7 @@ export default function SkillsSection() {
       <div>
         {/* Backend Section */}
         <Title header="Back-end Development" className="col-span-full" />
-        <div className="grid md:grid-cols-4 gap-8 mx-auto max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-5xl px-2 md:px-0">
           {backendSkills.map((skills, index) => (
             <SkillsCard
               key={index}

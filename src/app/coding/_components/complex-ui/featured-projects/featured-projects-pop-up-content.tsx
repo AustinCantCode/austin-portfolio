@@ -45,7 +45,7 @@ export default function PopUpContent(props: PopUpContentProps) {
             <Button variant="ghost" size="icon" className="ml-auto">
               <Icon icon="mdi:close" className="size-8" />
             </Button>
-          </DialogClose>{" "}
+          </DialogClose>
           <Image
             src={project.src}
             quality={100}
@@ -77,16 +77,16 @@ export default function PopUpContent(props: PopUpContentProps) {
         <VideoDisplay video={project.video} />
       ) : null}
       <DialogHeader className="flex-row w-fit text-left text-base md:text-lg text-black font-semibold px-4">
-        <div className="flex-row space-x-2 mr-auto">
+        <div className="flex flex-row flex-wrap gap-2">
           {project.skills.map((item, id) => (
             <span
               key={id}
-              className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
+              className="min-w-fit bg-black/15 rounded px-2 py-1 text-xs"
             >
               {item}
             </span>
           ))}
-        </div>{" "}
+        </div>
       </DialogHeader>
       <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4 text-black">
         {project.description}
