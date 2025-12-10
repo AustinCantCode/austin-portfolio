@@ -22,7 +22,7 @@ export default function Coin(props: {
       45,
       container.clientWidth / container.clientHeight,
       0.1,
-      1000,
+      1000
     );
     camera.position.set(0, 0, 2.6);
 
@@ -117,7 +117,7 @@ export default function Coin(props: {
         flipDuration = 1400;
         flipCoin();
       }
-    }, 3000);
+    }, 2900);
 
     container.addEventListener("mouseenter", () => {
       if (props.onHover) {
