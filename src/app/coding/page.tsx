@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function CodingProjects() {
   return (
-    <main className="text-center text-white bg-none space-y-20 fade-in">
+    <main className="text-center text-white bg-none space-y-20 fade-in px-2 md:px-0">
       <Timeline />
       <FeaturedProjects />
       <OtherProjectsGrid />

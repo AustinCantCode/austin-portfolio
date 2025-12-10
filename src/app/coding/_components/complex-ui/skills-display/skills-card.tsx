@@ -20,7 +20,10 @@ export default function SkillsCard(props: SkillsCardProps) {
   const { title, src, proficiency, indicatorColor } = props;
 
   return (
-    <Card className="w-full max-w-xs px-4 transition hover:duration-300 active:duration-60 ease-in-out active:scale-90 border-0 mx-auto cursor-pointer active:animate-spin hover:scale-95">
+    <Card
+      draggable={false}
+      className="select-none w-full max-w-xs px-4 transition hover:duration-300 active:duration-60 ease-in-out active:scale-90 border-0 mx-auto cursor-pointer active:animate-spin hover:scale-95"
+    >
       <div className="flex items-center space-x-4">
         <Image
           src={src || Logo}

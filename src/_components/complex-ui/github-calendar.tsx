@@ -39,8 +39,10 @@ export default function GitHubCalendar({
   return (
     <main>
       <Title header={`GitHub Statistics ${new Date().getFullYear()} `} />
-      <section className=" mx-auto bg-white rounded-lg text-black flex items-center justify-center max-w-5xl p-4">
-        <div className="min-w-5xl calendar">Loading GitHub statistics...</div>
+      <section className="mx-auto bg-white rounded-lg text-black flex items-center justify-center max-w-fit p-4">
+        <div className="overflow-x-scroll calendar">
+          Loading GitHub statistics...
+        </div>
       </section>
     </main>
   );

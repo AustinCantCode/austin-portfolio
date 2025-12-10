@@ -17,7 +17,7 @@ export default function OtherProjectsGrid() {
   return (
     <div className="max-w-5xl mx-auto">
       <Title header="My First Projects" />
-      <div className="grid md:grid-cols-2 gap-4 px-2 md:px-0">
+      <div className="grid md:grid-cols-2 gap-4">
         {projects.map((project) => (
           <section
             id={project.id}
