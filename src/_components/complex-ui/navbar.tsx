@@ -36,7 +36,7 @@ export default function Navbar() {
                   fill
                   quality={100}
                   priority={true}
-                  className="object-contain rounded-full transition-all shadow-[0_0_25px_4px_rgb(255,255,255)] outline-white/0"
+                  className="object-contain"
                 />
               </Link>
               {navbarItems.map((item) => (
