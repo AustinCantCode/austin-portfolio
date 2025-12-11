@@ -23,31 +23,28 @@ export default function Navbar() {
   for (let i = 0; i < navbarItems.length; i++) {
     if (pathname === navbarItems[i].href) {
       return (
-        <nav className="relative mt-4 mb-16">
-          <div className="relative flex items-center justify-end lg:justify-evenly p-4 ">
-            {/* Logo fixed at the left */}
-            <Link
-              href="/"
-              className="absolute left-0 translate-x-10 md:translate-x-15 md:translate-y-0"
-            >
-              <Image
-                src={ASLogo.src}
-                alt="Austin's Logo"
-                width={100}
-                height={100}
-                quality={100}
-                priority={true}
-                className="rounded-full transition-all hover:shadow-[0_0_25px_8px_rgb(255,255,255)] hover:outline-white/0"
-              />
-            </Link>
-            {/* Desktop Nav centered */}
-            <div className="hidden lg:flex justify-evenly w-full max-w-5xl mx-auto bg-white/15 md:py-4 md:rounded-full">
+        <nav>
+          <div className="flex justify-between items-center px-8 pt-4 pb-12">
+            <div className="flex items-center w-full gap-x-8 ">
+              <Link
+                href="/"
+                className="relative min-w-[80px] min-h-[80px] mr-auto"
+              >
+                <Image
+                  src={ASLogo.src}
+                  alt="Austin's Logo"
+                  fill
+                  quality={100}
+                  priority={true}
+                  className="object-contain rounded-full transition-all shadow-[0_0_25px_4px_rgb(255,255,255)] outline-white/0"
+                />
+              </Link>
               {navbarItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={
-                    `gap-x-2 text-base font-medium transition-colors px-3 py-1.5 rounded-full flex items-center ` +
+                    `hidden lg:flex gap-x-2 text-base font-medium transition-colors p-3 h-10 rounded-md items-center ` +
                     (pathname === item.href
                       ? "bg-white text-black"
                       : "text-white hover:bg-white/15")
@@ -58,7 +55,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-            {/* Mobile Hamburger Button */}
             <Button
               variant="austin"
               size="icon"
@@ -72,10 +68,8 @@ export default function Navbar() {
               )}
             </Button>
           </div>
-
-          {/* Mobile Menu */}
           {isOpen && (
-            <div className="lg:hidden border-t-2 border-b-2 mt-4">
+            <div className="lg:hidden border-t-2 border-b-2 mb-8">
               {navbarItems.map((item) => (
                 <Link
                   key={item.href}
@@ -103,6 +97,4 @@ export default function Navbar() {
       );
     }
   }
-
-  return null;
 }
