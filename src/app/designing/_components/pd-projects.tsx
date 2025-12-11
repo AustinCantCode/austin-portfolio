@@ -4,6 +4,7 @@ import Image from "next/image";
 // DATA
 import { PDProjects as PD } from "@data/design-projects";
 import ClickableImage from "@components/ui/clickable-image";
+import Tags from "@components/complex-ui/tags";
 
 export default function PDProjects() {
   {
@@ -17,14 +18,7 @@ export default function PDProjects() {
                   {project.title}
                 </p>
                 <div className="flex-row space-x-2 py-2 mr-auto font-semibold">
-                  {project.skills.map((item, id) => (
-                    <span
-                      key={id}
-                      className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                  <Tags data={project.skills} />
                 </div>
               </div>
               <Image

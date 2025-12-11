@@ -15,6 +15,7 @@ import { Icon } from "@iconify/react";
 
 // TYPES
 import type { StaticImageData } from "next/image";
+import Tags from "@components/complex-ui/tags";
 export interface Project {
   id?: string;
   title: string;
@@ -77,16 +78,7 @@ export default function PopUpContent(props: PopUpContentProps) {
         <VideoDisplay video={project.video} />
       ) : null}
       <DialogHeader className="flex-row w-fit text-left text-base md:text-lg text-black font-semibold px-4">
-        <div className="flex flex-row flex-wrap gap-2">
-          {project.skills.map((item, id) => (
-            <span
-              key={id}
-              className="min-w-fit bg-black/15 rounded px-2 py-1 text-xs"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+        <Tags data={project.skills} />
       </DialogHeader>
       <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4 text-black">
         {project.description}

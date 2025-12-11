@@ -12,6 +12,7 @@ import Image from "next/image";
 
 // TYPES
 import type { StaticImageData } from "next/image";
+import Tags from "@components/complex-ui/tags";
 
 export interface VideoCardProps {
   id?: string;
@@ -63,16 +64,7 @@ export default function VideoCard(props: VideoCardProps) {
           <Video src={props.src} className="min-w-full" autoplay={true} />
         </DialogContent>
       </Dialog>
-      <div className="flex-row space-x-2 py-3 ml-3 mr-auto font-semibold">
-        {props.skills.map((item, id) => (
-          <span
-            key={id}
-            className="w-fit bg-black/15 rounded px-2 py-1 text-xs"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+      <Tags data={props.skills} />
       <p className="flex-row w-fit text-left text-sm md:text-base text-black px-3 pb-4">
         {props.description}
       </p>
