@@ -262,7 +262,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
             />
           </div>
           {showConnector && (
-            <div className="h-[50vh] md:h-[25vh] lg:h-[35vh] w-0.5 bg-border mt-2" />
+            <div className="h-[50vh] md:h-[25vh] lg:h-[20vw] w-0.5 bg-border mt-2" />
           )}
         </div>
 

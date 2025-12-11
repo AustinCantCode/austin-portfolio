@@ -51,7 +51,6 @@ export const TimelineLayout = ({
   size = "md",
   customIcon,
   animate = true,
-  connectorColor,
   className,
 }: TimelineLayoutProps) => {
   return (
@@ -79,7 +78,6 @@ export const TimelineLayout = ({
                 : item.icon || customIcon
             }
             iconColor={"muted"}
-            connectorColor={item.color || connectorColor}
             showConnector={index !== items.length - 1}
           />
         </motion.div>
