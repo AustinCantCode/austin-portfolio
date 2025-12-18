@@ -31,11 +31,11 @@ export default function SkillsCard(props: SkillsCardProps) {
           className="w-full h-full max-w-10 min-h-10 max-h-10 object-contain"
           loading="lazy"
         />
-        <h5 className="pt-2 text-left">{title}</h5>
+        <p className="pt-2 font-medium text-sm md:text-lg text-left">{title}</p>
       </div>
       <Progress
         value={proficiency}
-        className={"bg-zinc-300"}
+        className="bg-zinc-300"
         indicatorColor={indicatorColor}
       />
     </Card>
