@@ -11,7 +11,7 @@ type CardProps = {
 
 export default function Certificate(props: CardProps) {
   return (
-    <div className="card rounded-md overflow-hidden transition-all">
+    <div className="card rounded-md overflow-hidden transition-all max-h-fit">
       <Image
         src={props.src}
         alt="Picture of Certificate"
