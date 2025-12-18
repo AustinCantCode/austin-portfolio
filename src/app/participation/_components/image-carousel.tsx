@@ -25,11 +25,13 @@ export default function ImageCarousel(props: ImageCarouselProps) {
       <CarouselContent>
         {props.images.map((item, index) => (
           <CarouselItem key={index}>
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full aspect-square">
               <Image
                 alt="logo"
                 src={item || ""}
-                className="min-w-full min-h-full object-cover"
+                className="object-cover object-center"
+                fill
+                quality={100}
                 draggable="false"
                 priority={true}
               />

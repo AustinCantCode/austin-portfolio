@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Contact() {
   return (
-    <main className="text-white space-y-16 fade-in pb-[12%] mx-2">
+    <main className="text-white space-y-16 fade-in pb-[12%] mx-4 lg:mx-0">
       <Header />
       <ContactCards />
     </main>

@@ -47,16 +47,20 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Participation() {
-  return events.map((event, index) => {
-    return (
-      <div
-        className="card p-4 md:p-8 overflow-hidden transition-all max-w-3xl mx-auto m-10 fade-in"
-        key={index}
-      >
-        <Header date={event.date} title={event.title} logo={event.logo} />
-        <ImageCarousel images={event.src} />
-        <CardText role={event.role} text={event.text} />
-      </div>
-    );
-  });
+  return (
+    <main className="mx-auto max-w-3xl">
+      {events.map((event, index) => {
+        return (
+          <div
+            className="cols-span-1 card p-4 md:p-8 overflow-hidden transition-all max-h-fit mx-4 lg:mx-0 m-10 fade-in"
+            key={index}
+          >
+            <Header date={event.date} title={event.title} logo={event.logo} />
+            <ImageCarousel images={event.src} />
+            <CardText role={event.role} text={event.text} />
+          </div>
+        );
+      })}
+    </main>
+  );
 }
