@@ -1,47 +1,47 @@
 // Batey Hackathon
-import BateyHackathon from "../../public/achievements/CERT_ZENITH.jpg";
+import BateyHackathon from "../../public/achievement/CERT_ZENITH.jpg";
 
 // AWS Certificates
-import AWSCert1 from "../../public/achievements/Cert_1_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
-import AWSCert2 from "../../public/achievements/Cert_2_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
-import AWSCert3 from "../../public/achievements/Cert_3_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
-import AWSCert4 from "../../public/achievements/Cert_4_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
-import AWSCert5 from "../../public/achievements/Cert_5_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
-import SCSAWSCERT from "../../public/achievements/SCS AWS Certificate.jpeg";
+import AWSCert1 from "../../public/achievement/Cert_1_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
+import AWSCert2 from "../../public/achievement/Cert_2_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
+import AWSCert3 from "../../public/achievement/Cert_3_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
+import AWSCert4 from "../../public/achievement/Cert_4_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
+import AWSCert5 from "../../public/achievement/Cert_5_AWS Skill Builder Course Completion Certificate_page-0001.jpg";
+import SCSAWSCERT from "../../public/achievement/SCS AWS Certificate.jpeg";
 
 // Linkedin Certificates
-import LICert1 from "../../public/achievements/linkedin-certificates/Learning Linkedin.jpeg";
-import LICert2 from "../../public/achievements/linkedin-certificates/HTML.jpeg";
-import LICert3 from "../../public/achievements/linkedin-certificates/React.jpeg";
-import LICert4 from "../../public/achievements/linkedin-certificates/Illustrator.jpeg";
-import LICert5 from "../../public/achievements/linkedin-certificates/Tinkercad.jpeg";
+import LICert1 from "../../public/achievement/linkedin-certificates/Learning Linkedin.jpeg";
+import LICert2 from "../../public/achievement/linkedin-certificates/HTML.jpeg";
+import LICert3 from "../../public/achievement/linkedin-certificates/React.jpeg";
+import LICert4 from "../../public/achievement/linkedin-certificates/Illustrator.jpeg";
+import LICert5 from "../../public/achievement/linkedin-certificates/Tinkercad.jpeg";
 
 // Secondary School Certificates
-import EdusaveAcadAchievement from "../../public/achievements/Edusave Acad Achievement.png";
-import EdusaveGPA from "../../public/achievements/Edusave GPA.png";
-import MeritBursary from "../../public/achievements/MERIT BURSARY.png";
-import YeaAward from "../../public/achievements/YEA Award.png";
-import CvssGpaAward from "../../public/achievements/CVSS GPA Award.png";
-import OnNLevel from "../../public/achievements/O and N Level Certificate.png";
+import EdusaveAcadAchievement from "../../public/achievement/Edusave Acad Achievement.png";
+import EdusaveGPA from "../../public/achievement/Edusave GPA.png";
+import MeritBursary from "../../public/achievement/MERIT BURSARY.png";
+import YeaAward from "../../public/achievement/YEA Award.png";
+import CvssGpaAward from "../../public/achievement/CVSS GPA Award.png";
+import OnNLevel from "../../public/achievement/O and N Level Certificate.png";
 
 // Mozilla Certificates
-import JavaScriptCert1 from "../../public/achievements/linkedin-certificates/JavaScript1.jpg";
-import JavaScriptCert2 from "../../public/achievements/linkedin-certificates/JavaScript2.jpg";
-import JavaScriptCert3 from "../../public/achievements/linkedin-certificates/JavaScript3.jpg";
+import JavaScriptCert1 from "../../public/achievement/linkedin-certificates/JavaScript1.jpg";
+import JavaScriptCert2 from "../../public/achievement/linkedin-certificates/JavaScript2.jpg";
+import JavaScriptCert3 from "../../public/achievement/linkedin-certificates/JavaScript3.jpg";
 
 // GitHub Certificates
-import GithubCert1 from "../../public/achievements/linkedin-certificates/Github1.jpeg";
-import GithubCert2 from "../../public/achievements/linkedin-certificates/Github2.jpeg";
-import GithubCert3 from "../../public/achievements/linkedin-certificates/Github3.jpeg";
-import GithubCert4 from "../../public/achievements/linkedin-certificates/Github4.jpeg";
-import GithubCert5 from "../../public/achievements/linkedin-certificates/Github5.jpeg";
+import GithubCert1 from "../../public/achievement/linkedin-certificates/Github1.jpeg";
+import GithubCert2 from "../../public/achievement/linkedin-certificates/Github2.jpeg";
+import GithubCert3 from "../../public/achievement/linkedin-certificates/Github3.jpeg";
+import GithubCert4 from "../../public/achievement/linkedin-certificates/Github4.jpeg";
+import GithubCert5 from "../../public/achievement/linkedin-certificates/Github5.jpeg";
 
 // ROBOCUP
-import Robocup from "../../public/achievements/Robocup.png";
+import Robocup from "../../public/achievement/Robocup.png";
 
 // SOLOLEARN
-import SoloLearnHTML from "../../public/achievements/SoloLearn HTML.jpg";
-import SoloLearnCSS from "../../public/achievements/SoloLearn CSS.jpg";
+import SoloLearnHTML from "../../public/achievement/SoloLearn HTML.jpg";
+import SoloLearnCSS from "../../public/achievement/SoloLearn CSS.jpg";
 
 // AMAZON WEB SERVICES + SCS
 const aws = {
