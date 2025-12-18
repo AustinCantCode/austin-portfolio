@@ -24,6 +24,6 @@ export const timelineData = [
     startDate: "2028",
     endDate: "2031",
     description:
-      "After graduating from Singapore Polytechnic, I plan to apply to local universities so I can further my studies and attain a degree in computer science or information technology, to further purse my goal and interest of being a software developer! Using the 2 years in National Service to further improve myself and create my applications for the universities.",
+      "After graduating from Singapore Polytechnic, I plan to apply for local universities so I can further my studies and attain a degree in computer science or information technology to achieve my dream job of being a software developer!",
   },
 ];

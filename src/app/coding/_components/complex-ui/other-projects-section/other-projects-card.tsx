@@ -64,7 +64,9 @@ export default function VideoCard(props: VideoCardProps) {
           <Video src={props.src} className="min-w-full" autoplay={true} />
         </DialogContent>
       </Dialog>
-      <Tags data={props.skills} />
+      <div className="flex-row space-x-2 py-3 ml-3 mr-auto font-semibold">
+        <Tags data={props.skills} />
+      </div>
       <p className="flex-row w-fit text-left text-sm md:text-base text-black px-3 pb-4">
         {props.description}
       </p>

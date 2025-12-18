@@ -24,7 +24,7 @@ export default function ContactCards() {
             <Card
               onClick={() => {
                 if (details.title === "Curriculum Vitae (CV)") {
-                  window.open("/resume/AustinResume2.pdf", "_blank");
+                  window.open("/AustinResume.pdf", "_blank");
                 }
               }}
             >

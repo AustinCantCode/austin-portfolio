@@ -1,11 +1,11 @@
 // LOGOS
-import express from "../../public/Coding Projects/Logos/express.webp";
-import node from "../../public/Coding Projects/Logos/node.webp";
-import mongo from "../../public/Coding Projects/Logos/mongo.png";
-import psql from "../../public/Coding Projects/Logos/psql.png";
-import prisma from "../../public/Coding Projects/Logos/prisma.png";
-import mysql from "../../public/Coding Projects/Logos/mysql.png";
-import tableplus from "../../public/Coding Projects/Logos/tableplus.png";
+import express from "@skillLogos/express.webp";
+import node from "@skillLogos/node.webp";
+import mongo from "@skillLogos/mongo.png";
+import psql from "@skillLogos/psql.png";
+import prisma from "@skillLogos/prisma.png";
+import mysql from "@skillLogos/mysql.png";
+import tableplus from "@skillLogos/tableplus.png";
 
 // DATA
 import { bgColors as colors } from "./colors";

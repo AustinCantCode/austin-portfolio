@@ -1,24 +1,24 @@
 // PICTURES
 // UIUX
-import quizzy from "../../public/Design Projects/UIUX/quizzy.png";
-import fresko from "../../public/Design Projects/UIUX/fresko.png";
-import hg from "../../public/Design Projects/UIUX/hidden gems app.png";
-import sp from "../../public/Design Projects/UIUX/sp app.png";
+import quizzy from "@uiuxDesignProjects/quizzy.png";
+import fresko from "@uiuxDesignProjects/fresko.png";
+import hg from "@uiuxDesignProjects/hidden gems app.png";
+import sp from "@uiuxDesignProjects/sp app.png";
 
 // PRODUCT
-import lawksLogo from "../../public/Design Projects/Product Design/LAWKS/lawks_logo.png";
+import lawksLogo from "@productDesignProjects/LAWKS/lawks_logo.png";
 
-import lawks1 from "../../public/Design Projects/Product Design/LAWKS/lawks_1.png";
-import lawks2 from "../../public/Design Projects/Product Design/LAWKS/lawks_2.png";
-import lawks3 from "../../public/Design Projects/Product Design/LAWKS/lawks_3.png";
+import lawks1 from "@productDesignProjects/LAWKS/lawks_1.png";
+import lawks2 from "@productDesignProjects/LAWKS/lawks_2.png";
+import lawks3 from "@productDesignProjects/LAWKS/lawks_3.png";
 
 // GRAPHIC
-import watch1 from "../../public/Design Projects/Graphic Design/watch-1.jpg";
-import watch2 from "../../public/Design Projects/Graphic Design/watch-2.jpg";
-import watch3 from "../../public/Design Projects/Graphic Design/watch-3.jpg";
-import fire from "../../public/Design Projects/Graphic Design/fire.jpg";
-import chupachups from "../../public/Design Projects/Graphic Design/chupachups.jpg";
-import mm from "../../public/Design Projects/Graphic Design/magical-moments.jpg";
+import watch1 from "@graphicDesignProjects/watch-1.jpg";
+import watch2 from "@graphicDesignProjects/watch-2.jpg";
+import watch3 from "@graphicDesignProjects/watch-3.jpg";
+import fire from "@graphicDesignProjects/fire.jpg";
+import chupachups from "@graphicDesignProjects/chupachups.jpg";
+import mm from "@graphicDesignProjects/magical-moments.jpg";
 
 export const designCategories = ["UI/UX", "Product", "Graphic"];
 
