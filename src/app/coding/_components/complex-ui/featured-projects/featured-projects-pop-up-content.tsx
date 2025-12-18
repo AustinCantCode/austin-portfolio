@@ -4,7 +4,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogClose,
 } from "@components/ui/dialog";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
@@ -49,9 +48,7 @@ export default function PopUpContent(props: PopUpContentProps) {
             alt="Project Logo"
           />
           <div className="text-left grid gap-y-1">
-            <DialogTitle className="m-0 p-0">
-              {project.title}
-            </DialogTitle>
+            <DialogTitle className="m-0 p-0">{project.title}</DialogTitle>
             <p className="m-0 p-0 text-xs lg:text-sm">{project.subtext}</p>
           </div>
           {project.link ? (
