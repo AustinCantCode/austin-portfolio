@@ -42,11 +42,6 @@ export default function PopUpContent(props: PopUpContentProps) {
     >
       <DialogHeader>
         <div className="flex items-center gap-x-4 px-4 py-0 m-0 border-0">
-          <DialogClose asChild>
-            <Button variant="ghost" size="icon" className="ml-auto">
-              <Icon icon="mdi:close" className="size-8" />
-            </Button>
-          </DialogClose>
           <Image
             src={project.src}
             quality={100}
@@ -54,10 +49,10 @@ export default function PopUpContent(props: PopUpContentProps) {
             alt="Project Logo"
           />
           <div className="text-left grid gap-y-1">
-            <DialogTitle className="text-left font-semibold m-0 p-0">
+            <DialogTitle className="m-0 p-0">
               {project.title}
             </DialogTitle>
-            <p className="m-0 p-0 text-sm">{project.subtext}</p>
+            <p className="m-0 p-0 text-xs lg:text-sm">{project.subtext}</p>
           </div>
           {project.link ? (
             <Link href={project.link} target="_blank" className="ml-auto">
@@ -69,9 +64,6 @@ export default function PopUpContent(props: PopUpContentProps) {
           ) : null}
         </div>
       </DialogHeader>
-      <p className="text-base block md:hidden font-semibold px-4">
-        To view project images, please view this page on a larger screen.
-      </p>
       {project.images && project.images.length > 0 ? (
         <ImageCarousel images={project.images} />
       ) : project.video ? (
@@ -80,7 +72,7 @@ export default function PopUpContent(props: PopUpContentProps) {
       <DialogHeader className="flex-row w-fit text-left text-base md:text-lg text-black font-semibold px-4">
         <Tags data={project.skills} />
       </DialogHeader>
-      <DialogDescription className="whitespace-pre-wrap text-left text-sm md:text-base px-4 text-black">
+      <DialogDescription className="whitespace-pre-wrap text-left text-xs md:text-base px-4 text-black">
         {project.description}
       </DialogDescription>
     </DialogContent>

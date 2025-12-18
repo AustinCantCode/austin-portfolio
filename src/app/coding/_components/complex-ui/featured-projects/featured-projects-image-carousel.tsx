@@ -39,13 +39,12 @@ export default function ImageCarousel(props: ImageCarouselProps) {
         loop: true,
       }}
       plugins={[plugin.current]}
-      className="hidden md:block w-full"
     >
       <CarouselContent>
         {props.images.map((project, index) => (
           <CarouselItem
             key={index}
-            className="md:basis-1/2 lg:basis-1/1 flex items-center user-select-none w-full max-w-[60vw]"
+            className="flex items-center user-select-none w-full lg:max-w-[95vh]"
           >
             <section className="min-w-full">
               <Image

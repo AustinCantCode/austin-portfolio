@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
   return (
     <div className="max-w-5xl mx-auto">
       <Title header="Recent Project Contributions" />
-      <div className="grid lg:grid-cols-3 gap-8 sm:grid-cols-1 md:grid-cols-2 rounded-md px-2 md:px-0">
+      <div className="grid lg:grid-cols-3 gap-8 grid-cols-2 rounded-md px-2 md:px-0">
         {featuredProjects.map((project, index) => (
           <div
             className="card rounded-md overflow-hidden transition-all border-0 hover:scale-105 active:scale-102"
@@ -26,10 +26,12 @@ export default function FeaturedProjects() {
                   className="w-full aspect-square object-contain"
                   priority={true}
                 />
-                <div className="flex text-left col-span-1 p-4">
+                <div className="flex text-left col-span-1 p-3 lg:p-4">
                   <div className="whitespace-nowrap my-auto">
-                    <h4 className="font-semibold">{project.title}</h4>
-                    <p className="text-sm md:text-base font-semibold">
+                    <p className="font-medium text-base md:text-lg">
+                      {project.title}
+                    </p>
+                    <p className="text-xs md:text-base font-medium">
                       {project.subtext}
                     </p>
                     <p className="text-xs md:text-sm m-0">{project.date}</p>
