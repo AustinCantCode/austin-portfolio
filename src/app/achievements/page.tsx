@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Achievement() {
   const numOfCert = Object.values(certificates).reduce(
     (acc, value) => acc + value.data.length,
-    0,
+    0
   );
   return (
     <main className="space-y-20 fade-in">

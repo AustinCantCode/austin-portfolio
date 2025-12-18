@@ -20,7 +20,7 @@ export default function Certificate(props: CardProps) {
         priority={true}
       />
       <div className="card-body">
-        <p className="font-medium text-base md:text-lg">{props.title}</p>
+        <p className="font-medium text-sm md:text-lg">{props.title}</p>
 
         <p className="text-[10px] md:text-sm">{props.sender}</p>
 
