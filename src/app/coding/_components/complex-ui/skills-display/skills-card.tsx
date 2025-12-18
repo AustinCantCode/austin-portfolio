@@ -22,16 +22,16 @@ export default function SkillsCard(props: SkillsCardProps) {
   return (
     <Card
       draggable={false}
-      className="select-none w-full max-w-xs px-4 border-0 mx-auto"
+      className="select-none w-full px-4 border-0 mx-auto"
     >
       <div className="flex items-center space-x-4">
         <Image
           src={src || Logo}
           alt="Logo"
-          className="w-full h-full max-w-10 min-h-10 max-h-10"
+          className="w-full h-full max-w-10 min-h-10 max-h-10 object-contain"
           loading="lazy"
         />
-        <h5 className="pt-2">{title}</h5>
+        <h5 className="pt-2 text-left">{title}</h5>
       </div>
       <Progress
         value={proficiency}
