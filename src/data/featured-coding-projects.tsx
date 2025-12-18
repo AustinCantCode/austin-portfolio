@@ -1,41 +1,68 @@
 // FEATURED PROJECTS IMAGES
-import GOWHERE from "../../public/Coding Projects/Featured/GoWhere/gowhere.jpeg";
+import GOWHERE from "@featuredCodingProjects/gowhere/gowhere.jpeg";
 
-import TELEGPT from "../../public/Coding Projects/Featured/Telegpt/Telegpt.png";
+import TELEGPT_THUMBNAIL from "@featuredCodingProjects/telegpt/Telegpt.png";
 
-import SHOPLY from "../../public/Coding Projects/Featured/Shoply/Shoply.png";
-import SHOPLY1 from "../../public/Coding Projects/Featured/Shoply/image 1.png";
-import SHOPLY2 from "../../public/Coding Projects/Featured/Shoply/image 2.png";
-import SHOPLY3 from "../../public/Coding Projects/Featured/Shoply/image 3.png";
-import SHOPLY4 from "../../public/Coding Projects/Featured/Shoply/image 4.png";
-import SHOPLY5 from "../../public/Coding Projects/Featured/Shoply/image 5.png";
-import SHOPLY6 from "../../public/Coding Projects/Featured/Shoply/image 6.png";
+import SHOPLY from "@featuredCodingProjects/thumbnail/shoply.png";
+import SHOPLY1 from "@featuredCodingProjects/shoply/image 1.png";
+import SHOPLY2 from "@featuredCodingProjects/shoply/image 2.png";
+import SHOPLY3 from "@featuredCodingProjects/shoply/image 3.png";
+import SHOPLY4 from "@featuredCodingProjects/shoply/image 4.png";
+import SHOPLY5 from "@featuredCodingProjects/shoply/image 5.png";
+import SHOPLY6 from "@featuredCodingProjects/shoply/image 6.png";
 
-import GRX from "../../public/Coding Projects/Projects/grx.png";
-import GRX1 from "../../public/Coding Projects/Featured/GRX/GRX.png";
+import GRX_THUMBNAIL from "@featuredCodingProjects/thumbnail/grx.png";
+import GRX1 from "@featuredCodingProjects/GRX/GRX.png";
 
-import KSP from "../../public/Coding Projects/Projects/ksp.png";
-import KSP1 from "../../public/Coding Projects/Featured/KSP/KSP1.png";
-import KSP2 from "../../public/Coding Projects/Featured/KSP/KSP2.png";
+import KSP_THUMBNAIL from "@featuredCodingProjects/thumbnail/ksp.png";
+import KSP1 from "@featuredCodingProjects/ksp/KSP1.png";
+import KSP2 from "@featuredCodingProjects/ksp/KSP2.png";
 
-import INLAB from "../../public/Coding Projects/Projects/inlab.png";
-import INLAB1 from "../../public/Coding Projects/Featured/IAL/IAL1.png";
+import INLAB_THUMBNAIL from "@featuredCodingProjects/thumbnail/inlab.png";
+import INLAB1 from "@featuredCodingProjects/IAL/IAL1.png";
 
-import ITE from "../../public/Coding Projects/Projects/ite.png";
-import ITE1 from "../../public/Coding Projects/Featured/ITE/ITE1.png";
+import ITE_THUMBNAIL from "@featuredCodingProjects/thumbnail/ite.png";
+import ITE1 from "@featuredCodingProjects/ITE/ITE1.png";
 
-import JINT from "../../public/Coding Projects/Projects/jint.png";
-import AC from "../../public/Coding Projects/Projects/ac.png";
-import AS from "../../public/Coding Projects/Projects/AS Square Logo.png";
+import JINT_THUMBNAIL from "@featuredCodingProjects/thumbnail/jint.png";
+import JINT1 from "@featuredCodingProjects/juzinterior/JINT1.png";
+import JINT2 from "@featuredCodingProjects/juzinterior/JINT2.png";
+import JINT3 from "@featuredCodingProjects/juzinterior/JINT3.png";
+import JINT4 from "@featuredCodingProjects/juzinterior/JINT4.png";
+
+import AC_THUMBNAIL from "@featuredCodingProjects/thumbnail/ac.png";
+import AC1 from "@featuredCodingProjects/ac/AC1.png";
+import AC2 from "@featuredCodingProjects/ac/AC2.png";
+import AC3 from "@featuredCodingProjects/ac/AC3.png";
+import AC4 from "@featuredCodingProjects/ac/AC4.png";
+import AC5 from "@featuredCodingProjects/ac/AC5.png";
+
+import AS_THUMBNAIL from "@featuredCodingProjects/thumbnail/as-square.png";
+import AS1 from "@featuredCodingProjects/portfolio/AS1.png";
+import AS2 from "@featuredCodingProjects/portfolio/AS2.png";
+
+import IAL_THUMBNAIL from "@featuredCodingProjects/thumbnail/ial.png";
 
 const featuredProjects = [
+  {
+    id: "IAL",
+    title: "IAL",
+    description:
+      "The Institute for Adult Learning (IAL), an autonomous institute under SUSS, focuses on professionalizing adult education through training, research, innovation, and lifelong learning initiatives.\n\nAs a Full-stack Developer, I collaborated with the project manager to build a Success Stories page with search and filtering features. Using C# and Kentico CMS, I retrieved and structured page data, implemented category and year filters, and optimized Razor views to ensure consistent card layouts and a polished user experience.",
+    src: IAL_THUMBNAIL,
+    images: [INLAB1],
+    date: "2025",
+    skills: ["C#", "Razor MVC", "Kentico CMS"],
+    link: "https://www.ial.edu.sg/",
+    subtext: "Institute for Adult Learning",
+  },
   {
     id: "JINT",
     title: "JuzInterior",
     description:
-      "JuzInterior is an interior design and renovation company focused on creating personalized living and commercial spaces. I contributed to the enhancement of their website by implementing responsive UI components, improving layout consistency, and optimizing user interactions.\n\nAs a Frontend Developer, I refined the design system, improved cross-page styling, and ensured that pages loaded smoothly across all screen sizes for a professional and reliable browsing experience.",
-    src: JINT,
-    images: [],
+      "JuzInterior is an interior design and renovation company focused on creating personalized living and commercial spaces.\n\nI contributed to the enhancement of their website by implementing the Frequently Asked Questions (FAQ) page using BetterDocs and creating a category filter for the blogs page using both PHP and Elementor components in WordPress.",
+    src: JINT_THUMBNAIL,
+    images: [JINT1, JINT2, JINT3, JINT4],
     date: "2025",
     skills: ["WordPress", "BetterDocs", "PHP", "CSS"],
     link: "https://juzinterior.com/",
@@ -46,22 +73,31 @@ const featuredProjects = [
     id: "AC",
     title: "Amber Creative",
     description:
-      "Amber Creative is a digital marketing agency offering branding, web development, and paid media solutions. During my internship, I contributed to various internal systems and client-facing projects, focusing on backend logic, database handling, and improving component performance.\n\nAs a Software Developer Intern, I worked with REST and gRPC services, optimized queries, maintained PostgreSQL schemas, and helped implement new features across ongoing marketing tech projects.",
-    src: AC,
-    images: [],
+      "Amber Creative is a digital marketing agency providing branding, web development, and paid media solutions.\n\nAs a Software Developer Intern, I contributed to the development and maintenance of the Amber Creative website, building responsive UI components, integrating CMS-driven content, implementing SEO improvements, and ensuring cross-device functionality. I also worked on feature development, bug fixes, and codebase optimization, gaining hands-on experience in frontend development and content management systems.",
+    src: AC_THUMBNAIL,
+    images: [AC1, AC2, AC3, AC4, AC5],
     date: "2025",
-    skills: ["Node.js", "Express.js", "PostgreSQL", "Prisma", "gRPC", "React"],
+    skills: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Framer Motion",
+      "TypeScript",
+      "Directus CMS",
+      "StoryBlok CMS",
+      "Biome Formatter",
+    ],
     link: "https://ambercreative.sg/",
-    subtext: "Software Development Company",
+    subtext: "Digital Marketing Agency",
   },
-
   {
     id: "PORT",
     title: "My Portfolio",
     description:
-      "A modern, editorial-inspired portfolio showcasing my development work, case studies, and interactive UI components. The site blends minimal layouts with motion elements to create a sophisticated and engaging browsing experience.\n\nAs the Full-Stack Developer, I designed the UI, developed reusable components, implemented animations, and organized the content structure to present my projects in a clear and visually appealing manner.",
-    src: AS,
-    images: [],
+      "A webpage portfolio showcasing my work in software development, designing, entrepreneurship, and more. The site blends minimal layouts with motion elements to create a sophisticated and engaging browsing experience.\n\nAs the solo software developer and UI/UX designer, I designed the UI, developed reusable components, implemented animations, and organized the content structure to present my projects in a clear and visually appealing manner. Feel free to explore!",
+    src: AS_THUMBNAIL,
+    images: [AS1, AS2],
     date: "2025",
     skills: [
       "Next.js",
@@ -72,14 +108,14 @@ const featuredProjects = [
       "TypeScript",
     ],
     link: "/",
-    subtext: "My Digital Portfolio Project",
+    subtext: "My Webpage Portfolio",
   },
   {
     id: "GRX",
     title: "Glovida-RX",
     description:
-      "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists, and patients. I contributed to improving system stability by resolving issues related to dynamic state updates within key UI components.\n\nAs a Frontend Developer, I ensured that product prices and medication details updated accurately in real time. I also enhanced backend state handling between pharmacist and doctor roles, ensuring data reflected correctly across the platform for faster and more reliable decision-making.",
-    src: GRX,
+      "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists, and patients. I contributed to improving system stability by resolving issues related to dynamic state updates within key UI components.\n\nAs a Full-stack Developer, I ensured that product prices and medication details updated accurately in real time. I also enhanced backend state handling between pharmacist and doctor roles, ensuring data reflected correctly across the platform for faster and more reliable decision-making.",
+    src: GRX_THUMBNAIL,
     images: [GRX1],
     date: "2025",
     skills: [
@@ -98,7 +134,7 @@ const featuredProjects = [
     title: "KiasuParents",
     description:
       "KiasuParents is a widely-used online community and resource hub for parents in Singapore. I worked on enhancing the platform through new feature development, bug fixes, and continuous content updates guided by client requirements.\n\nMy contributions included implementing new webpages, improving application performance, and maintaining stability across key modules. I also gained experience working with Strapi CMS, WordPress, and NodeBB — managing content workflows, performing administrative tasks, and supporting backend operations.",
-    src: KSP,
+    src: KSP_THUMBNAIL,
     images: [KSP1, KSP2],
     date: "2025",
     skills: [
@@ -119,7 +155,7 @@ const featuredProjects = [
     title: "IAL InLab",
     description:
       "IAL InLab is a platform that supports innovation initiatives within the Institute for Adult Learning (IAL). During my time contributing to the project, I worked closely with the project managers to improve application reliability and enhance the overall content experience through the StoryBlok CMS.\n\nAs a Frontend Developer, I was responsible for identifying and fixing functional bugs to ensure smooth platform performance. I also gained hands-on experience using StoryBlok CMS for managing structured content and backend operations. One key improvement I implemented involved using the nullish coalescing operator (??) to provide safe fallback values for content fields, ensuring the UI handled empty CMS values gracefully without breaking.",
-    src: INLAB,
+    src: INLAB_THUMBNAIL,
     images: [INLAB1],
     date: "2025",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "StoryBlok CMS"],
@@ -131,7 +167,7 @@ const featuredProjects = [
     title: "ITE WSDip",
     description:
       "ITE Work-Study Diploma (WSDip) is a multi-role education management platform supporting trainees, trainers, administrators, and company representatives. I contributed as a Full-stack Developer, building features that improved both user experience and backend reliability.\n\nMy work involved developing responsive UI using custom ShadCN components, integrating backend APIs, and managing data flow across multiple user types. I also handled debugging, dynamic data handling, and supported deployments using tools like Docker, Azure Blob Storage, and UNIX environments.",
-    src: ITE,
+    src: ITE_THUMBNAIL,
     images: [ITE1],
     date: "2025",
     skills: [
@@ -148,7 +184,7 @@ const featuredProjects = [
       "Node.js",
       "Swagger UI",
     ],
-    link: "https://www.ite.edu.sg/courses/work-study-diploma",
+    link: "https://wsdip.ite.edu.sg/login",
     subtext: "Education & Training Management",
   },
   {
@@ -176,7 +212,7 @@ const featuredProjects = [
     id: "TELEGPT",
     title: "TeleGPT",
     description: `Developed a Telegram chatbot integrated with OpenAI's GPT-4o mini model. The bot receives messages from Telegram, sends them to the OpenAI API via HTTP POST requests, and returns the generated responses to the user in real-time.\n\nThe bot was configured using Telegram's BotFather for token generation, and OpenAI's API key was used for model access. GPT-4o mini was chosen for its lightweight performance and versatility in handling general-purpose conversational tasks.`,
-    src: TELEGPT,
+    src: TELEGPT_THUMBNAIL,
     images: [],
     video: ["/videos/Telegram Bot Demo.mp4"],
     date: "2024",

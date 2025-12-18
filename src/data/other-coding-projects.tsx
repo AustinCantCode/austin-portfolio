@@ -10,15 +10,15 @@ import ttt from "../../videos/TTT.mp4.json";
 import tdl from "../../videos/TDL Demo.mp4.json";
 
 // THUMBNAILS
-import eightballTN from "../../public/Coding Projects/Thumbnail/8 Ball.png";
-import rpsgameTN from "../../public/Coding Projects/Thumbnail/RPS game.png";
-import calculatorTN from "../../public/Coding Projects/Thumbnail/Calc.png";
-import coinflipTN from "../../public/Coding Projects/Thumbnail/Coin Flip.png";
-import tempconverterTN from "../../public/Coding Projects/Thumbnail/Temp Calc.png";
-import rpsconsoleTN from "../../public/Coding Projects/Thumbnail/RPS console.png";
-import stopwatchTN from "../../public/Coding Projects/Thumbnail/Stopwatch.png";
-import tttTN from "../../public/Coding Projects/Thumbnail/TTT.png";
-import tdlTN from "../../public/Coding Projects/Thumbnail/TDL.png";
+import eightball_THUMBNAIL from "@otherCodingProjects/thumbnail/8 Ball.png";
+import rpsgame_THUMBNAIL from "@otherCodingProjects/thumbnail/RPS game.png";
+import calculator_THUMBNAIL from "@otherCodingProjects/thumbnail/Calc.png";
+import coinflip_THUMBNAIL from "@otherCodingProjects/thumbnail/Coin Flip.png";
+import tempconverter_THUMBNAIL from "@otherCodingProjects/thumbnail/Temp Calc.png";
+import rpsconsole_THUMBNAIL from "@otherCodingProjects/thumbnail/RPS console.png";
+import stopwatch_THUMBNAIL from "@otherCodingProjects/thumbnail/Stopwatch.png";
+import ttt_THUMBNAIL from "@otherCodingProjects/thumbnail/TTT.png";
+import tdl_THUMBNAIL from "@otherCodingProjects/thumbnail/TDL.png";
 
 const codingProjects = [
   {
@@ -26,7 +26,7 @@ const codingProjects = [
     title: "Magic 8 Ball",
     description:
       "A simple Magic 8 Ball game where you ask a question and receive a random answer.",
-    thumbnail: eightballTN,
+    thumbnail: eightball_THUMBNAIL,
     src: eightball,
     date: "2023",
     skills: ["JavaScript"],
@@ -35,7 +35,7 @@ const codingProjects = [
     id: "rpsconsole",
     title: "RPS Console Game",
     description: "A Rock Paper Scissors game built with a console interface.",
-    thumbnail: rpsconsoleTN,
+    thumbnail: rpsconsole_THUMBNAIL,
     src: rps,
     date: "2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
@@ -45,7 +45,7 @@ const codingProjects = [
     title: "Rock Paper Scissors",
     description:
       "A Rock Paper Scissors game built with a simple user interface.",
-    thumbnail: rpsgameTN,
+    thumbnail: rpsgame_THUMBNAIL,
     src: rpsgame,
     date: "2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
@@ -55,7 +55,7 @@ const codingProjects = [
     title: "Calculator",
     description:
       "A simple calculator application that performs basic arithmetic operations.",
-    thumbnail: calculatorTN,
+    thumbnail: calculator_THUMBNAIL,
     src: calculator,
     date: "2023",
     skills: ["JavaScript", "Node.js"],
@@ -65,7 +65,7 @@ const codingProjects = [
     title: "Temperature Converter",
     description:
       "An application to convert temperatures between Celsius, Fahrenheit, and Kelvin.",
-    thumbnail: tempconverterTN,
+    thumbnail: tempconverter_THUMBNAIL,
     src: tempconverter,
     date: "2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
@@ -75,7 +75,7 @@ const codingProjects = [
     title: "Coin Flip",
     description:
       "A coin flip game that simulates flipping a coin and shows heads or tails.",
-    thumbnail: coinflipTN,
+    thumbnail: coinflip_THUMBNAIL,
     src: coinflip,
     date: "2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
@@ -84,7 +84,7 @@ const codingProjects = [
     id: "stopwatch",
     title: "Stopwatch",
     description: "A stopwatch app with start/stop/reset functionality.",
-    thumbnail: stopwatchTN,
+    thumbnail: stopwatch_THUMBNAIL,
     src: stopwatch,
     date: "2024",
     skills: ["React", "JavaScript", "Node.js"],
@@ -93,7 +93,7 @@ const codingProjects = [
     id: "ttt",
     title: "Tic Tac Toe",
     description: "A classic two-player Tic Tac Toe game.",
-    thumbnail: tttTN,
+    thumbnail: ttt_THUMBNAIL,
     src: ttt,
     date: "2024",
     skills: ["React", "JavaScript", "Node.js"],
@@ -102,7 +102,7 @@ const codingProjects = [
     id: "tdl",
     title: "To-Do List",
     description: "A simple task-tracking to-do list app.",
-    thumbnail: tdlTN,
+    thumbnail: tdl_THUMBNAIL,
     src: tdl,
     date: "2024",
     skills: ["React", "JavaScript", "Node.js"],

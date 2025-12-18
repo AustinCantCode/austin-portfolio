@@ -1,16 +1,16 @@
 // LOGOS
-import aws from "../../public/Achievements/Logos/aws.png";
-import github from "../../public/Achievements/Logos/github.png";
-import batey from "../../public/Achievements/Logos/batey.png";
-import linkedin from "../../public/Achievements/Logos/linkedin.png";
-import sp from "../../public/Achievements/Logos/sp.png";
-import moe from "../../public/Achievements/Logos/moe.png";
-import pa from "../../public/Achievements/Logos/pa.png";
-import stem from "../../public/Achievements/Logos/stem.png";
-import cvss from "../../public/Achievements/Logos/cvss.png";
-import scs from "../../public/Achievements/Logos/scs.jpg";
-import sololearn from "../../public/Achievements/Logos/sololearn.png";
-import mozilla from "../../public/Achievements/Logos/mozilla.png";
+import aws from "@achievements/logos/aws.png";
+import github from "@achievements/logos/github.png";
+import batey from "@achievements/logos/batey.png";
+import linkedin from "@achievements/logos/linkedin.png";
+import sp from "@achievements/logos/sp.png";
+import moe from "@achievements/logos/moe.png";
+import pa from "@achievements/logos/pa.png";
+import stem from "@achievements/logos/stem.png";
+import cvss from "@achievements/logos/cvss.png";
+import scs from "@achievements/logos/scs.jpg";
+import sololearn from "@achievements/logos/sololearn.png";
+import mozilla from "@achievements/logos/mozilla.png";
 
 const achievementLogos = [
   {

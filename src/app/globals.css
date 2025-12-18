@@ -195,14 +195,14 @@ a {
 }
 
 .bg-stars {
-  background-image: url("../../public/Stars/stars.png");
+  background-image: url("../../public/star-background/stars.png");
   background-repeat: repeat;
   background-position: top center;
   background-size: auto;
 }
 
 .bg-twinkling {
-  background-image: url("../../public/Stars/twinkling.png");
+  background-image: url("../../public/star-background/twinkling.png");
   background-repeat: repeat;
   background-position: top center;
   background-size: auto;

@@ -33,7 +33,7 @@ const contactDetails = [
     title: "Curriculum Vitae (CV)",
     content: "View my CV",
     icon: "mdi:resume",
-    link: "#",
+    link: "/AustinResume.pdf",
   },
 ];
 

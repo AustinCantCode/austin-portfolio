@@ -4,7 +4,7 @@ import Title from "@components/ui/title";
 import type { StaticImageData } from "next/image";
 
 // LOGO
-import Logo from "../../../../public/AS-Circle-Logo.png";
+import Logo from "@public/AS-Circle-Logo.png";
 
 // TYPES
 type Certificates = {

@@ -24,7 +24,7 @@ export default function Header() {
       <Button
         size="sm"
         variant="austin"
-        onClick={() => window.open("/resume/AustinResume2.pdf", "_blank")}
+        onClick={() => window.open("/AustinResume.pdf", "_blank")}
         className="w-full sm:w-auto"
       >
         <Icon icon="uis:download-alt" />

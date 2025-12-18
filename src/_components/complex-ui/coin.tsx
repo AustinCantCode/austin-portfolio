@@ -44,8 +44,8 @@ export default function Coin(props: {
     const coinGeometry = new THREE.CylinderGeometry(1, 1, 0.12, 64);
 
     const textureLoader = new THREE.TextureLoader();
-    const headsTexture = textureLoader.load("/Coin/profile pic.png");
-    const tailsTexture = textureLoader.load("/Coin/AS-Coin.png");
+    const headsTexture = textureLoader.load("/coin-images/profile pic.png");
+    const tailsTexture = textureLoader.load("/coin-images/AS-Coin.png");
 
     headsTexture.colorSpace = THREE.SRGBColorSpace;
     tailsTexture.colorSpace = THREE.SRGBColorSpace;

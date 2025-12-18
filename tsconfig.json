@@ -17,7 +17,22 @@
 
     "paths": {
       "@components/*": ["./src/_components/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@lib/*": ["./src/_lib/*"],
+      "@public/*": ["./public/*"],
+      // PATHS FOR ACHEIVEMENTS
+      "@achievements/*": ["./public/achievements/*"],
+      // PATHS FOR CODING PROJECTS
+      "@featuredCodingProjects/*": ["./public/coding-projects/featured/*"],
+      "@otherCodingProjects/*": ["./public/coding-projects/others/*"],
+      "@skillLogos/*": ["./public/coding-projects/skill-logos/*"],
+      // PATHS FOR DESIGN PROJECTS
+      "@uiuxDesignProjects/*": ["./public/design-projects/UIUX/*"],
+      "@productDesignProjects/*": ["./public/design-projects/product-design/*"],
+      "@graphicDesignProjects/*": ["./public/design-projects/graphic-design/*"],
+      // PATHS FOR PARTICIPATION
+      "@participation2024/*": ["./public/participation/2024/*"],
+      "@participation2025/*": ["./public/participation/2025/*"]
     }
   },
   "include": [

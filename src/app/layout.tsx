@@ -70,7 +70,6 @@ export default function RootLayout({
         <div className="fixed inset-0 bg-twinkling -z-10" aria-hidden="true" />
         {children}
         <Footer />
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
