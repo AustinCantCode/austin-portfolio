@@ -20,11 +20,11 @@ export default function Certificate(props: CardProps) {
         priority={true}
       />
       <div className="card-body">
-        <h5 className="font-semibold">{props.title}</h5>
+        <p className="font-medium text-base md:text-lg">{props.title}</p>
 
-        <p className="text-xs md:text-sm">{props.sender}</p>
+        <p className="text-[10px] md:text-sm">{props.sender}</p>
 
-        <p className="text-sm md:text-base">{props.description}</p>
+        <p className="text-xs md:text-base">{props.description}</p>
       </div>
     </div>
   );
