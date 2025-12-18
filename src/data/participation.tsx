@@ -1,67 +1,67 @@
 // ROBOCUP
-import RobocupLogo from "@participation2025/robocup/logo.jpg";
+import RobocupLogo from "../../public/participation/2025/robocup/logo.jpg";
 
-import Robocup1 from "@participation2025/robocup/image 1.jpg";
-import Robocup2 from "@participation2025/robocup/image 2.jpg";
-import Robocup3 from "@participation2025/robocup/image 3.jpg";
-import Robocup4 from "@participation2025/robocup/image 4.jpg";
-import Robocup5 from "@participation2025/robocup/image 5.jpg";
-import Robocup6 from "@participation2025/robocup/image 6.jpg";
-import Robocup7 from "@participation2025/robocup/image 7.jpg";
+import Robocup1 from "../../public/participation/2025/robocup/image 1.jpg";
+import Robocup2 from "../../public/participation/2025/robocup/image 2.jpg";
+import Robocup3 from "../../public/participation/2025/robocup/image 3.jpg";
+import Robocup4 from "../../public/participation/2025/robocup/image 4.jpg";
+import Robocup5 from "../../public/participation/2025/robocup/image 5.jpg";
+import Robocup6 from "../../public/participation/2025/robocup/image 6.jpg";
+import Robocup7 from "../../public/participation/2025/robocup/image 7.jpg";
 
 // JCYEL VOLUNTEER
-import JCYELLogo from "@participation2024/jcyel-volunteer/logo.png";
+import JCYELLogo from "../../public/participation/2024/jcyel-volunteer/logo.png";
 
-import JCYEL1 from "@participation2024/jcyel-volunteer/image 1.jpg";
-import JCYEL2 from "@participation2024/jcyel-volunteer/image 2.jpg";
+import JCYEL1 from "../../public/participation/2024/jcyel-volunteer/image 1.jpg";
+import JCYEL2 from "../../public/participation/2024/jcyel-volunteer/image 2.jpg";
 
 // BATEY HACKATHON
-import BateyLogo from "@participation2024/batey-hackathon/batey.png";
+import BateyLogo from "../../public/participation/2024/batey-hackathon/batey.png";
 
-import BateyHackathon1 from "@participation2024/batey-hackathon/image 1.png";
-import BateyHackathon2 from "@participation2024/batey-hackathon/image 2.png";
-import BateyHackathon3 from "@participation2024/batey-hackathon/image 3.png";
-import BateyHackathon4 from "@participation2024/batey-hackathon/image 4.png";
-import BateyHackathon5 from "@participation2024/batey-hackathon/image 5.png";
-import BateyHackathon6 from "@participation2024/batey-hackathon/image 6.png";
-import BateyHackathon7 from "@participation2024/batey-hackathon/image 7.png";
+import BateyHackathon1 from "../../public/participation/2024/batey-hackathon/image 1.png";
+import BateyHackathon2 from "../../public/participation/2024/batey-hackathon/image 2.png";
+import BateyHackathon3 from "../../public/participation/2024/batey-hackathon/image 3.png";
+import BateyHackathon4 from "../../public/participation/2024/batey-hackathon/image 4.png";
+import BateyHackathon5 from "../../public/participation/2024/batey-hackathon/image 5.png";
+import BateyHackathon6 from "../../public/participation/2024/batey-hackathon/image 6.png";
+import BateyHackathon7 from "../../public/participation/2024/batey-hackathon/image 7.png";
 
 // SP CARES VOLUNTEER
-import SGCaresLogo from "@participation2024/sg-cares-volunteer/logo.png";
+import SGCaresLogo from "../../public/participation/2024/sg-cares-volunteer/logo.png";
 
-import SGCaresVolunteer1 from "@participation2024/sg-cares-volunteer/image 1.png";
-import SGCaresVolunteer2 from "@participation2024/sg-cares-volunteer/image 2.jpg";
-import SGCaresVolunteer3 from "@participation2024/sg-cares-volunteer/image 3.jpg";
-import SGCaresVolunteer4 from "@participation2024/sg-cares-volunteer/image 4.jpg";
-import SGCaresVolunteer5 from "@participation2024/sg-cares-volunteer/image 5.jpg";
-
-// SP TECH WEEK
-import SGTechLogo from "@participation2024/sg-tech-week/logo.png";
-
-import SGTechWeek1 from "@participation2024/sg-tech-week/image 1.jpg";
-import SGTechWeek2 from "@participation2024/sg-tech-week/image 2.png";
-import SGTechWeek3 from "@participation2024/sg-tech-week/image 3.png";
-import SGTechWeek4 from "@participation2024/sg-tech-week/image 4.jpg";
-import SGTechWeek5 from "@participation2024/sg-tech-week/image 5.png";
-import SGTechWeek6 from "@participation2024/sg-tech-week/image 6.png";
+import SGCaresVolunteer1 from "../../public/participation/2024/sg-cares-volunteer/image 1.png";
+import SGCaresVolunteer2 from "../../public/participation/2024/sg-cares-volunteer/image 2.jpg";
+import SGCaresVolunteer3 from "../../public/participation/2024/sg-cares-volunteer/image 3.jpg";
+import SGCaresVolunteer4 from "../../public/participation/2024/sg-cares-volunteer/image 4.jpg";
+import SGCaresVolunteer5 from "../../public/participation/2024/sg-cares-volunteer/image 5.jpg";
 
 // SP TECH WEEK
-import SPSOCLogo from "@participation2024/shenzhen/SP_SOC_LOGO.jpg";
+import SGTechLogo from "../../public/participation/2024/sg-tech-week/logo.png";
 
-import Shenzhen1 from "@participation2024/shenzhen/image 1.png";
-import Shenzhen2 from "@participation2024/shenzhen/image 2.jpg";
-import Shenzhen3 from "@participation2024/shenzhen/image 3.jpg";
-import Shenzhen4 from "@participation2024/shenzhen/image 4.jpg";
-import Shenzhen5 from "@participation2024/shenzhen/image 5.png";
-import Shenzhen6 from "@participation2024/shenzhen/image 6.png";
-import Shenzhen7 from "@participation2024/shenzhen/image 7.png";
-import Shenzhen8 from "@participation2024/shenzhen/image 8.jpg";
-import Shenzhen9 from "@participation2024/shenzhen/image 9.png";
-import Shenzhen10 from "@participation2024/shenzhen/image 10.png";
-import Shenzhen11 from "@participation2024/shenzhen/image 11.jpg";
-import Shenzhen12 from "@participation2024/shenzhen/image 12.jpeg";
-import Shenzhen13 from "@participation2024/shenzhen/image 13.png";
-import Shenzhen14 from "@participation2024/shenzhen/image 14.jpg";
+import SGTechWeek1 from "../../public/participation/2024/sg-tech-week/image 1.jpg";
+import SGTechWeek2 from "../../public/participation/2024/sg-tech-week/image 2.png";
+import SGTechWeek3 from "../../public/participation/2024/sg-tech-week/image 3.png";
+import SGTechWeek4 from "../../public/participation/2024/sg-tech-week/image 4.jpg";
+import SGTechWeek5 from "../../public/participation/2024/sg-tech-week/image 5.png";
+import SGTechWeek6 from "../../public/participation/2024/sg-tech-week/image 6.png";
+
+// SP TECH WEEK
+import SPSOCLogo from "../../public/participation/2024/shenzhen/SP_SOC_LOGO.jpg";
+
+import Shenzhen1 from "../../public/participation/2024/shenzhen/image 1.png";
+import Shenzhen2 from "../../public/participation/2024/shenzhen/image 2.jpg";
+import Shenzhen3 from "../../public/participation/2024/shenzhen/image 3.jpg";
+import Shenzhen4 from "../../public/participation/2024/shenzhen/image 4.jpg";
+import Shenzhen5 from "../../public/participation/2024/shenzhen/image 5.png";
+import Shenzhen6 from "../../public/participation/2024/shenzhen/image 6.png";
+import Shenzhen7 from "../../public/participation/2024/shenzhen/image 7.png";
+import Shenzhen8 from "../../public/participation/2024/shenzhen/image 8.jpg";
+import Shenzhen9 from "../../public/participation/2024/shenzhen/image 9.png";
+import Shenzhen10 from "../../public/participation/2024/shenzhen/image 10.png";
+import Shenzhen11 from "../../public/participation/2024/shenzhen/image 11.jpg";
+import Shenzhen12 from "../../public/participation/2024/shenzhen/image 12.jpeg";
+import Shenzhen13 from "../../public/participation/2024/shenzhen/image 13.png";
+import Shenzhen14 from "../../public/participation/2024/shenzhen/image 14.jpg";
 
 const events = [
   {

@@ -1,11 +1,11 @@
 // LOGOS
-import html from "@skillLogos/html.png";
-import css from "@skillLogos/css.png";
-import next from "@skillLogos/next.png";
-import tw from "@skillLogos/tw.svg";
-import ts from "@skillLogos/ts.png";
-import js from "@skillLogos/js.png";
-import react from "@skillLogos/react.png";
+import html from "../../public/coding-projects/skill-logos/html.png";
+import css from "../../public/coding-projects/skill-logos/css.png";
+import next from "../../public/coding-projects/skill-logos/next.png";
+import tw from "../../public/coding-projects/skill-logos/tw.svg";
+import ts from "../../public/coding-projects/skill-logos/ts.png";
+import js from "../../public/coding-projects/skill-logos/js.png";
+import react from "../../public/coding-projects/skill-logos/react.png";
 
 // DATA
 import { bgColors as colors } from "./colors";

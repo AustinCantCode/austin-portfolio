@@ -10,15 +10,15 @@ import ttt from "../../videos/TTT.mp4.json";
 import tdl from "../../videos/TDL Demo.mp4.json";
 
 // THUMBNAILS
-import eightball_THUMBNAIL from "@otherCodingProjects/thumbnail/8 Ball.png";
-import rpsgame_THUMBNAIL from "@otherCodingProjects/thumbnail/RPS game.png";
-import calculator_THUMBNAIL from "@otherCodingProjects/thumbnail/Calc.png";
-import coinflip_THUMBNAIL from "@otherCodingProjects/thumbnail/Coin Flip.png";
-import tempconverter_THUMBNAIL from "@otherCodingProjects/thumbnail/Temp Calc.png";
-import rpsconsole_THUMBNAIL from "@otherCodingProjects/thumbnail/RPS console.png";
-import stopwatch_THUMBNAIL from "@otherCodingProjects/thumbnail/Stopwatch.png";
-import ttt_THUMBNAIL from "@otherCodingProjects/thumbnail/TTT.png";
-import tdl_THUMBNAIL from "@otherCodingProjects/thumbnail/TDL.png";
+import eightball_THUMBNAIL from "../../public/coding-projects/others/thumbnail/8 Ball.png";
+import rpsgame_THUMBNAIL from "../../public/coding-projects/others/thumbnail/RPS game.png";
+import calculator_THUMBNAIL from "../../public/coding-projects/others/thumbnail/Calc.png";
+import coinflip_THUMBNAIL from "../../public/coding-projects/others/thumbnail/Coin Flip.png";
+import tempconverter_THUMBNAIL from "../../public/coding-projects/others/thumbnail/Temp Calc.png";
+import rpsconsole_THUMBNAIL from "../../public/coding-projects/others/thumbnail/RPS console.png";
+import stopwatch_THUMBNAIL from "../../public/coding-projects/others/thumbnail/Stopwatch.png";
+import ttt_THUMBNAIL from "../../public/coding-projects/others/thumbnail/TTT.png";
+import tdl_THUMBNAIL from "../../public/coding-projects/others/thumbnail/TDL.png";
 
 const codingProjects = [
   {

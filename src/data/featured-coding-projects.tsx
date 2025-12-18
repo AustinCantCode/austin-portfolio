@@ -1,47 +1,47 @@
 // FEATURED PROJECTS IMAGES
-import GOWHERE from "@featuredCodingProjects/gowhere/gowhere.jpeg";
+import GOWHERE from "../../public/coding-projects/featured/gowhere/gowhere.jpeg";
 
-import TELEGPT_THUMBNAIL from "@featuredCodingProjects/telegpt/Telegpt.png";
+import TELEGPT_THUMBNAIL from "../../public/coding-projects/featured/telegpt/Telegpt.png";
 
-import SHOPLY from "@featuredCodingProjects/thumbnail/shoply.png";
-import SHOPLY1 from "@featuredCodingProjects/shoply/image 1.png";
-import SHOPLY2 from "@featuredCodingProjects/shoply/image 2.png";
-import SHOPLY3 from "@featuredCodingProjects/shoply/image 3.png";
-import SHOPLY4 from "@featuredCodingProjects/shoply/image 4.png";
-import SHOPLY5 from "@featuredCodingProjects/shoply/image 5.png";
-import SHOPLY6 from "@featuredCodingProjects/shoply/image 6.png";
+import SHOPLY from "../../public/coding-projects/featured/thumbnail/shoply.png";
+import SHOPLY1 from "../../public/coding-projects/featured/shoply/image 1.png";
+import SHOPLY2 from "../../public/coding-projects/featured/shoply/image 2.png";
+import SHOPLY3 from "../../public/coding-projects/featured/shoply/image 3.png";
+import SHOPLY4 from "../../public/coding-projects/featured/shoply/image 4.png";
+import SHOPLY5 from "../../public/coding-projects/featured/shoply/image 5.png";
+import SHOPLY6 from "../../public/coding-projects/featured/shoply/image 6.png";
 
-import GRX_THUMBNAIL from "@featuredCodingProjects/thumbnail/grx.png";
-import GRX1 from "@featuredCodingProjects/GRX/GRX.png";
+import GRX_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/grx.png";
+import GRX1 from "../../public/coding-projects/featured/GRX/GRX.png";
 
-import KSP_THUMBNAIL from "@featuredCodingProjects/thumbnail/ksp.png";
-import KSP1 from "@featuredCodingProjects/ksp/KSP1.png";
-import KSP2 from "@featuredCodingProjects/ksp/KSP2.png";
+import KSP_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ksp.png";
+import KSP1 from "../../public/coding-projects/featured/ksp/KSP1.png";
+import KSP2 from "../../public/coding-projects/featured/ksp/KSP2.png";
 
-import INLAB_THUMBNAIL from "@featuredCodingProjects/thumbnail/inlab.png";
-import INLAB1 from "@featuredCodingProjects/IAL/IAL1.png";
+import INLAB_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/inlab.png";
+import INLAB1 from "../../public/coding-projects/featured/IAL/IAL1.png";
 
-import ITE_THUMBNAIL from "@featuredCodingProjects/thumbnail/ite.png";
-import ITE1 from "@featuredCodingProjects/ITE/ITE1.png";
+import ITE_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ite.png";
+import ITE1 from "../../public/coding-projects/featured/ITE/ITE1.png";
 
-import JINT_THUMBNAIL from "@featuredCodingProjects/thumbnail/jint.png";
-import JINT1 from "@featuredCodingProjects/juzinterior/JINT1.png";
-import JINT2 from "@featuredCodingProjects/juzinterior/JINT2.png";
-import JINT3 from "@featuredCodingProjects/juzinterior/JINT3.png";
-import JINT4 from "@featuredCodingProjects/juzinterior/JINT4.png";
+import JINT_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/jint.png";
+import JINT1 from "../../public/coding-projects/featured/juzinterior/JINT1.png";
+import JINT2 from "../../public/coding-projects/featured/juzinterior/JINT2.png";
+import JINT3 from "../../public/coding-projects/featured/juzinterior/JINT3.png";
+import JINT4 from "../../public/coding-projects/featured/juzinterior/JINT4.png";
 
-import AC_THUMBNAIL from "@featuredCodingProjects/thumbnail/ac.png";
-import AC1 from "@featuredCodingProjects/ac/AC1.png";
-import AC2 from "@featuredCodingProjects/ac/AC2.png";
-import AC3 from "@featuredCodingProjects/ac/AC3.png";
-import AC4 from "@featuredCodingProjects/ac/AC4.png";
-import AC5 from "@featuredCodingProjects/ac/AC5.png";
+import AC_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ac.png";
+import AC1 from "../../public/coding-projects/featured/ac/AC1.png";
+import AC2 from "../../public/coding-projects/featured/ac/AC2.png";
+import AC3 from "../../public/coding-projects/featured/ac/AC3.png";
+import AC4 from "../../public/coding-projects/featured/ac/AC4.png";
+import AC5 from "../../public/coding-projects/featured/ac/AC5.png";
 
-import AS_THUMBNAIL from "@featuredCodingProjects/thumbnail/as-square.png";
-import AS1 from "@featuredCodingProjects/portfolio/AS1.png";
-import AS2 from "@featuredCodingProjects/portfolio/AS2.png";
+import AS_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/as-square.png";
+import AS1 from "../../public/coding-projects/featured/portfolio/AS1.png";
+import AS2 from "../../public/coding-projects/featured/portfolio/AS2.png";
 
-import IAL_THUMBNAIL from "@featuredCodingProjects/thumbnail/ial.png";
+import IAL_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ial.png";
 
 const featuredProjects = [
   {
