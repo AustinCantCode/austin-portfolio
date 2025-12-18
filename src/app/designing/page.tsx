@@ -55,9 +55,9 @@ const categoryComponents = {
 
 export default function DesignProjects() {
   return (
-    <main className="fade-in">
+    <main className="fade-in px-4">
       <Tabs defaultValue="UI/UX">
-        <TabsList className="mx-auto lg:w-full max-w-5xl gap-x-2 lg:gap-x-8 bg-white/0 text-white dark overflow-x-clip">
+        <TabsList className="mx-auto w-full max-w-5xl gap-x-2 lg:gap-x-8 bg-white/0 text-white dark overflow-x-clip">
           {designCategories.map((category, index) => {
             return (
               <TabsTrigger value={category} className="px-8 py-4" key={index}>

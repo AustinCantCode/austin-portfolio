@@ -27,7 +27,7 @@ export default function GDProjects() {
   }
 
   const [pinColors, setPinColors] = useState(() =>
-    GD.map(() => getRandomColor()),
+    GD.map(() => getRandomColor())
   );
 
   const changePinColor = () => {
@@ -39,10 +39,12 @@ export default function GDProjects() {
       <div className="flex justify-baseline gap-x-8 items-center bg-white p-4 w-full mx-auto text-black md:col-span-3 rounded-t-md">
         <Icon width={80} height={80} icon={"devicon:photoshop"} />
         <div className="grid gap-y-2">
-          <p className="font-semibold text-2xl md:text-4xl m-0 p-0">
+          <p className="font-semibold text-xl md:text-4xl m-0 p-0">
             Made with Adobe Photoshop
           </p>
-          <p className="m-0 p-0">Click on the artworks to make them bigger!</p>
+          <p className="text-sm md:text-base m-0 p-0">
+            Click on the artworks to make them bigger!
+          </p>
         </div>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 px-4 pb-8 bg-white rounded-b-md">

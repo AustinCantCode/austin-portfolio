@@ -49,22 +49,31 @@ export default function UIUXProjects() {
         );
 
         return (
-          <div
-            key={index}
-            className="rounded-md overflow-hidden transition-all grid sm:grid-cols-1 lg:grid-cols-2 bg-white text-black"
-          >
-            {index % 2 === 0 ? (
-              <>
-                {ProjectImage}
-                {ProjectContent}
-              </>
-            ) : (
-              <>
-                {ProjectContent}
-                {ProjectImage}
-              </>
-            )}
-          </div>
+          <>
+            <div
+              key={index}
+              className="grid lg:hidden rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black"
+            >
+              {ProjectImage}
+              {ProjectContent}
+            </div>
+            <div
+              key={index}
+              className="hidden lg:grid rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black"
+            >
+              {index % 2 === 0 ? (
+                <>
+                  {ProjectImage}
+                  {ProjectContent}
+                </>
+              ) : (
+                <>
+                  {ProjectContent}
+                  {ProjectImage}
+                </>
+              )}
+            </div>
+          </>
         );
       })}
     </div>

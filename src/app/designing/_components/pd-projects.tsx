@@ -36,7 +36,7 @@ export default function PDProjects() {
                 </div>
               ))}
             </div>
-            <p className="">{project.description}</p>
+            <p className="text-sm md:text-base">{project.description}</p>
           </div>
         ))}
       </div>
