@@ -12,17 +12,17 @@ import SHOPLY5 from "../../public/coding-projects/featured/shoply/image 5.png";
 import SHOPLY6 from "../../public/coding-projects/featured/shoply/image 6.png";
 
 import GRX_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/grx.png";
-import GRX1 from "../../public/coding-projects/featured/GRX/GRX.png";
+import GRX1 from "../../public/coding-projects/featured/grx/GRX.png";
 
 import KSP_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ksp.png";
 import KSP1 from "../../public/coding-projects/featured/ksp/KSP1.png";
 import KSP2 from "../../public/coding-projects/featured/ksp/KSP2.png";
 
 import INLAB_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/inlab.png";
-import INLAB1 from "../../public/coding-projects/featured/IAL/IAL1.png";
+import INLAB1 from "../../public/coding-projects/featured/ial/IAL1.png";
 
 import ITE_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/ite.png";
-import ITE1 from "../../public/coding-projects/featured/ITE/ITE1.png";
+import ITE1 from "../../public/coding-projects/featured/ite/ITE1.png";
 
 import JINT_THUMBNAIL from "../../public/coding-projects/featured/thumbnail/jint.png";
 import JINT1 from "../../public/coding-projects/featured/juzinterior/JINT1.png";
