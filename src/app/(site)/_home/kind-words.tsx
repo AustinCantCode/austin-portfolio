@@ -105,7 +105,7 @@ export function KindWords({
                   <figure
                     key={t.id}
                     data-reveal=""
-                    className="m-0 flex flex-col gap-4 border-t border-rule pt-[clamp(24px,3vw,32px)]"
+                    className="m-0 flex flex-col gap-4 border-t border-pill pt-[clamp(24px,3vw,32px)]"
                   >
                     <blockquote className="m-0">
                       <p

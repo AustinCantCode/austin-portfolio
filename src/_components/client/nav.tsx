@@ -4,7 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { cn } from "@lib/utils";
 import {
   categories,
@@ -59,13 +66,16 @@ const activeSection = (path: string): Section => {
     return p ? (categoryBySlug(p.categories[0])?.area ?? null) : null;
   }
   if (/^\/stillgood(\/|$)/.test(path)) return "ventures";
-  if (/^\/(about|cv)(\/|$)/.test(path)) return "about";
+  if (/^\/(about|cv|writing)(\/|$)/.test(path)) return "about";
   if (/^\/contact(\/|$)/.test(path)) return "contact";
   return null;
 };
 
 const canHover = () =>
   typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
+/** Published posts, passed in from the server so post text isn't bundled. */
+const WritingCount = createContext(0);
 
 const aboutCounts: Record<string, number> = {
   "/about/skills": allSkills.length,
@@ -86,7 +96,15 @@ const itemClass = (active: boolean) =>
       : "bg-transparent text-fg-2 hover:bg-bg-alt hover:text-fg",
   );
 
-export function Nav() {
+export function Nav({ writingCount = 0 }: { writingCount?: number }) {
+  return (
+    <WritingCount.Provider value={writingCount}>
+      <NavInner />
+    </WritingCount.Provider>
+  );
+}
+
+function NavInner() {
   const pathname = usePathname();
   const active = activeSection(pathname);
   const [open, setOpen] = useState<Menu | null>(null);
@@ -426,6 +444,18 @@ function VenturesMenu() {
 }
 
 function AboutMenu({ pathname }: { pathname: string }) {
+  const writing = useContext(WritingCount);
+  const items = writing
+    ? [
+        ...about.more,
+        {
+          href: "/writing",
+          icon: "pen-tool",
+          title: "Writing",
+          text: "Notes on what I build and learn.",
+        },
+      ]
+    : about.more;
   const now = about.timeline.find((t) => t.now);
   const latest = about.timeline[0];
   return (
@@ -448,9 +478,9 @@ function AboutMenu({ pathname }: { pathname: string }) {
       </MenuLead>
       <div className="flex min-w-0 flex-[1_1_640px] flex-col gap-6">
         <ul className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-x-[clamp(24px,3vw,48px)] gap-y-1 p-0 min-[900px]:grid-cols-2">
-          {about.more.map((m) => {
+          {items.map((m) => {
             const current = pathname === m.href;
-            const count = aboutCounts[m.href];
+            const count = m.href === "/writing" ? writing : aboutCounts[m.href];
             return (
               <li key={m.href}>
                 <Link

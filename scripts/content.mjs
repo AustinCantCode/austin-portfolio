@@ -33,9 +33,12 @@ const CACHE = path.join(ROOT, "node_modules/.cache/content-images.json");
 const IMAGE = /^\/images\/.+\.(png|jpe?g|webp|gif|avif)$/i;
 // Collections the site imports even while they have no entries yet (git
 // doesn't keep empty folders).
-const ALWAYS = ["testimonials"];
+const ALWAYS = ["testimonials", "writing"];
+// Image paths inside Markdoc bodies, e.g. ![alt](/images/writing/x/y.png).
+const MDOC_IMAGE = /\((\/images\/[^)\s]+\.(?:png|jpe?g|webp|gif|avif))/gi;
 
 let cache = {};
+const bodyImages = new Set();
 try {
   cache = JSON.parse(readFileSync(CACHE, "utf8"));
 } catch {}
@@ -86,18 +89,30 @@ const readJson = (file) => JSON.parse(readFileSync(file, "utf8"));
 async function generate() {
   warnings.length = 0;
   mkdirSync(OUT, { recursive: true });
-  for (const name of ALWAYS) mkdirSync(path.join(CONTENT, name), { recursive: true });
+  for (const name of ALWAYS)
+    mkdirSync(path.join(CONTENT, name), { recursive: true });
   const written = [];
+  bodyImages.clear();
   for (const name of readdirSync(CONTENT).sort()) {
     const full = path.join(CONTENT, name);
     let data;
     if (statSync(full).isDirectory()) {
-      const entries = readdirSync(full)
-        .filter((f) => f.endsWith(".json"))
-        .map((f) => ({
-          slug: f.slice(0, -5),
-          ...readJson(path.join(full, f)),
-        }));
+      const entries = readdirSync(full).flatMap((f) => {
+        const entry = path.join(full, f);
+        if (f.endsWith(".json"))
+          return [{ slug: f.slice(0, -5), ...readJson(entry) }];
+        // Folder entries (writing/<slug>/): index.json, plus one .mdoc
+        // file per rich-text field, read in as that field's text.
+        const index = path.join(entry, "index.json");
+        if (!statSync(entry).isDirectory() || !existsSync(index)) return [];
+        const data = { slug: f, ...readJson(index) };
+        for (const m of readdirSync(entry).filter((x) => x.endsWith(".mdoc"))) {
+          const text = readFileSync(path.join(entry, m), "utf8");
+          data[m.slice(0, -5)] = text;
+          for (const [, url] of text.matchAll(MDOC_IMAGE)) bodyImages.add(url);
+        }
+        return [data];
+      });
       entries.sort(
         (a, b) =>
           (a.order ?? 100) - (b.order ?? 100) || a.slug.localeCompare(b.slug),
@@ -114,6 +129,21 @@ async function generate() {
       writeFileSync(out, json);
       written.push(key);
     }
+  }
+  // Sizes for images used inside rich-text bodies, looked up by URL.
+  const manifest = {};
+  for (const url of [...bodyImages].sort()) {
+    const img = await resolveImage(url);
+    if (img) manifest[url] = img;
+  }
+  const manifestJson = JSON.stringify(manifest, null, 1) + "\n";
+  const manifestOut = path.join(OUT, "body-images.json");
+  if (
+    !existsSync(manifestOut) ||
+    readFileSync(manifestOut, "utf8") !== manifestJson
+  ) {
+    writeFileSync(manifestOut, manifestJson);
+    written.push("body-images");
   }
   mkdirSync(path.dirname(CACHE), { recursive: true });
   writeFileSync(CACHE, JSON.stringify(cache));

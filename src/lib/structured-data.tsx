@@ -107,6 +107,26 @@ export const projectLd = (p: Project) => ({
     : {}),
 });
 
+/** A post in /writing. */
+export const postLd = (p: {
+  slug: string;
+  title: string;
+  summary: string;
+  date: string;
+  tags: string[];
+}) => ({
+  "@type": "BlogPosting",
+  "@id": `${url(`/writing/${p.slug}`)}#post`,
+  headline: p.title,
+  description: p.summary,
+  url: url(`/writing/${p.slug}`),
+  datePublished: p.date,
+  keywords: p.tags.join(", "),
+  author: { "@id": PERSON_ID },
+  isPartOf: { "@id": WEBSITE_ID },
+  inLanguage: "en-SG",
+});
+
 /** StillGood, marked up as the mobile app it is. No ratings are claimed. */
 export const stillgoodAppLd = () => ({
   "@type": "MobileApplication",

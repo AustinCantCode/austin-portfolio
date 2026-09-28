@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { categories, categoryHref, navSections } from "@data/categories";
 import { site } from "@data/site";
+import { posts } from "@data/writing";
 import { SmartLink } from "./ui";
 
 // py keeps each link a 24px+ tap target.
@@ -80,6 +81,11 @@ export function Footer() {
             <Link href="/cv" className={linkClass}>
               CV
             </Link>
+            {posts.length > 0 && (
+              <Link href="/writing" className={linkClass}>
+                Writing
+              </Link>
+            )}
           </Column>
           <Column title="Connect">
             <Link href="/contact" className={linkClass}>

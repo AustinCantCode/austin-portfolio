@@ -71,6 +71,14 @@ with an "On this page" list instead of Problem / What I did / Outcome. Add
 is never shown on the site: the six drafted case studies (StillGood,
 Calibrium, ITE, KiasuParents, Glovida-RX, Frésko) list there what to check.
 
+**Write a post.** Writing → **Add**. New posts start as **Draft**: they show
+on your computer (`pnpm dev`, with a "Draft" badge) but never on the live
+site. Untick Draft to publish; Writing then appears in the About menu, the
+footer, the sitemap and the RSS feed (`/writing/rss.xml`). Use "Heading 2"
+for sections (three or more add an "On this page" list), and drop images
+straight into the text. Three drafts are waiting for you to edit; their
+notes say what to add.
+
 **Change the homepage.** Site → Homepage has every section: the timeline,
 What I do (including its four project thumbnails and photo), Selected work,
 the numbers and the contact tiles.

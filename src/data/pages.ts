@@ -23,6 +23,7 @@ export const pageCopy = raw as Record<
   | "events"
   | "cv"
   | "contact"
-  | "stillgood",
+  | "stillgood"
+  | "writing",
   PageCopy
 >;

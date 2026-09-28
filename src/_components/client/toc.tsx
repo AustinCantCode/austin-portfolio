@@ -103,7 +103,7 @@ export function Toc({ items }: { items: TocItem[] }) {
     <>
       <nav
         aria-label="On this page"
-        className="sticky top-[88px] hidden max-h-[calc(100vh-120px)] overflow-y-auto border-l border-rule lg:block"
+        className="sticky top-[88px] hidden max-h-[calc(100vh-120px)] overflow-y-auto border-l border-pill lg:block"
       >
         {list(false)}
       </nav>

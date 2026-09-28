@@ -319,3 +319,53 @@
 [data-theme="dark"] .client-logo {
   filter: brightness(0) invert(1);
 }
+
+/* Post text from the CMS (see src/lib/markdoc.tsx). */
+.prose-post {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.2vw, 26px);
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.7;
+  color: var(--text-2);
+}
+.prose-post :where(strong) {
+  color: var(--text);
+  font-weight: 600;
+}
+.prose-post :where(ul, ol) {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.prose-post :where(blockquote) {
+  margin: 0;
+  border-radius: 20px;
+  background: var(--bg-alt);
+  padding: clamp(18px, 2vw, 24px) clamp(20px, 2.4vw, 28px);
+  color: var(--text);
+  font-weight: 500;
+}
+.prose-post :where(blockquote p) {
+  margin: 0;
+}
+.prose-post :where(:not(pre) > code) {
+  border-radius: 6px;
+  background: var(--pill);
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+.prose-post :where(hr) {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+.prose-post :where(a) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-post :where(h2, h3) {
+  color: var(--text);
+}

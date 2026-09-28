@@ -341,6 +341,36 @@ const testimonials = collection({
   },
 });
 
+const writing = collection({
+  label: "Writing",
+  slugField: "title",
+  path: "content/writing/*/",
+  format: { data: "json" },
+  previewUrl: "/writing/{slug}",
+  columns: ["date", "draft"],
+  schema: {
+    title: fields.slug({ name: { label: "Title" } }),
+    date: fields.date({ label: "Date", validation: { isRequired: true } }),
+    summary: para("Summary", "One or two sentences for the list and search results."),
+    tags: list("Tags", "Tag"),
+    draft: fields.checkbox({
+      label: "Draft",
+      description: "Drafts only show when you run the site on your computer.",
+      defaultValue: true,
+    }),
+    body: fields.markdoc({
+      label: "Post",
+      options: {
+        image: {
+          directory: "public/images/writing",
+          publicPath: "/images/writing/",
+        },
+      },
+    }),
+    notes: para("Notes for me (not shown on the site)"),
+  },
+});
+
 // Singletons ---------------------------------------------------------
 
 const site = singleton({
@@ -765,6 +795,15 @@ const pages = singleton({
       { label: "Contact" },
     ),
     stillgood: pageFields("StillGood", false),
+    writing: fields.object(
+      {
+        title: line("Search title", "About 60 characters at most."),
+        description: para("Search description", "About 160 characters at most."),
+        heading: line("Page heading"),
+        intro: para("Line under the heading"),
+      },
+      { label: "Writing" },
+    ),
   },
 });
 
@@ -812,6 +851,7 @@ export default config({
         }),
     },
     navigation: {
+      Writing: ["writing"],
       Site: ["site", "home", "pages", "navigation", "categories"],
       Work: ["projects", "smallApps", "graphics", "ventures", "stillgood"],
       About: ["about", "cv", "skills", "certificates", "events", "testimonials"],
@@ -825,6 +865,7 @@ export default config({
     events,
     certificates,
     testimonials,
+    writing,
   },
   singletons: {
     site,

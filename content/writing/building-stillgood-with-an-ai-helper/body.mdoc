@@ -1,0 +1,19 @@
+StillGood is a food waste app. You snap a photo of your groceries, it reminds you before they go off, and it suggests recipes to use them up. I designed and built all of it on my own: the phone app, the system behind it and the website.
+
+I did that with Claude Code, an AI coding assistant, working next to me. This post is about how that worked in practice.
+
+## Me deciding, the AI typing
+
+The split was simple. I decided how the app should work: the screens, what each one does, how data moves between the app and the server. Claude Code wrote a lot of the code to make that happen, much faster than I could type it.
+
+What made it work was giving it clear, written rules to follow, and treating every change like one from a new teammate. Each change went through a pull request, and I read and tested it before it went in.
+
+## What I built with
+
+The app is React Native with Expo, so it runs on Android from one codebase. Behind it sit a Fastify server and a Supabase database. Google's Gemini AI reads grocery photos and suggests recipes, and PostHog shows me how people actually use the app.
+
+## What I'd tell someone starting out
+
+An AI assistant makes you faster, not finished. The idea, the design, the testing and the launch were still mine, and so was every mistake that I caught before users did.
+
+StillGood went live on the Google Play Store on 26 August 2026.

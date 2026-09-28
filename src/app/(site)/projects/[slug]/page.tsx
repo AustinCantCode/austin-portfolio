@@ -123,7 +123,7 @@ function Results({ items }: { items: { value: string; label: string }[] }) {
       {items.map((r) => (
         <div
           key={r.label}
-          className="flex flex-col-reverse justify-end gap-3.5 border-t border-rule pt-5"
+          className="flex flex-col-reverse justify-end gap-3.5 border-t border-pill pt-5"
         >
           <dt className="text-[15px] leading-[1.45] text-fg-2">{r.label}</dt>
           <dd className="font-display m-0 text-[clamp(44px,5vw,68px)] leading-[1.05] font-semibold tracking-[-0.02em]">
