@@ -34,7 +34,10 @@
   "contact": {
     "title": "Contact Austin Sia: Developer Roles and Freelance",
     "description": "Get in touch with Austin Sia about developer roles and freelance web or app projects in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
-    "heading": "Let's build something."
+    "heading": "Let's build something.",
+    "intro": "Open to developer roles and freelance projects. I usually reply within a day.",
+    "formTitle": "Or send a message.",
+    "formLine": "It comes straight to my inbox."
   },
   "stillgood": {
     "title": "StillGood: A Food Waste App for Android",

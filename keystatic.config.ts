@@ -645,7 +645,20 @@ const pages = singleton({
     certificates: pageFields("Certificates", false),
     events: pageFields("Events", true),
     cv: pageFields("CV", false),
-    contact: pageFields("Contact", true),
+    contact: fields.object(
+      {
+        title: line("Search title", "About 60 characters at most."),
+        description: para(
+          "Search description",
+          "About 160 characters at most.",
+        ),
+        heading: line("Page heading"),
+        intro: para("Line under the heading"),
+        formTitle: line("Message form title"),
+        formLine: line("Line under the form title"),
+      },
+      { label: "Contact" },
+    ),
     stillgood: pageFields("StillGood", false),
   },
 });

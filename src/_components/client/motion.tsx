@@ -21,7 +21,7 @@ export function useReducedMotionPref() {
   return reduce;
 }
 
-const EASE = [0.2, 0.7, 0.2, 1] as const;
+export const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 /**
  * Page-level motion with Framer Motion, driven by data attributes so

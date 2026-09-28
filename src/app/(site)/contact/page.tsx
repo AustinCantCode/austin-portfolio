@@ -78,8 +78,7 @@ export default function ContactPage() {
         <div className="wrap flex flex-col gap-4">
           <h1 className="t-h1">{pageCopy.contact.heading}</h1>
           <p className="max-w-[600px] text-[clamp(19px,1.8vw,22px)] text-fg-2">
-            Open to developer roles and freelance projects. I usually reply
-            within a day.
+            {pageCopy.contact.intro}
           </p>
         </div>
       </section>
@@ -124,10 +123,10 @@ export default function ContactPage() {
               id="message"
               className="text-[clamp(28px,3.4vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]"
             >
-              Or send a message.
+              {pageCopy.contact.formTitle}
             </h2>
             <p className="max-w-[360px] text-[17px] text-fg-2">
-              It opens in your email app, ready to send.
+              {pageCopy.contact.formLine}
             </p>
           </div>
           <ContactForm />

@@ -5,7 +5,14 @@
  */
 import raw from "./generated/pages.json";
 
-type PageCopy = { title: string; description: string; heading?: string };
+type PageCopy = {
+  title: string;
+  description: string;
+  heading?: string;
+  intro?: string;
+  formTitle?: string;
+  formLine?: string;
+};
 
 export const pageCopy = raw as Record<
   | "home"

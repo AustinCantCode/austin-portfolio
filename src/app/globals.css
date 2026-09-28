@@ -22,6 +22,8 @@
   --accent-fill-hover: #9c9646;
   --on-accent: #1a1813;
   --accent-text: #6e6a1f;
+  /* Errors: readable on tiles and wells in each theme (4.5:1+). */
+  --danger: #b3261e;
   --menu: var(--bg);
   /* Icon wells: one step off the surface they sit on. */
   --well: #f3f1ec;
@@ -61,6 +63,7 @@
   --accent-fill: #b8b35e;
   --accent-fill-hover: #c4bf69;
   --accent-text: #cac873;
+  --danger: #f2877e;
   --well: #2b2924;
   --well-alt: #2b2924;
   --rule: #4a463f;
@@ -93,6 +96,7 @@
   --color-accent: var(--accent-fill);
   --color-accent-hover: var(--accent-fill-hover);
   --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
   --color-on-accent: var(--on-accent);
   --color-menu: var(--menu);
   --color-well: var(--well);
