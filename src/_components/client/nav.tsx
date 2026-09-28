@@ -130,7 +130,7 @@ export function Nav() {
             priority
             className="block rounded-full"
           />
-          <span className="text-[15px] font-semibold tracking-[-0.01em] whitespace-nowrap">
+          <span className="font-display text-[17px] font-bold whitespace-nowrap">
             Austin Sia
           </span>
         </Link>

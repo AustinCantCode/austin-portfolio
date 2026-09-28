@@ -76,8 +76,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display:
-    var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
@@ -128,12 +127,11 @@
     overflow-x: clip;
   }
 
-  /* Space Grotesk for headings; Inter stays the body and UI face. */
+  /* Cormorant Garamond for headings; Inter stays the body and UI face. */
   h1,
   h2,
   h3 {
-    font-family:
-      var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
   }
 
   ::selection {
@@ -267,6 +265,16 @@
   .lift:hover {
     transform: scale(var(--hover-scale, 1.015));
   }
+}
+
+/* ------------------------------------------------------------------
+   Serif display. Unlayered so it wins over the tight tracking utilities
+   written for the old grotesk; font-size-adjust lifts Cormorant's small
+   x-height to read at the same size as the sans.
+   ------------------------------------------------------------------ */
+:where(h1, h2, h3, .font-display) {
+  letter-spacing: -0.005em;
+  font-size-adjust: 0.46;
 }
 
 /* ------------------------------------------------------------------

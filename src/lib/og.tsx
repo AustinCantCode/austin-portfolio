@@ -45,7 +45,7 @@ export async function ogCard({
     await Promise.all([
       googleFont("Inter", 400),
       googleFont("Inter", 600),
-      googleFont("Space Grotesk", 700),
+      googleFont("Cormorant Garamond", 700),
     ])
   ).filter((f): f is NonNullable<typeof f> => f !== null);
   return new ImageResponse(
@@ -82,7 +82,7 @@ export async function ogCard({
             style={{
               fontSize: 76,
               fontWeight: 700,
-              fontFamily: "Space Grotesk",
+              fontFamily: "Cormorant Garamond",
               letterSpacing: -2,
               lineHeight: 1.05,
             }}

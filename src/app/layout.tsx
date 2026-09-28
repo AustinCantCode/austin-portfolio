@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Providers } from "@components/client/providers";
 import { Nav } from "@components/client/nav";
@@ -16,9 +16,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Serif display face, echoing the classical caps in the AS logo.
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-cormorant",
   weight: ["500", "600", "700"],
   display: "swap",
 });
@@ -57,7 +58,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${cormorant.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased">
