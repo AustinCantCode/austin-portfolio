@@ -17,6 +17,7 @@ export function ImageSlot({
   position,
   className,
   tone = "default",
+  compact,
 }: {
   media?: Media;
   placeholder: string;
@@ -26,6 +27,8 @@ export function ImageSlot({
   position?: string;
   className?: string;
   tone?: "default" | "light" | "dark";
+  /** Icon-only placeholder, for thumbnails too small for a label. */
+  compact?: boolean;
 }) {
   if (media) {
     return (
@@ -57,13 +60,21 @@ export function ImageSlot({
         className,
       )}
     >
-      <Icon name="image" size={20} className="opacity-60" />
-      <span className="max-w-[220px] text-[13px] leading-snug font-medium opacity-80">
-        {placeholder}
-      </span>
-      <span className="text-[11px] font-semibold tracking-wide uppercase opacity-75">
-        Image coming soon
-      </span>
+      <Icon
+        name="image"
+        size={20}
+        className={cn("opacity-60", compact && "-mt-6")}
+      />
+      {!compact && (
+        <>
+          <span className="max-w-[220px] text-[13px] leading-snug font-medium opacity-80">
+            {placeholder}
+          </span>
+          <span className="text-[11px] font-semibold tracking-wide uppercase opacity-75">
+            Image coming soon
+          </span>
+        </>
+      )}
     </div>
   );
 }
@@ -201,6 +212,8 @@ export function TileMedia({
   const padX = compact
     ? "px-[clamp(20px,2.4vw,32px)]"
     : "px-[clamp(24px,4vw,48px)]";
+  // Laptops and tablets run off the tile's bottom edge, like the phones.
+  const bleed = "-mb-[clamp(28px,3.4vw,44px)]";
 
   if (devices) {
     const phone = project.frame === "phone" || !!project.screen;
@@ -208,9 +221,9 @@ export function TileMedia({
       <div
         className={cn(
           "flex items-start justify-center overflow-hidden",
-          phone ? padX : "px-[clamp(28px,4.4vw,56px)]",
+          phone ? padX : "px-[clamp(20px,2.4vw,32px)]",
         )}
-        style={{ height }}
+        style={phone ? { height } : undefined}
       >
         {phone ? (
           <PhoneFrame size={phoneSize}>
@@ -221,7 +234,7 @@ export function TileMedia({
             />
           </PhoneFrame>
         ) : (
-          <TabletFrame>
+          <TabletFrame className={bleed}>
             <ImageSlot
               media={cover}
               placeholder={ph}
@@ -242,7 +255,7 @@ export function TileMedia({
         <div
           className={cn(
             "relative size-full overflow-hidden",
-            cover?.bare ? "bare-mock" : "rounded-t-[20px] bg-bg",
+            !cover?.bare && "rounded-t-[20px] bg-bg",
           )}
         >
           <ImageSlot
@@ -257,17 +270,18 @@ export function TileMedia({
     );
   }
 
+  const phone = project.frame === "phone";
   return (
     <div
       className={cn("flex items-start justify-center overflow-hidden", padX)}
-      style={{ height }}
+      style={phone ? { height } : undefined}
     >
-      {project.frame === "phone" ? (
+      {phone ? (
         <PhoneFrame size={phoneSize}>
           <ImageSlot media={cover} placeholder={ph} sizes="240px" />
         </PhoneFrame>
       ) : (
-        <LaptopFrame>
+        <LaptopFrame className={bleed}>
           <ImageSlot
             media={cover}
             placeholder={ph}

@@ -96,14 +96,14 @@ export default function ContactPage() {
               target={m.channel === "cv" ? "_blank" : undefined}
               data-track={m.channel === "cv" ? "cv_download" : "contact_click"}
               data-track-channel={m.channel}
-              className="lift flex items-center gap-4 rounded-[24px] bg-bg-alt px-6 py-[22px] text-fg [--hover-scale:1.02] hover:no-underline"
+              className="lift flex items-center gap-3.5 rounded-[24px] bg-bg-alt px-5 py-[22px] text-fg [--hover-scale:1.02] hover:no-underline sm:gap-4 sm:px-6"
             >
-              <span className="grid size-12 flex-none place-items-center rounded-full bg-tile text-fg">
+              <span className="grid size-11 flex-none place-items-center rounded-full bg-well-alt text-fg sm:size-12">
                 <Icon name={m.icon} size={22} />
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="text-[13px] text-fg-2">{m.title}</span>
-                <span className="text-[17px] font-semibold [overflow-wrap:anywhere]">
+                <span className="text-[clamp(15px,4.2vw,17px)] font-semibold [overflow-wrap:anywhere]">
                   {m.content}
                 </span>
               </span>

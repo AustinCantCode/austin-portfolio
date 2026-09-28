@@ -50,7 +50,7 @@ function Row({
   return (
     <div
       data-reveal=""
-      className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-3"
+      className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-3 border-t border-pill pt-[clamp(24px,3vw,36px)]"
     >
       <h2 className="flex-[1_1_220px] text-[clamp(24px,2.8vw,32px)] leading-[1.2] font-bold tracking-[-0.02em]">
         {label}
@@ -106,7 +106,7 @@ function Hero({ p }: { p: Project }) {
           <div
             className={cn(
               "relative size-full overflow-hidden rounded-t-[20px]",
-              p.cover?.bare ? "bare-mock" : "bg-bg",
+              !p.cover?.bare && "bg-bg",
             )}
           >
             <ImageSlot
@@ -181,7 +181,7 @@ export default async function ProjectPage({
       <Hero p={p} />
 
       <section className="gutter band-y-2">
-        <div className="wrap flex flex-col gap-[clamp(40px,6vw,72px)]">
+        <div className="wrap flex flex-col gap-[clamp(32px,4vw,48px)]">
           {[
             ["Problem", p.problem],
             ["What I did", p.did],
@@ -197,7 +197,7 @@ export default async function ProjectPage({
           {p.ai && (
             <Row label="How I used AI">
               <div className="flex items-start gap-4 rounded-[24px] bg-bg-alt p-[clamp(20px,2.4vw,28px)]">
-                <span className="grid size-10 flex-none place-items-center rounded-full bg-tile">
+                <span className="grid size-10 flex-none place-items-center rounded-full bg-well-alt">
                   <Icon name="sparkles" size={18} />
                 </span>
                 <div className="flex min-w-0 flex-col gap-1.5">

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { AreaId, Graphic, Project, SmallApp, Venture } from "@data/types";
-import { Icon } from "@components/icon";
 import { ImageSlot } from "@components/media";
 import { ProjectTile, SmallAppCard, VentureCard } from "@components/tiles";
 import { SegmentedControl } from "@components/client/segmented";
@@ -142,12 +141,8 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
               aria-labelledby={`area-${sec.id}`}
               className="flex flex-col gap-[clamp(32px,4vw,56px)]"
             >
-              <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-t-2 border-fg pt-[clamp(24px,3vw,40px)]">
+              <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-t-2 border-rule pt-[clamp(24px,3vw,40px)]">
                 <div className="flex min-w-0 flex-col gap-2.5">
-                  <p className="flex items-center gap-2 text-[14px] font-semibold text-fg-2">
-                    <Icon name={sec.icon} size={16} />
-                    {sec.label}
-                  </p>
                   <h2
                     id={`area-${sec.id}`}
                     className="text-[clamp(32px,4.2vw,52px)] leading-[1.02] font-bold tracking-[-0.03em]"
@@ -190,7 +185,7 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
                           {groupCount(g)}
                         </span>
                       </h3>
-                      <Link href={g.href} className="text-[15px]">
+                      <Link href={g.href} className="py-1 text-[15px]">
                         {g.linkLabel}
                       </Link>
                     </div>
@@ -238,7 +233,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
             key={a.id}
             href={g.href}
             aria-label={`${a.title}, open the gallery`}
-            className="relative aspect-[4/5] overflow-hidden rounded-[18px] bg-tile-alt"
+            className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-tile-alt"
           >
             <ImageSlot
               media={a.image}

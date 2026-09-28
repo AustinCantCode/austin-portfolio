@@ -47,7 +47,7 @@ export function Nav() {
 
   const link = (key: Section) =>
     cn(
-      "text-[14px] hover:text-fg hover:no-underline",
+      "inline-flex h-9 items-center text-[14px] hover:text-fg hover:no-underline",
       active === key ? "font-semibold text-fg" : "font-normal text-fg-2",
     );
 
@@ -67,12 +67,12 @@ export function Nav() {
     >
       <nav
         aria-label="Main"
-        className="wrap gutter relative z-[2] flex h-14 items-center gap-6 bg-bg"
+        className="wrap gutter relative z-[2] flex h-14 items-center gap-3 bg-bg sm:gap-6"
       >
         <Link
           href="/"
           aria-label="Austin Sia, home"
-          className="mr-auto flex items-center gap-2.5 text-fg hover:no-underline"
+          className="mr-auto flex shrink-0 items-center gap-2.5 text-fg hover:no-underline"
         >
           <Image
             quality={100}
@@ -83,11 +83,11 @@ export function Nav() {
             priority
             className="block rounded-full"
           />
-          <span className="text-[15px] font-semibold tracking-[-0.01em]">
+          <span className="text-[15px] font-semibold tracking-[-0.01em] whitespace-nowrap">
             Austin Sia
           </span>
         </Link>
-        <div className="flex items-center gap-[clamp(12px,3vw,32px)]">
+        <div className="flex items-center gap-[clamp(10px,3vw,32px)]">
           <button
             ref={workBtn}
             type="button"

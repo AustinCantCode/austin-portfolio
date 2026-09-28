@@ -229,7 +229,7 @@ export function PageHeader({
         {back && (
           <SmartLink
             href={back.href}
-            className="inline-flex w-max items-center gap-1 text-[14px]"
+            className="-my-1 inline-flex w-max items-center gap-1 py-1 text-[14px]"
           >
             <Icon name="chevron-left" size={16} />
             {back.label}
@@ -261,7 +261,7 @@ export function IconCircle({
   return (
     <span
       className={cn(
-        "grid shrink-0 place-items-center rounded-full bg-tile text-fg",
+        "grid shrink-0 place-items-center rounded-full bg-well text-fg",
         className,
       )}
       style={{ width: size, height: size }}

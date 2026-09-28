@@ -50,7 +50,6 @@ export const home = {
   },
   whatIDo: {
     title: "What I do.",
-    scrollHint: "Keep scrolling to see all three",
     areas: [
       {
         id: "dev",

@@ -120,7 +120,7 @@ export default function StillGoodPage() {
                 className="flex flex-col overflow-hidden rounded-[28px] bg-bg-alt"
               >
                 <div className="flex flex-col gap-2 px-[clamp(24px,3vw,32px)] pt-[clamp(24px,3vw,32px)]">
-                  <span className="grid size-11 place-items-center rounded-full bg-tile text-fg">
+                  <span className="grid size-11 place-items-center rounded-full bg-well-alt text-fg">
                     <Icon name={f.icon} size={22} />
                   </span>
                   <h3 className="mt-2 text-[clamp(22px,2.4vw,26px)] leading-[1.2] font-bold tracking-[-0.02em]">

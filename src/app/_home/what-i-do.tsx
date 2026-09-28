@@ -128,7 +128,7 @@ export function WhatIDo() {
             <h2 id="what-title" className="t-h2">
               {home.whatIDo.title}
             </h2>
-            <div className="flex max-w-full flex-row-reverse flex-wrap items-center gap-x-4 gap-y-2">
+            <div className="max-w-full">
               <SegmentedControl
                 label="What I do"
                 idPrefix="area"
@@ -162,11 +162,6 @@ export function WhatIDo() {
                   ) : null
                 }
               />
-              {pinned && (
-                <p className="text-[13px] text-fg-2">
-                  {home.whatIDo.scrollHint}
-                </p>
-              )}
             </div>
           </div>
 
@@ -256,7 +251,7 @@ export function WhatIDo() {
                       sizes="(max-width: 1080px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="grid grid-cols-4 gap-[clamp(8px,1vw,12px)]">
+                  <div className="grid grid-cols-2 gap-[clamp(8px,1vw,12px)] min-[560px]:grid-cols-4">
                     {items.map((p) => (
                       <Link
                         key={p.slug}
@@ -272,22 +267,15 @@ export function WhatIDo() {
                               : undefined
                           }
                           placeholder={p.title}
-                          sizes="160px"
+                          sizes="(max-width: 560px) 50vw, 200px"
+                          compact
                         />
                         <span
                           aria-hidden="true"
                           className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_40%,rgba(0,0,0,.7))]"
                         />
-                        <span className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-0.5 px-3 py-2.5">
-                          <span
-                            data-hover-detail=""
-                            className="truncate text-[11px] font-semibold text-white/85"
-                          >
-                            {p.subtext} · {p.year}
-                          </span>
-                          <span className="font-display text-[clamp(13px,1.2vw,16px)] leading-[1.2] font-bold tracking-[-0.01em]">
-                            {p.title}
-                          </span>
+                        <span className="font-display pointer-events-none absolute inset-x-0 bottom-0 px-3 py-2.5 text-[clamp(13px,1.2vw,16px)] leading-[1.2] font-bold tracking-[-0.01em]">
+                          {p.title}
                         </span>
                       </Link>
                     ))}

@@ -3,7 +3,8 @@ import { categories, categoryHref, navSections } from "@data/categories";
 import { site } from "@data/site";
 import { SmartLink } from "./ui";
 
-const linkClass = "text-fg-2 hover:text-fg hover:no-underline";
+// py keeps each link a 24px+ tap target.
+const linkClass = "py-[3px] text-fg-2 hover:text-fg hover:no-underline";
 
 const pick = (id: string) =>
   navSections
@@ -18,8 +19,8 @@ function Column({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-[12px] font-semibold text-fg">{title}</p>
+    <div className="flex flex-col items-start gap-1">
+      <p className="pb-1 text-[13px] font-semibold text-fg">{title}</p>
       {children}
     </div>
   );
@@ -27,7 +28,7 @@ function Column({
 
 export function Footer() {
   return (
-    <footer className="bg-bg-alt text-[12px] leading-[1.5] text-fg-2">
+    <footer className="border-t border-hairline bg-bg-alt text-[13px] leading-[1.5] text-fg-2">
       <div className="wrap gutter flex flex-col gap-7 pt-[clamp(32px,4vw,48px)] pb-7">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(max(130px,calc((100%_-_96px)/5)),1fr))] gap-6">
           <Column title="Development">

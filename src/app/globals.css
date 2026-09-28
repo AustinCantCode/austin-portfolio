@@ -23,6 +23,11 @@
   --on-accent: #1a1813;
   --accent-text: #6e6a1f;
   --menu: var(--bg);
+  /* Icon wells: one step off the surface they sit on. */
+  --well: #f3f1ec;
+  --well-alt: #ffffff;
+  /* Section rules: ink in light, a quiet warm grey in dark. */
+  --rule: #1a1813;
   --hairline: rgba(26, 24, 19, 0.08);
   --glow-accent: 0 0 0 0 transparent;
   --shadow-tab:
@@ -56,6 +61,9 @@
   --accent-fill: #b8b35e;
   --accent-fill-hover: #c4bf69;
   --accent-text: #cac873;
+  --well: #2b2924;
+  --well-alt: #2b2924;
+  --rule: #4a463f;
   --hairline: rgba(235, 231, 222, 0.07);
   --glow-accent: 0 0 28px rgba(184, 179, 94, 0.3);
   --shadow-tab: inset 0 0 0 1px rgba(235, 231, 222, 0.08);
@@ -88,6 +96,9 @@
   --color-accent-text: var(--accent-text);
   --color-on-accent: var(--on-accent);
   --color-menu: var(--menu);
+  --color-well: var(--well);
+  --color-well-alt: var(--well-alt);
+  --color-rule: var(--rule);
   --color-hairline: var(--hairline);
   --color-band-link: #cac873;
   --color-live: #30d158;
@@ -241,21 +252,6 @@
   .phone-screen > [role="img"] {
     justify-content: flex-start;
     padding-top: 32%;
-  }
-
-  /* Mockup images with a white background: blend into light tiles, and
-     sit on a white panel in dark mode. */
-  .bare-mock img {
-    mix-blend-mode: multiply;
-  }
-
-  [data-theme="dark"] .bare-mock {
-    background: #ffffff;
-    border-radius: 20px 20px 0 0;
-  }
-
-  [data-theme="dark"] .bare-mock img {
-    mix-blend-mode: normal;
   }
 
   /* Raised surfaces get a hairline edge in dark mode. */

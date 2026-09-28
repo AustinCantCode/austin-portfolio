@@ -46,7 +46,7 @@ export default function CVPage() {
             Austin Sia
           </h1>
           <p className="text-[clamp(19px,2.2vw,22px)] text-fg-2">{cv.role}</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+          <div className="flex flex-wrap gap-x-5 gap-y-1 text-[15px] [&>a]:py-0.5">
             <a href={c.mailto}>{c.email}</a>
             <a href={c.tel}>{c.phone}</a>
             <SmartLink href={c.linkedin}>{c.linkedinLabel}</SmartLink>

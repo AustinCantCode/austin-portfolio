@@ -13,11 +13,11 @@ import portShot from "../../public/coding-projects/featured/portfolio/AS1.png";
 import gowhereShot from "../../public/coding-projects/featured/gowhere/image 1.png";
 import shoplyShot from "../../public/coding-projects/featured/shoply/image 1.png";
 import telegptLogo from "../../public/coding-projects/featured/telegpt/Telegpt.png";
-import freskoMock from "../../public/design-projects/UIUX/fresko.png";
-import quizzyMock from "../../public/design-projects/UIUX/quizzy.png";
+import freskoMock from "../../public/design-projects/UIUX/fresko-cutout.png";
+import quizzyMock from "../../public/design-projects/UIUX/quizzy-cutout.png";
 import quizzyScreen from "../../public/design-projects/UIUX/quizzy-screen.png";
-import hgMock from "../../public/design-projects/UIUX/hidden gems app.png";
-import spMock from "../../public/design-projects/UIUX/sp app.png";
+import hgMock from "../../public/design-projects/UIUX/hidden-gems-cutout.png";
+import spMock from "../../public/design-projects/UIUX/sp-app-cutout.png";
 import lawksPhoto from "../../public/design-projects/product-design/LAWKS/lawks_1.png";
 import watchArt from "../../public/design-projects/graphic-design/watch-1.jpg";
 
@@ -28,7 +28,8 @@ const shot = (src: Media["src"], alt: string): Media => ({
   position: "top",
 });
 
-// Mockup images that already contain phones are shown without a device frame.
+// Mockup images that already contain phones are shown without a device
+// frame. They are cut out onto transparent backgrounds so they sit on any tile.
 const mockup = (src: Media["src"], alt: string): Media => ({
   src,
   alt,

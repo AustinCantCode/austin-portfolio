@@ -70,7 +70,7 @@ export function ProjectTile({
           {project.line}
         </p>
       </div>
-      <div className={compact ? "mt-6" : "mt-8"}>
+      <div className={cn("mt-auto", compact ? "pt-6" : "pt-8")}>
         {compact ? (
           <TileMedia
             project={project}
@@ -82,7 +82,7 @@ export function ProjectTile({
           <TileMedia
             project={project}
             devices={devices}
-            height={devices ? "clamp(240px,22vw,290px)" : undefined}
+            height={devices ? "clamp(230px,19vw,264px)" : undefined}
           />
         )}
       </div>
@@ -140,7 +140,7 @@ export function VentureCard({
       href={venture.href}
       data-hover-card=""
       className={cn(
-        "lift flex min-h-[300px] flex-col items-start gap-2.5 rounded-[24px] p-[clamp(24px,3vw,36px)] hover:no-underline",
+        "lift flex flex-col items-start gap-2.5 rounded-[24px] p-[clamp(24px,3vw,36px)] hover:no-underline min-[720px]:min-h-[300px]",
         band ? "bg-band text-band-fg" : "bg-bg-alt text-fg",
       )}
     >
@@ -163,7 +163,7 @@ export function VentureCard({
       </p>
       <p
         className={cn(
-          "mt-auto inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[12px] font-semibold",
+          "mt-auto inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[12px] font-semibold max-[719px]:mt-3",
           band ? "bg-band-pill" : "bg-pill",
         )}
       >
@@ -252,7 +252,7 @@ export function VenturePanel({
           {venture.cta} ›
         </Link>
       </div>
-      <div className="flex min-h-[clamp(300px,36vw,440px)] min-w-0 flex-[1_1_380px] items-end justify-center overflow-hidden px-[clamp(24px,4vw,48px)] pt-[clamp(28px,4vw,48px)]">
+      <div className="flex min-h-[clamp(240px,36vw,440px)] min-w-0 flex-[1_1_380px] items-end justify-center overflow-hidden px-[clamp(24px,4vw,48px)] pt-[clamp(28px,4vw,48px)]">
         {media}
       </div>
     </article>

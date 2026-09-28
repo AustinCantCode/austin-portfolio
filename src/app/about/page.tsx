@@ -102,10 +102,10 @@ export default function AboutPage() {
                 href={m.href}
                 data-reveal=""
                 data-hover-card=""
-                className="lift flex min-h-[200px] flex-col gap-1.5 rounded-[24px] bg-bg-alt p-7 text-fg [--hover-scale:1.02] hover:no-underline"
+                className="lift flex flex-col gap-1.5 rounded-[24px] bg-bg-alt p-7 text-fg [--hover-scale:1.02] hover:no-underline"
               >
-                <IconCircle name={m.icon} />
-                <p className="font-display mt-auto text-[24px] font-bold tracking-[-0.02em]">
+                <IconCircle name={m.icon} className="bg-well-alt" />
+                <p className="font-display mt-6 text-[24px] font-bold tracking-[-0.02em]">
                   {m.title}
                 </p>
                 <p data-hover-detail="" className="text-[15px] text-fg-2">

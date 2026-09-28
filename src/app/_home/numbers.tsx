@@ -63,7 +63,7 @@ export function Numbers() {
             key={s.label}
             href={s.href}
             data-hover-card=""
-            className="flex flex-col gap-1.5 border-t-2 border-fg pt-5 text-fg hover:no-underline"
+            className="flex flex-col gap-1.5 border-t-2 border-rule pt-5 text-fg hover:no-underline"
           >
             <p
               aria-label={String(s.n)}

@@ -82,7 +82,7 @@ export default function GitHubCalendar({ username }: { username: string }) {
         rel="noopener noreferrer"
         className="flex items-center gap-4 text-fg hover:no-underline"
       >
-        <span className="grid size-12 flex-none place-items-center rounded-full bg-bg-alt">
+        <span className="grid size-12 flex-none place-items-center rounded-full bg-well">
           <Icon name="mdi:github" size={24} />
         </span>
         <span className="flex flex-col">
