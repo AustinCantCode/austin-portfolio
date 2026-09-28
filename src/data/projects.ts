@@ -20,6 +20,27 @@ import hgMock from "../../public/design-projects/UIUX/hidden-gems-cutout.png";
 import spMock from "../../public/design-projects/UIUX/sp-app-cutout.png";
 import lawksPhoto from "../../public/design-projects/product-design/LAWKS/lawks_1.png";
 import watchArt from "../../public/design-projects/graphic-design/watch-1.jpg";
+import { graphics } from "./graphics";
+
+// Extra images for the project pop-up carousels.
+import kspShot2 from "../../public/coding-projects/featured/ksp/KSP2.png";
+import acShot2 from "../../public/coding-projects/featured/ac/AC2.png";
+import acShot3 from "../../public/coding-projects/featured/ac/AC3.png";
+import acShot4 from "../../public/coding-projects/featured/ac/AC4.png";
+import acShot5 from "../../public/coding-projects/featured/ac/AC5.png";
+import jintShot3 from "../../public/coding-projects/featured/juzinterior/JINT3.png";
+import jintShot4 from "../../public/coding-projects/featured/juzinterior/JINT4.png";
+import portShot2 from "../../public/coding-projects/featured/portfolio/AS2.png";
+import gowhereShot2 from "../../public/coding-projects/featured/gowhere/gowhere.jpeg";
+import shoplyShot2 from "../../public/coding-projects/featured/shoply/image 2.png";
+import shoplyShot3 from "../../public/coding-projects/featured/shoply/image 3.png";
+import shoplyShot4 from "../../public/coding-projects/featured/shoply/image 4.png";
+import shoplyShot5 from "../../public/coding-projects/featured/shoply/image 5.png";
+import shoplyShot6 from "../../public/coding-projects/featured/shoply/image 6.png";
+import lawksPhoto2 from "../../public/design-projects/product-design/LAWKS/lawks_2.png";
+import lawksPhoto3 from "../../public/design-projects/product-design/LAWKS/lawks_3.png";
+import lawksSketch1 from "../../public/design-projects/product-design/LAWKS/lawks_sketch_1.png";
+import lawksSketch2 from "../../public/design-projects/product-design/LAWKS/lawks_sketch_2.png";
 
 const shot = (src: Media["src"], alt: string): Media => ({
   src,
@@ -518,6 +539,70 @@ export const projects: Project[] = [
     ...MEDIA["graphic"],
   },
 ];
+
+/**
+ * Pop-up carousels: every image for a project, in order. Projects not
+ * listed use their cover and second image.
+ */
+const pic = (src: Media["src"], alt: string): Media => ({ src, alt });
+const GALLERY: Record<string, Media[]> = {
+  stillgood: Object.values(stillgoodScreens),
+  ksp: [
+    pic(kspShot, "KiasuParents home page"),
+    pic(kspShot2, "KiasuParents article page"),
+  ],
+  ac: [
+    pic(acShot, "Amber Creative home page"),
+    pic(acShot2, "Amber Creative services"),
+    pic(acShot3, "Amber Creative case studies"),
+    pic(acShot4, "Amber Creative about page"),
+    pic(acShot5, "Amber Creative contact page"),
+  ],
+  jint: [
+    pic(jintShot, "JuzInterior home page"),
+    pic(jintShot2, "JuzInterior FAQ page"),
+    pic(jintShot3, "JuzInterior articles"),
+    pic(jintShot4, "JuzInterior project gallery"),
+  ],
+  port: [
+    pic(portShot, "The previous portfolio home page"),
+    pic(portShot2, "The previous portfolio projects page"),
+  ],
+  gowhere: [
+    pic(gowhereShot, "GoWhere sign-in page"),
+    pic(gowhereShot2, "GoWhere attractions"),
+  ],
+  shoply: [
+    pic(shoplyShot, "Shoply welcome page"),
+    pic(shoplyShot2, "Shoply product list"),
+    pic(shoplyShot3, "Shoply product page"),
+    pic(shoplyShot4, "Shoply cart"),
+    pic(shoplyShot5, "Shoply checkout"),
+    pic(shoplyShot6, "Shoply orders"),
+  ],
+  quizzy: [pic(quizzyMock, "Quizzy app screens")],
+  lawks: [
+    pic(lawksPhoto, "The LAWKS Mini card holder"),
+    pic(lawksPhoto2, "The LAWKS Mini holding a phone up"),
+    pic(lawksPhoto3, "The LAWKS Mini from the side"),
+    pic(lawksSketch1, "LAWKS early sketch"),
+    pic(lawksSketch2, "LAWKS design sketch"),
+  ],
+  graphic: graphics.map((g) => g.image),
+};
+
+const demo = (file: string) =>
+  `/coding-projects/others/video-demo/${encodeURIComponent(file)}`;
+const VIDEO: Record<string, string> = {
+  gowhere: demo("GoWhere Demo.mp4"),
+  telegpt: demo("Telegram Bot Demo.mp4"),
+};
+
+for (const p of projects) {
+  p.gallery =
+    GALLERY[p.slug] ?? [p.cover, p.second].filter((m): m is Media => !!m);
+  p.video = VIDEO[p.slug];
+}
 
 export const projectBySlug = (slug: string) =>
   projects.find((p) => p.slug === slug);

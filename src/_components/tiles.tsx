@@ -6,13 +6,16 @@ import type { Project, SmallApp, Venture } from "@data/types";
 import { site } from "@data/site";
 import { LaptopFrame, NaturalImage, PhoneFrame, TileMedia } from "./media";
 import { SmartLink } from "./ui";
+import { Icon } from "./icon";
+import { ProjectPeek, SmallAppPeek } from "./client/project-peek";
 
 export const projectHref = (p: Project) => `/projects/${p.slug}`;
 export const projectMeta = (p: Project) => `${p.subtext} · ${p.year}`;
 
 /**
- * A project card: meta, title and one-liner, with the device frame bleeding
- * off the bottom. `compact` is the smaller Work-page version.
+ * A project card: meta, title, one-liner and who it was for, with the
+ * device frame bleeding off the bottom. Clicking opens a pop-up preview
+ * (see ProjectPeek). `compact` is the smaller Work-page version.
  */
 export function ProjectTile({
   project,
@@ -27,8 +30,8 @@ export function ProjectTile({
   reveal?: boolean;
 }) {
   return (
-    <Link
-      href={projectHref(project)}
+    <ProjectPeek
+      project={project}
       data-reveal={reveal ? "" : undefined}
       data-hover-card=""
       className={cn(
@@ -69,6 +72,15 @@ export function ProjectTile({
         >
           {project.line}
         </p>
+        <p
+          data-hover-detail=""
+          className={cn(
+            "font-medium text-fg",
+            compact ? "text-[13px]" : "text-[14px]",
+          )}
+        >
+          {project.role}
+        </p>
       </div>
       <div className={cn("mt-auto", compact ? "pt-6" : "pt-8")}>
         {compact ? (
@@ -86,15 +98,15 @@ export function ProjectTile({
           />
         )}
       </div>
-    </Link>
+    </ProjectPeek>
   );
 }
 
 /** Horizontal tile for categories with two or fewer projects. */
 export function RowTile({ project }: { project: Project }) {
   return (
-    <Link
-      href={projectHref(project)}
+    <ProjectPeek
+      project={project}
       data-reveal=""
       data-hover-card=""
       className="lift flex flex-wrap items-stretch overflow-hidden rounded-[28px] bg-tile-alt text-fg [--hover-scale:1.01] hover:no-underline"
@@ -112,8 +124,9 @@ export function RowTile({ project }: { project: Project }) {
         >
           {project.line}
         </p>
+        <p className="text-[15px] font-medium">{project.role}</p>
         <p data-hover-detail="" className="mt-2 text-[17px] text-accent-text">
-          Read the case study ›
+          View project ›
         </p>
       </div>
       <div className="flex min-w-0 flex-[1.4_1_420px] items-center bg-pill">
@@ -123,7 +136,7 @@ export function RowTile({ project }: { project: Project }) {
           sizes="(max-width: 768px) 100vw, 60vw"
         />
       </div>
-    </Link>
+    </ProjectPeek>
   );
 }
 
@@ -261,7 +274,10 @@ export function VenturePanel({
 
 export { PhoneFrame, LaptopFrame };
 
-/** Small-app card (4:3 screenshot, title, tech). */
+/**
+ * Small-app card: screenshot, title, one line and the tech used. Clicking
+ * plays the demo video in a pop-up.
+ */
 export function SmallAppCard({
   app,
   size = "md",
@@ -271,43 +287,59 @@ export function SmallAppCard({
 }) {
   const sm = size === "sm";
   return (
-    <article
-      data-hover-card=""
+    <SmallAppPeek
+      app={app}
       className={cn(
-        "group/app flex h-full flex-col overflow-hidden bg-tile-alt",
+        "group/app flex h-full flex-col overflow-hidden bg-tile-alt text-fg",
         sm ? "min-w-[180px] rounded-[20px]" : "rounded-[24px]",
       )}
     >
-      <div className="overflow-hidden bg-pill">
-        <NaturalImage
-          media={app.image}
-          placeholder={`${app.title} screenshot`}
-          sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
-          className="transition-transform duration-[600ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover/app:scale-[1.04]"
-        />
-      </div>
-      <div
-        className={cn(
-          "flex flex-col gap-0.5",
-          sm ? "px-4 pt-3.5 pb-4" : "px-5 pt-[18px] pb-5",
-        )}
-      >
-        <h3
+      <span data-hover-card="" className="flex h-full flex-col">
+        <span className="relative block overflow-hidden bg-pill">
+          <NaturalImage
+            media={app.image}
+            placeholder={`${app.title} screenshot`}
+            sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
+            className="transition-transform duration-[600ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover/app:scale-[1.04]"
+          />
+          {app.video && (
+            <span
+              aria-hidden="true"
+              className="absolute right-2.5 bottom-2.5 grid size-9 place-items-center rounded-full bg-accent text-on-accent shadow-[var(--glow-accent)]"
+            >
+              <Icon name="lucide:play" size={16} />
+            </span>
+          )}
+        </span>
+        <span
           className={cn(
-            "tracking-[-0.01em]",
-            sm ? "text-[15px] font-semibold" : "text-[19px] font-semibold",
+            "flex flex-col gap-0.5",
+            sm ? "px-4 pt-3.5 pb-4" : "px-5 pt-[18px] pb-5",
           )}
         >
-          {app.title}
-        </h3>
-        <p
-          data-hover-detail=""
-          className={cn("text-fg-2", sm ? "text-[12px]" : "text-[14px]")}
-        >
-          {app.tech}
-        </p>
-      </div>
-    </article>
+          <span
+            className={cn(
+              "font-display font-bold",
+              sm ? "text-[17px]" : "text-[21px]",
+            )}
+          >
+            {app.title}
+          </span>
+          <span className={cn("text-fg-2", sm ? "text-[12px]" : "text-[14px]")}>
+            {app.text}
+          </span>
+          <span
+            data-hover-detail=""
+            className={cn(
+              "font-medium text-fg",
+              sm ? "text-[12px]" : "text-[13px]",
+            )}
+          >
+            {app.tech} · {app.year}
+          </span>
+        </span>
+      </span>
+    </SmallAppPeek>
   );
 }
 

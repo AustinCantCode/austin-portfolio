@@ -7,6 +7,7 @@ import { NaturalImage } from "@components/media";
 import { ProjectTile, SmallAppCard, VentureCard } from "@components/tiles";
 import { SegmentedControl } from "@components/client/segmented";
 import { Carousel } from "@components/client/carousel";
+import { Lightbox } from "@components/client/lightbox";
 import { track } from "@components/client/analytics";
 
 export type WorkGroup =
@@ -202,6 +203,7 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
 }
 
 function GroupBody({ group: g }: { group: WorkGroup }) {
+  const [art, setArt] = useState<number | null>(null);
   if (g.kind === "tiles") {
     return (
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
@@ -227,22 +229,38 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   }
   if (g.kind === "art") {
     return (
-      <div className="flex-1 columns-3 gap-3">
-        {g.art.map((a) => (
-          <Link
-            key={a.id}
-            href={g.href}
-            aria-label={`${a.title}, open the gallery`}
-            className="mb-3 block break-inside-avoid overflow-hidden rounded-[18px] bg-tile-alt"
-          >
-            <NaturalImage
-              media={a.image}
-              placeholder={a.title}
-              sizes="(max-width: 768px) 33vw, 20vw"
-            />
-          </Link>
-        ))}
-      </div>
+      <>
+        <div className="flex-1 columns-3 gap-3">
+          {g.art.map((a, i) => (
+            <button
+              key={a.id}
+              type="button"
+              onClick={() => setArt(i)}
+              aria-haspopup="dialog"
+              aria-label={`View ${a.title} larger`}
+              className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-[18px] border-0 bg-tile-alt p-0 transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <NaturalImage
+                media={a.image}
+                placeholder={a.title}
+                sizes="(max-width: 768px) 33vw, 20vw"
+              />
+            </button>
+          ))}
+        </div>
+        {art !== null && (
+          <Lightbox
+            items={g.art.map((a) => ({
+              title: a.title,
+              media: { ...a.image, fit: "contain" },
+            }))}
+            index={art}
+            onIndex={setArt}
+            onClose={() => setArt(null)}
+            noun="artwork"
+          />
+        )}
+      </>
     );
   }
   return (

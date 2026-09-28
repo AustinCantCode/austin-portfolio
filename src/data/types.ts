@@ -55,9 +55,21 @@ export type Project = {
   second?: Media;
   /** A single app screen, for device frames when `cover` is a mockup. */
   screen?: Media;
+  /** Every image for the project's pop-up carousel. */
+  gallery?: Media[];
+  /** A demo video path under /public, shown in the pop-up. */
+  video?: string;
 };
 
-export type SmallApp = { title: string; tech: string; image?: Media };
+export type SmallApp = {
+  title: string;
+  tech: string;
+  year: string;
+  text: string;
+  image?: Media;
+  /** A demo video path under /public, shown in the pop-up. */
+  video?: string;
+};
 
 export type Graphic = { id: string; title: string; image: Media };
 

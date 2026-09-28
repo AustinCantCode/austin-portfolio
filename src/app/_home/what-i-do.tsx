@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@lib/utils";
@@ -8,6 +7,7 @@ import { home, whatIDoPhotoHints, whatIDoPhotos } from "@data/home";
 import { pickProjects } from "@data/projects";
 import { Icon } from "@components/icon";
 import { ButtonLink } from "@components/ui";
+import { ProjectPeek } from "@components/client/project-peek";
 import { ImageSlot } from "@components/media";
 import { SegmentedControl } from "@components/client/segmented";
 import { prefersReducedMotion } from "@components/client/motion";
@@ -253,10 +253,9 @@ export function WhatIDo() {
                   </div>
                   <div className="grid grid-cols-2 gap-[clamp(8px,1vw,12px)] min-[560px]:grid-cols-4">
                     {items.map((p) => (
-                      <Link
+                      <ProjectPeek
                         key={p.slug}
-                        href={`/projects/${p.slug}`}
-                        data-hover-card=""
+                        project={p}
                         aria-label={p.title}
                         className="relative block aspect-square overflow-hidden rounded-2xl bg-pill text-white transition-transform duration-[400ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:scale-[1.03] hover:no-underline"
                       >
@@ -277,7 +276,7 @@ export function WhatIDo() {
                         <span className="font-display pointer-events-none absolute inset-x-0 bottom-0 px-3 py-2.5 text-[clamp(13px,1.2vw,16px)] leading-[1.2] font-bold tracking-[-0.01em]">
                           {p.title}
                         </span>
-                      </Link>
+                      </ProjectPeek>
                     ))}
                   </div>
                 </div>
