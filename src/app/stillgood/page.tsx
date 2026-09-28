@@ -160,7 +160,7 @@ export default function StillGoodPage() {
                 <p className="text-[14px] font-semibold text-accent-text">
                   {s.date}
                 </p>
-                <p className="text-[21px] leading-[1.25] font-bold tracking-[-0.015em]">
+                <p className="font-display text-[21px] leading-[1.25] font-bold tracking-[-0.015em]">
                   {s.title}
                 </p>
                 <p className="text-[15px] text-fg-2">{s.text}</p>

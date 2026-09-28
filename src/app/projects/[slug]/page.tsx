@@ -244,7 +244,7 @@ export default async function ProjectPage({
                       className={cn(
                         "inline-flex h-11 items-center gap-2 rounded-full px-5 text-[15px] font-medium hover:no-underline",
                         i === 0
-                          ? "bg-accent text-white hover:bg-accent-hover"
+                          ? "bg-accent text-on-accent hover:bg-accent-hover"
                           : "bg-pill text-fg",
                       )}
                     >

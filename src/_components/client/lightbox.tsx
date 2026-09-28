@@ -85,19 +85,19 @@ export function Lightbox({
         aria-labelledby="lightbox-title"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={onKeyDown}
-        className={`flex w-full flex-col items-center gap-4 text-[#f5f5f7] ${cert ? "max-w-[900px]" : "max-w-[720px]"}`}
+        className={`flex w-full flex-col items-center gap-4 text-[#f4f1ea] ${cert ? "max-w-[900px]" : "max-w-[720px]"}`}
       >
         <button
           ref={closeRef}
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="fixed top-4 right-4 grid size-10 place-items-center rounded-full bg-[#2c2c2e] text-[#f5f5f7]"
+          className="fixed top-4 right-4 grid size-10 place-items-center rounded-full bg-[#2b2924] text-[#f4f1ea]"
         >
           <Icon name="x" size={18} />
         </button>
         <div
-          className={`relative w-full overflow-hidden rounded-[20px] bg-[#1d1d1f] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)]"}`}
+          className={`relative w-full overflow-hidden rounded-[20px] bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)]"}`}
         >
           <ImageSlot
             media={item.media}
@@ -115,7 +115,7 @@ export function Lightbox({
             {item.title}
           </h2>
           {item.caption && (
-            <p className="text-[14px] text-[#a1a1a6]">{item.caption}</p>
+            <p className="text-[14px] text-[#a8a294]">{item.caption}</p>
           )}
         </div>
         <div className="flex items-center gap-3">
@@ -123,13 +123,13 @@ export function Lightbox({
             type="button"
             onClick={() => go(-1)}
             aria-label={`Previous ${noun}`}
-            className="grid size-11 place-items-center rounded-full bg-[#2c2c2e] text-[#f5f5f7]"
+            className="grid size-11 place-items-center rounded-full bg-[#2b2924] text-[#f4f1ea]"
           >
             <Icon name="chevron-left" size={20} />
           </button>
           <p
             aria-live="polite"
-            className="min-w-[72px] text-center text-[14px] text-[#a1a1a6]"
+            className="min-w-[72px] text-center text-[14px] text-[#a8a294]"
           >
             {index + 1} of {n}
           </p>
@@ -137,7 +137,7 @@ export function Lightbox({
             type="button"
             onClick={() => go(1)}
             aria-label={`Next ${noun}`}
-            className="grid size-11 place-items-center rounded-full bg-[#2c2c2e] text-[#f5f5f7]"
+            className="grid size-11 place-items-center rounded-full bg-[#2b2924] text-[#f4f1ea]"
           >
             <Icon name="chevron-right" size={20} />
           </button>

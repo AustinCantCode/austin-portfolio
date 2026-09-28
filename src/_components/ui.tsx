@@ -49,7 +49,7 @@ export const buttonClass = (
     buttonBase,
     size === "lg" ? "h-12 px-6 text-[17px]" : "h-11 px-[22px] text-[15px]",
     variant === "primary"
-      ? "bg-accent text-white hover:bg-accent-hover"
+      ? "bg-accent text-on-accent hover:bg-accent-hover"
       : "bg-pill text-fg",
   );
 
@@ -291,12 +291,12 @@ export function NextCard({
       >
         <div className="flex min-w-0 flex-col gap-1.5">
           <p className="text-[14px] text-fg-2">{label}</p>
-          <p className="text-[clamp(26px,3.2vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]">
+          <p className="font-display text-[clamp(26px,3.2vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]">
             {title}
           </p>
           <p className="text-[17px] text-fg-2">{line}</p>
         </div>
-        <span className="grid size-14 shrink-0 place-items-center rounded-full bg-accent text-white">
+        <span className="grid size-14 shrink-0 place-items-center rounded-full bg-accent text-on-accent">
           <Icon name="arrow-right" size={24} />
         </span>
       </Link>

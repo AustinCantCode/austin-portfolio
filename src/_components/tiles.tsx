@@ -145,7 +145,7 @@ export function VentureCard({
       >
         {venture.date} · {venture.role}
       </p>
-      <p className="text-[clamp(28px,3vw,36px)] leading-[1.08] font-bold tracking-[-0.025em]">
+      <p className="font-display text-[clamp(28px,3vw,36px)] leading-[1.08] font-bold tracking-[-0.025em]">
         {venture.name}
       </p>
       <p

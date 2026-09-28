@@ -10,7 +10,7 @@ export function Providers({ children }: { children: ReactNode }) {
     <ThemeProvider
       attribute="data-theme"
       storageKey="as-theme"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange
     >

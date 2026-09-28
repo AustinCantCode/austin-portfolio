@@ -50,8 +50,8 @@ export function ImageSlot({
       aria-label={`${placeholder} (image coming soon)`}
       className={cn(
         "absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center",
-        tone === "light" && "bg-[#f5f5f7] text-[#1d1d1f]",
-        tone === "dark" && "bg-[#2c2c2e] text-[#f5f5f7]",
+        tone === "light" && "bg-[#f4f1ea] text-[#1b1a16]",
+        tone === "dark" && "bg-[#2b2924] text-[#f4f1ea]",
         tone === "default" && "bg-pill text-fg",
         className,
       )}
@@ -109,7 +109,7 @@ export function PhoneFrame({
         <div
           className={cn(
             "phone-screen relative size-full overflow-hidden",
-            dark ? "bg-[#f5f5f7]" : "bg-bg",
+            dark ? "bg-[#f4f1ea]" : "bg-bg",
           )}
           style={{ borderRadius: radius - pad }}
         >

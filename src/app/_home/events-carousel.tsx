@@ -72,7 +72,7 @@ export function EventsCarousel() {
             </div>
             <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
               <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>
-              <p className="text-[19px] leading-[1.3] font-bold tracking-[-0.01em]">
+              <p className="font-display text-[19px] leading-[1.3] font-bold tracking-[-0.01em]">
                 {e.title}
               </p>
               <p data-hover-detail="" className="text-[14px] text-fg-2">

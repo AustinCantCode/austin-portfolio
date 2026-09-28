@@ -61,7 +61,7 @@ export function ContactForm() {
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="inline-flex h-12 items-center gap-2 rounded-full border-0 bg-accent px-7 text-[17px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-accent-hover active:scale-[.97]"
+          className="inline-flex h-12 items-center gap-2 rounded-full border-0 bg-accent px-7 text-[17px] font-medium text-on-accent transition-[background-color,transform] duration-200 hover:bg-accent-hover active:scale-[.97]"
         >
           Send message
         </button>

@@ -59,9 +59,9 @@ export function ContactTiles({
               <span
                 data-hover-detail=""
                 className={cn(
-                  "inline-flex h-9 min-w-9 flex-none items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white transition-colors duration-300",
+                  "inline-flex h-9 min-w-9 flex-none items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold transition-colors duration-300",
                   isCopy ? "px-3" : "px-0",
-                  on ? "bg-success" : "bg-accent",
+                  on ? "bg-success text-white" : "bg-accent text-on-accent",
                 )}
               >
                 <Icon
@@ -72,7 +72,7 @@ export function ContactTiles({
               </span>
             </span>
             <span className="flex min-w-0 flex-col gap-1">
-              <span className="text-[clamp(20px,2.2vw,28px)] leading-[1.15] font-bold tracking-[-0.02em]">
+              <span className="font-display text-[clamp(20px,2.2vw,28px)] leading-[1.15] font-bold tracking-[-0.02em]">
                 {t.title}
               </span>
               <span

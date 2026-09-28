@@ -69,7 +69,7 @@ export function Numbers() {
           >
             <p
               aria-label={String(s.n)}
-              className="text-[clamp(44px,5.5vw,72px)] leading-none font-bold tracking-[-0.04em] tabular-nums"
+              className="font-display text-[clamp(44px,5.5vw,72px)] leading-none font-bold tracking-[-0.04em] tabular-nums"
             >
               {show(s.n)}
             </p>

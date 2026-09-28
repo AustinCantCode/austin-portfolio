@@ -93,11 +93,11 @@ export function Journey() {
                 aria-hidden="true"
                 className="absolute top-1 left-0 size-4 rounded-full border-2 border-accent bg-accent transition-[background-color,transform] duration-300"
               />
-              <p className="flex-[0_0_190px] pt-px text-[14px] font-semibold text-fg-2">
+              <p className="flex-[0_0_190px] pt-px font-mono text-[13px] font-medium text-fg-2">
                 {t.date}
               </p>
               <div className="flex min-w-0 flex-[1_1_280px] flex-col gap-0.5">
-                <p className="text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
+                <p className="font-display text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
                   {t.title}
                 </p>
                 <p className="text-[16px] text-fg-2">{t.sub}</p>

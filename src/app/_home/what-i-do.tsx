@@ -261,7 +261,7 @@ export function WhatIDo() {
                           >
                             {p.subtext} · {p.year}
                           </span>
-                          <span className="text-[clamp(13px,1.2vw,16px)] leading-[1.2] font-bold tracking-[-0.01em]">
+                          <span className="font-display text-[clamp(13px,1.2vw,16px)] leading-[1.2] font-bold tracking-[-0.01em]">
                             {p.title}
                           </span>
                         </span>

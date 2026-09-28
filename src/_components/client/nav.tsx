@@ -145,7 +145,7 @@ export function Nav() {
                 </p>
                 <Link
                   href="/work"
-                  className="text-[clamp(24px,2.6vw,28px)] leading-[1.15] font-bold tracking-[-0.02em] text-fg hover:text-accent-text hover:no-underline"
+                  className="font-display text-[clamp(24px,2.6vw,28px)] leading-[1.15] font-bold tracking-[-0.02em] text-fg hover:text-accent-text hover:no-underline"
                 >
                   All work
                 </Link>

@@ -43,7 +43,7 @@ export default function SkillsPage() {
                 className="flex flex-col gap-2 rounded-[24px] bg-tile p-7"
               >
                 <IconCircle name={l.icon} className="bg-bg-alt" />
-                <p className="mt-2 text-[21px] font-bold tracking-[-0.01em]">
+                <p className="font-display mt-2 text-[21px] font-bold tracking-[-0.01em]">
                   {l.title}
                 </p>
                 <p className="text-[15px] text-fg-2">{l.text}</p>

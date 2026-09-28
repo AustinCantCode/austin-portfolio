@@ -5,15 +5,15 @@ import { ImageResponse } from "next/og";
 export const OG_SIZE = { width: 1200, height: 630 };
 
 /**
- * Inter as TTF from Google Fonts (without a browser user agent the CSS API
- * serves TTF, which the image renderer needs). Falls back to the default
- * font if the fetch fails, so builds never break on it.
+ * A Google Font as TTF (without a browser user agent the CSS API serves
+ * TTF, which the image renderer needs). Falls back to the default font if
+ * the fetch fails, so builds never break on it.
  */
-async function inter(weight: 400 | 600 | 700) {
+async function googleFont(name: string, weight: 400 | 600 | 700) {
   try {
     const css = await (
       await fetch(
-        `https://fonts.googleapis.com/css2?family=Inter:wght@${weight}`,
+        `https://fonts.googleapis.com/css2?family=${name.replace(/ /g, "+")}:wght@${weight}`,
       )
     ).text();
     const src = css.match(
@@ -21,7 +21,7 @@ async function inter(weight: 400 | 600 | 700) {
     )?.[1];
     if (!src) return null;
     const data = await (await fetch(src)).arrayBuffer();
-    return { name: "Inter", data, weight, style: "normal" as const };
+    return { name, data, weight, style: "normal" as const };
   } catch {
     return null;
   }
@@ -42,7 +42,11 @@ export async function ogCard({
   );
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
   const fonts = (
-    await Promise.all([inter(400), inter(600), inter(700)])
+    await Promise.all([
+      googleFont("Inter", 400),
+      googleFont("Inter", 600),
+      googleFont("Space Grotesk", 700),
+    ])
   ).filter((f): f is NonNullable<typeof f> => f !== null);
   return new ImageResponse(
     (
@@ -54,8 +58,8 @@ export async function ogCard({
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "#ffffff",
-          color: "#1d1d1f",
+          background: "#0f0e0c",
+          color: "#f4f1ea",
           fontFamily: fonts.length ? "Inter" : undefined,
         }}
       >
@@ -71,13 +75,14 @@ export async function ogCard({
           <span style={{ fontSize: 30, fontWeight: 600 }}>Austin Sia</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <span style={{ fontSize: 28, fontWeight: 600, color: "#0066cc" }}>
+          <span style={{ fontSize: 28, fontWeight: 600, color: "#e8c15a" }}>
             {eyebrow}
           </span>
           <span
             style={{
               fontSize: 76,
               fontWeight: 700,
+              fontFamily: "Space Grotesk",
               letterSpacing: -2,
               lineHeight: 1.05,
             }}
@@ -87,7 +92,7 @@ export async function ogCard({
           <span
             style={{
               fontSize: 34,
-              color: "#6e6e73",
+              color: "#a8a294",
               lineHeight: 1.3,
               maxWidth: 980,
             }}
@@ -95,7 +100,7 @@ export async function ogCard({
             {line}
           </span>
         </div>
-        <span style={{ fontSize: 26, color: "#6e6e73" }}>austinsia.com</span>
+        <span style={{ fontSize: 26, color: "#a8a294" }}>austinsia.com</span>
       </div>
     ),
     { ...OG_SIZE, fonts: fonts.length ? fonts : undefined },

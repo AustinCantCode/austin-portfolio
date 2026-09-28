@@ -66,14 +66,14 @@ export default function AboutPage() {
                 data-reveal=""
                 className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-1 border-t border-black/10 py-6 [[data-theme=dark]_&]:border-white/12"
               >
-                <p className="flex-[0_0_200px] pt-[3px] text-[15px] font-medium text-fg-2">
+                <p className="flex-[0_0_200px] pt-[3px] font-mono text-[14px] font-medium text-fg-2">
                   {t.date}
                 </p>
                 <div className="flex min-w-0 flex-[1_1_360px] flex-col gap-0.5">
-                  <p className="flex items-center gap-2.5 text-[clamp(19px,2vw,22px)] font-semibold tracking-[-0.01em]">
+                  <p className="font-display flex items-center gap-2.5 text-[clamp(19px,2vw,22px)] font-semibold tracking-[-0.01em]">
                     {t.title}
                     {t.now && (
-                      <span className="rounded-full bg-accent px-2.5 py-[3px] text-[12px] font-semibold tracking-normal text-white">
+                      <span className="rounded-full bg-accent px-2.5 py-[3px] text-[12px] font-semibold tracking-normal text-on-accent">
                         Now
                       </span>
                     )}
@@ -104,7 +104,7 @@ export default function AboutPage() {
                 className="lift flex min-h-[200px] flex-col gap-1.5 rounded-[24px] bg-bg-alt p-7 text-fg [--hover-scale:1.02] hover:no-underline"
               >
                 <IconCircle name={m.icon} />
-                <p className="mt-auto text-[24px] font-bold tracking-[-0.02em]">
+                <p className="font-display mt-auto text-[24px] font-bold tracking-[-0.02em]">
                   {m.title}
                 </p>
                 <p data-hover-detail="" className="text-[15px] text-fg-2">
