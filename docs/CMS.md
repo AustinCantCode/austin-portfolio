@@ -62,6 +62,15 @@ for apps, None for photos and artwork), then add a cover image. **Order**
 decides where it appears (lower first). To show it on the homepage, add it to
 Homepage → Selected work.
 
+**Write a longer case study.** Open the project → **Case study sections** →
+**Add** a section per part of the story (for example "The challenge", "What
+I built", "Results"). Leave a blank line between paragraphs; add an image or a
+short callout if it helps. Once a project has sections, its page shows them
+with an "On this page" list instead of Problem / What I did / Outcome. Add
+**Results** for the big figures, only real, checkable facts. **Notes for me**
+is never shown on the site: the six drafted case studies (StillGood,
+Calibrium, ITE, KiasuParents, Glovida-RX, Frésko) list there what to check.
+
 **Change the homepage.** Site → Homepage has every section: the timeline,
 What I do (including its four project thumbnails and photo), Selected work,
 the numbers and the contact tiles.

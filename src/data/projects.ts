@@ -23,7 +23,22 @@ type RawProject = {
   screen: RawMedia;
   gallery: RawMedia[];
   video?: string | null;
+  story?: {
+    title?: string;
+    body?: string;
+    image?: RawMedia;
+    callout?: string;
+  }[];
+  results?: { value?: string; label?: string }[];
 };
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 export const projects: Project[] = (raw as unknown as RawProject[]).map((r) => {
   const p: Project = {
@@ -56,6 +71,24 @@ export const projects: Project[] = (raw as unknown as RawProject[]).map((r) => {
     ? gallery
     : [cover, second].filter((m): m is Media => !!m);
   p.video = opt(r.video);
+  const story = (r.story ?? [])
+    .filter((x) => x.title && x.body)
+    .map((x, i) => ({
+      id: slugify(x.title!) || `section-${i + 1}`,
+      title: x.title!,
+      paragraphs: x
+        .body!.split(/\n\s*\n/)
+        .map((t) => t.trim())
+        .filter(Boolean),
+      image: toMedia(x.image),
+      callout: opt(x.callout),
+    }));
+  if (story.length) p.story = story;
+  const results = (r.results ?? []).filter((x) => x.value && x.label) as {
+    value: string;
+    label: string;
+  }[];
+  if (results.length) p.results = results;
   return p;
 });
 

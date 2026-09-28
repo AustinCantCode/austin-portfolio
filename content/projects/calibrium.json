@@ -42,5 +42,27 @@
     "fit": "",
     "bare": false
   },
-  "gallery": []
+  "gallery": [],
+  "story": [
+    {
+      "title": "The brief",
+      "body": "Calibrium's website could show its watches, but that was all. Customers couldn't create an account, place an order or save the watches they liked.\n\nAs a freelancer, my job was to turn it into a shop that could actually take orders."
+    },
+    {
+      "title": "What I added",
+      "body": "I added everything a shopper needs, from start to finish: sign-up and login, a profile page, checkout and payment, order history, favourites, and an automatic confirmation email after every order.",
+      "callout": "Browsing, paying and getting a confirmation email now happen in one smooth flow."
+    },
+    {
+      "title": "How I built it",
+      "body": "The shop is built with Next.js, React and TypeScript, together with Tailwind CSS, Zustand, Strapi CMS and Node.js.\n\nI agreed the work with the client up front, then checked and tested every change myself before it went live."
+    }
+  ],
+  "results": [
+    {
+      "value": "6",
+      "label": "shopper features added, from sign-up to order emails"
+    }
+  ],
+  "notes": "Drafted from the existing Calibrium text and your CV. Check: the list of features and dates. Add a screenshot of the shop (the cover is still empty) and, if Calibrium is happy to, a quote."
 }

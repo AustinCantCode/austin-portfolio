@@ -46,5 +46,36 @@
     "fit": "",
     "bare": false
   },
-  "gallery": []
+  "gallery": [],
+  "story": [
+    {
+      "title": "The challenge",
+      "body": "ITE's Work-Study Diploma connects students, their teachers and the companies they train with. Four kinds of users share one system, and each needs to see different information.\n\nKeeping it clear and reliable for all of them is the hard part."
+    },
+    {
+      "title": "What I did",
+      "body": "During my internship at Amber Creative, I built screens for each type of user and connected them to the data behind the scenes. I fixed problems as they came up, and helped put new versions of the platform live.",
+      "image": {
+        "image": "/images/projects/ite/story/1/image/image.png",
+        "alt": "The ITE Work-Study Diploma sign-in page",
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "The tools",
+      "body": "The platform is built with Next.js, React and TypeScript, using shadcn/ui and Tailwind CSS for the interface, with Zustand, Azure Blob Storage, Docker, Node.js and Swagger UI behind the scenes."
+    },
+    {
+      "title": "The result",
+      "body": "A more reliable system for everyone who uses it, from students to partner companies."
+    }
+  ],
+  "results": [
+    {
+      "value": "4",
+      "label": "kinds of user, each with their own screens"
+    }
+  ],
+  "notes": "Drafted from the existing ITE text. Check: name the four kinds of user (students, teachers, companies and who else?). Add screenshots of the screens you built, if ITE allows."
 }

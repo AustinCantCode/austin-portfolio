@@ -57,5 +57,30 @@
       "fit": "",
       "bare": false
     }
-  ]
+  ],
+  "story": [
+    {
+      "title": "The challenge",
+      "body": "KiasuParents is a Singapore parenting community, with lots of articles and busy forums. It needed new pages without slowing the site down."
+    },
+    {
+      "title": "What I did",
+      "body": "As part of the Amber Creative team, I built new pages, made the site faster and fixed bugs across its main sections. I also kept content up to date.",
+      "image": {
+        "image": "/images/projects/ksp/story/1/image/image.png",
+        "alt": "A KiasuParents article page",
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "The tools",
+      "body": "The site brings several systems together: Next.js, React, TypeScript and Tailwind CSS, alongside WordPress, Strapi CMS, Mautic and NodeBB."
+    },
+    {
+      "title": "The result",
+      "body": "New features for thousands of parents, on a faster and steadier site."
+    }
+  ],
+  "notes": "Drafted from the existing KiasuParents text. Check: add which pages you built or any speed numbers you have."
 }

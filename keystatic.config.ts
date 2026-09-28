@@ -168,6 +168,41 @@ const projects = collection({
       itemLabel: (p) => p.fields.alt.value || "Image",
     }),
     video: video("projects"),
+    story: fields.array(
+      fields.object({
+        title: line("Section title", 'e.g. "The challenge".'),
+        body: para(
+          "Text",
+          "Leave a blank line between paragraphs.",
+        ),
+        image: media("projects", "Image (optional)"),
+        callout: para(
+          "Callout (optional)",
+          "A short highlight shown in a box under the text.",
+        ),
+      }),
+      {
+        label: "Case study sections",
+        description:
+          "When filled in, these replace Problem / What I did / Outcome on the case study page, with a contents list beside them.",
+        itemLabel: (p) => p.fields.title.value || "Section",
+      },
+    ),
+    results: fields.array(
+      fields.object({
+        value: line("Figure", 'Short, e.g. "4" or "Aug 2026".'),
+        label: line("What it means", 'e.g. "types of user in one system".'),
+      }),
+      {
+        label: "Results (big figures)",
+        description: "Only real, checkable facts.",
+        itemLabel: (p) => `${p.fields.value.value} ${p.fields.label.value}`,
+      },
+    ),
+    notes: para(
+      "Notes for me (not shown on the site)",
+      "Reminders for this case study, e.g. what to check or add.",
+    ),
   },
 });
 

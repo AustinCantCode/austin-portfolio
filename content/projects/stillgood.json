@@ -97,5 +97,55 @@
       "position": "top",
       "bare": false
     }
-  ]
+  ],
+  "story": [
+    {
+      "title": "The problem",
+      "body": "Families throw away food they forgot they had. Expiry dates get lost at the back of the fridge, and by the time you notice, it's too late.\n\nI wanted an app that remembers for you: what you bought, when it goes off, and what you could cook with it before then."
+    },
+    {
+      "title": "Where it started",
+      "body": "The idea began at the SP Batey Hackathon in September 2024. My team, Zenith Technologies, designed Frésko, an app to cut food waste, and it reached the grand finals.\n\nIn April 2026 I picked the idea back up and started building it for real, on my own, as StillGood.",
+      "callout": "From a hackathon design to a real app on the Play Store in about two years."
+    },
+    {
+      "title": "What I built",
+      "body": "I designed every screen and built the whole thing myself: the phone app, the system behind it and the website.\n\nYou snap a photo of your groceries and the app lists them for you. It sorts everything by expiry date, reminds you before something goes off, and suggests recipes that use up what needs eating first. Households can share one pantry.",
+      "image": {
+        "image": "/images/projects/stillgood/story/2/image/image.webp",
+        "alt": "The scanner adding a banana to the pantry",
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "How it works",
+      "body": "The app is built with React Native and Expo, so it runs on Android from one codebase. Behind it sit a Fastify server and a Supabase database. Google's Gemini AI reads grocery photos and suggests recipes, and PostHog shows me how people actually use the app so I can improve it.",
+      "image": {
+        "image": "/images/projects/stillgood/story/3/image/image.webp",
+        "alt": "Recipe suggestions that use expiring items",
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "Launch",
+      "body": "StillGood went live on the Google Play Store on 26 August 2026. Anyone with an Android phone can download it."
+    }
+  ],
+  "results": [
+    {
+      "value": "2 years",
+      "label": "from hackathon idea to the Play Store"
+    },
+    {
+      "value": "Solo",
+      "label": "design, app, server and website, all by me"
+    },
+    {
+      "value": "Live",
+      "label": "on Google Play since 26 August 2026"
+    }
+  ],
+  "notes": "Drafted from the existing StillGood text. Check: the dates and features are right; add download numbers or user feedback once you have them, and a photo of the launch if you like."
 }

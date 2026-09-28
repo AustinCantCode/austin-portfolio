@@ -15,8 +15,10 @@ import {
   NaturalImage,
   PhoneFrame,
 } from "@components/media";
-import type { Project } from "@data/types";
+import type { Project, StorySection } from "@data/types";
 import { testimonialFor } from "@data/testimonials";
+import { Toc } from "@components/client/toc";
+import { AnchorHeading } from "@components/anchor-heading";
 
 type Params = { slug: string };
 
@@ -63,6 +65,73 @@ function Row({
       </h2>
       <div className="min-w-0 max-w-[680px] flex-[3_1_420px]">{children}</div>
     </div>
+  );
+}
+
+type Block = { id: string; title: string; body: React.ReactNode };
+
+function StoryBody({
+  section,
+  title,
+}: {
+  section: StorySection;
+  title: string;
+}) {
+  return (
+    <div className="flex flex-col gap-[clamp(20px,2.4vw,28px)]">
+      {section.paragraphs.map((t, i) => (
+        <p
+          key={i}
+          className="text-[clamp(17px,1.5vw,19px)] leading-[1.65] text-fg-2"
+        >
+          {t}
+        </p>
+      ))}
+      {section.callout && (
+        <p className="rounded-[20px] bg-bg-alt px-[clamp(20px,2.4vw,28px)] py-[clamp(18px,2vw,24px)] text-[clamp(17px,1.6vw,19px)] leading-[1.55] font-medium text-fg">
+          {section.callout}
+        </p>
+      )}
+      {section.image && (
+        <figure className="m-0 flex flex-col gap-3">
+          <div className="overflow-hidden rounded-[20px] bg-bg-alt p-[clamp(12px,2vw,24px)]">
+            <NaturalImage
+              media={section.image}
+              placeholder={`${title} image`}
+              sizes="(max-width: 1024px) 100vw, 760px"
+              className={cn(
+                "mx-auto rounded-[10px]",
+                section.image.src.height > section.image.src.width * 1.4 &&
+                  "max-w-[340px]",
+              )}
+            />
+          </div>
+          {section.image.alt && (
+            <figcaption className="text-[14px] text-fg-2">
+              {section.image.alt}
+            </figcaption>
+          )}
+        </figure>
+      )}
+    </div>
+  );
+}
+
+function Results({ items }: { items: { value: string; label: string }[] }) {
+  return (
+    <dl className="m-0 grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-x-[clamp(24px,3vw,40px)] gap-y-8">
+      {items.map((r) => (
+        <div
+          key={r.label}
+          className="flex flex-col-reverse justify-end gap-3.5 border-t border-rule pt-5"
+        >
+          <dt className="text-[15px] leading-[1.45] text-fg-2">{r.label}</dt>
+          <dd className="font-display m-0 text-[clamp(44px,5vw,68px)] leading-[1.05] font-semibold tracking-[-0.02em]">
+            {r.value}
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -145,6 +214,127 @@ export default async function ProjectPage({
   const links = p.links;
   const quote = testimonialFor(p.slug);
 
+  // Quote, AI, tools and links: shared by both layouts.
+  const extras: Block[] = [
+    ...(quote
+      ? [
+          {
+            id: "what-they-said",
+            title: "What they said",
+            body: (
+              <figure className="m-0 flex flex-col gap-4">
+                <blockquote className="m-0">
+                  <p className="font-display text-[clamp(22px,2.3vw,28px)] leading-[1.35] font-medium text-pretty">
+                    &ldquo;{quote.quote}&rdquo;
+                  </p>
+                </blockquote>
+                <figcaption className="text-[15px] text-fg-2">
+                  <span className="font-semibold text-fg">{quote.name}</span>
+                  {[quote.role, quote.org].filter(Boolean).length > 0 &&
+                    `, ${[quote.role, quote.org].filter(Boolean).join(", ")}`}
+                </figcaption>
+              </figure>
+            ),
+          },
+        ]
+      : []),
+    ...(p.ai
+      ? [
+          {
+            id: "how-i-used-ai",
+            title: "How I used AI",
+            body: (
+              <div className="flex items-start gap-4 rounded-[24px] bg-bg-alt p-[clamp(20px,2.4vw,28px)]">
+                <span className="grid size-10 flex-none place-items-center rounded-full bg-well-alt">
+                  <Icon name="sparkles" size={18} />
+                </span>
+                <div className="flex min-w-0 flex-col gap-1.5">
+                  <p className="text-[15px] font-semibold">
+                    Built with Claude Code
+                  </p>
+                  <p className="text-[clamp(16px,1.7vw,18px)] leading-[1.55] text-fg-2">
+                    {p.ai}
+                  </p>
+                </div>
+              </div>
+            ),
+          },
+        ]
+      : []),
+    {
+      id: "tools-used",
+      title: "Tools used",
+      body: (
+        <ul className="m-0 flex list-none flex-wrap gap-2 p-0 pt-1">
+          {p.skills.map((s) => (
+            <li
+              key={s}
+              className="rounded-full bg-bg-alt px-3.5 py-1.5 text-[14px] font-medium text-fg"
+            >
+              {s}
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+    ...(links.length
+      ? [
+          {
+            id: "links",
+            title: "Links",
+            body: (
+              <div className="flex flex-wrap gap-3">
+                {links.map((l, i) => {
+                  const placeholder = isPlaceholderLink(l.href);
+                  return (
+                    <SmartLink
+                      key={l.label}
+                      href={l.href}
+                      aria-disabled={placeholder || undefined}
+                      title={placeholder ? "Link coming soon" : undefined}
+                      data-track={
+                        l.label.includes("Google Play")
+                          ? "play_store_click"
+                          : undefined
+                      }
+                      className={cn(
+                        "inline-flex h-11 items-center gap-2 rounded-full px-5 text-[15px] font-medium hover:no-underline",
+                        i === 0
+                          ? "bg-accent text-on-accent hover:bg-accent-hover"
+                          : "bg-pill text-fg",
+                      )}
+                    >
+                      {l.label}
+                      <Icon name="arrow-up-right" size={16} />
+                    </SmartLink>
+                  );
+                })}
+              </div>
+            ),
+          },
+        ]
+      : []),
+  ];
+
+  // The long-form case study: its sections, the results, then the extras.
+  const blocks: Block[] = [
+    ...(p.story ?? []).map((sec) => ({
+      id: sec.id,
+      title: sec.title,
+      body: <StoryBody section={sec} title={p.title} />,
+    })),
+    ...(p.results?.length
+      ? [
+          {
+            id: "results",
+            title: "Results",
+            body: <Results items={p.results} />,
+          },
+        ]
+      : []),
+    ...extras,
+  ];
+
   return (
     <>
       <JsonLd
@@ -190,101 +380,48 @@ export default async function ProjectPage({
 
       <Hero p={p} />
 
-      <section className="gutter band-y-2">
-        <div className="wrap flex flex-col gap-[clamp(32px,4vw,48px)]">
-          {[
-            ["Problem", p.problem],
-            ["What I did", p.did],
-            ["Outcome", p.outcome],
-          ].map(([label, text]) => (
-            <Row key={label} label={label}>
-              <p className="pt-[clamp(2px,.4vw,6px)] text-[clamp(17px,1.5vw,19px)] leading-[1.5] text-fg-2">
-                {text}
-              </p>
-            </Row>
-          ))}
-
-          {quote && (
-            <Row label="What they said">
-              <figure className="m-0 flex flex-col gap-4">
-                <blockquote className="m-0">
-                  <p className="font-display text-[clamp(22px,2.3vw,28px)] leading-[1.35] font-medium text-pretty">
-                    &ldquo;{quote.quote}&rdquo;
-                  </p>
-                </blockquote>
-                <figcaption className="text-[15px] text-fg-2">
-                  <span className="font-semibold text-fg">{quote.name}</span>
-                  {[quote.role, quote.org].filter(Boolean).length > 0 &&
-                    `, ${[quote.role, quote.org].filter(Boolean).join(", ")}`}
-                </figcaption>
-              </figure>
-            </Row>
-          )}
-
-          {p.ai && (
-            <Row label="How I used AI">
-              <div className="flex items-start gap-4 rounded-[24px] bg-bg-alt p-[clamp(20px,2.4vw,28px)]">
-                <span className="grid size-10 flex-none place-items-center rounded-full bg-well-alt">
-                  <Icon name="sparkles" size={18} />
-                </span>
-                <div className="flex min-w-0 flex-col gap-1.5">
-                  <p className="text-[15px] font-semibold">
-                    Built with Claude Code
-                  </p>
-                  <p className="text-[clamp(16px,1.7vw,18px)] leading-[1.55] text-fg-2">
-                    {p.ai}
-                  </p>
-                </div>
-              </div>
-            </Row>
-          )}
-
-          <Row label="Tools used">
-            <ul className="m-0 flex list-none flex-wrap gap-2 p-0 pt-1">
-              {p.skills.map((s) => (
-                <li
-                  key={s}
-                  className="rounded-full bg-bg-alt px-3.5 py-1.5 text-[14px] font-medium text-fg"
+      {p.story ? (
+        <section className="gutter band-y-2">
+          <div className="wrap grid gap-x-[clamp(40px,6vw,96px)] gap-y-8 lg:grid-cols-[220px_minmax(0,1fr)]">
+            <aside className="min-w-0 lg:row-span-2">
+              <Toc items={blocks.map(({ id, title }) => ({ id, title }))} />
+            </aside>
+            <article className="flex max-w-[760px] min-w-0 flex-col gap-[clamp(56px,6vw,88px)]">
+              {blocks.map((b) => (
+                <section
+                  key={b.id}
+                  aria-labelledby={b.id}
+                  className="flex flex-col gap-[clamp(16px,2vw,24px)]"
                 >
-                  {s}
-                </li>
+                  <AnchorHeading id={b.id}>{b.title}</AnchorHeading>
+                  {b.body}
+                </section>
               ))}
-            </ul>
-          </Row>
-
-          {links.length > 0 && (
-            <Row label="Links">
-              <div className="flex flex-wrap gap-3">
-                {links.map((l, i) => {
-                  const placeholder = isPlaceholderLink(l.href);
-                  return (
-                    <SmartLink
-                      key={l.label}
-                      href={l.href}
-                      aria-disabled={placeholder || undefined}
-                      title={placeholder ? "Link coming soon" : undefined}
-                      data-track={
-                        l.label.includes("Google Play")
-                          ? "play_store_click"
-                          : undefined
-                      }
-                      className={cn(
-                        "inline-flex h-11 items-center gap-2 rounded-full px-5 text-[15px] font-medium hover:no-underline",
-                        i === 0
-                          ? "bg-accent text-on-accent hover:bg-accent-hover"
-                          : "bg-pill text-fg",
-                      )}
-                    >
-                      {l.label}
-                      <Icon name="arrow-up-right" size={16} />
-                    </SmartLink>
-                  );
-                })}
-              </div>
-            </Row>
-          )}
-        </div>
-      </section>
+            </article>
+          </div>
+        </section>
+      ) : (
+        <section className="gutter band-y-2">
+          <div className="wrap flex flex-col gap-[clamp(32px,4vw,48px)]">
+            {[
+              ["Problem", p.problem],
+              ["What I did", p.did],
+              ["Outcome", p.outcome],
+            ].map(([label, text]) => (
+              <Row key={label} label={label}>
+                <p className="pt-[clamp(2px,.4vw,6px)] text-[clamp(17px,1.5vw,19px)] leading-[1.5] text-fg-2">
+                  {text}
+                </p>
+              </Row>
+            ))}
+            {extras.map((b) => (
+              <Row key={b.id} label={b.title}>
+                {b.body}
+              </Row>
+            ))}
+          </div>
+        </section>
+      )}
 
       <NextCard
         href={`/projects/${next.slug}`}

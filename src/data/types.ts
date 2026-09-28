@@ -59,6 +59,18 @@ export type Project = {
   gallery?: Media[];
   /** A demo video path under /public, shown in the pop-up. */
   video?: string;
+  /** Long-form case study sections (replace problem/did/outcome). */
+  story?: StorySection[];
+  /** Big figures for the Results section. */
+  results?: { value: string; label: string }[];
+};
+
+export type StorySection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  image?: Media;
+  callout?: string;
 };
 
 export type SmallApp = {
