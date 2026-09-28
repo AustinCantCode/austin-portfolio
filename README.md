@@ -32,7 +32,7 @@ pnpm install
 pnpm dev
 ```
 
-To turn on PostHog analytics, set `NEXT_PUBLIC_POSTHOG_KEY` (and optionally `NEXT_PUBLIC_POSTHOG_HOST`). Without a key, analytics stays off.
+Environment variables are listed in `.env.example`. Copy it to `.env.local` (`cp .env.example .env.local`) and fill it in, and add the same values in Vercel. The only one that matters is `NEXT_PUBLIC_POSTHOG_KEY`: without it, analytics stays off.
 
 ## 📝 To do
 
