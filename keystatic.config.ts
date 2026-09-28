@@ -171,10 +171,7 @@ const projects = collection({
     story: fields.array(
       fields.object({
         title: line("Section title", 'e.g. "The challenge".'),
-        body: para(
-          "Text",
-          "Leave a blank line between paragraphs.",
-        ),
+        body: para("Text", "Leave a blank line between paragraphs."),
         image: media("projects", "Image (optional)"),
         callout: para(
           "Callout (optional)",
@@ -351,7 +348,10 @@ const writing = collection({
   schema: {
     title: fields.slug({ name: { label: "Title" } }),
     date: fields.date({ label: "Date", validation: { isRequired: true } }),
-    summary: para("Summary", "One or two sentences for the list and search results."),
+    summary: para(
+      "Summary",
+      "One or two sentences for the list and search results.",
+    ),
     tags: list("Tags", "Tag"),
     draft: fields.checkbox({
       label: "Draft",
@@ -798,12 +798,26 @@ const pages = singleton({
     writing: fields.object(
       {
         title: line("Search title", "About 60 characters at most."),
-        description: para("Search description", "About 160 characters at most."),
+        description: para(
+          "Search description",
+          "About 160 characters at most.",
+        ),
         heading: line("Page heading"),
         intro: para("Line under the heading"),
       },
       { label: "Writing" },
     ),
+  },
+});
+
+const chatbot = singleton({
+  label: "Ask Austin (chatbot)",
+  path: "content/chatbot",
+  format: { data: "json" },
+  schema: {
+    button: line("Button text"),
+    greeting: para("Greeting", "The first message people see."),
+    prompts: list("Suggested questions", "Question"),
   },
 });
 
@@ -852,9 +866,16 @@ export default config({
     },
     navigation: {
       Writing: ["writing"],
-      Site: ["site", "home", "pages", "navigation", "categories"],
+      Site: ["site", "home", "pages", "navigation", "categories", "chatbot"],
       Work: ["projects", "smallApps", "graphics", "ventures", "stillgood"],
-      About: ["about", "cv", "skills", "certificates", "events", "testimonials"],
+      About: [
+        "about",
+        "cv",
+        "skills",
+        "certificates",
+        "events",
+        "testimonials",
+      ],
     },
   },
   collections: {
@@ -877,5 +898,6 @@ export default config({
     categories,
     navigation,
     pages,
+    chatbot,
   },
 });
