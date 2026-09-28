@@ -12,6 +12,11 @@ import { ToolsMarquee } from "./_home/marquee";
 import { EventsCarousel } from "./_home/events-carousel";
 import { Numbers } from "./_home/numbers";
 import { ContactTiles } from "./_home/contact-tiles";
+import { KindWords } from "./_home/kind-words";
+import { Clients } from "./_home/clients";
+import { Recognition } from "./_home/recognition";
+import { testimonials } from "@data/testimonials";
+import { featuredCertificates } from "@data/certificates";
 
 export const metadata = pageMetadata({
   title: pageCopy.home.title,
@@ -54,10 +59,24 @@ export default function HomePage() {
               <ProjectTile key={p.slug} project={p} devices />
             ))}
           </div>
+          <Clients title={home.clients.title} items={home.clients.items} />
         </div>
       </section>
 
+      {testimonials.length > 0 && (
+        <KindWords
+          items={testimonials}
+          title={home.kindWords.title}
+          sub={home.kindWords.sub}
+        />
+      )}
       <EventsCarousel />
+      <Recognition
+        title={home.recognition.title}
+        sub={home.recognition.sub}
+        link={home.recognition.link}
+        items={featuredCertificates}
+      />
       <Numbers />
 
       {/* Contact */}

@@ -215,11 +215,56 @@
       "quizzy"
     ]
   },
+  "kindWords": {
+    "title": "Kind words.",
+    "sub": "From people I've built websites and apps with."
+  },
+  "clients": {
+    "title": "Teams I've built for",
+    "items": [
+      {
+        "name": "ITE",
+        "project": "ite"
+      },
+      {
+        "name": "KiasuParents",
+        "project": "ksp"
+      },
+      {
+        "name": "Glovida-RX",
+        "project": "grx"
+      },
+      {
+        "name": "IAL",
+        "project": "ial"
+      },
+      {
+        "name": "Amber Creative",
+        "project": "ac"
+      },
+      {
+        "name": "JuzInterior",
+        "project": "jint"
+      },
+      {
+        "name": "Calibrium",
+        "project": "calibrium"
+      }
+    ]
+  },
   "events": {
     "title": "Out and about.",
     "link": {
       "label": "All events ›",
       "href": "/about/events"
+    }
+  },
+  "recognition": {
+    "title": "Recognition.",
+    "sub": "A hackathon final and awards along the way.",
+    "link": {
+      "label": "All certificates ›",
+      "href": "/about/certificates"
     }
   },
   "numbers": {

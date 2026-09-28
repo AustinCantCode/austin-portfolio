@@ -262,6 +262,10 @@ const certificates = collection({
           issuer: line("Issued by"),
           description: para("Description"),
           image: img("certificates", "Certificate image"),
+          featured: fields.checkbox({
+            label: "Show on the homepage",
+            description: "Featured under Recognition on the homepage.",
+          }),
         },
         { label: "Certificate" },
       ),
@@ -270,6 +274,35 @@ const certificates = collection({
         itemLabel: (p) => p.fields.title.value || "Certificate",
       },
     ),
+  },
+});
+
+const testimonials = collection({
+  label: "Testimonials",
+  slugField: "name",
+  path: "content/testimonials/*",
+  format: { data: "json" },
+  columns: ["org", "order"],
+  schema: {
+    name: fields.slug({ name: { label: "Their name" } }),
+    order,
+    lead: fields.checkbox({
+      label: "Lead quote",
+      description: "Shown largest on the homepage. Tick only one.",
+    }),
+    quote: para("Quote", "Their words, as they wrote them."),
+    role: line("Their role", 'e.g. "Director"'),
+    org: line("Company or school"),
+    project: fields.relationship({
+      label: "Project it's about",
+      description: "Also shown on that project's case study.",
+      collection: "projects",
+    }),
+    photo: img("testimonials", "Their photo (optional)"),
+    permission: fields.checkbox({
+      label: "They agreed to be quoted",
+      description: "Only quotes with this ticked appear on the site.",
+    }),
   },
 });
 
@@ -396,7 +429,44 @@ const home = singleton({
       },
       { label: "Selected work" },
     ),
+    kindWords: fields.object(
+      { title: line("Title"), sub: para("Line under the title") },
+      { label: "Kind words (testimonials)" },
+    ),
+    clients: fields.object(
+      {
+        title: line("Line above the names"),
+        items: fields.array(
+          fields.object({
+            name: line("Client name"),
+            project: fields.relationship({
+              label: "Case study to link to",
+              collection: "projects",
+            }),
+            logo: img(
+              "home",
+              "Logo (optional)",
+              "A transparent PNG or SVG; shown in one colour to match the site.",
+            ),
+          }),
+          { label: "Clients", itemLabel: (p) => p.fields.name.value },
+        ),
+      },
+      { label: "Clients strip" },
+    ),
     events: sectionHead("Out and about"),
+    recognition: fields.object(
+      {
+        title: line("Title"),
+        sub: para("Line under the title"),
+        link: link("Link"),
+      },
+      {
+        label: "Recognition (awards)",
+        description:
+          'The awards themselves are picked with "Show on the homepage" in About → Certificates.',
+      },
+    ),
     numbers: fields.object(
       {
         title: line("Title"),
@@ -709,7 +779,7 @@ export default config({
     navigation: {
       Site: ["site", "home", "pages", "navigation", "categories"],
       Work: ["projects", "smallApps", "graphics", "ventures", "stillgood"],
-      About: ["about", "cv", "skills", "certificates", "events"],
+      About: ["about", "cv", "skills", "certificates", "events", "testimonials"],
     },
   },
   collections: {
@@ -719,6 +789,7 @@ export default config({
     ventures,
     events,
     certificates,
+    testimonials,
   },
   singletons: {
     site,

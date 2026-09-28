@@ -21,7 +21,17 @@ export const home = {
   },
   tools: raw.tools,
   selectedWork: raw.selectedWork,
+  kindWords: raw.kindWords,
+  clients: {
+    title: raw.clients.title,
+    items: raw.clients.items as unknown as {
+      name: string;
+      project?: string | null;
+      logo?: StaticImageData | null;
+    }[],
+  },
   events: raw.events,
+  recognition: raw.recognition,
   numbers: {
     title: raw.numbers.title,
     // Plain numbers count up on the page; others ("10+") are shown as is.

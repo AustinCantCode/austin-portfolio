@@ -24,13 +24,15 @@
       "title": "YEA Award 2022",
       "issuer": "Ministry of Education, People's Association",
       "description": "Completed the Young Engineer Award requirements. Officially recognised Young Engineer.",
-      "image": "/images/certificates/school/items/3/image.png"
+      "image": "/images/certificates/school/items/3/image.png",
+      "featured": true
     },
     {
       "title": "CVSS GPA Award 2022",
       "issuer": "Ministry of Education, People's Association",
       "description": "Academic improvement in the 2022 preliminary examinations.",
-      "image": "/images/certificates/school/items/4/image.png"
+      "image": "/images/certificates/school/items/4/image.png",
+      "featured": true
     },
     {
       "title": "O and N Level Certificate 2022",

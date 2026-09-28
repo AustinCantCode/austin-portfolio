@@ -311,3 +311,11 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Client logos in one colour, matching the text (see _home/clients.tsx). */
+.client-logo {
+  filter: brightness(0);
+}
+[data-theme="dark"] .client-logo {
+  filter: brightness(0) invert(1);
+}

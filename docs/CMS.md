@@ -72,6 +72,18 @@ the numbers and the contact tiles.
 **Feature an event.** About → Events → tick **Feature this event** on one
 event (untick the old one).
 
+**Add a testimonial.** About → Testimonials → **Add**. Paste their words
+exactly, add their name, role and company, and pick the project it's about
+(it then also appears on that case study). Tick **They agreed to be quoted**;
+quotes without it never appear. Tick **Lead quote** on the one to show
+largest. The "Kind words." section stays hidden until there's at least one.
+
+**Awards on the homepage.** About → Certificates → open a group → tick
+**Show on the homepage** on a certificate. Recognition shows every ticked one.
+
+**Client names.** Site → Homepage → Clients strip. Add a logo to replace a
+name with the client's logo (shown in one colour to match the site).
+
 **Menus.** Site → Menus sets the line and the three featured projects in the
 Development and Design menus.
 

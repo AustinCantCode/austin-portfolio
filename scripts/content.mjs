@@ -31,6 +31,9 @@ const PUBLIC = path.join(ROOT, "public");
 const OUT = path.join(ROOT, "src/data/generated");
 const CACHE = path.join(ROOT, "node_modules/.cache/content-images.json");
 const IMAGE = /^\/images\/.+\.(png|jpe?g|webp|gif|avif)$/i;
+// Collections the site imports even while they have no entries yet (git
+// doesn't keep empty folders).
+const ALWAYS = ["testimonials"];
 
 let cache = {};
 try {
@@ -83,6 +86,7 @@ const readJson = (file) => JSON.parse(readFileSync(file, "utf8"));
 async function generate() {
   warnings.length = 0;
   mkdirSync(OUT, { recursive: true });
+  for (const name of ALWAYS) mkdirSync(path.join(CONTENT, name), { recursive: true });
   const written = [];
   for (const name of readdirSync(CONTENT).sort()) {
     const full = path.join(CONTENT, name);

@@ -16,6 +16,7 @@ import {
   PhoneFrame,
 } from "@components/media";
 import type { Project } from "@data/types";
+import { testimonialFor } from "@data/testimonials";
 
 type Params = { slug: string };
 
@@ -142,6 +143,7 @@ export default async function ProjectPage({
   const next = projects[(idx + 1) % projects.length];
   const cats = p.categories.map((c) => categoryBySlug(c)!).filter(Boolean);
   const links = p.links;
+  const quote = testimonialFor(p.slug);
 
   return (
     <>
@@ -201,6 +203,23 @@ export default async function ProjectPage({
               </p>
             </Row>
           ))}
+
+          {quote && (
+            <Row label="What they said">
+              <figure className="m-0 flex flex-col gap-4">
+                <blockquote className="m-0">
+                  <p className="font-display text-[clamp(22px,2.3vw,28px)] leading-[1.35] font-medium text-pretty">
+                    &ldquo;{quote.quote}&rdquo;
+                  </p>
+                </blockquote>
+                <figcaption className="text-[15px] text-fg-2">
+                  <span className="font-semibold text-fg">{quote.name}</span>
+                  {[quote.role, quote.org].filter(Boolean).length > 0 &&
+                    `, ${[quote.role, quote.org].filter(Boolean).join(", ")}`}
+                </figcaption>
+              </figure>
+            </Row>
+          )}
 
           {p.ai && (
             <Row label="How I used AI">
