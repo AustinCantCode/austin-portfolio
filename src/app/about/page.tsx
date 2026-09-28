@@ -35,6 +35,7 @@ export default function AboutPage() {
       <section className="gutter pt-[clamp(36px,min(6vw,9vh),84px)] pb-[clamp(56px,min(7vw,11vh),96px)]">
         <div className="wrap flex flex-wrap items-center gap-[clamp(32px,6vw,80px)]">
           <Image
+            quality={100}
             src={portrait}
             alt="Portrait of Austin Sia"
             width={200}

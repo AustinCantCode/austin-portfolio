@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { home } from "@data/home";
-import { Kicker } from "@components/ui";
 import { prefersReducedMotion } from "@components/client/motion";
 
 /** Chapter 6: four stats that count up when they come into view. */
 export function Numbers() {
-  const { kicker, title, stats } = home.numbers;
+  const { title, stats } = home.numbers;
   const ref = useRef<HTMLDivElement>(null);
   const [t, setT] = useState(1);
 
@@ -51,7 +50,6 @@ export function Numbers() {
         data-reveal=""
         className="wrap mb-[clamp(32px,4vw,56px)] flex flex-col gap-3"
       >
-        <Kicker>{kicker}</Kicker>
         <h2 id="numbers-title" className="t-h2">
           {title}
         </h2>

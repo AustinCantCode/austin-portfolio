@@ -1,5 +1,5 @@
 import Coin from "@components/complex-ui/coin";
-import { ButtonLink, Kicker, SectionHeader, StatusPill } from "@components/ui";
+import { ButtonLink, SectionHeader, StatusPill } from "@components/ui";
 import { ProjectTile } from "@components/tiles";
 import { home } from "@data/home";
 import { site } from "@data/site";
@@ -75,13 +75,12 @@ export default function HomePage() {
         <div className="wrap flex flex-col gap-[clamp(32px,4vw,56px)]">
           <SectionHeader
             id="work-title"
-            kicker={home.selectedWork.kicker}
             title={home.selectedWork.title}
             link={home.selectedWork.link}
           />
           <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,max(300px,calc((100%_-_48px)/3))),1fr))] gap-[clamp(16px,2vw,24px)]">
             {selected.map((p) => (
-              <ProjectTile key={p.slug} project={p} />
+              <ProjectTile key={p.slug} project={p} devices />
             ))}
           </div>
         </div>
@@ -96,7 +95,6 @@ export default function HomePage() {
         className="gutter band-y bg-bg-alt"
       >
         <div data-reveal="" className="wrap flex flex-col gap-4">
-          <Kicker>{home.contact.kicker}</Kicker>
           <h2
             id="contact-title"
             className="text-[clamp(38px,5.5vw,72px)] leading-none font-bold tracking-[-0.035em]"

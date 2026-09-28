@@ -30,6 +30,7 @@ export function ImageSlot({
   if (media) {
     return (
       <Image
+        quality={100}
         src={media.src}
         alt={media.alt}
         fill
@@ -156,6 +157,25 @@ export function LaptopFrame({
   );
 }
 
+/** A landscape tablet with even bezels, for web screenshots. */
+export function TabletFrame({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className={cn("w-full", className)}>
+      <div className="rounded-[clamp(18px,2vw,24px)] bg-frame p-[clamp(8px,0.9vw,11px)]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[clamp(10px,1.1vw,13px)] bg-bg">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /**
  * The media area of a project tile: a device frame that bleeds off the
  * bottom, a frameless mockup, or a full-bleed image.
@@ -165,12 +185,15 @@ export function TileMedia({
   height = "clamp(200px,20vw,260px)",
   phoneSize = 200,
   compact,
+  devices,
   sizes,
 }: {
   project: Project;
   height?: string;
   phoneSize?: keyof typeof PHONE_SIZES;
   compact?: boolean;
+  /** Only tablets and phones: web work in a tablet, apps in a phone. */
+  devices?: boolean;
   sizes?: string;
 }) {
   const ph = `${project.title} screenshot`;
@@ -178,6 +201,37 @@ export function TileMedia({
   const padX = compact
     ? "px-[clamp(20px,2.4vw,32px)]"
     : "px-[clamp(24px,4vw,48px)]";
+
+  if (devices) {
+    const phone = project.frame === "phone" || !!project.screen;
+    return (
+      <div
+        className={cn(
+          "flex items-start justify-center overflow-hidden",
+          phone ? padX : "px-[clamp(28px,4.4vw,56px)]",
+        )}
+        style={{ height }}
+      >
+        {phone ? (
+          <PhoneFrame size={phoneSize}>
+            <ImageSlot
+              media={project.screen ?? cover}
+              placeholder={ph}
+              sizes="(max-width: 768px) 60vw, 240px"
+            />
+          </PhoneFrame>
+        ) : (
+          <TabletFrame>
+            <ImageSlot
+              media={cover}
+              placeholder={ph}
+              sizes={sizes ?? "(max-width: 768px) 100vw, 33vw"}
+            />
+          </TabletFrame>
+        )}
+      </div>
+    );
+  }
 
   if (project.frame === "none" || cover?.bare) {
     return (

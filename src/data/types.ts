@@ -53,6 +53,8 @@ export type Project = {
   frame: Frame;
   cover?: Media;
   second?: Media;
+  /** A single app screen, for device frames when `cover` is a mockup. */
+  screen?: Media;
 };
 
 export type SmallApp = { title: string; tech: string; image?: Media };

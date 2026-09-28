@@ -16,7 +16,7 @@ const ROWS = [
 
 /** Chapter 3: two rows of skill pills drifting in opposite directions. */
 export function ToolsMarquee() {
-  const { kicker, title, link } = home.tools;
+  const { title, link } = home.tools;
   const reduce = useReducedMotionPref();
   const rootRef = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
@@ -54,7 +54,7 @@ export function ToolsMarquee() {
       className="band-y-2 overflow-hidden bg-bg-alt"
     >
       <div className="wrap gutter mb-[clamp(28px,4vw,48px)]">
-        <SectionHeader kicker={kicker} title={title} link={link} />
+        <SectionHeader title={title} link={link} />
       </div>
       <div
         ref={rootRef}

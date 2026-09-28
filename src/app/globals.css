@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Design tokens (light by default, dark under [data-theme="dark"])
+   Design tokens. Dark is the default theme ([data-theme="dark"] on
+   <html>); light stays available from the toggle.
    ------------------------------------------------------------------ */
 :root {
   /* "Logo gold": warm white, ink and gold, from the AS logo. */
@@ -17,10 +18,13 @@
   --band-text-2: #a8a294;
   --frame: #1a1813;
   --frame-base: #d9d4c9;
-  --accent-fill: #e2b33c;
-  --accent-fill-hover: #d4a42a;
+  --accent-fill: #aca650;
+  --accent-fill-hover: #9c9646;
   --on-accent: #1a1813;
-  --accent-text: #8a6512;
+  --accent-text: #6e6a1f;
+  --menu: var(--bg);
+  --hairline: rgba(26, 24, 19, 0.08);
+  --glow-accent: 0 0 0 0 transparent;
   --shadow-tab:
     0 1px 2px rgba(26, 24, 19, 0.06), 0 4px 14px rgba(26, 24, 19, 0.08);
   --shadow-menu: 0 24px 48px rgba(26, 24, 19, 0.08);
@@ -32,21 +36,33 @@
   color-scheme: light;
 }
 
+/* Dark: warm near-black base (not #000), off-white text at ~15:1 rather
+   than 17:1+, and tonal elevation: each raised layer is a step lighter,
+   with a faint hairline, since shadows vanish on dark surfaces. */
 [data-theme="dark"] {
-  --bg: #0f0e0c;
-  --bg-alt: #171612;
-  --tile: #1f1d19;
+  --bg: #0f0e0c; /* elevation 0 */
+  --bg-alt: #171612; /* 1: alternate sections */
+  --menu: #171612;
+  --tile: #1f1d19; /* 2: cards */
   --tile-alt: #1f1d19;
-  --text: #f4f1ea;
+  --pill: #2b2924; /* 3: chips, secondary buttons */
+  --text: #ebe7de;
   --text-2: #a8a294;
-  --pill: #2b2924;
   --band: #1b1a16;
+  --band-text: #ebe7de;
   --frame: #3a3731;
   --frame-base: #4a463f;
-  --accent-text: #e8c15a;
-  --shadow-tab: none;
-  --shadow-menu: none;
-  --shadow-lift: none;
+  /* Brighter gold on dark so the accent keeps its weight. */
+  --accent-fill: #b8b35e;
+  --accent-fill-hover: #c4bf69;
+  --accent-text: #cac873;
+  --hairline: rgba(235, 231, 222, 0.07);
+  --glow-accent: 0 0 28px rgba(184, 179, 94, 0.3);
+  --shadow-tab: inset 0 0 0 1px rgba(235, 231, 222, 0.08);
+  --shadow-menu:
+    0 1px 0 rgba(235, 231, 222, 0.06), 0 24px 48px rgba(0, 0, 0, 0.5);
+  --shadow-lift:
+    inset 0 0 0 1px rgba(235, 231, 222, 0.1), 0 18px 40px rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }
 
@@ -71,7 +87,9 @@
   --color-accent-hover: var(--accent-fill-hover);
   --color-accent-text: var(--accent-text);
   --color-on-accent: var(--on-accent);
-  --color-band-link: #e8c15a;
+  --color-menu: var(--menu);
+  --color-hairline: var(--hairline);
+  --color-band-link: #cac873;
   --color-live: #30d158;
   --color-band-pill: #2b2924;
   --color-success: #1a7f4b;
@@ -108,7 +126,7 @@
   }
 
   ::selection {
-    background: rgba(226, 179, 60, 0.35);
+    background: rgba(172, 166, 80, 0.4);
     color: var(--text);
   }
 
@@ -238,6 +256,11 @@
 
   [data-theme="dark"] .bare-mock img {
     mix-blend-mode: normal;
+  }
+
+  /* Raised surfaces get a hairline edge in dark mode. */
+  [data-theme="dark"] :is(.bg-tile, .bg-tile-alt) {
+    box-shadow: inset 0 0 0 1px var(--hairline);
   }
 
   /* Hover lift for cards. Scale is set per card with --hover-scale. */

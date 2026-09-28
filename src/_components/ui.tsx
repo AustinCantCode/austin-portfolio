@@ -39,7 +39,7 @@ type ButtonVariant = "primary" | "secondary";
 type ButtonSize = "lg" | "md";
 
 const buttonBase =
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-[background-color,transform] duration-200 hover:no-underline active:scale-[.97]";
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-[background-color,box-shadow,transform] duration-200 hover:no-underline active:scale-[.97]";
 
 export const buttonClass = (
   variant: ButtonVariant = "primary",
@@ -49,7 +49,7 @@ export const buttonClass = (
     buttonBase,
     size === "lg" ? "h-12 px-6 text-[17px]" : "h-11 px-[22px] text-[15px]",
     variant === "primary"
-      ? "bg-accent text-on-accent hover:bg-accent-hover"
+      ? "bg-accent text-on-accent hover:bg-accent-hover hover:shadow-[var(--glow-accent)]"
       : "bg-pill text-fg",
   );
 

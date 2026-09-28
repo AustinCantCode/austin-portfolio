@@ -45,7 +45,7 @@ export default function Coin({
         alpha: true,
       });
       renderer.setSize(w(), h());
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
       renderer.domElement.style.display = "block";
       el.appendChild(renderer.domElement);
       scene.add(new THREE.HemisphereLight(0xffffff, 0xffffff, 2));

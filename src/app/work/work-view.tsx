@@ -7,6 +7,7 @@ import { Icon } from "@components/icon";
 import { ImageSlot } from "@components/media";
 import { ProjectTile, SmallAppCard, VentureCard } from "@components/tiles";
 import { SegmentedControl } from "@components/client/segmented";
+import { Carousel } from "@components/client/carousel";
 import { track } from "@components/client/analytics";
 
 export type WorkGroup =
@@ -217,16 +218,16 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   }
   if (g.kind === "small") {
     return (
-      <div
-        tabIndex={0}
-        role="region"
-        aria-label="Small apps"
-        className="grid auto-cols-[minmax(180px,1fr)] grid-flow-col gap-4 overflow-x-auto pb-2 [scrollbar-width:thin]"
-      >
+      <Carousel label="small apps">
         {g.apps.map((a) => (
-          <SmallAppCard key={a.title} app={a} size="sm" />
+          <div
+            key={a.title}
+            className="w-[clamp(180px,16vw,220px)] flex-none snap-start"
+          >
+            <SmallAppCard app={a} size="sm" />
+          </div>
         ))}
-      </div>
+      </Carousel>
     );
   }
   if (g.kind === "art") {

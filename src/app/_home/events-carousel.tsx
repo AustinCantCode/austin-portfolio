@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { events } from "@data/events";
 import { home } from "@data/home";
 import { Icon } from "@components/icon";
-import { Kicker, TextLink } from "@components/ui";
+import { TextLink } from "@components/ui";
 import { ImageSlot } from "@components/media";
 
 // Line the first card up with the page container.
@@ -12,7 +12,7 @@ const pad = "max(var(--gutter), calc((100% - var(--container)) / 2))";
 
 /** Chapter 5: horizontal scroll-snap carousel of events. */
 export function EventsCarousel() {
-  const { kicker, title, link } = home.events;
+  const { title, link } = home.events;
   const ref = useRef<HTMLDivElement>(null);
   const scroll = (d: number) =>
     ref.current?.scrollBy({ left: d, behavior: "smooth" });
@@ -24,7 +24,6 @@ export function EventsCarousel() {
         className="wrap gutter mb-[clamp(24px,3vw,40px)] flex flex-wrap items-end justify-between gap-4"
       >
         <div className="flex flex-col gap-2">
-          <Kicker>{kicker}</Kicker>
           <h2 id="events-title" className="t-h2">
             {title}
           </h2>

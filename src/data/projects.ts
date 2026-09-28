@@ -15,6 +15,7 @@ import shoplyShot from "../../public/coding-projects/featured/shoply/image 1.png
 import telegptLogo from "../../public/coding-projects/featured/telegpt/Telegpt.png";
 import freskoMock from "../../public/design-projects/UIUX/fresko.png";
 import quizzyMock from "../../public/design-projects/UIUX/quizzy.png";
+import quizzyScreen from "../../public/design-projects/UIUX/quizzy-screen.png";
 import hgMock from "../../public/design-projects/UIUX/hidden gems app.png";
 import spMock from "../../public/design-projects/UIUX/sp app.png";
 import lawksPhoto from "../../public/design-projects/product-design/LAWKS/lawks_1.png";
@@ -41,7 +42,7 @@ const mockup = (src: Media["src"], alt: string): Media => ({
  * TODO(Austin): a Calibrium screenshot and an IAL Success Stories
  * screenshot (the old site reused IAL InLab's image).
  */
-const MEDIA: Record<string, Pick<Project, "cover" | "second">> = {
+const MEDIA: Record<string, Pick<Project, "cover" | "second" | "screen">> = {
   stillgood: { cover: stillgoodScreens.home, second: stillgoodScreens.pantry },
   calibrium: {},
   ite: { cover: shot(iteShot, "ITE Work-Study Diploma platform") },
@@ -61,7 +62,10 @@ const MEDIA: Record<string, Pick<Project, "cover" | "second">> = {
   },
   shoply: { cover: shot(shoplyShot, "Shoply online shop") },
   fresko: { cover: mockup(freskoMock, "Frésko app screens") },
-  quizzy: { cover: mockup(quizzyMock, "Quizzy app screens") },
+  quizzy: {
+    cover: mockup(quizzyMock, "Quizzy app screens"),
+    screen: shot(quizzyScreen, "Quizzy sign-in screen"),
+  },
   hg: { cover: mockup(hgMock, "Hidden Gems app screens") },
   sp: { cover: mockup(spMock, "SP Mobile v3 app screens") },
   lawks: {

@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { home } from "@data/home";
-import { TextLink, Kicker } from "@components/ui";
+import { TextLink } from "@components/ui";
 import { prefersReducedMotion } from "@components/client/motion";
 
 /** Chapter 1: timeline whose rail fills as you scroll. */
 export function Journey() {
-  const { kicker, title, sub, link, items } = home.journey;
+  const { title, sub, link, items } = home.journey;
   const listRef = useRef<HTMLOListElement>(null);
   const fillRef = useRef<HTMLSpanElement>(null);
 
@@ -60,7 +60,6 @@ export function Journey() {
     >
       <div className="wrap flex flex-wrap items-start gap-[clamp(32px,6vw,96px)]">
         <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-4 min-[1100px]:sticky min-[1100px]:top-[120px]">
-          <Kicker>{kicker}</Kicker>
           <h2 id="journey-title" className="t-h2">
             {title}
           </h2>

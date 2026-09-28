@@ -75,7 +75,7 @@ export async function ogCard({
           <span style={{ fontSize: 30, fontWeight: 600 }}>Austin Sia</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <span style={{ fontSize: 28, fontWeight: 600, color: "#e8c15a" }}>
+          <span style={{ fontSize: 28, fontWeight: 600, color: "#cac873" }}>
             {eyebrow}
           </span>
           <span

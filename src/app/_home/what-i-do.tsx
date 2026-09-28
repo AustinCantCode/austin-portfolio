@@ -7,7 +7,7 @@ import { cn } from "@lib/utils";
 import { home, whatIDoPhotoHints, whatIDoPhotos } from "@data/home";
 import { pickProjects } from "@data/projects";
 import { Icon } from "@components/icon";
-import { ButtonLink, Kicker } from "@components/ui";
+import { ButtonLink } from "@components/ui";
 import { ImageSlot } from "@components/media";
 import { SegmentedControl } from "@components/client/segmented";
 import { prefersReducedMotion } from "@components/client/motion";
@@ -17,23 +17,32 @@ const IDS = AREAS.map((a) => a.id);
 const NAV = 56;
 
 /**
- * Chapter 2. On large screens the section pins for three screen-heights
+ * "What I do". On large screens the section pins for three screen-heights
  * and scrolling steps through the tabs; elsewhere they are plain tabs.
+ * If the copy would not fit the pinned panel, it stays unpinned rather
+ * than scrolling inside the panel.
  */
 export function WhatIDo() {
   const [area, setArea] = useState(IDS[0]);
   const [pinned, setPinned] = useState(false);
   const [progress, setProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
+  const fits = useRef(true);
 
   useEffect(() => {
     const onScroll = () => {
       const sec = sectionRef.current;
       if (!sec) return;
+      const copy = copyRef.current;
+      if (copy && copy.scrollHeight > copy.clientHeight + 1) {
+        fits.current = false;
+      }
       const pin =
+        fits.current &&
         !prefersReducedMotion() &&
         window.innerWidth >= 1080 &&
-        window.innerHeight >= 640;
+        window.innerHeight >= 680;
       setPinned(pin);
       if (!pin) return;
       const r = sec.getBoundingClientRect();
@@ -43,14 +52,27 @@ export function WhatIDo() {
       setArea(IDS[i]);
       setProgress(p * 3 - i);
     };
+    const onResize = () => {
+      fits.current = true;
+      onScroll();
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
+
+  // Unpin when the copy is taller than the pinned panel.
+  useEffect(() => {
+    const el = copyRef.current;
+    if (pinned && el && el.scrollHeight > el.clientHeight + 1) {
+      fits.current = false;
+      setPinned(false);
+    }
+  }, [pinned, area]);
 
   const select = useCallback(
     (id: string) => {
@@ -90,24 +112,23 @@ export function WhatIDo() {
         className={cn(
           "gutter flex flex-col justify-center overflow-hidden",
           pinned
-            ? "sticky top-14 h-[calc(100vh_-_56px)] py-[clamp(20px,3vh,40px)]"
+            ? "sticky top-14 h-[calc(100vh_-_56px)] py-[clamp(16px,2.6vh,36px)]"
             : "band-y",
         )}
       >
         <div
           className={cn(
-            "wrap flex min-h-0 flex-col gap-[clamp(20px,2.6vw,40px)]",
-            pinned && "h-full",
+            "wrap flex min-h-0 flex-col",
+            pinned
+              ? "h-full gap-[clamp(16px,2.4vh,32px)]"
+              : "gap-[clamp(20px,2.6vw,40px)]",
           )}
         >
           <div className="flex flex-none flex-wrap items-end justify-between gap-x-12 gap-y-4">
-            <div className="flex flex-col gap-3">
-              <Kicker>{home.whatIDo.kicker}</Kicker>
-              <h2 id="what-title" className="t-h2">
-                {home.whatIDo.title}
-              </h2>
-            </div>
-            <div className="flex max-w-full flex-col items-end gap-2.5">
+            <h2 id="what-title" className="t-h2">
+              {home.whatIDo.title}
+            </h2>
+            <div className="flex max-w-full flex-row-reverse flex-wrap items-center gap-x-4 gap-y-2">
               <SegmentedControl
                 label="What I do"
                 idPrefix="area"
@@ -172,30 +193,33 @@ export function WhatIDo() {
                   pinned ? "flex-nowrap" : "flex-wrap",
                 )}
               >
-                <div className="no-scrollbar flex min-w-0 flex-[1_1_420px] flex-col gap-[clamp(14px,1.8vw,24px)] overflow-auto p-[clamp(24px,3.4vw,56px)]">
-                  <p className="text-[14px] font-semibold text-fg-2">
+                <div
+                  ref={copyRef}
+                  className="flex min-w-0 flex-[1_1_420px] flex-col gap-[clamp(10px,1.7vh,20px)] overflow-hidden p-[clamp(22px,min(3vw,4.4vh),48px)]"
+                >
+                  <p className="text-[13px] font-semibold text-fg-2">
                     {cur.kicker}
                   </p>
-                  <h3 className="text-[clamp(26px,2.8vw,40px)] leading-[1.04] font-bold tracking-[-0.03em] text-balance">
+                  <h3 className="text-[clamp(24px,min(2.6vw,4.2vh),38px)] leading-[1.06] font-bold tracking-[-0.03em] text-balance">
                     {cur.headline}
                   </h3>
-                  <p className="max-w-[560px] text-[clamp(16px,1.6vw,19px)] text-fg-2">
+                  <p className="max-w-[540px] text-[clamp(15px,min(1.4vw,2.2vh),18px)] leading-[1.45] text-fg-2">
                     {cur.blurb}
                   </p>
                   <ul className="m-0 flex list-none flex-col p-0">
                     {cur.services.map((sv) => (
                       <li
                         key={sv.title}
-                        className="flex items-center gap-3.5 border-t border-pill py-3"
+                        className="flex items-center gap-3 border-t border-pill py-[clamp(6px,1vh,11px)]"
                       >
-                        <span className="grid size-9 flex-none place-items-center rounded-full bg-tile">
-                          <Icon name={sv.icon} size={17} />
+                        <span className="grid size-8 flex-none place-items-center rounded-full bg-tile">
+                          <Icon name={sv.icon} size={16} />
                         </span>
                         <span className="flex min-w-0 flex-col">
-                          <span className="text-[16px] font-semibold">
+                          <span className="text-[15px] leading-snug font-semibold">
                             {sv.title}
                           </span>
-                          <span className="text-[14px] text-fg-2">
+                          <span className="text-[13px] leading-snug text-fg-2">
                             {sv.text}
                           </span>
                         </span>
@@ -206,7 +230,7 @@ export function WhatIDo() {
                     {cur.stack.map((k) => (
                       <span
                         key={k}
-                        className="rounded-full bg-tile px-3 py-[5px] text-[13px] font-medium"
+                        className="rounded-full bg-tile px-2.5 py-1 text-[12px] font-medium"
                       >
                         {k}
                       </span>

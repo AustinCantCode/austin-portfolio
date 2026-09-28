@@ -75,6 +75,7 @@ export function Nav() {
           className="mr-auto flex items-center gap-2.5 text-fg hover:no-underline"
         >
           <Image
+            quality={100}
             src={logo}
             alt=""
             width={28}
@@ -136,7 +137,7 @@ export function Nav() {
         <>
           <div
             id="work-menu"
-            className="absolute inset-x-0 top-14 z-[1] max-h-[calc(100vh_-_56px)] overflow-auto bg-bg shadow-[var(--shadow-menu)]"
+            className="absolute inset-x-0 top-14 z-[1] max-h-[calc(100vh_-_56px)] overflow-auto bg-menu shadow-[var(--shadow-menu)]"
           >
             <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(20px,3vw,32px)] pb-[clamp(28px,4vw,44px)]">
               <div className="flex flex-[0_1_220px] flex-col gap-2">

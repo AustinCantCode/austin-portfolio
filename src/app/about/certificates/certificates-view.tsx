@@ -56,6 +56,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
               <div className="relative aspect-[1.41/1] bg-pill">
                 {c.image && (
                   <Image
+                    quality={100}
                     src={c.image}
                     alt={`${c.title} certificate`}
                     fill

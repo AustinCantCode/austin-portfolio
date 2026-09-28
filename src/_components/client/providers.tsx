@@ -9,7 +9,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider
       attribute="data-theme"
-      storageKey="as-theme"
+      storageKey="as-theme-v2"
       defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange

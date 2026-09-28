@@ -17,10 +17,13 @@ export const projectMeta = (p: Project) => `${p.subtext} · ${p.year}`;
 export function ProjectTile({
   project,
   compact,
+  devices,
   reveal = true,
 }: {
   project: Project;
   compact?: boolean;
+  /** Show the work in a tablet or phone only (see TileMedia). */
+  devices?: boolean;
   reveal?: boolean;
 }) {
   return (
@@ -76,7 +79,11 @@ export function ProjectTile({
             compact
           />
         ) : (
-          <TileMedia project={project} />
+          <TileMedia
+            project={project}
+            devices={devices}
+            height={devices ? "clamp(240px,22vw,290px)" : undefined}
+          />
         )}
       </div>
     </Link>
@@ -267,15 +274,16 @@ export function SmallAppCard({
     <article
       data-hover-card=""
       className={cn(
-        "flex flex-col overflow-hidden bg-tile-alt",
+        "group/app flex h-full flex-col overflow-hidden bg-tile-alt",
         sm ? "min-w-[180px] rounded-[20px]" : "rounded-[24px]",
       )}
     >
-      <div className="relative aspect-[4/3] bg-pill">
+      <div className="relative aspect-[4/3] overflow-hidden bg-pill">
         <ImageSlot
           media={app.image}
           placeholder={`${app.title} screenshot`}
           sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
+          className="transition-transform duration-[600ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover/app:scale-[1.04]"
         />
       </div>
       <div
@@ -314,6 +322,7 @@ export function GooglePlayBadge({ className }: { className?: string }) {
       {/* The badge art includes Google's required clear space, so the
           negative margin lines the visible badge up with its neighbours. */}
       <Image
+        quality={100}
         src={playBadge}
         alt="Get it on Google Play"
         height={78}

@@ -2,6 +2,8 @@ import { withNextVideo } from "next-video/process";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Images are served at full quality (see the quality prop in ImageSlot).
+  images: { qualities: [75, 100] },
   // Old routes from the previous version of the site.
   async redirects() {
     return [

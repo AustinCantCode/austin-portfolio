@@ -4,7 +4,6 @@ import hackathonStage from "../../public/participation/2024/batey-hackathon/imag
 /** Copy and structure for the homepage, from the design handoff. */
 export const home = {
   journey: {
-    kicker: "Chapter 1 · The journey",
     title: "How I got here.",
     sub: "It started in secondary school and led to shipping my own app.",
     link: {
@@ -50,7 +49,6 @@ export const home = {
     ],
   },
   whatIDo: {
-    kicker: "Chapter 2 · The craft",
     title: "What I do.",
     scrollHint: "Keep scrolling to see all three",
     areas: [
@@ -166,7 +164,6 @@ export const home = {
     ],
   },
   tools: {
-    kicker: "Chapter 3 · The toolkit",
     title: "Tools I use.",
     link: {
       label: "All skills ›",
@@ -174,7 +171,6 @@ export const home = {
     },
   },
   selectedWork: {
-    kicker: "Chapter 4 · The work",
     title: "Selected work.",
     link: {
       label: "See all work ›",
@@ -183,7 +179,6 @@ export const home = {
     projects: ["ite", "ksp", "grx", "calibrium", "stillgood", "quizzy"],
   },
   events: {
-    kicker: "Chapter 5 · Beyond the screen",
     title: "Out and about.",
     link: {
       label: "All events ›",
@@ -191,7 +186,6 @@ export const home = {
     },
   },
   numbers: {
-    kicker: "Chapter 6 · So far",
     title: "The story in numbers.",
     stats: [
       {
@@ -221,7 +215,6 @@ export const home = {
     ],
   },
   contact: {
-    kicker: "Chapter 7 · The next chapter",
     title: "Let's build something.",
     line: "That's the story so far. The next part could be with you: I'm open to developer roles and freelance projects.",
     tiles: [
