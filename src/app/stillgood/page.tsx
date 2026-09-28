@@ -1,4 +1,10 @@
 import { stillgoodPage as sg } from "@data/stillgood";
+import {
+  JsonLd,
+  graph,
+  breadcrumbLd,
+  stillgoodAppLd,
+} from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { Icon } from "@components/icon";
 import { StatusPill, TextLink } from "@components/ui";
@@ -9,28 +15,37 @@ import { stillgoodScreens as screens } from "@data/stillgood-screens";
 const FEATURE_SCREENS = [screens.scan, screens.pantry, screens.recipeStudio];
 
 export const metadata = pageMetadata({
-  title: "StillGood",
+  title: "StillGood: A Food Waste App for Android",
   description:
-    "StillGood helps families waste less food: snap your groceries, get reminded before they go off, and find recipes to use them up. Live on Google Play.",
+    "StillGood helps families waste less food: snap your groceries, get reminded before they go off and find recipes to use them up. Free on Google Play.",
   path: "/stillgood",
 });
 
 export default function StillGoodPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          stillgoodAppLd(),
+          breadcrumbLd([
+            { name: "Work", path: "/work" },
+            { name: "StillGood", path: "/stillgood" },
+          ]),
+        )}
+      />
       <section
         aria-labelledby="sg-hero"
-        className="gutter flex flex-col items-center overflow-hidden bg-band pt-[clamp(72px,10vw,140px)] text-center text-band-fg"
+        className="gutter flex flex-col items-center overflow-hidden bg-band pt-[clamp(56px,min(7vw,11vh),104px)] text-center text-band-fg"
       >
         <div className="flex max-w-[860px] flex-col items-center gap-5">
           <StatusPill tone="live">{sg.hero.status}</StatusPill>
           <h1
             id="sg-hero"
-            className="text-[clamp(48px,9vw,96px)] leading-[.98] font-bold tracking-[-0.04em]"
+            className="text-[clamp(44px,6.5vw,80px)] leading-[.98] font-bold tracking-[-0.04em]"
           >
             {sg.hero.title}
           </h1>
-          <p className="text-[clamp(24px,3.4vw,36px)] leading-[1.15] font-semibold tracking-[-0.02em]">
+          <p className="text-[clamp(22px,2.6vw,30px)] leading-[1.15] font-semibold tracking-[-0.02em]">
             {sg.hero.tagline}
           </p>
           <p className="max-w-[540px] text-[clamp(17px,2vw,21px)] text-balance text-band-fg-2">
@@ -43,7 +58,7 @@ export default function StillGoodPage() {
             </TextLink>
           </div>
         </div>
-        <div className="mt-[clamp(56px,7vw,96px)] flex h-[clamp(300px,36vw,560px)] w-full max-w-[1680px] items-start justify-center gap-[clamp(12px,3vw,32px)] overflow-hidden">
+        <div className="mt-[clamp(56px,7vw,96px)] flex h-[clamp(280px,30vw,460px)] w-full max-w-[var(--container)] items-start justify-center gap-[clamp(12px,3vw,32px)] overflow-hidden">
           <div
             data-parallax="0.04"
             className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
@@ -91,7 +106,7 @@ export default function StillGoodPage() {
           <h2
             id="sg-features"
             data-reveal=""
-            className="text-[clamp(36px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]"
+            className="text-[clamp(32px,4.2vw,52px)] leading-[1.02] font-bold tracking-[-0.03em]"
           >
             Scan it. Track it.
             <br />
@@ -163,7 +178,7 @@ export default function StillGoodPage() {
           <div className="flex max-w-[560px] flex-[1_1_420px] flex-col gap-4">
             <h2
               id="sg-built"
-              className="text-[clamp(28px,4vw,40px)] leading-[1.1] font-bold tracking-[-0.025em]"
+              className="text-[clamp(26px,3vw,36px)] leading-[1.1] font-bold tracking-[-0.025em]"
             >
               {sg.builtWith.title}
             </h2>
@@ -195,7 +210,7 @@ export default function StillGoodPage() {
         >
           <h2
             id="sg-cta"
-            className="text-[clamp(36px,6vw,64px)] leading-[1.05] font-bold tracking-[-0.03em]"
+            className="text-[clamp(32px,4.2vw,52px)] leading-[1.05] font-bold tracking-[-0.03em]"
           >
             {sg.cta.title}
           </h2>

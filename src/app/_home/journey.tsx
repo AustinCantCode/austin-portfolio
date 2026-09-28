@@ -64,7 +64,7 @@ export function Journey() {
           <h2 id="journey-title" className="t-h2">
             {title}
           </h2>
-          <p className="max-w-[420px] text-[clamp(17px,1.9vw,21px)] text-fg-2">
+          <p className="max-w-[420px] text-[clamp(17px,1.5vw,19px)] text-fg-2">
             {sub}
           </p>
           <TextLink href={link.href}>{link.label}</TextLink>

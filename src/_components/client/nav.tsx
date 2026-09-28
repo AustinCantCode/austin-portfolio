@@ -191,30 +191,6 @@ export function Nav() {
                         );
                       })}
                     </ul>
-                    {sec.id === "ventures" && (
-                      <Link
-                        href="/stillgood"
-                        className="mt-2 flex items-center gap-3 rounded-[18px] bg-band px-4 py-3.5 text-band-fg hover:no-underline"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="size-2 shrink-0 rounded-full bg-live"
-                        />
-                        <span className="flex min-w-0 flex-col">
-                          <span className="text-[15px] font-semibold">
-                            StillGood
-                          </span>
-                          <span className="text-[12px] text-band-fg-2">
-                            Live on Google Play
-                          </span>
-                        </span>
-                        <Icon
-                          name="arrow-right"
-                          size={16}
-                          className="ml-auto"
-                        />
-                      </Link>
-                    )}
                   </div>
                 ))}
               </div>

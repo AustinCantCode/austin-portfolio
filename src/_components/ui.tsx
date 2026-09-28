@@ -194,7 +194,7 @@ export function SectionHeader({
           {title}
         </Heading>
         {sub && (
-          <p className="max-w-[420px] text-[clamp(17px,1.9vw,21px)] text-fg-2">
+          <p className="max-w-[420px] text-[clamp(17px,1.5vw,19px)] text-fg-2">
             {sub}
           </p>
         )}
@@ -221,7 +221,7 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        "gutter pt-[clamp(40px,7vw,96px)] pb-[clamp(24px,3vw,40px)]",
+        "gutter pt-[clamp(32px,min(5vw,8vh),72px)] pb-[clamp(24px,3vw,40px)]",
         className,
       )}
     >
@@ -237,7 +237,7 @@ export function PageHeader({
         )}
         <h1 className="t-h1">{title}</h1>
         {sub && (
-          <p className="max-w-[600px] text-[clamp(21px,2.4vw,24px)] text-fg-2">
+          <p className="max-w-[600px] text-[clamp(19px,1.8vw,22px)] text-fg-2">
             {sub}
           </p>
         )}
@@ -284,14 +284,14 @@ export function NextCard({
   line: string;
 }) {
   return (
-    <section className="gutter pb-[clamp(64px,10vw,128px)]">
+    <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
       <Link
         href={href}
         className="wrap lift flex flex-wrap items-center justify-between gap-6 rounded-[28px] bg-bg-alt p-[clamp(28px,5vw,56px)] text-fg [--hover-scale:1.01] hover:no-underline"
       >
         <div className="flex min-w-0 flex-col gap-1.5">
           <p className="text-[14px] text-fg-2">{label}</p>
-          <p className="text-[clamp(28px,4.4vw,48px)] leading-[1.05] font-bold tracking-[-0.025em]">
+          <p className="text-[clamp(26px,3.2vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]">
             {title}
           </p>
           <p className="text-[17px] text-fg-2">{line}</p>

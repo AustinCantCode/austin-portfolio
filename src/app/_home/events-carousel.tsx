@@ -7,7 +7,8 @@ import { Icon } from "@components/icon";
 import { Kicker, TextLink } from "@components/ui";
 import { ImageSlot } from "@components/media";
 
-const pad = "max(clamp(16px,4.5vw,72px),calc((100vw - 1680px) / 2 + 72px))";
+// Line the first card up with the page container.
+const pad = "max(var(--gutter), calc((100% - var(--container)) / 2))";
 
 /** Chapter 5: horizontal scroll-snap carousel of events. */
 export function EventsCarousel() {

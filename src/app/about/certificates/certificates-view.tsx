@@ -44,7 +44,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
         id="cert-tab-panel"
         role="tabpanel"
         aria-labelledby={`cert-tab-${filter}`}
-        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(64px,10vw,128px)]"
+        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]"
       >
         <div className="wrap grid grid-cols-[repeat(auto-fill,minmax(min(100%,250px),1fr))] gap-4">
           {list.map((c, i) => (

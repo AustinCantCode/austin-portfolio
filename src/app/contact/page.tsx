@@ -1,14 +1,16 @@
 import { site } from "@data/site";
+import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { Icon } from "@components/icon";
 import { SmartLink } from "@components/ui";
 import { ContactForm } from "./contact-form";
 
 export const metadata = pageMetadata({
-  title: "Contact",
+  title: "Contact Austin Sia: Developer Roles and Freelance",
   description:
-    "Get in touch with Austin Sia about developer roles and freelance projects.",
+    "Get in touch with Austin Sia about developer roles and freelance web or app projects in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
   path: "/contact",
+  absoluteTitle: true,
 });
 
 const c = site.contact;
@@ -60,10 +62,22 @@ const methods = [
 export default function ContactPage() {
   return (
     <>
-      <section className="gutter pt-[clamp(48px,8vw,112px)] pb-[clamp(40px,5vw,64px)]">
+      <JsonLd
+        data={graph(
+          webPageLd({
+            type: "ContactPage",
+            path: "/contact",
+            name: "Contact Austin Sia",
+            description:
+              "Ways to contact Austin Sia about developer roles and freelance projects.",
+          }),
+          breadcrumbLd([{ name: "Contact", path: "/contact" }]),
+        )}
+      />
+      <section className="gutter pt-[clamp(36px,min(6vw,9vh),84px)] pb-[clamp(40px,5vw,64px)]">
         <div className="wrap flex flex-col gap-4">
           <h1 className="t-h1">Let&apos;s build something.</h1>
-          <p className="max-w-[600px] text-[clamp(21px,2.4vw,24px)] text-fg-2">
+          <p className="max-w-[600px] text-[clamp(19px,1.8vw,22px)] text-fg-2">
             Open to developer roles and freelance projects. I usually reply
             within a day.
           </p>
@@ -108,7 +122,7 @@ export default function ContactPage() {
           <div className="flex flex-[1_1_300px] flex-col gap-3">
             <h2
               id="message"
-              className="text-[clamp(32px,5vw,48px)] leading-[1.05] font-bold tracking-[-0.025em]"
+              className="text-[clamp(28px,3.4vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]"
             >
               Or send a message.
             </h2>

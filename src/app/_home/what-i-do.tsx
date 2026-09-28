@@ -176,7 +176,7 @@ export function WhatIDo() {
                   <p className="text-[14px] font-semibold text-fg-2">
                     {cur.kicker}
                   </p>
-                  <h3 className="text-[clamp(28px,3.6vw,48px)] leading-[1.04] font-bold tracking-[-0.03em] text-balance">
+                  <h3 className="text-[clamp(26px,2.8vw,40px)] leading-[1.04] font-bold tracking-[-0.03em] text-balance">
                     {cur.headline}
                   </h3>
                   <p className="max-w-[560px] text-[clamp(16px,1.6vw,19px)] text-fg-2">

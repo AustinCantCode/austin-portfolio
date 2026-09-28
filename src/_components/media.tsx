@@ -162,7 +162,7 @@ export function LaptopFrame({
  */
 export function TileMedia({
   project,
-  height = "clamp(220px,26vw,300px)",
+  height = "clamp(200px,20vw,260px)",
   phoneSize = 200,
   compact,
   sizes,

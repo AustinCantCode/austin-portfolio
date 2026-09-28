@@ -1,16 +1,16 @@
-import { Suspense } from "react";
 import { PageHeader } from "@components/ui";
 import { byYear, pickProjects } from "@data/projects";
 import { smallApps } from "@data/small-apps";
 import { graphics } from "@data/graphics";
 import { ventures } from "@data/ventures";
+import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { WorkView, type WorkSection } from "./work-view";
 
 export const metadata = pageMetadata({
-  title: "Work",
+  title: "Projects: Websites, Apps and UI/UX Design",
   description:
-    "Websites, apps, designs and ventures by Austin Sia: client platforms, school projects, UI/UX prototypes, product design, artwork and StillGood.",
+    "Browse 35 projects by Austin Sia across web development, mobile apps, UI/UX, product and graphic design, from live client platforms to school projects.",
   path: "/work",
 });
 
@@ -118,14 +118,24 @@ const sections: WorkSection[] = [
 export default function WorkPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          webPageLd({
+            type: "CollectionPage",
+            path: "/work",
+            name: "Work",
+            description:
+              "Web development, mobile app, UI/UX and design projects by Austin Sia.",
+          }),
+          breadcrumbLd([{ name: "Work", path: "/work" }]),
+        )}
+      />
       <PageHeader
         title="Work."
         sub="What I've built, designed and started."
-        className="pt-[clamp(48px,8vw,112px)]"
+        className="pt-[clamp(36px,min(6vw,9vh),84px)]"
       />
-      <Suspense>
-        <WorkView sections={sections} />
-      </Suspense>
+      <WorkView sections={sections} />
     </>
   );
 }

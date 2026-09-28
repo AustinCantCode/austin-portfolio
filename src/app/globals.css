@@ -25,6 +25,7 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-slide: cubic-bezier(0.3, 0.8, 0.2, 1);
   --gutter: clamp(16px, 4.5vw, 72px);
+  --container: 1280px;
   color-scheme: light;
 }
 
@@ -120,7 +121,7 @@
 @layer components {
   .wrap {
     width: 100%;
-    max-width: 1680px;
+    max-width: var(--container);
     margin-inline: auto;
   }
 
@@ -128,30 +129,38 @@
     padding-inline: var(--gutter);
   }
 
+  /* When one element is both the container and the gutter, keep its
+     content lined up with sections that nest the two. */
+  .wrap.gutter {
+    max-width: calc(var(--container) + 2 * var(--gutter));
+  }
+
+  /* Section spacing also scales with viewport height, so short laptop
+     screens aren't mostly padding. */
   .band-y {
-    padding-block: clamp(64px, 11vw, 150px);
+    padding-block: clamp(56px, min(8vw, 13vh), 112px);
   }
 
   .band-y-2 {
-    padding-block: clamp(64px, 10vw, 128px);
+    padding-block: clamp(56px, min(7vw, 11vh), 96px);
   }
 
   .t-h1 {
-    font-size: clamp(44px, 8vw, 80px);
+    font-size: clamp(40px, 6vw, 68px);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.02;
   }
 
   .t-h2 {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: clamp(30px, 3.8vw, 48px);
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.05;
   }
 
   .t-sub {
-    font-size: clamp(21px, 2.4vw, 26px);
+    font-size: clamp(19px, 1.8vw, 23px);
     line-height: 1.35;
     color: var(--text-2);
   }

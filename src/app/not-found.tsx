@@ -17,10 +17,10 @@ export default function NotFound() {
           className="w-[clamp(160px,22vw,220px)]"
         />
         <p className="text-[15px] font-semibold text-fg-2">Error 404</p>
-        <h1 className="text-[clamp(40px,7vw,72px)] leading-[1.02] font-bold tracking-[-0.03em] text-balance">
+        <h1 className="text-[clamp(36px,5vw,60px)] leading-[1.02] font-bold tracking-[-0.03em] text-balance">
           This page landed on the wrong side.
         </h1>
-        <p className="max-w-[480px] text-[clamp(19px,2vw,21px)] text-balance text-fg-2">
+        <p className="max-w-[480px] text-[clamp(17px,1.6vw,19px)] text-balance text-fg-2">
           The link may be old, or the page has moved. Flip the coin, or head
           somewhere real.
         </p>

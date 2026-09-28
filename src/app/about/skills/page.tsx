@@ -1,20 +1,29 @@
 import { about } from "@data/about";
 import { skillGroups } from "@data/skills";
 import { projects } from "@data/projects";
+import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { IconCircle, PageHeader } from "@components/ui";
 import { SkillsView } from "./skills-view";
 
 export const metadata = pageMetadata({
-  title: "Skills",
+  title: "Skills: Next.js, React, TypeScript and Design",
   description:
-    "The tools Austin Sia uses to design and build websites and apps, and the projects that use each one.",
+    "The 34 tools Austin Sia uses to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects that used each one.",
   path: "/about/skills",
 });
 
 export default function SkillsPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbLd([
+            { name: "About", path: "/about" },
+            { name: "Skills", path: "/about/skills" },
+          ]),
+        )}
+      />
       <PageHeader
         back={{ label: "About", href: "/about" }}
         title="Skills."

@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cn } from "@lib/utils";
-import { pageMetadata } from "@lib/metadata";
+import { clip, pageMetadata } from "@lib/metadata";
+import { JsonLd, breadcrumbLd, graph, webPageLd } from "@lib/structured-data";
 import {
   categories,
   categoryBySlug,
   categoryCount,
   categoryHref,
+  categorySeoTitle,
   projectsInCategory,
 } from "@data/categories";
 import { byYear } from "@data/projects";
@@ -43,9 +45,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const c = categoryBySlug((await params).category);
   if (!c) return {};
+  const n = categoryCount(c.slug);
   return pageMetadata({
-    title: c.label,
-    description: `${c.blurb} ${c.label} by Austin Sia.`,
+    title: categorySeoTitle[c.slug],
+    description: clip(
+      `${c.blurb} Browse ${n} ${c.label.toLowerCase()} ${n === 1 ? "project" : "projects"} by Austin Sia, a full-stack developer and UI/UX designer in Singapore.`,
+    ),
     path: categoryHref(c.slug),
   });
 }
@@ -74,6 +79,20 @@ export default async function CategoryPage({
 
   return (
     <>
+      <JsonLd
+        data={graph(
+          webPageLd({
+            type: "CollectionPage",
+            path: categoryHref(cat.slug),
+            name: `${cat.label} by Austin Sia`,
+            description: cat.blurb,
+          }),
+          breadcrumbLd([
+            { name: "Work", path: "/work" },
+            { name: cat.label, path: categoryHref(cat.slug) },
+          ]),
+        )}
+      />
       <PageHeader
         back={{ label: "All work", href: "/work" }}
         title={`${cat.label}.`}
@@ -118,11 +137,11 @@ export default async function CategoryPage({
         </div>
       </nav>
 
-      <section className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(64px,10vw,128px)]">
+      <section className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]">
         <div className="wrap flex flex-col gap-[clamp(16px,2vw,24px)]">
-          <p className="text-[14px] text-fg-2">
+          <h2 className="text-[14px] font-normal text-fg-2">
             {n} {n === 1 ? noun : `${noun}s`}
-          </p>
+          </h2>
 
           {cat.layout === "projects" && list.length > 2 && (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
@@ -149,11 +168,10 @@ export default async function CategoryPage({
           {cat.layout === "gallery" && <Gallery items={graphics} />}
 
           {cat.layout === "ventures" &&
-            ventures.map((v, k) => (
+            ventures.map((v) => (
               <VenturePanel
                 key={v.id}
                 venture={v}
-                band={k === 0}
                 media={<VentureMedia id={v.id} />}
               />
             ))}
@@ -173,11 +191,10 @@ export default async function CategoryPage({
 function VentureMedia({ id }: { id: string }) {
   if (id === "stillgood") {
     return (
-      <PhoneFrame size={240} dark className="-mb-[35%]">
+      <PhoneFrame size={240} className="-mb-[35%]">
         <ImageSlot
           media={stillgoodScreens.home}
           placeholder="StillGood screenshot"
-          tone="light"
           sizes="240px"
         />
       </PhoneFrame>

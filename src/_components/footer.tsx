@@ -62,16 +62,6 @@ export function Footer() {
             <Link href="/stillgood" className={linkClass}>
               StillGood
             </Link>
-            <Link href="/projects/stillgood" className={linkClass}>
-              StillGood case study
-            </Link>
-            <SmartLink
-              href={site.googlePlayUrl}
-              className={linkClass}
-              data-track="play_store_click"
-            >
-              Google Play
-            </SmartLink>
           </Column>
           <Column title="About">
             <Link href="/about" className={linkClass}>

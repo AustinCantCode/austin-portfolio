@@ -6,6 +6,7 @@ import { Nav } from "@components/client/nav";
 import { MotionManager } from "@components/client/motion";
 import { Footer } from "@components/footer";
 import { site } from "@data/site";
+import { JsonLd, graph, personLd, websiteLd } from "@lib/structured-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,9 +18,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Austin Sia",
+  title: "Austin Sia – Full-Stack Developer & Designer in Singapore",
   description:
-    "Austin Sia is a full-stack developer and designer in Singapore, and the founder of StillGood.",
+    "Portfolio of Austin Sia, a full-stack developer and UI/UX designer in Singapore: client websites and platforms, mobile apps, design work and ventures.",
+  applicationName: "Austin Sia",
+  authors: [{ name: "Austin Sia", url: site.url }],
+  creator: "Austin Sia",
   icons: { icon: "/AS-Circle-Logo.png" },
   robots: { index: true, follow: true },
 };
@@ -57,19 +61,7 @@ export default function RootLayout({
           <MotionManager />
         </Providers>
         <SpeedInsights />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: site.name,
-              url: site.url,
-              jobTitle: "Full-stack developer and designer",
-              sameAs: [site.contact.linkedin, site.contact.github],
-            }),
-          }}
-        />
+        <JsonLd data={graph(personLd(), websiteLd())} />
       </body>
     </html>
   );

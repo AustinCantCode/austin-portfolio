@@ -104,6 +104,19 @@ export const navSections: NavSection[] = [
   },
 ];
 
+/** Search titles for each category page (kept under 50 characters). */
+export const categorySeoTitle: Record<CategorySlug, string> = {
+  "web-apps": "Web App Projects: Storefronts to School Systems",
+  "mobile-apps": "Mobile App Projects and App Designs",
+  "client-work": "Client Work: Live Websites and Platforms",
+  "school-projects": "School Projects from Singapore Polytechnic",
+  "small-apps": "Small Apps Built While Learning to Code",
+  "ui-ux": "UI/UX Design Projects and Prototypes",
+  "product-design": "Product Design: 3D-Printed Prototypes",
+  "graphic-design": "Graphic Design Gallery: Posters and Ads",
+  ventures: "Ventures: A Hackathon Team, Freelance and an App",
+};
+
 export const categoryHref = (slug: CategorySlug) => `/work/${slug}`;
 
 export const categoryBySlug = (slug: string) =>

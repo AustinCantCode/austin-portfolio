@@ -180,7 +180,7 @@ export const home = {
       label: "See all work ›",
       href: "/work",
     },
-    projects: ["stillgood", "calibrium", "ite", "ksp", "grx", "quizzy"],
+    projects: ["ite", "ksp", "grx", "calibrium", "stillgood", "quizzy"],
   },
   events: {
     kicker: "Chapter 5 · Beyond the screen",
@@ -213,21 +213,15 @@ export const home = {
         href: "/cv",
       },
       {
-        n: 1,
-        label: "app launched",
-        cta: "Meet StillGood",
-        href: "/stillgood",
+        n: 8,
+        label: "client platforms",
+        cta: "See client work",
+        href: "/work/client-work",
       },
     ],
   },
-  stillgood: {
-    kicker: "Chapter 7 · Now building StillGood",
-    title: "Less waste. Smarter pantry.",
-    line: "Snap your groceries, get reminded before they go off, and find recipes to use them up.",
-    caseStudy: "/projects/stillgood",
-  },
   contact: {
-    kicker: "Chapter 8 · The next chapter",
+    kicker: "Chapter 7 · The next chapter",
     title: "Let's build something.",
     line: "That's the story so far. The next part could be with you: I'm open to developer roles and freelance projects.",
     tiles: [

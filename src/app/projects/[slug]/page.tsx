@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cn } from "@lib/utils";
-import { pageMetadata } from "@lib/metadata";
+import { clip, pageMetadata } from "@lib/metadata";
+import { JsonLd, breadcrumbLd, graph, projectLd } from "@lib/structured-data";
 import { projects, projectBySlug } from "@data/projects";
 import { categoryBySlug, categoryHref } from "@data/categories";
 import { isPlaceholderLink } from "@data/site";
@@ -12,6 +13,10 @@ import { ImageSlot, LaptopFrame, PhoneFrame } from "@components/media";
 import type { Project } from "@data/types";
 
 type Params = { slug: string };
+
+/** Lower-cases a leading capital unless the word is an acronym. */
+const sentence = (s: string) =>
+  /^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s;
 
 export function generateStaticParams(): Params[] {
   return projects.map((p) => ({ slug: p.slug }));
@@ -27,9 +32,11 @@ export async function generateMetadata({
   const p = projectBySlug((await params).slug);
   if (!p) return {};
   return pageMetadata({
-    title: p.title,
-    description: `${p.line} ${p.problem}`,
+    title: clip(`${p.title} case study: ${sentence(p.subtext)}`, 47),
+    description: clip(`${p.title}: ${p.line} ${p.did}`),
     path: `/projects/${p.slug}`,
+    type: "article",
+    image: `/projects/${p.slug}/opengraph-image`,
   });
 }
 
@@ -57,7 +64,7 @@ function Hero({ p }: { p: Project }) {
   const phone = p.frame === "phone" && !p.cover?.bare;
   return (
     <section aria-label={`${p.title} images`} className="gutter">
-      <div className="wrap flex h-[clamp(360px,52vw,620px)] items-start justify-center overflow-hidden rounded-[28px] bg-bg-alt px-[clamp(20px,6vw,96px)] pt-[clamp(32px,6vw,72px)]">
+      <div className="wrap flex h-[clamp(320px,40vw,520px)] items-start justify-center overflow-hidden rounded-[28px] bg-bg-alt px-[clamp(20px,6vw,96px)] pt-[clamp(32px,6vw,72px)]">
         {phone && (
           <div className="flex items-start gap-[clamp(16px,3vw,32px)]">
             <PhoneFrame size={280} width="clamp(200px,24vw,280px)">
@@ -130,6 +137,15 @@ export default async function ProjectPage({
 
   return (
     <>
+      <JsonLd
+        data={graph(
+          projectLd(p),
+          breadcrumbLd([
+            { name: "Work", path: "/work" },
+            { name: p.title, path: `/projects/${p.slug}` },
+          ]),
+        )}
+      />
       <PageHeader
         back={{ label: "All work", href: "/work" }}
         title={p.title}
@@ -172,7 +188,7 @@ export default async function ProjectPage({
             ["Outcome", p.outcome],
           ].map(([label, text]) => (
             <Row key={label} label={label}>
-              <p className="pt-[clamp(2px,.4vw,6px)] text-[clamp(17px,1.9vw,21px)] leading-[1.5] text-fg-2">
+              <p className="pt-[clamp(2px,.4vw,6px)] text-[clamp(17px,1.5vw,19px)] leading-[1.5] text-fg-2">
                 {text}
               </p>
             </Row>

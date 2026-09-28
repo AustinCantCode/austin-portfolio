@@ -17,5 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cv",
     "/contact",
   ];
-  return paths.map((p) => ({ url: `${site.url}${p === "/" ? "" : p}` }));
+  const lastModified = new Date();
+  return paths.map((p) => ({
+    url: `${site.url}${p === "/" ? "" : p}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: p === "/" ? 1 : p === "/work" || p === "/about" ? 0.8 : 0.6,
+  }));
 }

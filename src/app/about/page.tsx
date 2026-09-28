@@ -2,22 +2,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { about } from "@data/about";
 import { site } from "@data/site";
+import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { IconCircle, TextLink } from "@components/ui";
 import GitHubCalendar from "@components/complex-ui/github-calendar";
 import portrait from "../../../public/Contact/profile pic.png";
 
 export const metadata = pageMetadata({
-  title: "About",
+  title: "About Austin Sia | Full-Stack Developer & UI/UX Designer",
   description:
-    "Austin Sia is a Singapore Polytechnic IT graduate, former Amber Creative developer intern, freelancer and the founder of StillGood.",
+    "Austin Sia is a Singapore Polytechnic IT graduate who builds websites and apps. His journey from Amber Creative intern to freelancer, plus skills and events.",
   path: "/about",
+  absoluteTitle: true,
+  type: "profile",
 });
 
 export default function AboutPage() {
   return (
     <>
-      <section className="gutter pt-[clamp(48px,8vw,112px)] pb-[clamp(64px,9vw,128px)]">
+      <JsonLd
+        data={graph(
+          webPageLd({
+            type: "ProfilePage",
+            path: "/about",
+            name: "About Austin Sia",
+            description:
+              "About Austin Sia, full-stack developer and UI/UX designer in Singapore.",
+          }),
+          breadcrumbLd([{ name: "About", path: "/about" }]),
+        )}
+      />
+      <section className="gutter pt-[clamp(36px,min(6vw,9vh),84px)] pb-[clamp(56px,min(7vw,11vh),96px)]">
         <div className="wrap flex flex-wrap items-center gap-[clamp(32px,6vw,80px)]">
           <Image
             src={portrait}
@@ -29,7 +44,7 @@ export default function AboutPage() {
           />
           <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-5">
             <h1 className="t-h1">About.</h1>
-            <p className="max-w-[680px] text-[clamp(19px,2.2vw,24px)] leading-[1.45] text-fg-2">
+            <p className="max-w-[680px] text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-fg-2">
               {about.intro}
             </p>
           </div>
@@ -38,7 +53,7 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="so-far"
-        className="gutter bg-bg-alt py-[clamp(64px,10vw,140px)]"
+        className="gutter bg-bg-alt py-[clamp(56px,min(7vw,11vh),96px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
           <h2 id="so-far" data-reveal="" className="t-h2">
@@ -73,7 +88,7 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="more"
-        className="gutter py-[clamp(64px,10vw,140px)]"
+        className="gutter py-[clamp(56px,min(7vw,11vh),96px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
           <h2 id="more" data-reveal="" className="t-h2">
@@ -103,7 +118,7 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="github"
-        className="gutter bg-bg-alt py-[clamp(64px,10vw,140px)]"
+        className="gutter bg-bg-alt py-[clamp(56px,min(7vw,11vh),96px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(24px,4vw,40px)]">
           <div

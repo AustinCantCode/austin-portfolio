@@ -4,13 +4,14 @@ import { site } from "@data/site";
 import { skillGroups } from "@data/skills";
 import { pickProjects } from "@data/projects";
 import { allCertificates } from "@data/certificates";
+import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { ButtonLink, SmartLink } from "@components/ui";
 
 export const metadata = pageMetadata({
-  title: "CV",
+  title: "CV: Full-Stack Developer and UI/UX Designer",
   description:
-    "Austin Sia's CV: experience, education, selected projects and skills, with a PDF download.",
+    "Austin Sia's CV: experience at Amber Creative and as a freelancer, a Diploma in IT from Singapore Polytechnic, selected projects and skills, plus a PDF.",
   path: "/cv",
 });
 
@@ -35,12 +36,13 @@ export default function CVPage() {
   const c = site.contact;
   return (
     <>
-      <section className="gutter pt-[clamp(40px,7vw,96px)] pb-[clamp(32px,4vw,56px)]">
+      <JsonLd data={graph(breadcrumbLd([{ name: "CV", path: "/cv" }]))} />
+      <section className="gutter pt-[clamp(32px,min(5vw,8vh),72px)] pb-[clamp(32px,4vw,56px)]">
         <div className="wrap flex flex-col gap-4">
           <p className="text-[15px] font-semibold text-fg-2">
             Curriculum vitae
           </p>
-          <h1 className="text-[clamp(44px,8vw,72px)] leading-[1.02] font-bold tracking-[-0.03em]">
+          <h1 className="text-[clamp(40px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]">
             Austin Sia
           </h1>
           <p className="text-[clamp(19px,2.2vw,22px)] text-fg-2">{cv.role}</p>
@@ -66,7 +68,7 @@ export default function CVPage() {
         </div>
       </section>
 
-      <section className="gutter pb-[clamp(64px,10vw,128px)]">
+      <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
         <div className="wrap flex flex-col">
           <Row label="Profile">
             <p className="text-[17px] text-fg-2">{cv.profile}</p>

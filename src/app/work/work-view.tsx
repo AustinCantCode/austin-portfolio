@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { AreaId, Graphic, Project, SmallApp, Venture } from "@data/types";
 import { Icon } from "@components/icon";
 import { ImageSlot } from "@components/media";
@@ -68,28 +67,39 @@ const groupCount = (g: WorkGroup) =>
         ? g.art.length
         : g.ventures.length;
 
+const readFilter = (): Filter => {
+  const raw = new URLSearchParams(window.location.search).get("filter");
+  return FILTERS.includes(raw as Filter) ? (raw as Filter) : "all";
+};
+
+/**
+ * The filter lives in ?filter= but is read after mount, not through
+ * useSearchParams, so the whole page still renders on the server and
+ * crawlers see every project.
+ */
 export function WorkView({ sections }: { sections: WorkSection[] }) {
-  const params = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const raw = params.get("filter");
-  const filter: Filter = FILTERS.includes(raw as Filter)
-    ? (raw as Filter)
-    : "all";
+  const [filter, setFilter] = useState<Filter>("all");
+
+  useEffect(() => {
+    setFilter(readFilter());
+    const onPop = () => setFilter(readFilter());
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   const counts: Record<string, number> = {};
   for (const s of sections)
     counts[s.id] = s.groups.reduce((n, g) => n + groupCount(g), 0);
   counts.all = sections.reduce((n, s) => n + counts[s.id], 0);
 
-  const select = useCallback(
-    (id: string) => {
-      track("work_filter", { tab: id });
-      const q = id === "all" ? "" : `?filter=${id}`;
-      router.replace(`${pathname}${q}`, { scroll: false });
-    },
-    [pathname, router],
-  );
+  const select = useCallback((id: string) => {
+    track("work_filter", { tab: id });
+    setFilter(id as Filter);
+    const url = new URL(window.location.href);
+    if (id === "all") url.searchParams.delete("filter");
+    else url.searchParams.set("filter", id);
+    window.history.replaceState(window.history.state, "", url);
+  }, []);
 
   const shown =
     filter === "all" ? sections : sections.filter((s) => s.id === filter);
@@ -122,9 +132,9 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
         id="work-tab-panel"
         role="tabpanel"
         aria-labelledby={`work-tab-${filter}`}
-        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(64px,10vw,140px)]"
+        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]"
       >
-        <div className="wrap flex flex-col gap-[clamp(64px,8vw,120px)]">
+        <div className="wrap flex flex-col gap-[clamp(56px,6vw,96px)]">
           {shown.map((sec) => (
             <section
               key={sec.id}
@@ -139,11 +149,11 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
                   </p>
                   <h2
                     id={`area-${sec.id}`}
-                    className="text-[clamp(36px,5.5vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]"
+                    className="text-[clamp(32px,4.2vw,52px)] leading-[1.02] font-bold tracking-[-0.03em]"
                   >
                     {sec.label}.
                   </h2>
-                  <p className="max-w-[560px] text-[clamp(17px,1.9vw,21px)] text-fg-2">
+                  <p className="max-w-[560px] text-[clamp(17px,1.5vw,19px)] text-fg-2">
                     {sec.blurb}
                   </p>
                 </div>
@@ -173,7 +183,7 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
                     style={{ flex: g.flex }}
                   >
                     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-                      <h3 className="flex items-baseline gap-2.5 text-[clamp(22px,2.4vw,28px)] font-bold tracking-[-0.02em]">
+                      <h3 className="flex items-baseline gap-2.5 text-[clamp(20px,2vw,24px)] font-bold tracking-[-0.02em]">
                         {g.label}
                         <span className="text-[15px] font-medium tracking-normal text-fg-2">
                           {groupCount(g)}
@@ -241,8 +251,8 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   }
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
-      {g.ventures.map((v, i) => (
-        <VentureCard key={v.id} venture={v} band={i === 0} />
+      {g.ventures.map((v) => (
+        <VentureCard key={v.id} venture={v} />
       ))}
     </div>
   );

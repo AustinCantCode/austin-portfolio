@@ -55,7 +55,7 @@ export function ProjectTile({
             "font-bold tracking-[-0.02em]",
             compact
               ? "text-[clamp(21px,2vw,24px)] leading-[1.2]"
-              : "text-[clamp(24px,2.6vw,30px)] leading-[1.15]",
+              : "text-[clamp(22px,2.1vw,26px)] leading-[1.15]",
           )}
         >
           {project.title}
@@ -96,7 +96,7 @@ export function RowTile({ project }: { project: Project }) {
         <p data-hover-detail="" className="text-[13px] font-semibold text-fg-2">
           {projectMeta(project)}
         </p>
-        <h3 className="text-[clamp(28px,3.6vw,40px)] leading-[1.1] font-bold tracking-[-0.025em]">
+        <h3 className="text-[clamp(26px,2.8vw,36px)] leading-[1.1] font-bold tracking-[-0.025em]">
           {project.title}
         </h3>
         <p
@@ -209,12 +209,12 @@ export function VenturePanel({
         >
           {venture.date} · {venture.role}
         </p>
-        <h2 className="text-[clamp(32px,4.4vw,48px)] leading-[1.05] font-bold tracking-[-0.025em]">
+        <h2 className="text-[clamp(28px,3.4vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]">
           {venture.name}
         </h2>
         <p
           className={cn(
-            "max-w-[420px] text-[clamp(17px,1.9vw,21px)]",
+            "max-w-[420px] text-[clamp(17px,1.5vw,19px)]",
             band ? "text-band-fg-2" : "text-fg-2",
           )}
         >

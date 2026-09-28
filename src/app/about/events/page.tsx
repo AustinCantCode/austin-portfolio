@@ -1,12 +1,13 @@
 import { events, FEATURED_EVENT_INDEX } from "@data/events";
+import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { PageHeader, TextLink } from "@components/ui";
 import { ImageSlot } from "@components/media";
 
 export const metadata = pageMetadata({
-  title: "Events",
+  title: "Events: Hackathons, Study Trips and Volunteering",
   description:
-    "Hackathons, trips and volunteering: the events Austin Sia has taken part in.",
+    "Events Austin Sia has taken part in: the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen, Singapore Technology Week and volunteering.",
   path: "/about/events",
 });
 
@@ -15,6 +16,14 @@ export default function EventsPage() {
   const rest = events.filter((_, i) => i !== FEATURED_EVENT_INDEX);
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbLd([
+            { name: "About", path: "/about" },
+            { name: "Events", path: "/about/events" },
+          ]),
+        )}
+      />
       <PageHeader
         back={{ label: "About", href: "/about" }}
         title="Out and about."
@@ -38,7 +47,7 @@ export default function EventsPage() {
             <p className="text-[13px] font-semibold text-band-fg-2">
               {featured.date} · {featured.role}
             </p>
-            <h2 className="text-[clamp(28px,4vw,44px)] leading-[1.08] font-bold tracking-[-0.025em]">
+            <h2 className="text-[clamp(26px,3.2vw,38px)] leading-[1.08] font-bold tracking-[-0.025em]">
               {featured.title}
             </h2>
             <p className="text-[17px] text-band-fg-2">{featured.text}</p>
@@ -48,7 +57,7 @@ export default function EventsPage() {
           </div>
         </article>
       </section>
-      <section className="gutter pb-[clamp(64px,10vw,128px)]">
+      <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
         <div className="wrap grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-[clamp(16px,2vw,24px)]">
           {rest.map((e) => (
             <article
