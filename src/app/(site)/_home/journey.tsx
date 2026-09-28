@@ -7,9 +7,10 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { home } from "@data/home";
-import { TextLink } from "@components/ui";
+import { SmartLink, TextLink } from "@components/ui";
 
 /**
  * Timeline whose gold rail fills as you scroll (Framer Motion useScroll),
@@ -89,10 +90,36 @@ export function Journey() {
                 {t.date}
               </p>
               <div className="flex min-w-0 flex-[1_1_280px] flex-col gap-0.5">
-                <p className="font-display text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
+                <p className="font-display flex items-center gap-2.5 text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
+                  {t.logo && (
+                    <Image
+                      src={t.logo}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="size-7 flex-none rounded-full bg-white object-contain"
+                    />
+                  )}
                   {t.title}
                 </p>
                 <p className="text-[16px] text-fg-2">{t.sub}</p>
+                {t.links.length > 0 && (
+                  <ul className="m-0 mt-2.5 flex list-none flex-wrap gap-2 p-0">
+                    {t.links.map((l) => (
+                      <li key={l.href}>
+                        <SmartLink
+                          href={l.href}
+                          className="rise inline-flex h-8 items-center gap-1 rounded-full bg-pill px-3.5 text-[13px] font-medium text-fg transition-colors hover:bg-well hover:no-underline"
+                        >
+                          {l.label}
+                          <span aria-hidden="true" className="text-fg-2">
+                            ›
+                          </span>
+                        </SmartLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </li>
           ))}

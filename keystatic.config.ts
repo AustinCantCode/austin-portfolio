@@ -426,6 +426,16 @@ const home = singleton({
             date: line("Date"),
             title: line("Title"),
             sub: para("Detail"),
+            logo: img(
+              "home",
+              "Logo (optional)",
+              "A small square logo shown beside the title.",
+            ),
+            links: fields.array(link("Link"), {
+              label: "Links (optional)",
+              description: 'e.g. "Case study" → /projects/fresko',
+              itemLabel: (p) => p.fields.label.value || "Link",
+            }),
           }),
           {
             label: "Timeline",
@@ -586,6 +596,19 @@ const about = singleton({
   previewUrl: "/about",
   schema: {
     portrait: media("about", "Portrait"),
+    photos: fields.array(
+      fields.object({
+        image: img("about", "Photo"),
+        year: line("Year", 'Shown on the photo, e.g. "2018".'),
+        alt: line("Alt text", "Describe the photo."),
+      }),
+      {
+        label: "Photos over the years",
+        description:
+          "Add two or more and they replace the portrait with a stack visitors can swipe through, oldest at the back.",
+        itemLabel: (p) => p.fields.year.value || "Photo",
+      },
+    ),
     intro: para("Intro"),
     timeline: fields.array(
       fields.object({

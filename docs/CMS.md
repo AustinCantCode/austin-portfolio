@@ -101,6 +101,13 @@ largest. The "Kind words." section stays hidden until there's at least one.
 **Client names.** Site → Homepage → Clients strip. Add a logo to replace a
 name with the client's logo (shown in one colour to match the site).
 
+**Photos over the years.** About → Photos over the years → add two or more
+photos (oldest first) with the year. They replace the round portrait with a
+stack visitors can drag or tap through.
+
+**Timeline links and logos.** Site → Homepage → How I got here → open a
+milestone to add a small logo or links such as "Case study" → /projects/fresko.
+
 **Menus.** Site → Menus sets the line and the three featured projects in the
 Development and Design menus.
 

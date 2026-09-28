@@ -15,32 +15,67 @@
       {
         "date": "2023 – 2026",
         "title": "Singapore Polytechnic",
-        "sub": "Diploma in Information Technology, focused on user experience design"
+        "sub": "Diploma in Information Technology, focused on user experience design",
+        "logo": "/images/home/journey/items/1/logo.jpg"
       },
       {
         "date": "Sep 2024",
         "title": "SP Batey Hackathon",
-        "sub": "Grand finalist with Frésko, the idea behind StillGood."
+        "sub": "Grand finalist with Frésko, the idea behind StillGood.",
+        "links": [
+          {
+            "label": "Frésko case study",
+            "href": "/projects/fresko"
+          },
+          {
+            "label": "Certificate",
+            "href": "/about/certificates"
+          }
+        ]
       },
       {
         "date": "Apr 2025 – Feb 2026",
         "title": "Amber Creative Pte Ltd",
-        "sub": "Software Developer Intern, building websites and apps for clients"
+        "sub": "Software Developer Intern, building websites and apps for clients",
+        "links": [
+          {
+            "label": "Client work",
+            "href": "/work/client-work"
+          }
+        ]
       },
       {
         "date": "Feb 2026 – May 2026",
         "title": "Freelance",
-        "sub": "Software Developer"
+        "sub": "Software Developer",
+        "links": [
+          {
+            "label": "Calibrium",
+            "href": "/projects/calibrium"
+          }
+        ]
       },
       {
         "date": "Apr 2026 – Present",
         "title": "StillGood",
-        "sub": "Founder & Developer"
+        "sub": "Founder & Developer",
+        "links": [
+          {
+            "label": "About StillGood",
+            "href": "/stillgood"
+          }
+        ]
       },
       {
         "date": "Aug 2026",
         "title": "Launched StillGood",
-        "sub": "Live on the Google Play Store."
+        "sub": "Live on the Google Play Store.",
+        "links": [
+          {
+            "label": "Google Play",
+            "href": "https://play.google.com/store/apps/details?id=com.stillgoodapp.org"
+          }
+        ]
       }
     ]
   },

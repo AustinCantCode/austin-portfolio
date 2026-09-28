@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { about, portrait } from "@data/about";
+import { about, aboutPhotos, portrait } from "@data/about";
+import { PhotoStack } from "@components/client/photo-stack";
 import { site } from "@data/site";
 import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
@@ -33,16 +34,20 @@ export default function AboutPage() {
       />
       <section className="gutter pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(72px,min(9vw,13vh),136px)]">
         <div className="wrap flex flex-wrap items-center gap-[clamp(40px,7vw,104px)]">
-          {portrait && (
-            <Image
-              quality={100}
-              src={portrait.src}
-              alt={portrait.alt || "Portrait of Austin Sia"}
-              width={200}
-              height={200}
-              priority
-              className="aspect-square h-auto w-[clamp(120px,18vw,200px)] flex-none rounded-full object-cover"
-            />
+          {aboutPhotos.length >= 2 ? (
+            <PhotoStack photos={aboutPhotos} />
+          ) : (
+            portrait && (
+              <Image
+                quality={100}
+                src={portrait.src}
+                alt={portrait.alt || "Portrait of Austin Sia"}
+                width={200}
+                height={200}
+                priority
+                className="aspect-square h-auto w-[clamp(120px,18vw,200px)] flex-none rounded-full object-cover"
+              />
+            )
           )}
           <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-5">
             <h1 className="t-h1">{pageCopy.about.heading}</h1>

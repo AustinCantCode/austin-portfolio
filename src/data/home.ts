@@ -8,8 +8,25 @@ type RawArea = Raw["whatIDo"]["areas"][number] & { photo: RawMedia };
 
 const areas = raw.whatIDo.areas as unknown as RawArea[];
 
+type RawJourneyItem = {
+  date: string;
+  title: string;
+  sub: string;
+  logo?: StaticImageData | null;
+  links?: { label: string; href: string }[];
+};
+
 export const home = {
-  journey: raw.journey,
+  journey: {
+    ...raw.journey,
+    items: (raw.journey.items as unknown as RawJourneyItem[]).map((t) => ({
+      date: t.date,
+      title: t.title,
+      sub: t.sub,
+      logo: t.logo ?? undefined,
+      links: (t.links ?? []).filter((l) => l.label && l.href),
+    })),
+  },
   whatIDo: {
     title: raw.whatIDo.title,
     areas: areas.map((a) => {
