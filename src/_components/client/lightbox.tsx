@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import type { Media } from "@data/types";
 import { ImageSlot } from "../media";
 import { Icon } from "../icon";
@@ -74,8 +75,12 @@ export function Lightbox({
   const cert = variant === "certificate";
 
   return createPortal(
-    <div
+    <motion.div
       onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/[.88] px-4 pt-14 pb-6"
     >
       <div
@@ -99,13 +104,21 @@ export function Lightbox({
         <div
           className={`relative w-full overflow-hidden rounded-[20px] bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)]"}`}
         >
-          <ImageSlot
-            media={item.media}
-            placeholder={item.title}
-            fit="contain"
-            sizes="(max-width: 900px) 100vw, 900px"
-            tone="dark"
-          />
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
+            className="absolute inset-0"
+          >
+            <ImageSlot
+              media={item.media}
+              placeholder={item.title}
+              fit="contain"
+              sizes="(max-width: 900px) 100vw, 900px"
+              tone="dark"
+            />
+          </motion.div>
         </div>
         <div className="flex max-w-[620px] flex-col items-center gap-1 text-center">
           <h2
@@ -143,7 +156,7 @@ export function Lightbox({
           </button>
         </div>
       </div>
-    </div>,
+    </motion.div>,
     document.body,
   );
 }

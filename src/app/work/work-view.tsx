@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { AreaId, Graphic, Project, SmallApp, Venture } from "@data/types";
@@ -248,18 +249,20 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
             </button>
           ))}
         </div>
-        {art !== null && (
-          <Lightbox
-            items={g.art.map((a) => ({
-              title: a.title,
-              media: { ...a.image, fit: "contain" },
-            }))}
-            index={art}
-            onIndex={setArt}
-            onClose={() => setArt(null)}
-            noun="artwork"
-          />
-        )}
+        <AnimatePresence>
+          {art !== null && (
+            <Lightbox
+              items={g.art.map((a) => ({
+                title: a.title,
+                media: { ...a.image, fit: "contain" },
+              }))}
+              index={art}
+              onIndex={setArt}
+              onClose={() => setArt(null)}
+              noun="artwork"
+            />
+          )}
+        </AnimatePresence>
       </>
     );
   }

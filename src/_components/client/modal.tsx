@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import { cn } from "@lib/utils";
 import { Icon } from "../icon";
 
@@ -71,13 +72,26 @@ export function Modal({
       className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-6"
       onKeyDown={onKeyDown}
     >
-      <div
+      <motion.div
         aria-hidden="true"
         onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.18 } }}
+        transition={{ duration: 0.25 }}
         className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"
       />
-      <div
+      <motion.div
         ref={panelRef}
+        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{
+          opacity: 0,
+          y: 16,
+          scale: 0.98,
+          transition: { duration: 0.18, ease: "easeIn" },
+        }}
+        transition={{ type: "spring", stiffness: 380, damping: 34 }}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
@@ -99,7 +113,7 @@ export function Modal({
           <Icon name="x" size={18} />
         </button>
         <div className="overflow-y-auto overscroll-contain">{children}</div>
-      </div>
+      </motion.div>
     </div>,
     document.body,
   );

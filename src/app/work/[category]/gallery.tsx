@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import type { Graphic } from "@data/types";
@@ -40,18 +41,20 @@ export function Gallery({ items }: { items: Graphic[] }) {
           </figure>
         ))}
       </div>
-      {open !== null && (
-        <Lightbox
-          items={items.map((g) => ({
-            title: g.title,
-            media: { ...g.image, fit: "contain" },
-          }))}
-          index={open}
-          onIndex={setOpen}
-          onClose={() => setOpen(null)}
-          noun="artwork"
-        />
-      )}
+      <AnimatePresence>
+        {open !== null && (
+          <Lightbox
+            items={items.map((g) => ({
+              title: g.title,
+              media: { ...g.image, fit: "contain" },
+            }))}
+            index={open}
+            onIndex={setOpen}
+            onClose={() => setOpen(null)}
+            noun="artwork"
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

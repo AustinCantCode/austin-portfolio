@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { animate, inView, scroll } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export const prefersReducedMotion = () =>
@@ -20,15 +21,15 @@ export function useReducedMotionPref() {
   return reduce;
 }
 
-const EASE = "cubic-bezier(.2,.7,.2,1)";
+const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 /**
- * Page-level motion, driven by data attributes so server components can
- * opt in without client code:
+ * Page-level motion with Framer Motion, driven by data attributes so
+ * server components can opt in without client code:
  * - [data-reveal]: fades and rises into view (only if it starts below 90%
- *   of the viewport).
- * - [data-parallax="k"]: moves at -k times its distance from the viewport
- *   centre, measured from its parent.
+ *   of the viewport), via inView + animate.
+ * - [data-parallax="k"]: drifts at -k times its distance from the
+ *   viewport centre while its parent scrolls past, via scroll().
  * Runs again on every route change. Disabled under reduced motion.
  */
 export function MotionManager() {
@@ -36,83 +37,64 @@ export function MotionManager() {
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
-    let cancelled = false;
-    let io: IntersectionObserver | undefined;
-    let raf = 0;
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    const parallax: HTMLElement[] = [];
-
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const vh = window.innerHeight;
-        for (const el of parallax) {
-          const r = (el.parentElement ?? el).getBoundingClientRect();
-          const k = parseFloat(el.dataset.parallax ?? "") || 0.08;
-          el.style.transform = `translateY(${(r.top + r.height / 2 - vh / 2) * -k}px)`;
-        }
-      });
-    };
+    const stops: (() => void)[] = [];
+    const touched: HTMLElement[] = [];
 
     // Wait a frame so the new page has laid out.
     const start = requestAnimationFrame(() => {
-      if (cancelled) return;
       const vh = window.innerHeight;
-      io = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) {
-            if (!e.isIntersecting) continue;
-            const el = e.target as HTMLElement;
-            io?.unobserve(el);
-            el.style.opacity = "1";
-            el.style.transform = "none";
-            // Hand the element back to its own CSS (e.g. hover scale).
-            timers.push(
-              setTimeout(() => {
-                el.style.removeProperty("opacity");
-                el.style.removeProperty("transform");
-                el.style.removeProperty("transition");
-              }, 900),
-            );
-          }
-        },
-        { threshold: 0.12 },
-      );
       document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
         if (el.dataset.revealed) return;
         el.dataset.revealed = "1";
         if (el.getBoundingClientRect().top <= vh * 0.9) return;
-        el.style.opacity = "0";
-        el.style.transform = "translateY(28px)";
-        el.style.transition = `opacity .8s ${EASE}, transform .8s ${EASE}`;
-        io!.observe(el);
+        touched.push(el);
+        animate(el, { opacity: 0, y: 28 }, { duration: 0 });
+        stops.push(
+          inView(
+            el,
+            () => {
+              animate(
+                el,
+                { opacity: 1, y: 0 },
+                { duration: 0.8, ease: EASE },
+              ).then(() => {
+                // Hand the element back to its own CSS (e.g. hover scale).
+                el.style.removeProperty("opacity");
+                el.style.removeProperty("transform");
+              });
+            },
+            { amount: "some" },
+          ),
+        );
       });
+
       document
         .querySelectorAll<HTMLElement>("[data-parallax]")
-        .forEach((el) => parallax.push(el));
-      if (parallax.length) {
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
-        onScroll();
-      }
+        .forEach((el) => {
+          const k = parseFloat(el.dataset.parallax ?? "") || 0.08;
+          const target = el.parentElement ?? el;
+          const reach = (window.innerHeight + target.offsetHeight) / 2;
+          touched.push(el);
+          stops.push(
+            scroll(
+              animate(el, { y: [-k * reach, k * reach] }, { ease: "linear" }),
+              { target, offset: ["start end", "end start"] },
+            ),
+          );
+        });
     });
 
     return () => {
-      cancelled = true;
       cancelAnimationFrame(start);
-      cancelAnimationFrame(raf);
-      timers.forEach(clearTimeout);
-      io?.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      stops.forEach((stop) => stop());
+      touched.forEach((el) => {
+        delete el.dataset.revealed;
+        el.style.removeProperty("opacity");
+        el.style.removeProperty("transform");
+      });
       document
         .querySelectorAll<HTMLElement>("[data-revealed]")
-        .forEach((el) => {
-          delete el.dataset.revealed;
-          el.style.removeProperty("opacity");
-          el.style.removeProperty("transform");
-          el.style.removeProperty("transition");
-        });
+        .forEach((el) => delete el.dataset.revealed);
     };
   }, [pathname]);
 

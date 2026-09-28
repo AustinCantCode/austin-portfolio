@@ -1,11 +1,10 @@
-import Coin from "@components/complex-ui/coin";
-import { ButtonLink, SectionHeader, StatusPill } from "@components/ui";
+import { SectionHeader } from "@components/ui";
 import { ProjectTile } from "@components/tiles";
 import { home } from "@data/home";
-import { site } from "@data/site";
 import { pickProjects } from "@data/projects";
 import { JsonLd, graph, webPageLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
+import { Hero } from "./_home/hero";
 import { Journey } from "./_home/journey";
 import { WhatIDo } from "./_home/what-i-do";
 import { ToolsMarquee } from "./_home/marquee";
@@ -36,35 +35,7 @@ export default function HomePage() {
           }),
         )}
       />
-      {/* Hero */}
-      <section className="gutter pt-[clamp(32px,min(6vw,9vh),88px)] pb-[clamp(56px,min(8vw,12vh),104px)]">
-        <div className="wrap flex flex-wrap-reverse items-center gap-[clamp(24px,5vw,64px)]">
-          <div className="flex min-w-0 flex-[1_1_440px] flex-col items-start gap-6">
-            <a href="/contact" className="hover:no-underline">
-              <StatusPill>{site.heroLabel}</StatusPill>
-            </a>
-            <h1 className="t-h1">{site.heroHeadline}</h1>
-            <p className="t-sub max-w-[520px]">{site.heroLine}</p>
-            <div className="mt-2 flex w-full flex-wrap gap-3">
-              <ButtonLink href="/work" data-track="view_work_click">
-                View work
-              </ButtonLink>
-              <ButtonLink
-                href={site.contact.cvPdf}
-                variant="secondary"
-                icon="arrow-down-to-line"
-                target="_blank"
-                data-track="cv_download"
-              >
-                Download CV
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="mx-auto min-w-0 flex-[0_1_420px]">
-            <Coin className="mx-auto w-[clamp(220px,28vw,400px)] max-w-full" />
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <Journey />
       <WhatIDo />

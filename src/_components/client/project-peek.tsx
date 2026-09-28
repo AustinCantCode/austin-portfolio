@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@lib/utils";
@@ -45,9 +46,11 @@ export function ProjectPeek({
       >
         {children}
       </Link>
-      {open && (
-        <ProjectDialog project={project} onClose={() => setOpen(false)} />
-      )}
+      <AnimatePresence>
+        {open && (
+          <ProjectDialog project={project} onClose={() => setOpen(false)} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -253,25 +256,27 @@ export function SmallAppPeek({
       >
         {children}
       </button>
-      {open && (
-        <Modal label={app.title} onClose={() => setOpen(false)}>
-          {app.video && <Video src={app.video} poster={app.image} />}
-          <div
-            className={cn(
-              "flex flex-col gap-2 p-[clamp(24px,4vw,36px)]",
-              !app.video && "pt-16",
-            )}
-          >
-            <p className="text-[13px] font-semibold text-fg-2">
-              {app.tech} · {app.year}
-            </p>
-            <h2 className="text-[clamp(28px,3.2vw,36px)] leading-[1.05] font-bold">
-              {app.title}
-            </h2>
-            <p className="text-[16px] text-fg-2">{app.text}</p>
-          </div>
-        </Modal>
-      )}
+      <AnimatePresence>
+        {open && (
+          <Modal label={app.title} onClose={() => setOpen(false)}>
+            {app.video && <Video src={app.video} poster={app.image} />}
+            <div
+              className={cn(
+                "flex flex-col gap-2 p-[clamp(24px,4vw,36px)]",
+                !app.video && "pt-16",
+              )}
+            >
+              <p className="text-[13px] font-semibold text-fg-2">
+                {app.tech} · {app.year}
+              </p>
+              <h2 className="text-[clamp(28px,3.2vw,36px)] leading-[1.05] font-bold">
+                {app.title}
+              </h2>
+              <p className="text-[16px] text-fg-2">{app.text}</p>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </>
   );
 }

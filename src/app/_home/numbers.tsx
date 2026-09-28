@@ -1,42 +1,37 @@
 "use client";
 
 import Link from "next/link";
+import { animate, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { home } from "@data/home";
-import { prefersReducedMotion } from "@components/client/motion";
 
-/** Chapter 6: four stats that count up when they come into view. */
+/** Four stats that count up (Framer Motion animate) when they come into view. */
 export function Numbers() {
   const { title, stats } = home.numbers;
   const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const reduce = useReducedMotion();
   const [t, setT] = useState(1);
+  const armed = useRef(false);
 
+  // Start from zero only if the stats begin out of view.
   useEffect(() => {
     const el = ref.current;
-    if (!el || prefersReducedMotion()) return;
+    if (!el || reduce) return;
     if (el.getBoundingClientRect().top < window.innerHeight * 0.6) return;
+    armed.current = true;
     setT(0);
-    let raf = 0;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        io.disconnect();
-        const t0 = performance.now();
-        const step = (now: number) => {
-          const p = Math.min(1, (now - t0) / 1400);
-          setT(1 - Math.pow(1 - p, 3));
-          if (p < 1) raf = requestAnimationFrame(step);
-        };
-        raf = requestAnimationFrame(step);
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+  }, [reduce]);
+
+  useEffect(() => {
+    if (!inView || !armed.current) return;
+    const c = animate(0, 1, {
+      duration: 1.4,
+      ease: [0.33, 1, 0.68, 1],
+      onUpdate: setT,
+    });
+    return () => c.stop();
+  }, [inView]);
 
   const show = (n: number | string) => {
     const s = String(n);

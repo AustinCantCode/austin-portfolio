@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@lib/utils";
 import {
@@ -24,6 +25,8 @@ import logo from "../../../public/AS-Circle-Logo.png";
 import { Icon } from "../icon";
 import { buttonClass, SmartLink } from "../ui";
 import { ThemeToggle } from "./theme-toggle";
+
+const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 type Menu = AreaId | "about";
 type Section = Menu | "contact" | "home" | null;
@@ -138,6 +141,7 @@ export function Nav() {
   return (
     <>
       <header
+        data-intro-hide=""
         className="sticky top-0 z-50 w-full bg-bg text-fg"
         onMouseLeave={() => {
           clearTimeout(hoverTimer.current);
@@ -200,28 +204,51 @@ export function Nav() {
           </div>
         </nav>
 
-        {open && (
-          <>
-            <div
-              id={`${open}-menu`}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="panel"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: EASE }}
               className="absolute inset-x-0 top-14 z-[1] hidden max-h-[calc(100vh_-_56px)] overflow-auto bg-menu shadow-[var(--shadow-menu)] lg:block"
             >
-              {open === "about" ? (
-                <AboutMenu pathname={pathname} />
-              ) : open === "ventures" ? (
-                <VenturesMenu />
-              ) : (
-                <AreaMenu area={open} pathname={pathname} />
-              )}
-            </div>
-            <div
+              {/* Moving between menus cross-fades the content. */}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={open}
+                  id={`${open}-menu`}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.16, ease: EASE }}
+                >
+                  {open === "about" ? (
+                    <AboutMenu pathname={pathname} />
+                  ) : open === "ventures" ? (
+                    <VenturesMenu />
+                  ) : (
+                    <AreaMenu area={open} pathname={pathname} />
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          )}
+          {open && (
+            <motion.div
+              key="backdrop"
               aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
               onClick={close}
               onMouseEnter={close}
               className="fixed inset-x-0 top-14 bottom-0 z-0 hidden bg-black/[.18] lg:block"
             />
-          </>
-        )}
+          )}
+        </AnimatePresence>
       </header>
 
       <MobileBar
@@ -547,15 +574,27 @@ function MobileBar({
         if (e.key === "Escape" && sheet) onSheet(null);
       }}
     >
-      {sheet && (
-        <>
-          <div
+      <AnimatePresence>
+        {sheet && (
+          <motion.div
+            key="sheet-backdrop"
             aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => onSheet(null)}
             className="fixed inset-0 z-[60] bg-black/40"
           />
-          <div
+        )}
+        {sheet && (
+          <motion.div
+            key="sheet"
             id={`${sheet}-sheet`}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", stiffness: 420, damping: 40 }}
             className="fixed inset-x-0 bottom-[calc(64px+env(safe-area-inset-bottom))] z-[61] max-h-[72vh] overflow-auto rounded-t-[24px] bg-menu shadow-[var(--shadow-menu)]"
           >
             {sheet === "about" ? (
@@ -589,11 +628,12 @@ function MobileBar({
                 ))}
               </div>
             )}
-          </div>
-        </>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <nav
         aria-label="Quick"
+        data-intro-hide=""
         className="fixed inset-x-0 bottom-0 z-[62] flex h-[calc(64px+env(safe-area-inset-bottom))] border-t border-hairline bg-menu/95 px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur"
       >
         {linkTab("/", "Home", "house", "home")}

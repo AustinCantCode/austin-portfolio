@@ -61,6 +61,15 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Marks the first homepage visit of a session so the hero intro
+            (see _home/hero.tsx) can play without a flash of content. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(location.pathname==="/"&&!sessionStorage.getItem("as-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.intro="1"}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <Providers>
           <a

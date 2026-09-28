@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import type { CertificateGroup } from "@data/types";
@@ -88,22 +89,28 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
         </div>
       </section>
 
-      {open !== null && (
-        <Lightbox
-          variant="certificate"
-          noun="certificate"
-          items={list.map((c) => ({
-            title: c.title,
-            caption: `${c.issuer} · ${c.description}`,
-            media: c.image
-              ? { src: c.image, alt: `${c.title} certificate`, fit: "contain" }
-              : undefined,
-          }))}
-          index={open}
-          onIndex={setOpen}
-          onClose={() => setOpen(null)}
-        />
-      )}
+      <AnimatePresence>
+        {open !== null && (
+          <Lightbox
+            variant="certificate"
+            noun="certificate"
+            items={list.map((c) => ({
+              title: c.title,
+              caption: `${c.issuer} · ${c.description}`,
+              media: c.image
+                ? {
+                    src: c.image,
+                    alt: `${c.title} certificate`,
+                    fit: "contain",
+                  }
+                : undefined,
+            }))}
+            index={open}
+            onIndex={setOpen}
+            onClose={() => setOpen(null)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

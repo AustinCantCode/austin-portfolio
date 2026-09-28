@@ -1,12 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+} from "framer-motion";
+import { useRef } from "react";
 import { cn } from "@lib/utils";
 import { allSkills } from "@data/skills";
 import { home } from "@data/home";
 import { SectionHeader } from "@components/ui";
-import { useReducedMotionPref } from "@components/client/motion";
 
 const half = Math.ceil(allSkills.length / 2);
 const ROWS = [
@@ -14,39 +19,29 @@ const ROWS = [
   { dir: "right" as const, items: allSkills.slice(half) },
 ];
 
-/** Chapter 3: two rows of skill pills drifting in opposite directions. */
+/**
+ * Two rows of skill pills drifting in opposite directions, driven by
+ * Framer Motion (useAnimationFrame + motion values). Hover or focus
+ * pauses them; reduced motion turns them into plain scrollable rows.
+ */
 export function ToolsMarquee() {
   const { title, link } = home.tools;
-  const reduce = useReducedMotionPref();
-  const rootRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
   const paused = useRef(false);
+  const offset = useRef(0);
+  const rows = useRef<(HTMLDivElement | null)[]>([]);
+  const left = useMotionValue(0);
+  const right = useMotionValue(0);
 
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root || reduce) return;
-    let raf = 0;
-    let last = performance.now();
-    let offset = 0;
-    const loop = (t: number) => {
-      const dt = Math.min(t - last, 50);
-      last = t;
-      if (!paused.current) offset += dt * 0.04;
-      root.querySelectorAll<HTMLElement>("[data-marquee]").forEach((el) => {
-        const w = el.scrollWidth / 2;
-        if (!w) return;
-        const x = offset % w;
-        el.style.transform = `translateX(${el.dataset.marquee === "left" ? -x : x - w}px)`;
-      });
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      root.querySelectorAll<HTMLElement>("[data-marquee]").forEach((el) => {
-        el.style.transform = "";
-      });
-    };
-  }, [reduce]);
+  useAnimationFrame((_, delta) => {
+    if (reduce) return;
+    if (!paused.current) offset.current += Math.min(delta, 50) * 0.04;
+    const [a, b] = rows.current;
+    const wa = (a?.scrollWidth ?? 0) / 2;
+    const wb = (b?.scrollWidth ?? 0) / 2;
+    if (wa) left.set(-(offset.current % wa));
+    if (wb) right.set((offset.current % wb) - wb);
+  });
 
   return (
     <section
@@ -57,14 +52,13 @@ export function ToolsMarquee() {
         <SectionHeader title={title} link={link} />
       </div>
       <div
-        ref={rootRef}
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
         onFocus={() => (paused.current = true)}
         onBlur={() => (paused.current = false)}
         className="flex flex-col gap-3"
       >
-        {ROWS.map((row) => (
+        {ROWS.map((row, r) => (
           <div
             key={row.dir}
             className={cn(
@@ -72,8 +66,11 @@ export function ToolsMarquee() {
               reduce ? "overflow-x-auto" : "overflow-x-hidden",
             )}
           >
-            <div
-              data-marquee={row.dir}
+            <motion.div
+              ref={(el) => {
+                rows.current[r] = el;
+              }}
+              style={{ x: reduce ? 0 : row.dir === "left" ? left : right }}
               className="flex w-max gap-3 will-change-transform"
             >
               {(reduce ? row.items : [...row.items, ...row.items]).map(
@@ -89,7 +86,7 @@ export function ToolsMarquee() {
                   </Link>
                 ),
               )}
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>

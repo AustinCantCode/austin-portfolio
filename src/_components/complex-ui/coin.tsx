@@ -14,13 +14,18 @@ export default function Coin({
   delay = 700,
   flipOnLoad = true,
   label = "Coin showing Austin's photo on one side and the AS logo on the other. Click to flip.",
+  onReady,
 }: {
   className?: string;
   delay?: number;
   flipOnLoad?: boolean;
   label?: string;
+  /** Called once, after the first frame is drawn. */
+  onReady?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const readyRef = useRef(onReady);
+  readyRef.current = onReady;
 
   useEffect(() => {
     const el = ref.current;
@@ -51,8 +56,12 @@ export default function Coin({
       scene.add(new THREE.HemisphereLight(0xffffff, 0xffffff, 2));
 
       const loader = new THREE.TextureLoader();
-      const heads = loader.load("/coin-images/profile%20pic.png");
-      const tails = loader.load("/coin-images/AS-Coin.png");
+      // Ready means both faces are loaded and drawn (uploading them to
+      // the GPU is the heavy part), so the hero intro can start after it.
+      let loaded = 0;
+      const onTexture = () => loaded++;
+      const heads = loader.load("/coin-images/profile%20pic.png", onTexture);
+      const tails = loader.load("/coin-images/AS-Coin-1200.png", onTexture);
       heads.colorSpace = THREE.SRGBColorSpace;
       tails.colorSpace = THREE.SRGBColorSpace;
       tails.rotation = Math.PI;
@@ -130,6 +139,7 @@ export default function Coin({
       el.addEventListener("pointerleave", onLeave);
 
       let raf = 0;
+      let drawn = false;
       const loop = () => {
         raf = requestAnimationFrame(loop);
         if (flipping) {
@@ -142,6 +152,10 @@ export default function Coin({
         tilt.rotation.x += (tx - tilt.rotation.x) * 0.08;
         tilt.rotation.y += (ty - tilt.rotation.y) * 0.08;
         renderer.render(scene, camera);
+        if (!drawn && loaded === 2) {
+          drawn = true;
+          readyRef.current?.();
+        }
       };
       loop();
 

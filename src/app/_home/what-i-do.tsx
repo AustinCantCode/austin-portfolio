@@ -1,6 +1,12 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  animate,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@lib/utils";
 import { home, whatIDoPhotoHints, whatIDoPhotos } from "@data/home";
@@ -29,50 +35,56 @@ export function WhatIDo() {
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const fits = useRef(true);
+  const pinnedRef = useRef(false);
+  // 0 when the section's top meets the nav, 1 when its end reaches the
+  // bottom of the viewport: the three pinned screen-heights.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: [`start ${NAV}px`, "end end"],
+  });
+
+  const overflowing = () => {
+    const copy = copyRef.current;
+    return !!copy && copy.scrollHeight > copy.clientHeight + 1;
+  };
+
+  const evaluate = useCallback(() => {
+    if (overflowing()) fits.current = false;
+    const pin =
+      fits.current &&
+      !prefersReducedMotion() &&
+      window.innerWidth >= 1080 &&
+      window.innerHeight >= 680;
+    pinnedRef.current = pin;
+    setPinned(pin);
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => {
-      const sec = sectionRef.current;
-      if (!sec) return;
-      const copy = copyRef.current;
-      if (copy && copy.scrollHeight > copy.clientHeight + 1) {
-        fits.current = false;
-      }
-      const pin =
-        fits.current &&
-        !prefersReducedMotion() &&
-        window.innerWidth >= 1080 &&
-        window.innerHeight >= 680;
-      setPinned(pin);
-      if (!pin) return;
-      const r = sec.getBoundingClientRect();
-      const total = sec.offsetHeight - (window.innerHeight - NAV);
-      const p = Math.max(0, Math.min(0.9999, (NAV - r.top) / total));
-      const i = Math.floor(p * 3);
-      setArea(IDS[i]);
-      setProgress(p * 3 - i);
-    };
+    evaluate();
     const onResize = () => {
       fits.current = true;
-      onScroll();
+      evaluate();
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+    return () => window.removeEventListener("resize", onResize);
+  }, [evaluate]);
+
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    if (pinnedRef.current && overflowing()) evaluate();
+    if (!pinnedRef.current) return;
+    const q = Math.max(0, Math.min(0.9999, p));
+    const i = Math.floor(q * 3);
+    setArea(IDS[i]);
+    setProgress(q * 3 - i);
+  });
 
   // Unpin when the copy is taller than the pinned panel.
   useEffect(() => {
-    const el = copyRef.current;
-    if (pinned && el && el.scrollHeight > el.clientHeight + 1) {
+    if (pinned && overflowing()) {
       fits.current = false;
-      setPinned(false);
+      evaluate();
     }
-  }, [pinned, area]);
+  }, [pinned, area, evaluate]);
 
   const select = useCallback(
     (id: string) => {
@@ -85,10 +97,13 @@ export function WhatIDo() {
           window.scrollY -
           NAV +
           total * (i / 3 + 0.02);
-        window.scrollTo({
-          top,
-          behavior: prefersReducedMotion() ? "auto" : "smooth",
-        });
+        if (prefersReducedMotion()) window.scrollTo(0, top);
+        else
+          animate(window.scrollY, top, {
+            duration: 0.7,
+            ease: [0.2, 0.7, 0.2, 1],
+            onUpdate: (v) => window.scrollTo(0, v),
+          });
         return;
       }
       setArea(id);
