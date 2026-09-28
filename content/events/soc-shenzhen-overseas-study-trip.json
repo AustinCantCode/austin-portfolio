@@ -1,0 +1,14 @@
+{
+  "title": "SOC Shenzhen Overseas Study Trip",
+  "order": 20,
+  "featured": false,
+  "date": "September 2024",
+  "role": "Singapore Polytechnic student",
+  "text": "Visited tech companies like Sandstone and VoiceAI, exhibitions and Shenzhen Technology University.",
+  "photo": {
+    "image": "/images/events/soc-shenzhen-overseas-study-trip/photo/image.jpg",
+    "alt": "Group photo on the Shenzhen study trip",
+    "fit": "cover",
+    "bare": false
+  }
+}

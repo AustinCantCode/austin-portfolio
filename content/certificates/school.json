@@ -1,0 +1,42 @@
+{
+  "issuerGroup": "Compassvale Secondary",
+  "order": 80,
+  "items": [
+    {
+      "title": "Edusave Certificate of Academic Achievement 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Good academic performance and conduct.",
+      "image": "/images/certificates/school/items/0/image.png"
+    },
+    {
+      "title": "Edusave Good Progress Award 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Improvement in academic performance and conduct.",
+      "image": "/images/certificates/school/items/1/image.png"
+    },
+    {
+      "title": "Edusave Merit Bursary 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Good academic progress and conduct.",
+      "image": "/images/certificates/school/items/2/image.png"
+    },
+    {
+      "title": "YEA Award 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Completed the Young Engineer Award requirements. Officially recognised Young Engineer.",
+      "image": "/images/certificates/school/items/3/image.png"
+    },
+    {
+      "title": "CVSS GPA Award 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Academic improvement in the 2022 preliminary examinations.",
+      "image": "/images/certificates/school/items/4/image.png"
+    },
+    {
+      "title": "O and N Level Certificate 2022",
+      "issuer": "Ministry of Education, SEAB",
+      "description": "GCE O-Level 2022 and N-Level 2021.",
+      "image": "/images/certificates/school/items/5/image.png"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "title": "TeleGPT",
+  "order": 120,
+  "year": "2024",
+  "line": "ChatGPT, inside Telegram.",
+  "subtext": "Chat assistant",
+  "role": "Developer",
+  "problem": "I wanted to ask ChatGPT questions without leaving the Telegram chat app.",
+  "did": "I connected a Telegram chat bot to ChatGPT so it answers any message instantly.",
+  "outcome": "A simple chat assistant anyone can message.",
+  "skills": [
+    "JavaScript",
+    "Node.js",
+    "Telegram Bot API",
+    "OpenAI API",
+    "Webhooks"
+  ],
+  "links": [
+    {
+      "label": "Open in Telegram",
+      "href": "https://t.me/Teleprojectchatbot"
+    }
+  ],
+  "categories": [
+    "mobile-apps"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/telegpt/cover/image.png",
+    "alt": "TeleGPT logo",
+    "fit": "cover",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "video": "/videos/projects/telegpt/video.mp4"
+}

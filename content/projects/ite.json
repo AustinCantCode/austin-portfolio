@@ -1,0 +1,50 @@
+{
+  "title": "ITE WSDip",
+  "order": 30,
+  "year": "2025",
+  "line": "One system for students, teachers and companies.",
+  "subtext": "Education platform",
+  "role": "Full-stack developer, Amber Creative",
+  "problem": "ITE's work-study programme has four kinds of users, and each needs to see different information from the same system.",
+  "did": "During my internship I built screens for each type of user, connected them to the data behind the scenes and fixed problems as they came up. I also helped put new versions live.",
+  "outcome": "A more reliable system for everyone who uses it, from students to partner companies.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "shadcn/ui",
+    "Tailwind CSS",
+    "Zustand",
+    "Azure Blob Storage",
+    "Docker",
+    "Node.js",
+    "Swagger UI"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://wsdip.ite.edu.sg/login"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/ite/cover/image.png",
+    "alt": "ITE Work-Study Diploma platform",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

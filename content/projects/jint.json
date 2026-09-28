@@ -1,0 +1,72 @@
+{
+  "title": "JuzInterior",
+  "order": 90,
+  "year": "2025",
+  "line": "Answers and articles, easier to find.",
+  "subtext": "Renovation company",
+  "role": "Developer, Amber Creative",
+  "problem": "Visitors couldn't find answers to common questions or filter blog posts by topic.",
+  "did": "I built a Frequently Asked Questions page and a way to filter blog articles by topic.",
+  "outcome": "Visitors get answers faster and stay on the site longer.",
+  "skills": [
+    "WordPress",
+    "BetterDocs",
+    "PHP",
+    "CSS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://juzinterior.com/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/jint/cover/image.png",
+    "alt": "JuzInterior website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "image": "/images/projects/jint/second/image.png",
+    "alt": "JuzInterior FAQ page",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/jint/gallery/0/image.png",
+      "alt": "JuzInterior home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/1/image.png",
+      "alt": "JuzInterior FAQ page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/2/image.png",
+      "alt": "JuzInterior articles",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/3/image.png",
+      "alt": "JuzInterior project gallery",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

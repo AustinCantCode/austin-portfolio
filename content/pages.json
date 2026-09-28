@@ -1,0 +1,43 @@
+{
+  "home": {
+    "title": "Austin Sia – Full-Stack Developer & Designer in Singapore",
+    "description": "Portfolio of Austin Sia, a full-stack developer and UI/UX designer in Singapore: client platforms for ITE, KiasuParents and IAL, mobile apps and design work."
+  },
+  "work": {
+    "title": "Projects: Websites, Apps and UI/UX Design",
+    "description": "Browse 35 projects by Austin Sia across web development, mobile apps, UI/UX, product and graphic design, from live client platforms to school projects.",
+    "heading": "Work."
+  },
+  "about": {
+    "title": "About Austin Sia | Full-Stack Developer & UI/UX Designer",
+    "description": "Austin Sia is a Singapore Polytechnic IT graduate who builds websites and apps. His journey from Amber Creative intern to freelancer, plus skills and events.",
+    "heading": "About."
+  },
+  "skills": {
+    "title": "Skills: Next.js, React, TypeScript and Design",
+    "description": "The 34 tools Austin Sia uses to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects that used each one.",
+    "heading": "Skills."
+  },
+  "certificates": {
+    "title": "29 Certificates from AWS, GitHub and LinkedIn",
+    "description": "Austin Sia's 29 certificates: generative AI courses from AWS, GitHub and JavaScript certificates from LinkedIn Learning, a hackathon final and school awards."
+  },
+  "events": {
+    "title": "Events: Hackathons, Study Trips and Volunteering",
+    "description": "Events Austin Sia has taken part in: the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen, Singapore Technology Week and volunteering.",
+    "heading": "Out and about."
+  },
+  "cv": {
+    "title": "CV: Full-Stack Developer and UI/UX Designer",
+    "description": "Austin Sia's CV: experience at Amber Creative and as a freelancer, a Diploma in IT from Singapore Polytechnic, selected projects and skills, plus a PDF."
+  },
+  "contact": {
+    "title": "Contact Austin Sia: Developer Roles and Freelance",
+    "description": "Get in touch with Austin Sia about developer roles and freelance web or app projects in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
+    "heading": "Let's build something."
+  },
+  "stillgood": {
+    "title": "StillGood: A Food Waste App for Android",
+    "description": "StillGood helps families waste less food: snap your groceries, get reminded before they go off and find recipes to use them up. Free on Google Play."
+  }
+}

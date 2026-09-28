@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "slug": "web-apps",
+      "label": "Web apps",
+      "blurb": "Sites and platforms, from storefronts to school systems.",
+      "seoTitle": "Web App Projects: Storefronts to School Systems"
+    },
+    {
+      "slug": "mobile-apps",
+      "label": "Mobile apps",
+      "blurb": "Apps built and designed for the phone.",
+      "seoTitle": "Mobile App Projects and App Designs"
+    },
+    {
+      "slug": "client-work",
+      "label": "Client work",
+      "blurb": "Built for real clients and live today.",
+      "seoTitle": "Client Work: Live Websites and Platforms"
+    },
+    {
+      "slug": "school-projects",
+      "label": "School projects",
+      "blurb": "Made at Singapore Polytechnic.",
+      "seoTitle": "School Projects from Singapore Polytechnic"
+    },
+    {
+      "slug": "small-apps",
+      "label": "Small apps",
+      "blurb": "Tiny apps I built while learning.",
+      "seoTitle": "Small Apps Built While Learning to Code"
+    },
+    {
+      "slug": "ui-ux",
+      "label": "UI/UX",
+      "blurb": "Research, flows and prototypes.",
+      "seoTitle": "UI/UX Design Projects and Prototypes"
+    },
+    {
+      "slug": "product-design",
+      "label": "Product design",
+      "blurb": "Physical things, modelled and printed.",
+      "seoTitle": "Product Design: 3D-Printed Prototypes"
+    },
+    {
+      "slug": "graphic-design",
+      "label": "Graphic design",
+      "blurb": "Posters, ads and artwork.",
+      "seoTitle": "Graphic Design Gallery: Posters and Ads"
+    },
+    {
+      "slug": "ventures",
+      "label": "Ventures",
+      "blurb": "Things I started.",
+      "seoTitle": "Ventures: A Hackathon Team, Freelance and an App"
+    }
+  ]
+}

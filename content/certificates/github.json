@@ -1,0 +1,36 @@
+{
+  "issuerGroup": "GitHub",
+  "order": 20,
+  "items": [
+    {
+      "title": "Career Essentials in GitHub Professional Certificate",
+      "issuer": "LinkedIn Learning",
+      "description": "4 of 4 GitHub courses completed.",
+      "image": "/images/certificates/github/items/0/image.jpeg"
+    },
+    {
+      "title": "Practical GitHub Project Management and Collaboration",
+      "issuer": "LinkedIn Learning",
+      "description": "1 of 4 GitHub courses.",
+      "image": "/images/certificates/github/items/1/image.jpeg"
+    },
+    {
+      "title": "Practical GitHub Copilot",
+      "issuer": "LinkedIn Learning",
+      "description": "1 of 4 GitHub courses.",
+      "image": "/images/certificates/github/items/2/image.jpeg"
+    },
+    {
+      "title": "Practical GitHub Code Search",
+      "issuer": "LinkedIn Learning",
+      "description": "1 of 4 GitHub courses.",
+      "image": "/images/certificates/github/items/3/image.jpeg"
+    },
+    {
+      "title": "Practical GitHub Actions",
+      "issuer": "LinkedIn Learning",
+      "description": "1 of 4 GitHub courses.",
+      "image": "/images/certificates/github/items/4/image.jpeg"
+    }
+  ]
+}

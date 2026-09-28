@@ -1,0 +1,46 @@
+{
+  "title": "Glovida-RX",
+  "order": 50,
+  "year": "2025",
+  "line": "Prescriptions that stay up to date.",
+  "subtext": "Medical prescriptions",
+  "role": "Full-stack developer, Amber Creative",
+  "problem": "Prices and medicine details weren't always updating correctly between doctors and pharmacists.",
+  "did": "I found and fixed the issues so that changes made by one person show up correctly for everyone else.",
+  "outcome": "Doctors and pharmacists now see accurate information straight away.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "GraphQL",
+    "TablePlus"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://www.glovida-rx.com.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/grx/cover/image.png",
+    "alt": "Glovida-RX platform",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

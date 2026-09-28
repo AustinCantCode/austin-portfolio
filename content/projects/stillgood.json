@@ -1,0 +1,101 @@
+{
+  "title": "StillGood",
+  "order": 10,
+  "year": "2026",
+  "line": "An app that helps families waste less food.",
+  "subtext": "Food waste app",
+  "role": "Founder & solo developer",
+  "problem": "Families throw away food they forgot they had. Expiry dates get lost at the back of the fridge.",
+  "did": "I came up with the idea, designed every screen and built the whole thing myself: the phone app, the system behind it and the website. You can snap a photo of your groceries and the app lists them for you, reminds you before they expire and suggests recipes to use them up.",
+  "outcome": "Anyone can download it from the Google Play Store since 26 August 2026. It began as a hackathon idea in 2024.",
+  "ai": "I used Claude Code, an AI coding assistant, like a very fast helper. I decided how the app should work, gave the AI clear written rules to follow, and checked every piece of code it wrote before adding it. The idea, the design, the testing and the launch were all mine.",
+  "skills": [
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "Fastify",
+    "Supabase",
+    "Gemini API",
+    "PostHog",
+    "Next.js",
+    "Claude Code"
+  ],
+  "links": [
+    {
+      "label": "Get it on Google Play",
+      "href": "https://play.google.com/store/apps/details?id=com.stillgoodapp.org"
+    },
+    {
+      "label": "Visit website",
+      "href": "https://stillgoodapp.org"
+    }
+  ],
+  "categories": [
+    "mobile-apps",
+    "ui-ux",
+    "ventures"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/stillgood/cover/image.webp",
+    "alt": "StillGood home screen showing pantry health and items that need attention",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "image": "/images/projects/stillgood/second/image.webp",
+    "alt": "StillGood pantry list sorted by expiry date",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/stillgood/gallery/0/image.webp",
+      "alt": "StillGood home screen showing pantry health and items that need attention",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/stillgood/gallery/1/image.webp",
+      "alt": "StillGood pantry list sorted by expiry date",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/stillgood/gallery/2/image.webp",
+      "alt": "StillGood shared household pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/stillgood/gallery/3/image.webp",
+      "alt": "StillGood recipe suggestions that use expiring items",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/stillgood/gallery/4/image.webp",
+      "alt": "StillGood scanner adding a banana to the pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/stillgood/gallery/5/image.webp",
+      "alt": "StillGood Recipe Studio choosing ingredients from the pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    }
+  ]
+}

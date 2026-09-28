@@ -1,0 +1,10 @@
+{
+  "title": "Rock Paper Scissors",
+  "order": 40,
+  "tech": "JavaScript",
+  "year": "2023",
+  "text": "Rock Paper Scissors against the computer, with buttons to play.",
+  "image": "/images/small-apps/rock-paper-scissors/image.png",
+  "alt": "Rock Paper Scissors screenshot",
+  "video": "/videos/small-apps/rock-paper-scissors/video.mp4"
+}

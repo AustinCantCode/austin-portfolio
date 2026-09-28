@@ -1,0 +1,46 @@
+{
+  "title": "Calibrium",
+  "order": 20,
+  "year": "2026",
+  "line": "An online watch shop, ready to take orders.",
+  "subtext": "Online watch shop",
+  "role": "Freelance full-stack developer",
+  "problem": "Calibrium's website could show watches, but customers couldn't create an account, place an order or save favourites.",
+  "did": "As a freelancer, I added everything a shopper needs: sign-up and login, a profile, checkout and payment, order history, favourites and automatic order confirmation emails.",
+  "outcome": "Customers can now go from browsing to a paid order and a confirmation email in one smooth flow.",
+  "ai": "I used Claude Code, an AI coding assistant, to speed up repetitive parts of the build. I agreed the work with the client, checked and tested every change myself, and was responsible for everything that went live.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Zustand",
+    "Strapi CMS",
+    "Node.js",
+    "Claude Code"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://calibrium.sg"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "fit": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

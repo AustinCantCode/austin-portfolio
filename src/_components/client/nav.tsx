@@ -11,6 +11,7 @@ import {
   categoryBySlug,
   categoryCount,
   categoryHref,
+  navExtras,
   navSections,
 } from "@data/categories";
 import { projectBySlug } from "@data/projects";
@@ -40,17 +41,13 @@ const AREAS = navSections.map((s) => ({
   categories: s.categories,
 }));
 
-/** Projects featured in each area's menu. */
-const FEATURED: Partial<Record<AreaId, string[]>> = {
-  dev: ["ite", "ksp", "grx"],
-  design: ["quizzy", "fresko", "lawks"],
-};
-
-/** One line under each area's name in its menu (matches the Work page). */
-const AREA_LINE: Partial<Record<AreaId, string>> = {
-  dev: "Websites, platforms and apps, built for clients and for myself.",
-  design: "Interfaces, physical products and artwork.",
-};
+/** Projects featured in each area's menu, and a line under its name (CMS → Menus). */
+const FEATURED: Partial<Record<AreaId, string[]>> = Object.fromEntries(
+  Object.entries(navExtras).map(([id, x]) => [id, x.featured]),
+);
+const AREA_LINE: Partial<Record<AreaId, string>> = Object.fromEntries(
+  Object.entries(navExtras).map(([id, x]) => [id, x.line]),
+);
 
 const activeSection = (path: string): Section => {
   if (path === "/") return "home";

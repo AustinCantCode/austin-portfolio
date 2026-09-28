@@ -1,0 +1,29 @@
+{
+  "areas": [
+    {
+      "id": "dev",
+      "label": "Development",
+      "line": "Websites, platforms and apps, built for clients and for myself.",
+      "featured": [
+        "ite",
+        "ksp",
+        "grx"
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "line": "Interfaces, physical products and artwork.",
+      "featured": [
+        "quizzy",
+        "fresko",
+        "lawks"
+      ]
+    },
+    {
+      "id": "ventures",
+      "label": "Entrepreneurship",
+      "featured": []
+    }
+  ]
+}

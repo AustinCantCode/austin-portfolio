@@ -1,0 +1,56 @@
+{
+  "title": "GoWhere",
+  "order": 110,
+  "year": "2025",
+  "line": "Find and book things to do in Singapore.",
+  "subtext": "Attractions booking",
+  "role": "Full-stack developer",
+  "problem": "Tourists needed one place to discover attractions and manage their bookings.",
+  "did": "For a school project I built accounts, bookings and a rewards system, plus tools for staff to manage users and rewards.",
+  "outcome": "A working booking website, put online on Microsoft's cloud.",
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "Microsoft Azure",
+    "PostgreSQL"
+  ],
+  "links": [],
+  "categories": [
+    "web-apps",
+    "school-projects"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/gowhere/cover/image.png",
+    "alt": "GoWhere attractions booking website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/gowhere/gallery/0/image.png",
+      "alt": "GoWhere sign-in page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/gowhere/gallery/1/image.jpeg",
+      "alt": "GoWhere attractions",
+      "fit": "",
+      "bare": false
+    }
+  ],
+  "video": "/videos/projects/gowhere/video.mp4"
+}

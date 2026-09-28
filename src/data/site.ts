@@ -1,27 +1,30 @@
+/** Site-wide details, edited in the CMS (Site → Site & contact). */
+import raw from "./generated/site.json";
+
+const contact = raw.contact;
+
 export const site = {
-  name: "Austin Sia",
-  url: "https://austinsia.com",
-  location: "Singapore",
-  heroHeadline: "Austin Sia.",
-  heroLine:
-    "Full-stack developer and UI/UX designer in Singapore, building websites and apps for companies and for myself.",
+  name: raw.name,
+  url: raw.url,
+  location: raw.location,
+  heroHeadline: raw.heroHeadline,
+  heroLine: raw.heroLine,
   contact: {
-    email: "austin.sia1515@gmail.com",
-    mailto: "mailto:austin.sia1515@gmail.com",
-    phone: "+65 9107 0598",
-    tel: "tel:+6591070598",
-    whatsapp: "https://wa.me/6591070598",
-    linkedin: "https://www.linkedin.com/in/austin-sia/",
-    linkedinLabel: "linkedin.com/in/austin-sia",
-    github: "https://github.com/austincantcode",
-    githubLabel: "github.com/austincantcode",
-    githubUser: "austincantcode",
-    cvPdf: "/AustinResume.pdf",
+    email: contact.email,
+    mailto: `mailto:${contact.email}`,
+    phone: contact.phone,
+    tel: contact.tel,
+    whatsapp: contact.whatsapp,
+    linkedin: contact.linkedin,
+    linkedinLabel: contact.linkedinLabel,
+    github: contact.github,
+    githubLabel: contact.githubLabel,
+    githubUser: contact.githubUser,
+    cvPdf: contact.cvPdf,
   },
-  googlePlayUrl:
-    "https://play.google.com/store/apps/details?id=com.stillgoodapp.org",
-  stillgoodWebsiteUrl: "https://stillgoodapp.org",
-  calibriumUrl: "https://calibrium.sg",
+  googlePlayUrl: raw.googlePlayUrl,
+  stillgoodWebsiteUrl: raw.stillgoodWebsiteUrl,
+  calibriumUrl: raw.calibriumUrl,
 };
 
 /** True for links that are still placeholders. */

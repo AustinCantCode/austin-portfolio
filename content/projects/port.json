@@ -1,0 +1,54 @@
+{
+  "title": "My Portfolio",
+  "order": 100,
+  "year": "2026",
+  "line": "This website.",
+  "subtext": "Personal website",
+  "role": "Designer & developer",
+  "problem": "My old website had too many pages and too much on each one.",
+  "did": "I redesigned it around fewer, bigger projects and a clear story, then rebuilt it from scratch.",
+  "outcome": "A simpler site that shows who I am in a few minutes.",
+  "skills": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Framer Motion",
+    "TypeScript"
+  ],
+  "links": [],
+  "categories": [
+    "web-apps",
+    "ui-ux"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/port/cover/image.png",
+    "alt": "The previous version of this portfolio",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/port/gallery/0/image.png",
+      "alt": "The previous portfolio home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/1/image.png",
+      "alt": "The previous portfolio projects page",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

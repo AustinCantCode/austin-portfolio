@@ -1,0 +1,14 @@
+{
+  "title": "SP Batey Hackathon",
+  "order": 30,
+  "featured": true,
+  "date": "September 2024",
+  "role": "Participant, grand finalist",
+  "text": "My team, Zenith Technologies, designed Frésko to cut food waste. It reached the grand finals and later became StillGood.",
+  "photo": {
+    "image": "/images/events/sp-batey-hackathon/photo/image.png",
+    "alt": "Team Zenith Technologies at the SP Batey Hackathon",
+    "fit": "cover",
+    "bare": false
+  }
+}

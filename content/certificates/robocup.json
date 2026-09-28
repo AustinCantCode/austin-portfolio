@@ -1,0 +1,12 @@
+{
+  "issuerGroup": "RoboCup 2025",
+  "order": 70,
+  "items": [
+    {
+      "title": "Certificate of Recognition",
+      "issuer": "RoboCup Singapore",
+      "description": "For volunteering at RoboCup 2025.",
+      "image": "/images/certificates/robocup/items/0/image.png"
+    }
+  ]
+}

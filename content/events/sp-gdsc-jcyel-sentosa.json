@@ -1,0 +1,14 @@
+{
+  "title": "SP GDSC × JCYEL Sentosa",
+  "order": 60,
+  "featured": false,
+  "date": "2024",
+  "role": "Student volunteer",
+  "text": "A day of team-building on Sentosa: the Imbiah Trail, quiz challenges and a sandcastle contest.",
+  "photo": {
+    "image": "/images/events/sp-gdsc-jcyel-sentosa/photo/image.jpg",
+    "alt": "Volunteers on the beach at Sentosa",
+    "fit": "cover",
+    "bare": false
+  }
+}

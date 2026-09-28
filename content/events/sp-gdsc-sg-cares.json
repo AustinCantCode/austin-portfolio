@@ -1,0 +1,14 @@
+{
+  "title": "SP GDSC × SG Cares",
+  "order": 50,
+  "featured": false,
+  "date": "2024",
+  "role": "Student volunteer",
+  "text": "Helped prepare and present an anti-scam talk for seniors at NTUC Senior Day Care, Boon Lay.",
+  "photo": {
+    "image": "/images/events/sp-gdsc-sg-cares/photo/image.jpg",
+    "alt": "Anti-scam talk for seniors",
+    "fit": "cover",
+    "bare": false
+  }
+}

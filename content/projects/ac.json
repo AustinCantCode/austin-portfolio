@@ -1,0 +1,79 @@
+{
+  "title": "Amber Creative",
+  "order": 60,
+  "year": "2025",
+  "line": "The agency's own website.",
+  "subtext": "Agency website",
+  "role": "Software developer intern",
+  "problem": "The agency's website needed new sections, better visibility on Google and easier content updates.",
+  "did": "I built new parts of the site, connected it to a content editor so the team can update it themselves, and improved how it appears in search results.",
+  "outcome": "A faster website that looks good on any device and is easy for the team to update.",
+  "skills": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Framer Motion",
+    "TypeScript",
+    "Directus CMS",
+    "Storyblok CMS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://ambercreative.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/ac/cover/image.png",
+    "alt": "Amber Creative website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/ac/gallery/0/image.png",
+      "alt": "Amber Creative home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/1/image.png",
+      "alt": "Amber Creative services",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/2/image.png",
+      "alt": "Amber Creative case studies",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/3/image.png",
+      "alt": "Amber Creative about page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/4/image.png",
+      "alt": "Amber Creative contact page",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

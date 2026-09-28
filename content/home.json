@@ -1,0 +1,314 @@
+{
+  "journey": {
+    "title": "How I got here.",
+    "sub": "It started in secondary school and led to shipping my own app.",
+    "link": {
+      "label": "View my CV ›",
+      "href": "/cv"
+    },
+    "items": [
+      {
+        "date": "2018 – 2022",
+        "title": "Compassvale Secondary School",
+        "sub": "GCE O-Level"
+      },
+      {
+        "date": "2023 – 2026",
+        "title": "Singapore Polytechnic",
+        "sub": "Diploma in Information Technology, focused on user experience design"
+      },
+      {
+        "date": "Sep 2024",
+        "title": "SP Batey Hackathon",
+        "sub": "Grand finalist with Frésko, the idea behind StillGood."
+      },
+      {
+        "date": "Apr 2025 – Feb 2026",
+        "title": "Amber Creative Pte Ltd",
+        "sub": "Software Developer Intern, building websites and apps for clients"
+      },
+      {
+        "date": "Feb 2026 – May 2026",
+        "title": "Freelance",
+        "sub": "Software Developer"
+      },
+      {
+        "date": "Apr 2026 – Present",
+        "title": "StillGood",
+        "sub": "Founder & Developer"
+      },
+      {
+        "date": "Aug 2026",
+        "title": "Launched StillGood",
+        "sub": "Live on the Google Play Store."
+      }
+    ]
+  },
+  "whatIDo": {
+    "title": "What I do.",
+    "areas": [
+      {
+        "id": "dev",
+        "icon": "lucide:code-xml",
+        "label": "Development",
+        "count": 21,
+        "kicker": "Building · 3+ years",
+        "headline": "I build websites and apps, start to finish.",
+        "blurb": "From the screens people tap on to the systems behind them, I build complete websites and phone apps for companies and for myself.",
+        "services": [
+          {
+            "icon": "lucide:monitor",
+            "title": "Websites & online systems",
+            "text": "Online shops, school systems and busy community sites."
+          },
+          {
+            "icon": "lucide:smartphone",
+            "title": "Phone apps",
+            "text": "Apps with payments, notifications and fingerprint login."
+          },
+          {
+            "icon": "lucide:server",
+            "title": "Behind the scenes",
+            "text": "The systems that store data, send emails and keep apps running."
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "Node.js",
+          "Supabase",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "stat": "8 client platforms shipped",
+        "href": "/work",
+        "cta": "Explore development",
+        "featuredProjects": [
+          "calibrium",
+          "ite",
+          "ksp",
+          "grx"
+        ],
+        "photo": {
+          "fit": "",
+          "bare": false
+        },
+        "photoHint": "Photo of you coding, or a desk setup"
+      },
+      {
+        "id": "design",
+        "icon": "lucide:pen-tool",
+        "label": "Design",
+        "count": 11,
+        "kicker": "Design · Diploma-trained",
+        "headline": "Interfaces people actually enjoy.",
+        "blurb": "I studied user experience design at Singapore Polytechnic. I talk to users, sketch ideas and design every screen before anything is built.",
+        "services": [
+          {
+            "icon": "lucide:layout-template",
+            "title": "App & web design",
+            "text": "Understanding users, then designing screens you can click through."
+          },
+          {
+            "icon": "lucide:box",
+            "title": "Product design",
+            "text": "Physical objects, modelled on a computer and 3D-printed."
+          },
+          {
+            "icon": "lucide:palette",
+            "title": "Graphic design",
+            "text": "Posters, adverts and brand artwork."
+          }
+        ],
+        "stack": [
+          "Figma",
+          "Adobe XD",
+          "Photoshop",
+          "Illustrator",
+          "Tinkercad"
+        ],
+        "stat": "4 app prototypes · 6 artworks",
+        "href": "/work",
+        "cta": "Explore design",
+        "featuredProjects": [
+          "fresko",
+          "quizzy",
+          "hg",
+          "sp"
+        ],
+        "photo": {
+          "fit": "",
+          "bare": false
+        },
+        "photoHint": "Figma canvas or sketches"
+      },
+      {
+        "id": "ventures",
+        "icon": "lucide:rocket",
+        "label": "Entrepreneurship",
+        "count": 3,
+        "kicker": "Starting things · Founder",
+        "headline": "From hackathon idea to live product.",
+        "blurb": "I like starting things. A student competition led to freelance work, and then to StillGood, my own app that I now run.",
+        "services": [
+          {
+            "icon": "lucide:leaf",
+            "title": "StillGood",
+            "text": "My own food waste app. I started it, built it and launched it in August 2026."
+          },
+          {
+            "icon": "lucide:trophy",
+            "title": "Zenith Technologies",
+            "text": "Our team reached the grand finals of a 2024 student competition."
+          },
+          {
+            "icon": "lucide:briefcase",
+            "title": "Freelance",
+            "text": "Building websites for paying clients, February to May 2026."
+          }
+        ],
+        "stack": [
+          "Product planning",
+          "App store launch",
+          "Working with clients",
+          "Tracking what users do"
+        ],
+        "stat": "1 app launched",
+        "href": "/work/ventures",
+        "cta": "Explore ventures",
+        "featuredProjects": [
+          "stillgood",
+          "fresko",
+          "calibrium",
+          "port"
+        ],
+        "photo": {
+          "image": "/images/home/whatIDo/areas/2/photo/image.png",
+          "alt": "Austin presenting at the SP Batey Hackathon",
+          "fit": "",
+          "bare": false
+        },
+        "photoHint": "StillGood launch or hackathon photo"
+      }
+    ]
+  },
+  "tools": {
+    "title": "Tools I use.",
+    "link": {
+      "label": "All skills ›",
+      "href": "/about/skills"
+    }
+  },
+  "selectedWork": {
+    "title": "Selected work.",
+    "link": {
+      "label": "See all work ›",
+      "href": "/work"
+    },
+    "projects": [
+      "ite",
+      "ksp",
+      "grx",
+      "calibrium",
+      "stillgood",
+      "quizzy"
+    ]
+  },
+  "events": {
+    "title": "Out and about.",
+    "link": {
+      "label": "All events ›",
+      "href": "/about/events"
+    }
+  },
+  "numbers": {
+    "title": "The story in numbers.",
+    "stats": [
+      {
+        "n": "29",
+        "label": "certificates",
+        "cta": "See certificates",
+        "href": "/about/certificates"
+      },
+      {
+        "n": "10+",
+        "label": "projects shipped",
+        "cta": "See work",
+        "href": "/work"
+      },
+      {
+        "n": "3+",
+        "label": "years building websites & apps",
+        "cta": "View CV",
+        "href": "/cv"
+      },
+      {
+        "n": "8",
+        "label": "client platforms",
+        "cta": "See client work",
+        "href": "/work/client-work"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's build something.",
+    "line": "That's the story so far. The next part could be with you: I'm open to developer roles and freelance projects.",
+    "tiles": [
+      {
+        "icon": "lucide:mail",
+        "title": "Email",
+        "value": "austin.sia1515@gmail.com",
+        "note": "Best for roles, projects and anything detailed.",
+        "action": "Write",
+        "href": "mailto:austin.sia1515@gmail.com",
+        "behavior": "copy-to-clipboard"
+      },
+      {
+        "icon": "lucide:phone",
+        "title": "Phone",
+        "value": "+65 9107 0598",
+        "note": "Weekdays, Singapore time.",
+        "action": "Call",
+        "href": "tel:+6591070598",
+        "behavior": "link"
+      },
+      {
+        "icon": "mdi:linkedin",
+        "title": "LinkedIn",
+        "value": "linkedin.com/in/austin-sia",
+        "note": "Experience, recommendations and updates.",
+        "action": "Connect",
+        "href": "https://www.linkedin.com/in/austin-sia/",
+        "behavior": "link"
+      },
+      {
+        "icon": "mdi:github",
+        "title": "GitHub",
+        "value": "github.com/austincantcode",
+        "note": "Code, contributions and side projects.",
+        "action": "Follow",
+        "href": "https://github.com/austincantcode",
+        "behavior": "link"
+      },
+      {
+        "icon": "lucide:file-text",
+        "title": "CV",
+        "value": "Austin Sia, CV",
+        "note": "Experience, education and skills on one page.",
+        "action": "View",
+        "href": "/cv",
+        "behavior": "link"
+      },
+      {
+        "icon": "lucide:map-pin",
+        "title": "Based in",
+        "value": "Singapore",
+        "note": "SGT, UTC+8. Open to remote and on-site.",
+        "action": "Contact page",
+        "href": "/contact",
+        "behavior": "link"
+      }
+    ]
+  }
+}

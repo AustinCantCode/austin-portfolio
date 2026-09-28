@@ -1,0 +1,10 @@
+{
+  "title": "Temperature Converter",
+  "order": 60,
+  "tech": "JavaScript",
+  "year": "2023",
+  "text": "Convert between Celsius, Fahrenheit and Kelvin.",
+  "image": "/images/small-apps/temperature-converter/image.png",
+  "alt": "Temperature Converter screenshot",
+  "video": "/videos/small-apps/temperature-converter/video.mp4"
+}

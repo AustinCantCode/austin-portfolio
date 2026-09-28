@@ -1,0 +1,10 @@
+{
+  "title": "Stopwatch",
+  "order": 70,
+  "tech": "React",
+  "year": "2024",
+  "text": "A stopwatch with start, stop and reset.",
+  "image": "/images/small-apps/stopwatch/image.png",
+  "alt": "Stopwatch screenshot",
+  "video": "/videos/small-apps/stopwatch/video.mp4"
+}

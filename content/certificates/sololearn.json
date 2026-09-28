@@ -1,0 +1,18 @@
+{
+  "issuerGroup": "SoloLearn",
+  "order": 50,
+  "items": [
+    {
+      "title": "Introduction to HTML",
+      "issuer": "SoloLearn",
+      "description": "Theory and practical assessment.",
+      "image": "/images/certificates/sololearn/items/0/image.jpg"
+    },
+    {
+      "title": "Introduction to CSS",
+      "issuer": "SoloLearn",
+      "description": "Theory and practical assessment.",
+      "image": "/images/certificates/sololearn/items/1/image.jpg"
+    }
+  ]
+}

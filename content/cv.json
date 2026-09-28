@@ -1,0 +1,44 @@
+{
+  "role": "Full-stack developer and UI/UX designer · Singapore",
+  "profile": "Singapore Polytechnic IT graduate with over 3 years of full-stack web development. I launched my own app, StillGood, on the Google Play Store, and have built more than 10 projects across a range of tech stacks.",
+  "experience": [
+    {
+      "org": "StillGood",
+      "role": "Founder & Developer",
+      "date": "Apr 2026 – Present",
+      "text": "Designed and built a food waste app, API and website solo. Gemini AI scanning and recipes, PostHog analytics. Built with Claude Code as an AI pair programmer, with every change reviewed through pull requests. Live on Google Play."
+    },
+    {
+      "org": "Freelance",
+      "role": "Software Developer",
+      "date": "Feb 2026 – May 2026",
+      "text": "Client web development, including accounts, orders, payments and email notifications for the Calibrium watch store. Used Claude Code to speed up parts of the build, reviewing and testing every change."
+    },
+    {
+      "org": "Amber Creative Pte Ltd",
+      "role": "Full-stack Software Developer Intern",
+      "date": "Apr 2025 – Feb 2026",
+      "text": "Built and maintained client platforms including ITE WSDip, KiasuParents, Glovida-RX and IAL, using Next.js, TypeScript, C# and several CMSs."
+    }
+  ],
+  "education": [
+    {
+      "org": "Singapore Polytechnic",
+      "date": "2023 – 2026",
+      "text": "Diploma in Information Technology, specialising in UI/UX design"
+    },
+    {
+      "org": "Compassvale Secondary School",
+      "date": "2018 – 2022",
+      "text": "GCE O-Level"
+    }
+  ],
+  "projects": [
+    "stillgood",
+    "calibrium",
+    "ite",
+    "ksp",
+    "grx",
+    "fresko"
+  ]
+}

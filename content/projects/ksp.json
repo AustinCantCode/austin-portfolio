@@ -1,0 +1,61 @@
+{
+  "title": "KiasuParents",
+  "order": 40,
+  "year": "2025",
+  "line": "Singapore's parenting community, kept fast and fresh.",
+  "subtext": "Parenting website",
+  "role": "Full-stack developer, Amber Creative",
+  "problem": "A very busy website with lots of articles and forums needed new pages without slowing down.",
+  "did": "I built new pages, made the site faster and fixed bugs across its main sections. I also kept content up to date.",
+  "outcome": "New features for thousands of parents, on a faster and steadier site.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "WordPress",
+    "Strapi CMS",
+    "Mautic",
+    "NodeBB"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://www.kiasuparents.com/kiasu"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/ksp/cover/image.png",
+    "alt": "KiasuParents website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/ksp/gallery/0/image.png",
+      "alt": "KiasuParents home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ksp/gallery/1/image.png",
+      "alt": "KiasuParents article page",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

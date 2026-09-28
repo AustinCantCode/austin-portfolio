@@ -1,3 +1,4 @@
+import { portrait } from "@data/about";
 import { site } from "@data/site";
 import { skillGroups } from "@data/skills";
 import type { Project } from "@data/types";
@@ -24,7 +25,7 @@ export const personLd = () => ({
   "@id": PERSON_ID,
   name: site.name,
   url: site.url,
-  image: `${site.url}/Contact/profile%20pic.png`,
+  image: portrait ? `${site.url}${portrait.src.src}` : undefined,
   jobTitle: "Full-stack developer and UI/UX designer",
   description:
     "Full-stack developer and UI/UX designer in Singapore, building websites and apps for companies and for himself.",

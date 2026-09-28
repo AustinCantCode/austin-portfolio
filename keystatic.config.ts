@@ -1,0 +1,721 @@
+/**
+ * The CMS schema. Everything on the site is edited here, at /keystatic.
+ * Content is saved as JSON under content/, and images under
+ * public/images/<collection>/<entry>/. scripts/content.mjs turns it into
+ * the data the site reads (src/data/generated), see docs/CMS.md.
+ */
+import { collection, config, fields, singleton } from "@keystatic/core";
+import { createElement } from "react";
+import { AREA_IDS, CATEGORY_STRUCTURE } from "./src/data/structure";
+
+/**
+ * Local files in development. In production the CMS saves by committing
+ * to GitHub, once its GitHub App is set up (docs/CMS.md): the public app
+ * slug is readable on the server and in the browser, so both agree.
+ */
+const connected = !!process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG;
+const dev = process.env.NODE_ENV !== "production";
+// NEXT_PUBLIC_KEYSTATIC_STORAGE=github forces GitHub mode in development,
+// which is how the GitHub App is created the first time.
+const forced = process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE;
+const useGitHub = forced ? forced === "github" : !dev && connected;
+/** False on the live site until the CMS's GitHub App is set up. */
+export const cmsEnabled = dev || connected || forced === "github";
+
+// Helpers -------------------------------------------------------------
+
+const img = (dir: string, label = "Image", description?: string) =>
+  fields.image({
+    label,
+    description,
+    directory: `public/images/${dir}`,
+    publicPath: `/images/${dir}/`,
+  });
+
+/** An image with its alt text and how it sits in its frame. */
+const media = (dir: string, label: string, description?: string) =>
+  fields.object(
+    {
+      image: img(dir, label, description),
+      alt: fields.text({
+        label: "Alt text",
+        description: "Describe the image for screen readers and search.",
+      }),
+      fit: fields.select({
+        label: "Fit",
+        description:
+          "Cover fills the frame; Contain shows the whole image. Leave on Default unless it looks wrong.",
+        options: [
+          { label: "Default", value: "" },
+          { label: "Cover", value: "cover" },
+          { label: "Contain", value: "contain" },
+        ],
+        defaultValue: "",
+      }),
+      position: fields.text({
+        label: "Position",
+        description: 'Which part stays in view, e.g. "top". Usually empty.',
+      }),
+      bare: fields.checkbox({
+        label: "Mockup (no device frame)",
+        description:
+          "Tick for mockup images that already show phones, so no frame is drawn around them.",
+      }),
+    },
+    { label },
+  );
+
+const video = (dir: string) =>
+  fields.file({
+    label: "Demo video (MP4)",
+    directory: `public/videos/${dir}`,
+    publicPath: `/videos/${dir}/`,
+  });
+
+const order = fields.integer({
+  label: "Order",
+  description: "Lower numbers are shown first.",
+  defaultValue: 100,
+});
+
+const line = (label: string, description?: string) =>
+  fields.text({ label, description });
+
+const para = (label: string, description?: string) =>
+  fields.text({ label, description, multiline: true });
+
+const icon = fields.text({
+  label: "Icon",
+  description:
+    'An Iconify name, e.g. "lucide:code-xml" or "mdi:github" (browse icones.js.org).',
+});
+
+const link = (label: string) =>
+  fields.object(
+    { label: line("Link text"), href: line("Link URL or path") },
+    { label },
+  );
+
+const list = (label: string, itemLabel = "Item") =>
+  fields.array(fields.text({ label: itemLabel }), {
+    label,
+    itemLabel: (p) => p.value,
+  });
+
+const categoryOptions = CATEGORY_STRUCTURE.map((c) => ({
+  label: c.label,
+  value: c.slug,
+}));
+
+// Collections --------------------------------------------------------
+
+const projects = collection({
+  label: "Projects",
+  slugField: "title",
+  path: "content/projects/*",
+  format: { data: "json" },
+  previewUrl: "/projects/{slug}",
+  columns: ["year", "order"],
+  schema: {
+    title: fields.slug({
+      name: { label: "Title" },
+      slug: {
+        label: "URL",
+        description: "The case study lives at /projects/<URL>.",
+      },
+    }),
+    order,
+    year: line("Year"),
+    line: line("One-line summary", "Shown on cards and under the title."),
+    subtext: line("Type", 'A short label, e.g. "Online watch shop".'),
+    role: line("My role"),
+    problem: para("Problem"),
+    did: para("What I did"),
+    outcome: para("Outcome"),
+    ai: para(
+      "How I used AI",
+      "Optional. Leave empty if no AI assistant was used.",
+    ),
+    skills: list("Tools used", "Tool"),
+    links: fields.array(link("Link"), {
+      label: "Links",
+      itemLabel: (p) => p.fields.label.value || "Link",
+    }),
+    categories: fields.multiselect({
+      label: "Categories",
+      options: categoryOptions,
+    }),
+    frame: fields.select({
+      label: "Device frame",
+      options: [
+        { label: "Laptop (websites)", value: "laptop" },
+        { label: "Phone (apps)", value: "phone" },
+        { label: "None (photos and artwork)", value: "none" },
+      ],
+      defaultValue: "laptop",
+    }),
+    cover: media("projects", "Cover image"),
+    second: media("projects", "Second image", "Optional second screen."),
+    screen: media(
+      "projects",
+      "Single app screen",
+      "Optional. Used in device frames when the cover is a mockup.",
+    ),
+    gallery: fields.array(media("projects", "Image"), {
+      label: "Pop-up gallery",
+      description:
+        "Every image for the project's pop-up, in order. If empty, the cover and second image are used.",
+      itemLabel: (p) => p.fields.alt.value || "Image",
+    }),
+    video: video("projects"),
+  },
+});
+
+const smallApps = collection({
+  label: "Small apps",
+  slugField: "title",
+  path: "content/small-apps/*",
+  format: { data: "json" },
+  columns: ["year", "order"],
+  schema: {
+    title: fields.slug({ name: { label: "Title" } }),
+    order,
+    tech: line("Built with"),
+    year: line("Year"),
+    text: para("Description"),
+    image: img("small-apps", "Screenshot"),
+    alt: line("Screenshot alt text"),
+    video: video("small-apps"),
+  },
+});
+
+const graphics = collection({
+  label: "Graphic design",
+  slugField: "title",
+  path: "content/graphics/*",
+  format: { data: "json" },
+  columns: ["order"],
+  schema: {
+    title: fields.slug({ name: { label: "Title" } }),
+    order,
+    image: img("graphics", "Artwork"),
+    alt: line("Alt text"),
+  },
+});
+
+const ventures = collection({
+  label: "Ventures",
+  slugField: "name",
+  path: "content/ventures/*",
+  format: { data: "json" },
+  columns: ["order"],
+  schema: {
+    name: fields.slug({ name: { label: "Name" } }),
+    order,
+    role: line("My role"),
+    date: line("Dates"),
+    line: para("Summary"),
+    status: line("Status"),
+    href: line("Link (path or URL)"),
+    cta: line("Button text"),
+  },
+});
+
+const events = collection({
+  label: "Events",
+  slugField: "title",
+  path: "content/events/*",
+  format: { data: "json" },
+  columns: ["date", "order"],
+  schema: {
+    title: fields.slug({ name: { label: "Title" } }),
+    order,
+    featured: fields.checkbox({
+      label: "Feature this event",
+      description: "Shown large at the top of the events page. Tick only one.",
+    }),
+    date: line("Date"),
+    role: line("My role"),
+    text: para("What happened"),
+    photo: media("events", "Photo"),
+  },
+});
+
+const certificates = collection({
+  label: "Certificates",
+  slugField: "issuerGroup",
+  path: "content/certificates/*",
+  format: { data: "json" },
+  columns: ["order"],
+  schema: {
+    issuerGroup: fields.slug({
+      name: {
+        label: "Group name",
+        description: 'The filter label, e.g. "AWS / SCS".',
+      },
+    }),
+    order,
+    items: fields.array(
+      fields.object(
+        {
+          title: line("Title"),
+          issuer: line("Issued by"),
+          description: para("Description"),
+          image: img("certificates", "Certificate image"),
+        },
+        { label: "Certificate" },
+      ),
+      {
+        label: "Certificates",
+        itemLabel: (p) => p.fields.title.value || "Certificate",
+      },
+    ),
+  },
+});
+
+// Singletons ---------------------------------------------------------
+
+const site = singleton({
+  label: "Site & contact",
+  path: "content/site",
+  format: { data: "json" },
+  schema: {
+    name: line("Name"),
+    url: line("Site URL"),
+    location: line("Location"),
+    heroHeadline: line("Homepage headline"),
+    heroLine: para("Homepage line under the headline"),
+    contact: fields.object(
+      {
+        email: line("Email"),
+        phone: line("Phone (as shown)"),
+        tel: line('Phone link, e.g. "tel:+6591070598"'),
+        whatsapp: line("WhatsApp link"),
+        linkedin: line("LinkedIn URL"),
+        linkedinLabel: line("LinkedIn (as shown)"),
+        github: line("GitHub URL"),
+        githubLabel: line("GitHub (as shown)"),
+        githubUser: line(
+          "GitHub username",
+          "Used for the contributions chart.",
+        ),
+        cvPdf: line("CV PDF path"),
+      },
+      { label: "Contact" },
+    ),
+    googlePlayUrl: line("StillGood Google Play URL"),
+    stillgoodWebsiteUrl: line("StillGood website URL"),
+    calibriumUrl: line("Calibrium URL"),
+  },
+});
+
+const sectionHead = (label: string) =>
+  fields.object({ title: line("Title"), link: link("Link") }, { label });
+
+const home = singleton({
+  label: "Homepage",
+  path: "content/home",
+  format: { data: "json" },
+  previewUrl: "/",
+  schema: {
+    journey: fields.object(
+      {
+        title: line("Title"),
+        sub: para("Line under the title"),
+        link: link("Link"),
+        items: fields.array(
+          fields.object({
+            date: line("Date"),
+            title: line("Title"),
+            sub: para("Detail"),
+          }),
+          {
+            label: "Timeline",
+            itemLabel: (p) =>
+              `${p.fields.date.value} · ${p.fields.title.value}`,
+          },
+        ),
+      },
+      { label: "How I got here (timeline)" },
+    ),
+    whatIDo: fields.object(
+      {
+        title: line("Title"),
+        areas: fields.array(
+          fields.object({
+            id: fields.select({
+              label: "Area",
+              options: AREA_IDS.map((id) => ({ label: id, value: id })),
+              defaultValue: "dev",
+            }),
+            icon,
+            label: line("Tab label"),
+            count: fields.integer({ label: "Count on the tab" }),
+            kicker: line("Small line above the headline"),
+            headline: line("Headline"),
+            blurb: para("Paragraph"),
+            services: fields.array(
+              fields.object({
+                icon,
+                title: line("Title"),
+                text: line("Text"),
+              }),
+              {
+                label: "Services",
+                itemLabel: (p) => p.fields.title.value,
+              },
+            ),
+            stack: list("Tools", "Tool"),
+            stat: line("Stat next to the button"),
+            href: line("Button link"),
+            cta: line("Button text"),
+            featuredProjects: fields.multiRelationship({
+              label: "Project thumbnails (4)",
+              collection: "projects",
+            }),
+            photo: media("home", "Photo"),
+            photoHint: line(
+              "Placeholder text",
+              "Shown when there is no photo yet.",
+            ),
+          }),
+          { label: "Areas", itemLabel: (p) => p.fields.label.value },
+        ),
+      },
+      { label: "What I do" },
+    ),
+    tools: sectionHead("Tools I use"),
+    selectedWork: fields.object(
+      {
+        title: line("Title"),
+        link: link("Link"),
+        projects: fields.multiRelationship({
+          label: "Projects, in order",
+          collection: "projects",
+        }),
+      },
+      { label: "Selected work" },
+    ),
+    events: sectionHead("Out and about"),
+    numbers: fields.object(
+      {
+        title: line("Title"),
+        stats: fields.array(
+          fields.object({
+            n: line("Number", 'e.g. "29" or "10+". Plain numbers count up.'),
+            label: line("Label"),
+            cta: line("Link text"),
+            href: line("Link"),
+          }),
+          {
+            label: "Stats",
+            itemLabel: (p) => `${p.fields.n.value} ${p.fields.label.value}`,
+          },
+        ),
+      },
+      { label: "The story in numbers" },
+    ),
+    contact: fields.object(
+      {
+        title: line("Title"),
+        line: para("Line under the title"),
+        tiles: fields.array(
+          fields.object({
+            icon,
+            title: line("Title"),
+            value: line("Value"),
+            note: line("Note"),
+            action: line("Action text"),
+            href: line("Link"),
+            behavior: fields.select({
+              label: "On click",
+              options: [
+                { label: "Open link", value: "link" },
+                { label: "Copy to clipboard", value: "copy-to-clipboard" },
+              ],
+              defaultValue: "link",
+            }),
+          }),
+          { label: "Tiles", itemLabel: (p) => p.fields.title.value },
+        ),
+      },
+      { label: "Contact" },
+    ),
+  },
+});
+
+const about = singleton({
+  label: "About",
+  path: "content/about",
+  format: { data: "json" },
+  previewUrl: "/about",
+  schema: {
+    portrait: media("about", "Portrait"),
+    intro: para("Intro"),
+    timeline: fields.array(
+      fields.object({
+        date: line("Date"),
+        title: line("Title"),
+        sub: line("Detail"),
+        now: fields.checkbox({ label: 'Show the "Now" badge' }),
+      }),
+      {
+        label: "Timeline",
+        itemLabel: (p) => `${p.fields.date.value} · ${p.fields.title.value}`,
+      },
+    ),
+    more: fields.array(
+      fields.object({
+        href: line("Link"),
+        icon,
+        title: line("Title"),
+        text: line("Text"),
+      }),
+      { label: "More about me cards", itemLabel: (p) => p.fields.title.value },
+    ),
+    learnt: fields.array(
+      fields.object({ icon, title: line("Title"), text: para("Text") }),
+      { label: "What I've learnt", itemLabel: (p) => p.fields.title.value },
+    ),
+  },
+});
+
+const cv = singleton({
+  label: "CV",
+  path: "content/cv",
+  format: { data: "json" },
+  previewUrl: "/cv",
+  schema: {
+    role: line("Role line"),
+    profile: para("Profile"),
+    experience: fields.array(
+      fields.object({
+        org: line("Organisation"),
+        role: line("Role"),
+        date: line("Dates"),
+        text: para("What I did"),
+      }),
+      {
+        label: "Experience",
+        itemLabel: (p) => `${p.fields.org.value} · ${p.fields.role.value}`,
+      },
+    ),
+    education: fields.array(
+      fields.object({
+        org: line("School"),
+        date: line("Dates"),
+        text: line("Qualification"),
+      }),
+      { label: "Education", itemLabel: (p) => p.fields.org.value },
+    ),
+    projects: fields.multiRelationship({
+      label: "Projects on the CV",
+      collection: "projects",
+    }),
+  },
+});
+
+const skills = singleton({
+  label: "Skills",
+  path: "content/skills",
+  format: { data: "json" },
+  previewUrl: "/about/skills",
+  schema: {
+    groups: fields.array(
+      fields.object({
+        name: line("Group"),
+        plain: line("Plain-English description"),
+        items: list("Tools", "Tool"),
+      }),
+      { label: "Skill groups", itemLabel: (p) => p.fields.name.value },
+    ),
+  },
+});
+
+const screen = (label: string) => media("stillgood", label);
+
+const stillgood = singleton({
+  label: "StillGood page",
+  path: "content/stillgood",
+  format: { data: "json" },
+  previewUrl: "/stillgood",
+  schema: {
+    hero: fields.object(
+      {
+        status: line("Status pill"),
+        title: line("Title"),
+        tagline: line("Tagline"),
+        line: para("Line"),
+      },
+      { label: "Hero" },
+    ),
+    features: fields.object(
+      {
+        title: line("Title"),
+        items: fields.array(
+          fields.object({
+            icon,
+            title: line("Title"),
+            text: line("Text"),
+            imageHint: line("Placeholder text"),
+          }),
+          { label: "Features", itemLabel: (p) => p.fields.title.value },
+        ),
+      },
+      { label: "Features" },
+    ),
+    story: fields.object(
+      {
+        title: line("Title"),
+        items: fields.array(
+          fields.object({
+            date: line("Date"),
+            title: line("Title"),
+            text: para("Text"),
+          }),
+          { label: "Steps", itemLabel: (p) => p.fields.title.value },
+        ),
+      },
+      { label: "Story" },
+    ),
+    builtWith: fields.object(
+      { title: line("Title"), text: para("Text"), stack: list("Tools") },
+      { label: "Built with" },
+    ),
+    cta: fields.object(
+      { title: line("Title"), line: line("Line") },
+      { label: "Call to action" },
+    ),
+    screens: fields.object(
+      {
+        home: screen("Home screen"),
+        pantry: screen("Pantry"),
+        householdPantry: screen("Household pantry"),
+        recipes: screen("Recipes"),
+        scan: screen("Scanner"),
+        recipeStudio: screen("Recipe Studio"),
+      },
+      { label: "App screenshots" },
+    ),
+  },
+});
+
+const categories = singleton({
+  label: "Work categories",
+  path: "content/categories",
+  format: { data: "json" },
+  previewUrl: "/work",
+  schema: {
+    items: fields.array(
+      fields.object({
+        slug: fields.select({
+          label: "Category",
+          description: "Categories are fixed; edit their text here.",
+          options: categoryOptions,
+          defaultValue: "web-apps",
+        }),
+        label: line("Label"),
+        blurb: line("Blurb"),
+        seoTitle: line("Search title", "Under 50 characters."),
+      }),
+      { label: "Categories", itemLabel: (p) => p.fields.label.value },
+    ),
+  },
+});
+
+const pageFields = (label: string, heading: boolean) =>
+  fields.object(
+    {
+      title: line("Search title", "About 60 characters at most."),
+      description: para("Search description", "About 160 characters at most."),
+      ...(heading ? { heading: line("Page heading") } : {}),
+    },
+    { label },
+  );
+
+const pages = singleton({
+  label: "Pages & SEO",
+  path: "content/pages",
+  format: { data: "json" },
+  schema: {
+    home: pageFields("Homepage", false),
+    work: pageFields("Work", true),
+    about: pageFields("About", true),
+    skills: pageFields("Skills", true),
+    certificates: pageFields("Certificates", false),
+    events: pageFields("Events", true),
+    cv: pageFields("CV", false),
+    contact: pageFields("Contact", true),
+    stillgood: pageFields("StillGood", false),
+  },
+});
+
+const navigation = singleton({
+  label: "Menus",
+  path: "content/navigation",
+  format: { data: "json" },
+  schema: {
+    areas: fields.array(
+      fields.object({
+        id: fields.select({
+          label: "Area",
+          options: AREA_IDS.map((id) => ({ label: id, value: id })),
+          defaultValue: "dev",
+        }),
+        label: line("Menu label"),
+        line: line("Line under the name in the menu"),
+        featured: fields.multiRelationship({
+          label: "Featured projects in the menu (3)",
+          collection: "projects",
+        }),
+      }),
+      { label: "Areas", itemLabel: (p) => p.fields.label.value },
+    ),
+  },
+});
+
+export default config({
+  storage: useGitHub
+    ? {
+        kind: "github",
+        repo: { owner: "austincantcode", name: "austin-portfolio" },
+      }
+    : { kind: "local" },
+  ui: {
+    brand: {
+      name: "Austin Sia",
+      mark: () =>
+        createElement("img", {
+          src: "/AS-Circle-Logo.png",
+          alt: "",
+          width: 24,
+          height: 24,
+          style: { borderRadius: 999 },
+        }),
+    },
+    navigation: {
+      Site: ["site", "home", "pages", "navigation", "categories"],
+      Work: ["projects", "smallApps", "graphics", "ventures", "stillgood"],
+      About: ["about", "cv", "skills", "certificates", "events"],
+    },
+  },
+  collections: {
+    projects,
+    smallApps,
+    graphics,
+    ventures,
+    events,
+    certificates,
+  },
+  singletons: {
+    site,
+    home,
+    about,
+    cv,
+    skills,
+    stillgood,
+    categories,
+    navigation,
+    pages,
+  },
+});

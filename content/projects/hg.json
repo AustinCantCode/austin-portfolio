@@ -1,0 +1,41 @@
+{
+  "title": "Hidden Gems",
+  "order": 160,
+  "year": "2023",
+  "line": "Swipe to discover Singapore's hidden places.",
+  "subtext": "Travel app design",
+  "role": "UI/UX designer, group project",
+  "problem": "Tourists rarely find the places locals love.",
+  "did": "Our group designed a swipe-to-like way to discover places, a shared feed and a view of what's nearby.",
+  "outcome": "A clickable design for a school module on designing for people.",
+  "skills": [
+    "Figma"
+  ],
+  "links": [
+    {
+      "label": "View Figma prototype",
+      "href": "https://www.figma.com/proto/j9XKNokz1Ng8EkSr6oz6wQ/DEUI-CA2?page-id=0%3A1&node-id=471-80509&viewport=299%2C298%2C0.02&t=v6l5Ng3Hn27IVNAD-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=471%3A80509&show-proto-sidebar=1"
+    }
+  ],
+  "categories": [
+    "mobile-apps",
+    "ui-ux",
+    "school-projects"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/hg/cover/image.png",
+    "alt": "Hidden Gems app screens",
+    "fit": "contain",
+    "bare": true
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

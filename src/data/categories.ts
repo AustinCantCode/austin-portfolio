@@ -1,74 +1,34 @@
+import catRaw from "./generated/categories.json";
+import navRaw from "./generated/navigation.json";
 import type { AreaId, Category, CategorySlug } from "./types";
+import { CATEGORY_STRUCTURE } from "./structure";
 import { projects } from "./projects";
 import { smallApps } from "./small-apps";
 import { graphics } from "./graphics";
 import { ventures } from "./ventures";
 
-export const categories: Category[] = [
-  {
-    slug: "web-apps",
-    label: "Web apps",
-    blurb: "Sites and platforms, from storefronts to school systems.",
-    area: "dev",
-    layout: "projects",
-  },
-  {
-    slug: "mobile-apps",
-    label: "Mobile apps",
-    blurb: "Apps built and designed for the phone.",
-    area: "dev",
-    layout: "projects",
-  },
-  {
-    slug: "client-work",
-    label: "Client work",
-    blurb: "Built for real clients and live today.",
-    area: "dev",
-    layout: "projects",
-  },
-  {
-    slug: "school-projects",
-    label: "School projects",
-    blurb: "Made at Singapore Polytechnic.",
-    area: "dev",
-    layout: "projects",
-  },
-  {
-    slug: "small-apps",
-    label: "Small apps",
-    blurb: "Tiny apps I built while learning.",
-    area: "dev",
-    layout: "small-apps",
-  },
-  {
-    slug: "ui-ux",
-    label: "UI/UX",
-    blurb: "Research, flows and prototypes.",
-    area: "design",
-    layout: "projects",
-  },
-  {
-    slug: "product-design",
-    label: "Product design",
-    blurb: "Physical things, modelled and printed.",
-    area: "design",
-    layout: "projects",
-  },
-  {
-    slug: "graphic-design",
-    label: "Graphic design",
-    blurb: "Posters, ads and artwork.",
-    area: "design",
-    layout: "gallery",
-  },
-  {
-    slug: "ventures",
-    label: "Ventures",
-    blurb: "Things I started.",
-    area: "ventures",
-    layout: "ventures",
-  },
-];
+type RawCategory = {
+  slug: CategorySlug;
+  label: string;
+  blurb: string;
+  seoTitle: string;
+};
+const text = new Map(
+  (catRaw.items as RawCategory[]).map((c) => [c.slug, c] as const),
+);
+
+/**
+ * Work categories. Their slugs, areas and layouts are fixed in code
+ * (structure.ts); labels, blurbs and search titles come from the CMS
+ * (Site → Work categories).
+ */
+export const categories: Category[] = CATEGORY_STRUCTURE.map((c) => ({
+  slug: c.slug,
+  label: text.get(c.slug)?.label || c.label,
+  blurb: text.get(c.slug)?.blurb ?? "",
+  area: c.area,
+  layout: c.layout,
+}));
 
 export type NavSection = {
   id: AreaId;
@@ -77,45 +37,39 @@ export type NavSection = {
   categories: CategorySlug[];
 };
 
-export const navSections: NavSection[] = [
-  {
-    id: "dev",
-    label: "Development",
-    icon: "code-xml",
-    categories: [
-      "web-apps",
-      "mobile-apps",
-      "client-work",
-      "school-projects",
-      "small-apps",
-    ],
-  },
-  {
-    id: "design",
-    label: "Design",
-    icon: "pen-tool",
-    categories: ["ui-ux", "product-design", "graphic-design"],
-  },
-  {
-    id: "ventures",
-    label: "Entrepreneurship",
-    icon: "rocket",
-    categories: ["ventures"],
-  },
-];
+const ICONS: Record<AreaId, NavSection["icon"]> = {
+  dev: "code-xml",
+  design: "pen-tool",
+  ventures: "rocket",
+};
+
+type RawArea = { id: AreaId; label: string; line: string; featured: string[] };
+const navAreas = navRaw.areas as RawArea[];
+
+/** The three areas of work, as shown in the nav, footer and Work page. */
+export const navSections: NavSection[] = navAreas.map((a) => ({
+  id: a.id,
+  label: a.label,
+  icon: ICONS[a.id],
+  categories: CATEGORY_STRUCTURE.filter((c) => c.area === a.id).map(
+    (c) => c.slug,
+  ),
+}));
+
+/** Menu extras for each area: a line under its name and featured projects. */
+export const navExtras: Partial<
+  Record<AreaId, { line: string; featured: string[] }>
+> = Object.fromEntries(
+  navAreas.map((a) => [a.id, { line: a.line, featured: a.featured }]),
+);
 
 /** Search titles for each category page (kept under 50 characters). */
-export const categorySeoTitle: Record<CategorySlug, string> = {
-  "web-apps": "Web App Projects: Storefronts to School Systems",
-  "mobile-apps": "Mobile App Projects and App Designs",
-  "client-work": "Client Work: Live Websites and Platforms",
-  "school-projects": "School Projects from Singapore Polytechnic",
-  "small-apps": "Small Apps Built While Learning to Code",
-  "ui-ux": "UI/UX Design Projects and Prototypes",
-  "product-design": "Product Design: 3D-Printed Prototypes",
-  "graphic-design": "Graphic Design Gallery: Posters and Ads",
-  ventures: "Ventures: A Hackathon Team, Freelance and an App",
-};
+export const categorySeoTitle = Object.fromEntries(
+  CATEGORY_STRUCTURE.map((c) => [
+    c.slug,
+    text.get(c.slug)?.seoTitle || `${c.label} projects`,
+  ]),
+) as Record<CategorySlug, string>;
 
 export const categoryHref = (slug: CategorySlug) => `/work/${slug}`;
 

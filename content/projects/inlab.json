@@ -1,0 +1,45 @@
+{
+  "title": "IAL InLab",
+  "order": 80,
+  "year": "2025",
+  "line": "An innovation platform that doesn't break.",
+  "subtext": "Adult learning institute",
+  "role": "Frontend developer, Amber Creative",
+  "problem": "Parts of the website broke when some content was left empty.",
+  "did": "I fixed the bugs and made sure pages still look right even when information is missing.",
+  "outcome": "A more reliable website for visitors and the content team.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Storyblok CMS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://inlab.ial.edu.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/inlab/cover/image.png",
+    "alt": "IAL InLab website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

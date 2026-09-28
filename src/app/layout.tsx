@@ -1,13 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Providers } from "@components/client/providers";
-import { Nav } from "@components/client/nav";
-import { GestureManager, MotionManager } from "@components/client/motion";
-import { Footer } from "@components/footer";
 import { site } from "@data/site";
-import { JsonLd, graph, personLd, websiteLd } from "@lib/structured-data";
-import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,23 +63,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">
-        <Providers>
-          <a
-            href="#main"
-            className="sr-only z-[60] rounded-full bg-accent px-4 py-2 text-on-accent focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
-          >
-            Skip to content
-          </a>
-          <Nav />
-          <main id="main">{children}</main>
-          <Footer />
-          <MotionManager />
-          <GestureManager />
-        </Providers>
-        <SpeedInsights />
-        <JsonLd data={graph(personLd(), websiteLd())} />
-      </body>
+      {/* The site's chrome and styles live in (site)/layout.tsx, so the CMS
+          at /keystatic gets a clean page. */}
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

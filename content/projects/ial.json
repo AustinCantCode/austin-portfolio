@@ -1,0 +1,40 @@
+{
+  "title": "IAL",
+  "order": 70,
+  "year": "2025",
+  "line": "Success stories, easy to find.",
+  "subtext": "Adult learning institute",
+  "role": "Full-stack developer, Amber Creative",
+  "problem": "Visitors couldn't easily browse IAL's success stories by topic or year.",
+  "did": "I built a Success Stories page with filters for category and year, and tidied up how each story is shown.",
+  "outcome": "Visitors can find the stories that matter to them in a few clicks.",
+  "skills": [
+    "C#",
+    "Razor MVC",
+    "Kentico CMS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://www.ial.edu.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "fit": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": []
+}

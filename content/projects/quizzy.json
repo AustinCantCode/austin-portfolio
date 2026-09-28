@@ -1,0 +1,53 @@
+{
+  "title": "Quizzy",
+  "order": 150,
+  "year": "2024",
+  "line": "Quizzes that feel like a game.",
+  "subtext": "Learning app design",
+  "role": "UI/UX designer",
+  "problem": "Students lose focus during normal revision.",
+  "did": "I designed quiz rooms where friends can play live, with leaderboards and progress tracking, in a clean and simple look.",
+  "outcome": "A complete clickable design that makes studying more active.",
+  "skills": [
+    "Adobe XD",
+    "Adobe Illustrator",
+    "Adobe Photoshop"
+  ],
+  "links": [
+    {
+      "label": "View Adobe XD prototype",
+      "href": "https://xd.adobe.com/view/f1ad9155-7110-4499-9cc8-4c887e2e72d6-a4fe/"
+    }
+  ],
+  "categories": [
+    "mobile-apps",
+    "ui-ux",
+    "school-projects"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/quizzy/cover/image.png",
+    "alt": "Quizzy app screens",
+    "fit": "contain",
+    "bare": true
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "image": "/images/projects/quizzy/screen/image.png",
+    "alt": "Quizzy sign-in screen",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/quizzy/gallery/0/image.png",
+      "alt": "Quizzy app screens",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

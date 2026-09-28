@@ -1,0 +1,14 @@
+{
+  "title": "Singapore Technology Week",
+  "order": 40,
+  "featured": false,
+  "date": "2024",
+  "role": "Participant",
+  "text": "Explored cloud, DevOps, security and AI booths, and heard GitHub talk about Copilot.",
+  "photo": {
+    "image": "/images/events/singapore-technology-week/photo/image.jpg",
+    "alt": "Austin at Singapore Technology Week",
+    "fit": "cover",
+    "bare": false
+  }
+}
