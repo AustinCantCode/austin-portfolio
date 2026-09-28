@@ -1,0 +1,186 @@
+import { stillgoodPage as sg } from "@data/stillgood";
+import { pageMetadata } from "@lib/metadata";
+import { Icon } from "@components/icon";
+import { StatusPill, TextLink } from "@components/ui";
+import { GooglePlayBadge } from "@components/tiles";
+import { ImageSlot, PhoneFrame } from "@components/media";
+
+export const metadata = pageMetadata({
+  title: "StillGood",
+  description:
+    "StillGood helps families waste less food: snap your groceries, get reminded before they go off, and find recipes to use them up. Live on Google Play.",
+  path: "/stillgood",
+});
+
+// TODO(Austin): add StillGood screenshots (Home, Pantry, Recipes, Scanning, Expiry list, Recipe).
+export default function StillGoodPage() {
+  return (
+    <>
+      <section
+        aria-labelledby="sg-hero"
+        className="gutter flex flex-col items-center overflow-hidden bg-band pt-[clamp(72px,10vw,140px)] text-center text-band-fg"
+      >
+        <div className="flex max-w-[860px] flex-col items-center gap-5">
+          <StatusPill tone="live">{sg.hero.status}</StatusPill>
+          <h1
+            id="sg-hero"
+            className="text-[clamp(48px,9vw,96px)] leading-[.98] font-bold tracking-[-0.04em]"
+          >
+            {sg.hero.title}
+          </h1>
+          <p className="text-[clamp(24px,3.4vw,36px)] leading-[1.15] font-semibold tracking-[-0.02em]">
+            {sg.hero.tagline}
+          </p>
+          <p className="max-w-[540px] text-[clamp(17px,2vw,21px)] text-balance text-band-fg-2">
+            {sg.hero.line}
+          </p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-5">
+            <GooglePlayBadge />
+            <TextLink href="/projects/stillgood" className="text-band-link">
+              Read the case study ›
+            </TextLink>
+          </div>
+        </div>
+        <div className="mt-[clamp(56px,7vw,96px)] flex h-[clamp(300px,36vw,560px)] w-full max-w-[1680px] items-start justify-center gap-[clamp(12px,3vw,32px)] overflow-hidden">
+          <div
+            data-parallax="0.04"
+            className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
+          >
+            <PhoneFrame size={260} width="100%" dark>
+              <ImageSlot placeholder="Pantry screen" tone="light" />
+            </PhoneFrame>
+          </div>
+          <div data-parallax="0.09" className="w-[clamp(180px,27vw,320px)]">
+            <PhoneFrame size={320} width="100%" dark>
+              <ImageSlot placeholder="Home screen" tone="light" />
+            </PhoneFrame>
+          </div>
+          <div
+            data-parallax="0.04"
+            className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
+          >
+            <PhoneFrame size={260} width="100%" dark>
+              <ImageSlot placeholder="Recipes screen" tone="light" />
+            </PhoneFrame>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-features" className="gutter band-y">
+        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+          <h2
+            id="sg-features"
+            data-reveal=""
+            className="text-[clamp(36px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]"
+          >
+            Scan it. Track it.
+            <br />
+            Cook it.
+          </h2>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(16px,2vw,24px)]">
+            {sg.features.items.map((f) => (
+              <article
+                key={f.title}
+                data-reveal=""
+                className="flex flex-col overflow-hidden rounded-[28px] bg-bg-alt"
+              >
+                <div className="flex flex-col gap-2 px-[clamp(24px,3vw,32px)] pt-[clamp(24px,3vw,32px)]">
+                  <span className="grid size-11 place-items-center rounded-full bg-tile text-fg">
+                    <Icon name={f.icon} size={22} />
+                  </span>
+                  <h3 className="mt-2 text-[clamp(22px,2.4vw,26px)] leading-[1.2] font-bold tracking-[-0.02em]">
+                    {f.title}
+                  </h3>
+                  <p className="text-[17px] text-fg-2">{f.text}</p>
+                </div>
+                <div className="flex h-[280px] justify-center overflow-hidden pt-8">
+                  <PhoneFrame size={210}>
+                    <ImageSlot placeholder={f.imageHint} />
+                  </PhoneFrame>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-story" className="gutter band-y bg-bg-alt">
+        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+          <h2 id="sg-story" data-reveal="" className="t-h2">
+            From hackathon
+            <br />
+            to Play Store.
+          </h2>
+          <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-[clamp(16px,2vw,24px)] p-0">
+            {sg.story.items.map((s) => (
+              <li
+                key={s.title}
+                data-reveal=""
+                className="flex flex-col gap-2 rounded-[24px] bg-tile p-7"
+              >
+                <p className="text-[14px] font-semibold text-accent-text">
+                  {s.date}
+                </p>
+                <p className="text-[21px] leading-[1.25] font-bold tracking-[-0.015em]">
+                  {s.title}
+                </p>
+                <p className="text-[15px] text-fg-2">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-built" className="gutter band-y">
+        <div
+          data-reveal=""
+          className="wrap flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-4"
+        >
+          <div className="flex max-w-[560px] flex-[1_1_420px] flex-col gap-4">
+            <h2
+              id="sg-built"
+              className="text-[clamp(28px,4vw,40px)] leading-[1.1] font-bold tracking-[-0.025em]"
+            >
+              {sg.builtWith.title}
+            </h2>
+            <p className="max-w-[420px] text-[17px] text-fg-2">
+              {sg.builtWith.text}
+            </p>
+            <TextLink href="/projects/stillgood">How I used AI ›</TextLink>
+          </div>
+          <ul className="m-0 flex min-w-0 flex-[2_1_420px] list-none flex-wrap content-start gap-2 p-0">
+            {sg.builtWith.stack.map((s) => (
+              <li
+                key={s}
+                className="rounded-full bg-bg-alt px-4 py-2 text-[15px] font-medium"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="sg-cta"
+        className="gutter band-y-2 bg-band text-band-fg"
+      >
+        <div
+          data-reveal=""
+          className="mx-auto flex max-w-[720px] flex-col items-center gap-5 text-center"
+        >
+          <h2
+            id="sg-cta"
+            className="text-[clamp(36px,6vw,64px)] leading-[1.05] font-bold tracking-[-0.03em]"
+          >
+            {sg.cta.title}
+          </h2>
+          <p className="text-[clamp(17px,2vw,21px)] text-band-fg-2">
+            {sg.cta.line}
+          </p>
+          <GooglePlayBadge className="mt-2" />
+        </div>
+      </section>
+    </>
+  );
+}

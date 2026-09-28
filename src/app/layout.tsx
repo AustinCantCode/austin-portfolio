@@ -1,54 +1,34 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "../_components/complex-ui/navbar";
-import Footer from "@components/complex-ui/footer";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Providers } from "@components/client/providers";
+import { Nav } from "@components/client/nav";
+import { MotionManager } from "@components/client/motion";
+import { Footer } from "@components/footer";
+import { site } from "@data/site";
+import "./globals.css";
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Austin Sia | Portfolio",
+  metadataBase: new URL(site.url),
+  title: "Austin Sia",
   description:
-    "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
-  keywords: [
-    "Software Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Full-Stack Developer",
-    "Web Developer",
-    "Information Technology",
-    "Computer Science",
-    "Entrepreneur",
-    "Designer",
-    "Portfolio",
-    "Next.js",
-    "React",
+    "Austin Sia is a full-stack developer and designer in Singapore, and the founder of StillGood.",
+  icons: { icon: "/AS-Circle-Logo.png" },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
-  icons: {
-    icon: "/AS-Circle-Logo.png",
-  },
-  openGraph: {
-    title: "Austin Sia",
-    description:
-      "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
-    url: "https://austinsia.com",
-    siteName: "Austin's Portfolio",
-    images: [
-      {
-        url: "../../public/AS-Circle-Logo.png",
-        width: 500,
-        height: 500,
-        alt: "AS Logo",
-      },
-    ],
-    type: "website",
-  },
 };
 
 export default function RootLayout({
@@ -57,32 +37,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased overflow-x-hidden`}>
-        <Navbar />
+    <html
+      lang="en"
+      data-theme="light"
+      className={inter.variable}
+      suppressHydrationWarning
+    >
+      <body className="antialiased">
+        <Providers>
+          <a
+            href="#main"
+            className="sr-only z-[60] rounded-full bg-accent px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+          >
+            Skip to content
+          </a>
+          <Nav />
+          <main id="main">{children}</main>
+          <Footer />
+          <MotionManager />
+        </Providers>
         <SpeedInsights />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://austinsia.com" />
-        <div
-          className="fixed inset-0 bg-stars bg-black -z-20"
-          aria-hidden="true"
-        />
-        <div className="fixed inset-0 bg-twinkling -z-10" aria-hidden="true" />
-        {children}
-        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Austin Sia",
-              url: "https://austinsia.com",
-              sameAs: [
-                "https://www.linkedin.com/in/austin-sia",
-                "https://github.com/austincantcode",
-              ],
-              jobTitle: "Web Developer",
+              name: site.name,
+              url: site.url,
+              jobTitle: "Full-stack developer and designer",
+              sameAs: [site.contact.linkedin, site.contact.github],
             }),
           }}
         />

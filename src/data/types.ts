@@ -1,0 +1,94 @@
+import type { StaticImageData } from "next/image";
+
+export type AreaId = "dev" | "design" | "ventures";
+
+export type CategorySlug =
+  | "web-apps"
+  | "mobile-apps"
+  | "client-work"
+  | "school-projects"
+  | "small-apps"
+  | "ui-ux"
+  | "product-design"
+  | "graphic-design"
+  | "ventures";
+
+export type CategoryLayout = "projects" | "small-apps" | "gallery" | "ventures";
+
+export type Category = {
+  slug: CategorySlug;
+  label: string;
+  blurb: string;
+  area: AreaId;
+  layout: CategoryLayout;
+};
+
+export type Frame = "phone" | "laptop" | "none";
+
+/** An image for a slot. `bare` shows a mockup image without a device frame. */
+export type Media = {
+  src: StaticImageData;
+  alt: string;
+  fit?: "cover" | "contain";
+  position?: string;
+  bare?: boolean;
+};
+
+export type Link = { label: string; href: string };
+
+export type Project = {
+  slug: string;
+  title: string;
+  year: string;
+  line: string;
+  subtext: string;
+  role: string;
+  problem: string;
+  did: string;
+  outcome: string;
+  ai?: string;
+  skills: string[];
+  links: Link[];
+  categories: CategorySlug[];
+  frame: Frame;
+  cover?: Media;
+  second?: Media;
+};
+
+export type SmallApp = { title: string; tech: string; image?: Media };
+
+export type Graphic = { id: string; title: string; image: Media };
+
+export type Venture = {
+  id: string;
+  name: string;
+  role: string;
+  date: string;
+  line: string;
+  status: string;
+  href: string;
+  cta: string;
+};
+
+export type EventItem = {
+  title: string;
+  date: string;
+  role: string;
+  text: string;
+  image?: Media;
+};
+
+export type Certificate = {
+  title: string;
+  issuer: string;
+  description: string;
+  image?: StaticImageData;
+};
+
+export type CertificateGroup = {
+  id: string;
+  issuerGroup: string;
+  items: Certificate[];
+};
+
+export type SkillGroup = { name: string; plain: string; items: string[] };
