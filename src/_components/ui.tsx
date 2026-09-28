@@ -39,7 +39,7 @@ type ButtonVariant = "primary" | "secondary";
 type ButtonSize = "lg" | "md";
 
 const buttonBase =
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-[background-color,box-shadow,transform] duration-200 hover:no-underline active:scale-[.97]";
+  "press inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-[background-color,box-shadow] duration-200 hover:no-underline";
 
 export const buttonClass = (
   variant: ButtonVariant = "primary",
@@ -188,7 +188,7 @@ export function SectionHeader({
         className,
       )}
     >
-      <div className="flex min-w-0 flex-col gap-3">
+      <div className="flex min-w-0 flex-col gap-4">
         {kicker && <Kicker>{kicker}</Kicker>}
         <Heading id={id} className={cn("t-h2", titleClassName)}>
           {title}
@@ -221,7 +221,7 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        "gutter pt-[clamp(32px,min(5vw,8vh),72px)] pb-[clamp(24px,3vw,40px)]",
+        "gutter pt-[clamp(44px,min(7vw,10vh),100px)] pb-[clamp(24px,3vw,40px)]",
         className,
       )}
     >
@@ -284,10 +284,10 @@ export function NextCard({
   line: string;
 }) {
   return (
-    <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
+    <section className="gutter pb-[clamp(72px,min(9vw,13vh),136px)]">
       <Link
         href={href}
-        className="wrap lift flex flex-wrap items-center justify-between gap-6 rounded-[28px] bg-bg-alt p-[clamp(28px,5vw,56px)] text-fg [--hover-scale:1.01] hover:no-underline"
+        className="wrap lift flex flex-wrap items-center justify-between gap-6 rounded-[28px] bg-bg-alt p-[clamp(32px,5.5vw,72px)] text-fg [--hover-scale:1.01] hover:no-underline"
       >
         <div className="flex min-w-0 flex-col gap-1.5">
           <p className="text-[14px] text-fg-2">{label}</p>

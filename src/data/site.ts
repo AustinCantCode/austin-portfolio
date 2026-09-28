@@ -2,7 +2,6 @@ export const site = {
   name: "Austin Sia",
   url: "https://austinsia.com",
   location: "Singapore",
-  heroLabel: "Open to developer roles and freelance work",
   heroHeadline: "Austin Sia.",
   heroLine:
     "Full-stack developer and UI/UX designer in Singapore, building websites and apps for companies and for myself.",

@@ -55,7 +55,7 @@ function Row({
   return (
     <div
       data-reveal=""
-      className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-3 border-t border-pill pt-[clamp(24px,3vw,36px)]"
+      className="flex flex-wrap gap-x-[clamp(28px,6vw,88px)] gap-y-3 border-t border-pill pt-[clamp(24px,3vw,36px)]"
     >
       <h2 className="flex-[1_1_220px] text-[clamp(24px,2.8vw,32px)] leading-[1.2] font-bold tracking-[-0.02em]">
         {label}
@@ -157,7 +157,7 @@ export default async function ProjectPage({
       <PageHeader
         back={{ label: "All work", href: "/work" }}
         title={p.title}
-        className="pb-[clamp(40px,5vw,64px)]"
+        className="pb-[clamp(48px,6vw,88px)]"
       >
         <p className="t-sub max-w-[640px]">{p.line}</p>
         <dl className="mt-4 mb-0 flex flex-wrap gap-x-[clamp(32px,5vw,64px)] gap-y-4">

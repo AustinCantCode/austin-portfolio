@@ -80,7 +80,7 @@ export function ToolsMarquee() {
                     href="/about/skills"
                     tabIndex={i >= row.items.length ? -1 : undefined}
                     aria-hidden={i >= row.items.length ? true : undefined}
-                    className="inline-flex h-14 flex-none items-center rounded-full bg-tile px-6 text-[clamp(16px,1.6vw,19px)] font-semibold whitespace-nowrap text-fg transition-[background-color,color,transform] duration-[250ms] hover:-translate-y-0.5 hover:bg-fg hover:text-bg hover:no-underline"
+                    className="inline-flex h-14 flex-none items-center rounded-full bg-tile px-6 text-[clamp(16px,1.6vw,19px)] font-semibold whitespace-nowrap text-fg rise transition-[background-color,color] duration-[250ms] hover:bg-fg hover:text-bg hover:no-underline"
                   >
                     {k}
                   </Link>

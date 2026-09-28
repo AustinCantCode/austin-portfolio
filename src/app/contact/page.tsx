@@ -74,7 +74,7 @@ export default function ContactPage() {
           breadcrumbLd([{ name: "Contact", path: "/contact" }]),
         )}
       />
-      <section className="gutter pt-[clamp(36px,min(6vw,9vh),84px)] pb-[clamp(40px,5vw,64px)]">
+      <section className="gutter pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(48px,6vw,88px)]">
         <div className="wrap flex flex-col gap-4">
           <h1 className="t-h1">Let&apos;s build something.</h1>
           <p className="max-w-[600px] text-[clamp(19px,1.8vw,22px)] text-fg-2">
@@ -86,7 +86,7 @@ export default function ContactPage() {
 
       <section
         aria-label="Ways to reach me"
-        className="gutter pb-[clamp(56px,8vw,96px)]"
+        className="gutter pb-[clamp(72px,10vw,128px)]"
       >
         <div className="wrap grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-4">
           {methods.map((m) => (
@@ -118,7 +118,7 @@ export default function ContactPage() {
       </section>
 
       <section aria-labelledby="message" className="gutter band-y-2 bg-bg-alt">
-        <div className="wrap flex flex-wrap gap-[clamp(32px,6vw,80px)]">
+        <div className="wrap flex flex-wrap gap-[clamp(40px,7vw,104px)]">
           <div className="flex flex-[1_1_300px] flex-col gap-3">
             <h2
               id="message"

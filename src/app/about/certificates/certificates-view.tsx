@@ -45,7 +45,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
         id="cert-tab-panel"
         role="tabpanel"
         aria-labelledby={`cert-tab-${filter}`}
-        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]"
+        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(72px,min(9vw,13vh),136px)]"
       >
         {/* Masonry columns so each certificate keeps its own shape. */}
         <div className="wrap columns-[250px] gap-4">

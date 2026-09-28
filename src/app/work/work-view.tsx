@@ -134,14 +134,14 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
         id="work-tab-panel"
         role="tabpanel"
         aria-labelledby={`work-tab-${filter}`}
-        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]"
+        className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(72px,min(9vw,13vh),136px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(56px,6vw,96px)]">
           {shown.map((sec) => (
             <section
               key={sec.id}
               aria-labelledby={`area-${sec.id}`}
-              className="flex flex-col gap-[clamp(32px,4vw,56px)]"
+              className="flex flex-col gap-[clamp(40px,5vw,72px)]"
             >
               <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-t-2 border-rule pt-[clamp(24px,3vw,40px)]">
                 <div className="flex min-w-0 flex-col gap-2.5">
@@ -177,7 +177,7 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
                   <div
                     key={g.anchor}
                     id={g.anchor}
-                    className="flex min-w-0 scroll-mt-32 flex-col gap-[clamp(16px,2vw,24px)]"
+                    className="flex min-w-0 scroll-mt-32 flex-col gap-[clamp(20px,2.4vw,32px)]"
                     style={{ flex: g.flex }}
                   >
                     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
@@ -207,7 +207,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   const [art, setArt] = useState<number | null>(null);
   if (g.kind === "tiles") {
     return (
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
         {g.projects.map((p) => (
           <ProjectTile key={p.slug} project={p} compact reveal={false} />
         ))}
@@ -239,7 +239,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
               onClick={() => setArt(i)}
               aria-haspopup="dialog"
               aria-label={`View ${a.title} larger`}
-              className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-[18px] border-0 bg-tile-alt p-0 transition-transform duration-300 hover:scale-[1.02]"
+              className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-[18px] border-0 bg-tile-alt p-0 lift [--hover-scale:1.02]"
             >
               <NaturalImage
                 media={a.image}
@@ -267,7 +267,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
     );
   }
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
       {g.ventures.map((v) => (
         <VentureCard key={v.id} venture={v} />
       ))}

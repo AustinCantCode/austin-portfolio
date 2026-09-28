@@ -21,9 +21,9 @@ export function EventsCarousel() {
     <section aria-labelledby="events-title" className="band-y-2 bg-bg-alt">
       <div
         data-reveal=""
-        className="wrap gutter mb-[clamp(24px,3vw,40px)] flex flex-wrap items-end justify-between gap-4"
+        className="wrap gutter mb-[clamp(36px,4.4vw,64px)] flex flex-wrap items-end justify-between gap-4"
       >
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <h2 id="events-title" className="t-h2">
             {title}
           </h2>

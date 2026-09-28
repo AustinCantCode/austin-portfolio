@@ -133,7 +133,7 @@ export default function WorkPage() {
       <PageHeader
         title="Work."
         sub="What I've built, designed and started."
-        className="pt-[clamp(36px,min(6vw,9vh),84px)]"
+        className="pt-[clamp(48px,min(8vw,11vh),112px)]"
       />
       <WorkView sections={sections} />
     </>

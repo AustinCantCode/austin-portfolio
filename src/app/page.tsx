@@ -43,13 +43,13 @@ export default function HomePage() {
 
       {/* Selected work */}
       <section aria-labelledby="work-title" className="gutter band-y">
-        <div className="wrap flex flex-col gap-[clamp(32px,4vw,56px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,5vw,72px)]">
           <SectionHeader
             id="work-title"
             title={home.selectedWork.title}
             link={home.selectedWork.link}
           />
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,max(300px,calc((100%_-_48px)/3))),1fr))] gap-[clamp(16px,2vw,24px)]">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,max(300px,calc((100%_-_48px)/3))),1fr))] gap-[clamp(20px,2.4vw,32px)]">
             {selected.map((p) => (
               <ProjectTile key={p.slug} project={p} devices />
             ))}

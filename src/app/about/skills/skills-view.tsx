@@ -49,13 +49,13 @@ export function SkillsView({
     <>
       <section
         aria-label="Skill groups"
-        className="gutter pb-[clamp(56px,8vw,96px)]"
+        className="gutter pb-[clamp(72px,10vw,128px)]"
       >
         <div className="wrap flex flex-col">
           {groups.map((g) => (
             <div
               key={g.name}
-              className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-3 border-t border-pill py-7"
+              className="flex flex-wrap gap-x-[clamp(28px,6vw,88px)] gap-y-3 border-t border-pill py-7"
             >
               <div className="flex flex-[0_0_240px] flex-col gap-1">
                 <h2 className="text-[clamp(21px,2.4vw,26px)] font-bold tracking-[-0.015em]">
@@ -75,7 +75,7 @@ export function SkillsView({
                         aria-pressed={on}
                         aria-controls="used-in"
                         className={cn(
-                          "inline-flex h-[38px] items-center gap-2 rounded-full border-0 px-4 text-[15px] font-medium transition-[background-color,color,transform] duration-200 active:scale-[.97]",
+                          "inline-flex h-[38px] items-center gap-2 rounded-full border-0 px-4 text-[15px] font-medium transition-[background-color,color,transform] duration-200 press",
                           on ? "bg-fg text-bg" : "bg-bg-alt text-fg",
                         )}
                       >
@@ -103,7 +103,7 @@ export function SkillsView({
         id="used-in"
         aria-live="polite"
         aria-label="Projects using the selected skill"
-        className={cn("gutter pb-[clamp(56px,8vw,96px)]", !pick && "hidden")}
+        className={cn("gutter pb-[clamp(72px,10vw,128px)]", !pick && "hidden")}
       >
         {pick && (
           <div className="wrap flex flex-col gap-5 rounded-[28px] bg-bg-alt p-[clamp(24px,4vw,44px)]">

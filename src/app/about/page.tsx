@@ -32,8 +32,8 @@ export default function AboutPage() {
           breadcrumbLd([{ name: "About", path: "/about" }]),
         )}
       />
-      <section className="gutter pt-[clamp(36px,min(6vw,9vh),84px)] pb-[clamp(56px,min(7vw,11vh),96px)]">
-        <div className="wrap flex flex-wrap items-center gap-[clamp(32px,6vw,80px)]">
+      <section className="gutter pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(72px,min(9vw,13vh),136px)]">
+        <div className="wrap flex flex-wrap items-center gap-[clamp(40px,7vw,104px)]">
           <Image
             quality={100}
             src={portrait}
@@ -54,9 +54,9 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="so-far"
-        className="gutter bg-bg-alt py-[clamp(56px,min(7vw,11vh),96px)]"
+        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
       >
-        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="so-far" data-reveal="" className="t-h2">
             So far.
           </h2>
@@ -65,7 +65,7 @@ export default function AboutPage() {
               <li
                 key={t.title}
                 data-reveal=""
-                className="flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-1 border-t border-black/10 py-6 [[data-theme=dark]_&]:border-white/12"
+                className="flex flex-wrap gap-x-[clamp(28px,6vw,88px)] gap-y-1 border-t border-black/10 py-6 [[data-theme=dark]_&]:border-white/12"
               >
                 <p className="flex-[0_0_200px] pt-[3px] font-mono text-[14px] font-medium text-fg-2">
                   {t.date}
@@ -89,9 +89,9 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="more"
-        className="gutter py-[clamp(56px,min(7vw,11vh),96px)]"
+        className="gutter py-[clamp(72px,min(9vw,13vh),136px)]"
       >
-        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="more" data-reveal="" className="t-h2">
             More about me.
           </h2>
@@ -119,7 +119,7 @@ export default function AboutPage() {
 
       <section
         aria-labelledby="github"
-        className="gutter bg-bg-alt py-[clamp(56px,min(7vw,11vh),96px)]"
+        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(24px,4vw,40px)]">
           <div

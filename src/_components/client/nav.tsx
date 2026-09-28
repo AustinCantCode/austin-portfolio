@@ -127,14 +127,15 @@ export function Nav() {
     >
       <Icon name={icon} size={15} />
       {label}
-      <Icon
-        name="chevron-down"
-        size={13}
-        className={cn(
-          "transition-transform duration-[250ms]",
-          open === menu && "rotate-180",
-        )}
-      />
+      <motion.span
+        aria-hidden="true"
+        className="inline-flex"
+        initial={false}
+        animate={{ rotate: open === menu ? 180 : 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+      >
+        <Icon name="chevron-down" size={13} />
+      </motion.span>
     </button>
   );
 
@@ -350,7 +351,7 @@ function AreaMenu({ area, pathname }: { area: AreaId; pathname: string }) {
     .map((s) => projectBySlug(s))
     .filter((p): p is Project => !!p);
   return (
-    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(20px,3vw,32px)] pb-[clamp(28px,4vw,44px)]">
+    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(28px,3.4vw,44px)] pb-[clamp(36px,4.4vw,56px)]">
       <MenuLead label="Explore" href={`/work?filter=${area}`} title={a.label}>
         <p className="max-w-[240px] text-[14px] leading-[1.45] text-fg-2">
           {AREA_LINE[area]}
@@ -399,7 +400,7 @@ function AreaMenu({ area, pathname }: { area: AreaId; pathname: string }) {
 
 function VenturesMenu() {
   return (
-    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(20px,3vw,32px)] pb-[clamp(28px,4vw,44px)]">
+    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(28px,3.4vw,44px)] pb-[clamp(36px,4.4vw,56px)]">
       <MenuLead label="Things I started" href="/work/ventures" title="Ventures">
         <p className="text-[14px] text-fg-2">
           From a hackathon team to a live app and freelance clients.
@@ -431,7 +432,7 @@ function AboutMenu({ pathname }: { pathname: string }) {
   const now = about.timeline.find((t) => t.now);
   const latest = about.timeline[0];
   return (
-    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(20px,3vw,32px)] pb-[clamp(28px,4vw,44px)]">
+    <div className="wrap gutter flex flex-wrap gap-[clamp(20px,4vw,56px)] pt-[clamp(28px,3.4vw,44px)] pb-[clamp(36px,4.4vw,56px)]">
       <MenuLead label="Get to know me" href="/about" title="About me">
         <p className="max-w-[260px] text-[14px] leading-[1.45] text-fg-2">
           {site.heroLine}

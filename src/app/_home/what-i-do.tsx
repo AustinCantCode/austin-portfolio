@@ -272,7 +272,7 @@ export function WhatIDo() {
                         key={p.slug}
                         project={p}
                         aria-label={p.title}
-                        className="relative block aspect-square overflow-hidden rounded-2xl bg-pill text-white transition-transform duration-[400ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:scale-[1.03] hover:no-underline"
+                        className="relative block aspect-square overflow-hidden rounded-2xl bg-pill text-white lift [--hover-scale:1.03] hover:no-underline"
                       >
                         <ImageSlot
                           media={

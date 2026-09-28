@@ -3,7 +3,7 @@ import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Providers } from "@components/client/providers";
 import { Nav } from "@components/client/nav";
-import { MotionManager } from "@components/client/motion";
+import { GestureManager, MotionManager } from "@components/client/motion";
 import { Footer } from "@components/footer";
 import { site } from "@data/site";
 import { JsonLd, graph, personLd, websiteLd } from "@lib/structured-data";
@@ -82,6 +82,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <MotionManager />
+          <GestureManager />
         </Providers>
         <SpeedInsights />
         <JsonLd data={graph(personLd(), websiteLd())} />

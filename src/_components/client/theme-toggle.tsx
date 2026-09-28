@@ -16,7 +16,7 @@ export function ThemeToggle() {
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-full bg-bg-alt text-fg transition-transform duration-200 hover:scale-[1.06] active:scale-[.96]"
+      className="grid size-9 place-items-center rounded-full bg-bg-alt text-fg lift [--hover-scale:1.08]"
     >
       <Icon name={dark ? "sun" : "moon"} size={18} />
     </button>

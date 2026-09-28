@@ -37,7 +37,7 @@ export default function CVPage() {
   return (
     <>
       <JsonLd data={graph(breadcrumbLd([{ name: "CV", path: "/cv" }]))} />
-      <section className="gutter pt-[clamp(32px,min(5vw,8vh),72px)] pb-[clamp(32px,4vw,56px)]">
+      <section className="gutter pt-[clamp(44px,min(7vw,10vh),100px)] pb-[clamp(32px,4vw,56px)]">
         <div className="wrap flex flex-col gap-4">
           <p className="text-[15px] font-semibold text-fg-2">
             Curriculum vitae
@@ -68,7 +68,7 @@ export default function CVPage() {
         </div>
       </section>
 
-      <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
+      <section className="gutter pb-[clamp(72px,min(9vw,13vh),136px)]">
         <div className="wrap flex flex-col">
           <Row label="Profile">
             <p className="text-[17px] text-fg-2">{cv.profile}</p>

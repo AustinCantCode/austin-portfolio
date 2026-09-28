@@ -28,7 +28,7 @@ export default function SkillsPage() {
         back={{ label: "About", href: "/about" }}
         title="Skills."
         sub="The tools I use to design and build. Tap any one to see which projects used it."
-        className="pb-[clamp(40px,5vw,64px)]"
+        className="pb-[clamp(48px,6vw,88px)]"
       />
       <SkillsView groups={skillGroups} projects={projects} />
       <section aria-labelledby="learnt" className="gutter band-y-2 bg-bg-alt">

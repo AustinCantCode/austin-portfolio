@@ -28,7 +28,7 @@ export default function EventsPage() {
         back={{ label: "About", href: "/about" }}
         title="Out and about."
         sub="Hackathons, trips and volunteering."
-        className="pb-[clamp(40px,5vw,64px)]"
+        className="pb-[clamp(48px,6vw,88px)]"
       />
       <section className="gutter pb-[clamp(16px,2vw,24px)]">
         <article
@@ -43,7 +43,7 @@ export default function EventsPage() {
               priority
             />
           </div>
-          <div className="flex min-w-0 flex-[1_1_320px] flex-col justify-center gap-2.5 p-[clamp(28px,5vw,56px)]">
+          <div className="flex min-w-0 flex-[1_1_320px] flex-col justify-center gap-2.5 p-[clamp(32px,5.5vw,72px)]">
             <p className="text-[13px] font-semibold text-band-fg-2">
               {featured.date} · {featured.role}
             </p>
@@ -57,9 +57,9 @@ export default function EventsPage() {
           </div>
         </article>
       </section>
-      <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
+      <section className="gutter pb-[clamp(72px,min(9vw,13vh),136px)]">
         {/* Masonry columns so every photo keeps its own shape. */}
-        <div className="wrap columns-[320px] gap-[clamp(16px,2vw,24px)]">
+        <div className="wrap columns-[320px] gap-[clamp(20px,2.4vw,32px)]">
           {rest.map((e) => (
             <article
               key={e.title}

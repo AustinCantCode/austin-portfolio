@@ -142,14 +142,14 @@ export default async function CategoryPage({
         </div>
       </nav>
 
-      <section className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(56px,min(7vw,11vh),96px)]">
-        <div className="wrap flex flex-col gap-[clamp(16px,2vw,24px)]">
+      <section className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(72px,min(9vw,13vh),136px)]">
+        <div className="wrap flex flex-col gap-[clamp(20px,2.4vw,32px)]">
           <h2 className="text-[14px] font-normal text-fg-2">
             {n} {n === 1 ? noun : `${noun}s`}
           </h2>
 
           {cat.layout === "projects" && list.length > 2 && (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,340px),1fr))] gap-[clamp(16px,2vw,24px)]">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
               {list.map((p) => (
                 <ProjectTile key={p.slug} project={p} />
               ))}

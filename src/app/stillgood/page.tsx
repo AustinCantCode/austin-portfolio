@@ -61,7 +61,7 @@ export default function StillGoodPage() {
         <div className="mt-[clamp(56px,7vw,96px)] flex h-[clamp(280px,30vw,460px)] w-full max-w-[var(--container)] items-start justify-center gap-[clamp(12px,3vw,32px)] overflow-hidden">
           <div
             data-parallax="0.04"
-            className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
+            className="mt-[clamp(48px,7vw,120px)] w-[clamp(150px,22vw,260px)]"
           >
             <PhoneFrame size={260} width="100%" dark>
               <ImageSlot
@@ -86,7 +86,7 @@ export default function StillGoodPage() {
           </div>
           <div
             data-parallax="0.04"
-            className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
+            className="mt-[clamp(48px,7vw,120px)] w-[clamp(150px,22vw,260px)]"
           >
             <PhoneFrame size={260} width="100%" dark>
               <ImageSlot
@@ -102,7 +102,7 @@ export default function StillGoodPage() {
       </section>
 
       <section aria-labelledby="sg-features" className="gutter band-y">
-        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2
             id="sg-features"
             data-reveal=""
@@ -112,7 +112,7 @@ export default function StillGoodPage() {
             <br />
             Cook it.
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(16px,2vw,24px)]">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
             {sg.features.items.map((f, i) => (
               <article
                 key={f.title}
@@ -144,13 +144,13 @@ export default function StillGoodPage() {
       </section>
 
       <section aria-labelledby="sg-story" className="gutter band-y bg-bg-alt">
-        <div className="wrap flex flex-col gap-[clamp(32px,5vw,56px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="sg-story" data-reveal="" className="t-h2">
             From hackathon
             <br />
             to Play Store.
           </h2>
-          <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-[clamp(16px,2vw,24px)] p-0">
+          <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-[clamp(20px,2.4vw,32px)] p-0">
             {sg.story.items.map((s) => (
               <li
                 key={s.title}
@@ -173,7 +173,7 @@ export default function StillGoodPage() {
       <section aria-labelledby="sg-built" className="gutter band-y">
         <div
           data-reveal=""
-          className="wrap flex flex-wrap gap-x-[clamp(24px,5vw,64px)] gap-y-4"
+          className="wrap flex flex-wrap gap-x-[clamp(28px,6vw,88px)] gap-y-4"
         >
           <div className="flex max-w-[560px] flex-[1_1_420px] flex-col gap-4">
             <h2

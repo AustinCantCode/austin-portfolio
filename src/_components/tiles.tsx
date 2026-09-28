@@ -43,8 +43,8 @@ export function ProjectTile({
         className={cn(
           "flex flex-col",
           compact
-            ? "gap-1 px-[clamp(20px,2.4vw,28px)] pt-[clamp(20px,2.4vw,28px)]"
-            : "gap-1.5 px-[clamp(24px,3vw,36px)] pt-[clamp(24px,3vw,36px)]",
+            ? "gap-1.5 px-[clamp(24px,2.8vw,34px)] pt-[clamp(24px,2.8vw,34px)]"
+            : "gap-2 px-[clamp(28px,3.4vw,44px)] pt-[clamp(28px,3.4vw,44px)]",
         )}
       >
         <p
@@ -111,7 +111,7 @@ export function RowTile({ project }: { project: Project }) {
       data-hover-card=""
       className="lift flex flex-wrap items-stretch overflow-hidden rounded-[28px] bg-tile-alt text-fg [--hover-scale:1.01] hover:no-underline"
     >
-      <div className="flex min-w-0 flex-[1_1_320px] flex-col justify-center gap-2 p-[clamp(28px,5vw,64px)]">
+      <div className="flex min-w-0 flex-[1_1_320px] flex-col justify-center gap-2 p-[clamp(32px,5.5vw,72px)]">
         <p data-hover-detail="" className="text-[13px] font-semibold text-fg-2">
           {projectMeta(project)}
         </p>
@@ -220,7 +220,7 @@ export function VenturePanel({
         band ? "bg-band text-band-fg" : "bg-bg-alt text-fg",
       )}
     >
-      <div className="flex min-w-0 flex-[1_1_360px] flex-col items-start justify-center gap-2.5 p-[clamp(28px,5vw,64px)]">
+      <div className="flex min-w-0 flex-[1_1_360px] flex-col items-start justify-center gap-2.5 p-[clamp(32px,5.5vw,72px)]">
         <p
           className={cn(
             "text-[13px] font-semibold",
@@ -290,18 +290,19 @@ export function SmallAppCard({
     <SmallAppPeek
       app={app}
       className={cn(
-        "group/app flex h-full flex-col overflow-hidden bg-tile-alt text-fg",
+        "zoom-host lift flex h-full flex-col overflow-hidden bg-tile-alt text-fg [--hover-scale:1.02]",
         sm ? "min-w-[180px] rounded-[20px]" : "rounded-[24px]",
       )}
     >
       <span data-hover-card="" className="flex h-full flex-col">
         <span className="relative block overflow-hidden bg-pill">
-          <NaturalImage
-            media={app.image}
-            placeholder={`${app.title} screenshot`}
-            sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
-            className="transition-transform duration-[600ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover/app:scale-[1.04]"
-          />
+          <span data-zoom="" className="block">
+            <NaturalImage
+              media={app.image}
+              placeholder={`${app.title} screenshot`}
+              sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
+            />
+          </span>
           {app.video && (
             <span
               aria-hidden="true"

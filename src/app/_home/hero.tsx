@@ -3,7 +3,7 @@
 import { stagger, useAnimate, type AnimationSequence } from "framer-motion";
 import { Fragment, useEffect, useRef } from "react";
 import Coin from "@components/complex-ui/coin";
-import { ButtonLink, StatusPill } from "@components/ui";
+import { ButtonLink } from "@components/ui";
 import { site } from "@data/site";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
@@ -53,14 +53,9 @@ export function Hero() {
       // One timeline, so every part takes its first keyframe at once.
       const seq: AnimationSequence = [
         [
-          "[data-i=pill]",
-          { opacity: [0, 1], y: [10, 0] },
-          { duration: 0.5, ease },
-        ],
-        [
           "[data-i=word]",
           { y: ["110%", "0%"], opacity: [0, 1] },
-          { duration: 0.9, delay: stagger(0.12), at: 0.12, ease },
+          { duration: 0.9, delay: stagger(0.12), at: 0, ease },
         ],
         [
           "[data-i=coin]",
@@ -118,18 +113,10 @@ export function Hero() {
   return (
     <section
       ref={scope}
-      className="gutter pt-[clamp(32px,min(6vw,9vh),88px)] pb-[clamp(56px,min(8vw,12vh),104px)]"
+      className="gutter pt-[clamp(56px,min(9vw,13vh),144px)] pb-[clamp(80px,min(11vw,16vh),176px)]"
     >
-      <div className="wrap flex flex-wrap-reverse items-center gap-[clamp(24px,5vw,64px)]">
-        <div className="flex min-w-0 flex-[1_1_440px] flex-col items-start gap-6">
-          <a
-            href="/contact"
-            data-i="pill"
-            data-intro-hide=""
-            className="hover:no-underline"
-          >
-            <StatusPill>{site.heroLabel}</StatusPill>
-          </a>
+      <div className="wrap flex flex-wrap-reverse items-center gap-[clamp(48px,7vw,112px)]">
+        <div className="flex min-w-0 flex-[1_1_440px] flex-col items-start">
           <h1 className="t-h1" aria-label={site.heroHeadline}>
             {words.map((w, i) => (
               <Fragment key={i}>
@@ -150,13 +137,17 @@ export function Hero() {
               </Fragment>
             ))}
           </h1>
-          <p data-i="rise" data-intro-hide="" className="t-sub max-w-[520px]">
+          <p
+            data-i="rise"
+            data-intro-hide=""
+            className="t-sub mt-[clamp(20px,2.4vw,32px)] max-w-[540px] leading-[1.5]"
+          >
             {site.heroLine}
           </p>
           <div
             data-i="rise"
             data-intro-hide=""
-            className="mt-2 flex w-full flex-wrap gap-3"
+            className="mt-[clamp(36px,4vw,56px)] flex w-full flex-wrap gap-4"
           >
             <ButtonLink href="/work" data-track="view_work_click">
               View work

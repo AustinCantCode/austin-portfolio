@@ -50,7 +50,7 @@ export function ContactTiles({
             data-hover-card=""
             data-track={isCopy ? undefined : "contact_click"}
             data-track-channel={channel(t)}
-            className="relative flex min-h-[clamp(150px,14vw,210px)] flex-col justify-start gap-[clamp(16px,2vw,24px)] overflow-hidden rounded-[24px] bg-tile p-[clamp(18px,2.2vw,32px)] text-fg transition-[transform,box-shadow] duration-[400ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:no-underline hover:shadow-[var(--shadow-lift)] active:scale-[.98]"
+            className="relative flex min-h-[clamp(150px,14vw,210px)] flex-col justify-start gap-[clamp(20px,2.4vw,32px)] overflow-hidden rounded-[24px] bg-tile p-[clamp(18px,2.2vw,32px)] text-fg rise press [--rise:4] transition-[box-shadow] duration-[400ms] hover:no-underline hover:shadow-[var(--shadow-lift)]"
           >
             <span className="flex items-start justify-between gap-3">
               <span className="grid size-[clamp(44px,4vw,56px)] flex-none place-items-center rounded-full bg-well">

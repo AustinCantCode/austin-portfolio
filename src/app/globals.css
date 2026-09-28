@@ -36,8 +36,8 @@
   --shadow-lift: 0 18px 40px rgba(26, 24, 19, 0.08);
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-slide: cubic-bezier(0.3, 0.8, 0.2, 1);
-  --gutter: clamp(16px, 4.5vw, 72px);
-  --container: 1280px;
+  --gutter: clamp(20px, 5.5vw, 104px);
+  --container: 1200px;
   color-scheme: light;
 }
 
@@ -123,7 +123,7 @@
     color: var(--text);
     font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 17px;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: clip;
   }
 
@@ -185,11 +185,11 @@
   /* Section spacing also scales with viewport height, so short laptop
      screens aren't mostly padding. */
   .band-y {
-    padding-block: clamp(56px, min(8vw, 13vh), 112px);
+    padding-block: clamp(80px, min(10vw, 15vh), 160px);
   }
 
   .band-y-2 {
-    padding-block: clamp(56px, min(7vw, 11vh), 96px);
+    padding-block: clamp(72px, min(9vw, 13vh), 136px);
   }
 
   .t-h1 {
@@ -208,7 +208,7 @@
 
   .t-sub {
     font-size: clamp(19px, 1.8vw, 23px);
-    line-height: 1.35;
+    line-height: 1.5;
     color: var(--text-2);
   }
 
@@ -257,14 +257,8 @@
     box-shadow: inset 0 0 0 1px var(--hairline);
   }
 
-  /* Hover lift for cards. Scale is set per card with --hover-scale. */
-  .lift {
-    transition: transform 0.45s var(--ease-out);
-  }
-
-  .lift:hover {
-    transform: scale(var(--hover-scale, 1.015));
-  }
+  /* .lift, .rise, .press and .zoom-host are hooks for GestureManager
+     (Framer Motion); they carry no styles of their own. */
 }
 
 /* ------------------------------------------------------------------
@@ -293,23 +287,14 @@
 }
 
 /* ------------------------------------------------------------------
-   Hover-to-reveal: secondary lines appear on hover or focus, on
-   pointer devices only. Touch devices always show them.
+   Hover-to-reveal: on pointer devices, secondary lines start hidden and
+   GestureManager (Framer Motion) fades them in on hover or focus.
+   Touch devices and reduced motion always show them.
    ------------------------------------------------------------------ */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   [data-hover-card] [data-hover-detail] {
     opacity: 0;
     transform: translateY(6px);
-    transition:
-      opacity 0.35s ease,
-      transform 0.45s var(--ease-out);
-  }
-
-  [data-hover-card]:hover [data-hover-detail],
-  [data-hover-card]:focus-within [data-hover-detail],
-  [data-hover-card]:focus-visible [data-hover-detail] {
-    opacity: 1;
-    transform: none;
   }
 }
 
