@@ -122,6 +122,11 @@ export function Footer() {
         <div className="h-px bg-pill" />
         <p>© 2026 Austin Sia. Built in Singapore.</p>
       </div>
+      {/* Room for the mobile tab bar (see Nav). */}
+      <div
+        aria-hidden="true"
+        className="h-[calc(64px+env(safe-area-inset-bottom))] lg:hidden"
+      />
     </footer>
   );
 }

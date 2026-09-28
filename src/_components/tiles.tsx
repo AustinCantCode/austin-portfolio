@@ -307,7 +307,7 @@ export function SmallAppCard({
               aria-hidden="true"
               className="absolute right-2.5 bottom-2.5 grid size-9 place-items-center rounded-full bg-accent text-on-accent shadow-[var(--glow-accent)]"
             >
-              <Icon name="lucide:play" size={16} />
+              <Icon name="play" size={16} />
             </span>
           )}
         </span>

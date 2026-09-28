@@ -17,6 +17,7 @@ import {
   CodeXml,
   Copy,
   FileText,
+  House,
   Image as ImageIcon,
   Layers,
   LayoutGrid,
@@ -30,6 +31,7 @@ import {
   Palette,
   PenTool,
   Phone,
+  Play,
   Rocket,
   ScanLine,
   Server,
@@ -37,6 +39,7 @@ import {
   Sparkles,
   Sun,
   Trophy,
+  UserRound,
   X,
   type LucideIcon,
 } from "lucide-react";
@@ -59,6 +62,7 @@ const LUCIDE: Record<string, LucideIcon> = {
   "code-xml": CodeXml,
   copy: Copy,
   "file-text": FileText,
+  house: House,
   image: ImageIcon,
   layers: Layers,
   "layout-grid": LayoutGrid,
@@ -72,6 +76,7 @@ const LUCIDE: Record<string, LucideIcon> = {
   palette: Palette,
   "pen-tool": PenTool,
   phone: Phone,
+  play: Play,
   rocket: Rocket,
   "scan-line": ScanLine,
   server: Server,
@@ -79,6 +84,7 @@ const LUCIDE: Record<string, LucideIcon> = {
   sparkles: Sparkles,
   sun: Sun,
   trophy: Trophy,
+  user: UserRound,
   x: X,
 };
 
