@@ -18,10 +18,10 @@ export const site = {
     githubUser: "austincantcode",
     cvPdf: "/AustinResume.pdf",
   },
-  // TODO(Austin): replace these placeholders with the real links.
-  googlePlayUrl: "#",
-  stillgoodWebsiteUrl: "#",
-  calibriumUrl: "#",
+  googlePlayUrl:
+    "https://play.google.com/store/apps/details?id=com.stillgoodapp.org",
+  stillgoodWebsiteUrl: "https://stillgoodapp.org",
+  calibriumUrl: "https://calibrium.sg",
 };
 
 /** True for links that are still placeholders. */

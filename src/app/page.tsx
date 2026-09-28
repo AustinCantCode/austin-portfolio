@@ -11,6 +11,7 @@ import { ImageSlot, PhoneFrame } from "@components/media";
 import { home } from "@data/home";
 import { site } from "@data/site";
 import { pickProjects } from "@data/projects";
+import { stillgoodScreens } from "@data/stillgood-screens";
 import { pageMetadata } from "@lib/metadata";
 import { Journey } from "./_home/journey";
 import { WhatIDo } from "./_home/what-i-do";
@@ -124,8 +125,10 @@ export default function HomePage() {
             <div data-parallax="0.06" className="w-[min(100%,300px)]">
               <PhoneFrame size={300} width="100%" dark>
                 <ImageSlot
+                  media={stillgoodScreens.home}
                   placeholder="StillGood app screenshot"
                   tone="light"
+                  sizes="300px"
                 />
               </PhoneFrame>
             </div>

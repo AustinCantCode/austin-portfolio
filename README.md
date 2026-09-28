@@ -36,9 +36,10 @@ To turn on PostHog analytics, set `NEXT_PUBLIC_POSTHOG_KEY` (and optionally `NEX
 
 ## 📝 To do
 
-- Add StillGood screenshots, a Calibrium screenshot, an IAL Success Stories screenshot and the "What I do" photos. Placeholders marked "Image coming soon" show where they go.
-- Add the real Google Play, StillGood website and Calibrium links in `src/data/site.ts`.
-- Replace the hand-built Google Play badge with the official one, and update the CV PDF.
+- Add a Calibrium screenshot and an IAL Success Stories screenshot, plus the two "What I do" photos (coding, and a Figma canvas). Placeholders marked "Image coming soon" show where they go; see the `MEDIA` map in `src/data/projects.ts` and `whatIDoPhotos` in `src/data/home.ts`.
+- Update `public/AustinResume.pdf`.
+
+StillGood screenshots and the Google Play badge come from the StillGood website (stillgoodapp.org).
 
 ## 📬 Contact
 

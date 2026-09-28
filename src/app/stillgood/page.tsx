@@ -4,6 +4,9 @@ import { Icon } from "@components/icon";
 import { StatusPill, TextLink } from "@components/ui";
 import { GooglePlayBadge } from "@components/tiles";
 import { ImageSlot, PhoneFrame } from "@components/media";
+import { stillgoodScreens as screens } from "@data/stillgood-screens";
+
+const FEATURE_SCREENS = [screens.scan, screens.pantry, screens.recipeStudio];
 
 export const metadata = pageMetadata({
   title: "StillGood",
@@ -12,7 +15,6 @@ export const metadata = pageMetadata({
   path: "/stillgood",
 });
 
-// TODO(Austin): add StillGood screenshots (Home, Pantry, Recipes, Scanning, Expiry list, Recipe).
 export default function StillGoodPage() {
   return (
     <>
@@ -47,12 +49,24 @@ export default function StillGoodPage() {
             className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
           >
             <PhoneFrame size={260} width="100%" dark>
-              <ImageSlot placeholder="Pantry screen" tone="light" />
+              <ImageSlot
+                media={screens.householdPantry}
+                placeholder="Pantry screen"
+                tone="light"
+                sizes="260px"
+                priority
+              />
             </PhoneFrame>
           </div>
           <div data-parallax="0.09" className="w-[clamp(180px,27vw,320px)]">
             <PhoneFrame size={320} width="100%" dark>
-              <ImageSlot placeholder="Home screen" tone="light" />
+              <ImageSlot
+                media={screens.home}
+                placeholder="Home screen"
+                tone="light"
+                sizes="320px"
+                priority
+              />
             </PhoneFrame>
           </div>
           <div
@@ -60,7 +74,13 @@ export default function StillGoodPage() {
             className="mt-[clamp(40px,6vw,96px)] w-[clamp(150px,22vw,260px)]"
           >
             <PhoneFrame size={260} width="100%" dark>
-              <ImageSlot placeholder="Recipes screen" tone="light" />
+              <ImageSlot
+                media={screens.recipes}
+                placeholder="Recipes screen"
+                tone="light"
+                sizes="260px"
+                priority
+              />
             </PhoneFrame>
           </div>
         </div>
@@ -78,7 +98,7 @@ export default function StillGoodPage() {
             Cook it.
           </h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(16px,2vw,24px)]">
-            {sg.features.items.map((f) => (
+            {sg.features.items.map((f, i) => (
               <article
                 key={f.title}
                 data-reveal=""
@@ -95,7 +115,11 @@ export default function StillGoodPage() {
                 </div>
                 <div className="flex h-[280px] justify-center overflow-hidden pt-8">
                   <PhoneFrame size={210}>
-                    <ImageSlot placeholder={f.imageHint} />
+                    <ImageSlot
+                      media={FEATURE_SCREENS[i]}
+                      placeholder={f.imageHint}
+                      sizes="210px"
+                    />
                   </PhoneFrame>
                 </div>
               </article>

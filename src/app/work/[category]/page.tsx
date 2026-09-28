@@ -24,6 +24,7 @@ import {
   VenturePanel,
 } from "@components/tiles";
 import { projectBySlug } from "@data/projects";
+import { stillgoodScreens } from "@data/stillgood-screens";
 import { ScrollToCurrent } from "@components/client/scroll-to-current";
 import { Gallery } from "./gallery";
 
@@ -173,7 +174,12 @@ function VentureMedia({ id }: { id: string }) {
   if (id === "stillgood") {
     return (
       <PhoneFrame size={240} dark className="-mb-[35%]">
-        <ImageSlot placeholder="StillGood screenshot" tone="light" />
+        <ImageSlot
+          media={stillgoodScreens.home}
+          placeholder="StillGood screenshot"
+          tone="light"
+          sizes="240px"
+        />
       </PhoneFrame>
     );
   }

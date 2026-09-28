@@ -1,4 +1,5 @@
 import { site } from "./site";
+import { stillgoodScreens } from "./stillgood-screens";
 import type { Media, Project } from "./types";
 
 import iteShot from "../../public/coding-projects/featured/ite/ITE1.png";
@@ -37,11 +38,11 @@ const mockup = (src: Media["src"], alt: string): Media => ({
 /**
  * Images for each project. Projects without an entry show a labelled
  * placeholder until a real screenshot is added.
- * TODO(Austin): StillGood screenshots, a Calibrium screenshot and an IAL
- * Success Stories screenshot (the old site reused IAL InLab's image).
+ * TODO(Austin): a Calibrium screenshot and an IAL Success Stories
+ * screenshot (the old site reused IAL InLab's image).
  */
 const MEDIA: Record<string, Pick<Project, "cover" | "second">> = {
-  stillgood: {},
+  stillgood: { cover: stillgoodScreens.home, second: stillgoodScreens.pantry },
   calibrium: {},
   ite: { cover: shot(iteShot, "ITE Work-Study Diploma platform") },
   ksp: { cover: shot(kspShot, "KiasuParents website") },

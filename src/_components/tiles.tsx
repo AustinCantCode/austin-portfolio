@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
+import playBadge from "../../public/stillgood/google-play-badge.png";
 import { cn } from "@lib/utils";
 import type { Project, SmallApp, Venture } from "@data/types";
 import { site } from "@data/site";
 import { ImageSlot, LaptopFrame, PhoneFrame, TileMedia } from "./media";
-import { Icon } from "./icon";
 import { SmartLink } from "./ui";
 
 export const projectHref = (p: Project) => `/projects/${p.slug}`;
@@ -302,25 +303,22 @@ export function SmallAppCard({
   );
 }
 
-/** Hand-built "Get it on Google Play" badge. TODO: swap for the official badge. */
+/** The official "Get it on Google Play" badge, linking to StillGood. */
 export function GooglePlayBadge({ className }: { className?: string }) {
   return (
     <SmartLink
       href={site.googlePlayUrl}
-      aria-label="Get it on Google Play"
       data-track="play_store_click"
-      className={cn(
-        "inline-flex h-[52px] items-center gap-2.5 rounded-[10px] border border-[#5c5c5e] bg-black pr-[18px] pl-3.5 text-white hover:no-underline",
-        className,
-      )}
+      className={cn("inline-block shrink-0 hover:no-underline", className)}
     >
-      <Icon name="logos:google-play-icon" size={24} />
-      <span className="flex flex-col items-start leading-[1.1]">
-        <span className="text-[10px] tracking-[.04em]">GET IT ON</span>
-        <span className="text-[19px] font-semibold tracking-[-0.01em]">
-          Google Play
-        </span>
-      </span>
+      {/* The badge art includes Google's required clear space, so the
+          negative margin lines the visible badge up with its neighbours. */}
+      <Image
+        src={playBadge}
+        alt="Get it on Google Play"
+        height={78}
+        className="-m-[13px] h-[78px] w-auto max-w-none"
+      />
     </SmartLink>
   );
 }
