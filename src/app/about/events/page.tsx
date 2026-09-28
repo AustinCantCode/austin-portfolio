@@ -2,7 +2,7 @@ import { events, FEATURED_EVENT_INDEX } from "@data/events";
 import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { PageHeader, TextLink } from "@components/ui";
-import { ImageSlot } from "@components/media";
+import { NaturalImage } from "@components/media";
 
 export const metadata = pageMetadata({
   title: "Events: Hackathons, Study Trips and Volunteering",
@@ -33,10 +33,10 @@ export default function EventsPage() {
       <section className="gutter pb-[clamp(16px,2vw,24px)]">
         <article
           data-reveal=""
-          className="wrap flex flex-wrap items-stretch overflow-hidden rounded-[28px] bg-band text-band-fg"
+          className="wrap flex flex-wrap items-center overflow-hidden rounded-[28px] bg-band text-band-fg"
         >
-          <div className="relative min-h-[clamp(280px,36vw,440px)] min-w-0 flex-[1.3_1_420px] bg-band-pill">
-            <ImageSlot
+          <div className="min-w-0 flex-[1.3_1_420px] bg-band-pill">
+            <NaturalImage
               media={featured.image}
               placeholder={`${featured.title} photo`}
               sizes="(max-width: 768px) 100vw, 60vw"
@@ -58,21 +58,21 @@ export default function EventsPage() {
         </article>
       </section>
       <section className="gutter pb-[clamp(56px,min(7vw,11vh),96px)]">
-        <div className="wrap grid grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-[clamp(16px,2vw,24px)]">
+        {/* Masonry columns so every photo keeps its own shape. */}
+        <div className="wrap columns-[320px] gap-[clamp(16px,2vw,24px)]">
           {rest.map((e) => (
             <article
               key={e.title}
               data-reveal=""
               data-hover-card=""
-              className="flex flex-col overflow-hidden rounded-[24px] bg-bg-alt"
+              className="mb-[clamp(16px,2vw,24px)] flex break-inside-avoid flex-col overflow-hidden rounded-[24px] bg-bg-alt"
             >
-              <div className="relative aspect-[4/3] bg-pill">
-                <ImageSlot
-                  media={e.image}
-                  placeholder={`${e.title} photo`}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
+              <NaturalImage
+                media={e.image}
+                placeholder={`${e.title} photo`}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="bg-pill"
+              />
               <div className="flex flex-col gap-1.5 px-6 pt-5 pb-[26px]">
                 <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>
                 <h3 className="text-[21px] leading-[1.25] font-bold tracking-[-0.015em]">

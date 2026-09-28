@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { AreaId, Graphic, Project, SmallApp, Venture } from "@data/types";
-import { ImageSlot } from "@components/media";
+import { NaturalImage } from "@components/media";
 import { ProjectTile, SmallAppCard, VentureCard } from "@components/tiles";
 import { SegmentedControl } from "@components/client/segmented";
 import { Carousel } from "@components/client/carousel";
@@ -227,15 +227,15 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   }
   if (g.kind === "art") {
     return (
-      <div className="grid flex-1 grid-cols-[repeat(auto-fit,minmax(max(110px,calc((100%_-_24px)/3)),1fr))] gap-3">
+      <div className="flex-1 columns-3 gap-3">
         {g.art.map((a) => (
           <Link
             key={a.id}
             href={g.href}
             aria-label={`${a.title}, open the gallery`}
-            className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-tile-alt"
+            className="mb-3 block break-inside-avoid overflow-hidden rounded-[18px] bg-tile-alt"
           >
-            <ImageSlot
+            <NaturalImage
               media={a.image}
               placeholder={a.title}
               sizes="(max-width: 768px) 33vw, 20vw"

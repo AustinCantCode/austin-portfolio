@@ -246,7 +246,7 @@ export function WhatIDo() {
                 >
                   <div className="relative min-h-[180px] overflow-hidden rounded-[20px] bg-pill">
                     <ImageSlot
-                      media={photo ? { ...photo, fit: "cover" } : undefined}
+                      media={photo ? { ...photo, fit: "contain" } : undefined}
                       placeholder={whatIDoPhotoHints[cur.id]}
                       sizes="(max-width: 1080px) 100vw, 50vw"
                     />
@@ -263,7 +263,7 @@ export function WhatIDo() {
                         <ImageSlot
                           media={
                             p.cover
-                              ? { ...p.cover, fit: "cover", position: "top" }
+                              ? { ...p.cover, fit: "contain", position: "top" }
                               : undefined
                           }
                           placeholder={p.title}

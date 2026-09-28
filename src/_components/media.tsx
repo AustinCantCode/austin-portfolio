@@ -79,6 +79,43 @@ export function ImageSlot({
   );
 }
 
+/**
+ * An image at its own shape: full width, height from the image, never
+ * cropped. Shows a 4:3 labelled placeholder until the image exists.
+ */
+export function NaturalImage({
+  media,
+  placeholder,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  priority,
+  className,
+}: {
+  media?: Media;
+  placeholder: string;
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  if (!media) {
+    return (
+      <div className={cn("relative aspect-[4/3]", className)}>
+        <ImageSlot placeholder={placeholder} />
+      </div>
+    );
+  }
+  return (
+    <Image
+      quality={100}
+      src={media.src}
+      alt={media.alt}
+      sizes={sizes}
+      priority={priority}
+      placeholder={media.src.blurDataURL ? "blur" : "empty"}
+      className={cn("block h-auto w-full select-none", className)}
+    />
+  );
+}
+
 const PHONE_SIZES: Record<number, [number, number]> = {
   160: [28, 7],
   200: [34, 8],
@@ -246,26 +283,20 @@ export function TileMedia({
     );
   }
 
+  // Mockups and photos show whole, at their own shape.
   if (project.frame === "none" || cover?.bare) {
     return (
       <div
-        className={cn("relative overflow-hidden", cover?.bare ? padX : "")}
-        style={{ height }}
+        className={cn(
+          cover?.bare && padX,
+          cover?.bare && (compact ? "pb-5" : "pb-[clamp(20px,2.4vw,32px)]"),
+        )}
       >
-        <div
-          className={cn(
-            "relative size-full overflow-hidden",
-            !cover?.bare && "rounded-t-[20px] bg-bg",
-          )}
-        >
-          <ImageSlot
-            media={cover}
-            placeholder={ph}
-            sizes={sizes ?? "(max-width: 768px) 100vw, 33vw"}
-            fit={cover?.bare ? "contain" : undefined}
-            position={cover?.bare ? "center top" : undefined}
-          />
-        </div>
+        <NaturalImage
+          media={cover}
+          placeholder={ph}
+          sizes={sizes ?? "(max-width: 768px) 100vw, 33vw"}
+        />
       </div>
     );
   }

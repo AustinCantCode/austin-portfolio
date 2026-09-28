@@ -9,7 +9,12 @@ import { categoryBySlug, categoryHref } from "@data/categories";
 import { isPlaceholderLink } from "@data/site";
 import { Icon } from "@components/icon";
 import { NextCard, PageHeader, SmartLink } from "@components/ui";
-import { ImageSlot, LaptopFrame, PhoneFrame } from "@components/media";
+import {
+  ImageSlot,
+  LaptopFrame,
+  NaturalImage,
+  PhoneFrame,
+} from "@components/media";
 import type { Project } from "@data/types";
 
 type Params = { slug: string };
@@ -62,9 +67,19 @@ function Row({
 
 function Hero({ p }: { p: Project }) {
   const phone = p.frame === "phone" && !p.cover?.bare;
+  // Photos and mockups show whole; only device frames use a fixed stage.
+  const natural = p.frame === "none" || !!p.cover?.bare;
   return (
     <section aria-label={`${p.title} images`} className="gutter">
-      <div className="wrap flex h-[clamp(320px,40vw,520px)] items-start justify-center overflow-hidden rounded-[28px] bg-bg-alt px-[clamp(20px,6vw,96px)] pt-[clamp(32px,6vw,72px)]">
+      <div
+        className={cn(
+          "wrap flex items-start justify-center overflow-hidden rounded-[28px] bg-bg-alt",
+          natural
+            ? p.cover?.bare &&
+                "px-[clamp(20px,6vw,96px)] py-[clamp(32px,5vw,64px)]"
+            : "h-[clamp(320px,40vw,520px)] px-[clamp(20px,6vw,96px)] pt-[clamp(32px,6vw,72px)]",
+        )}
+      >
         {phone && (
           <div className="flex items-start gap-[clamp(16px,3vw,32px)]">
             <PhoneFrame size={280} width="clamp(200px,24vw,280px)">
@@ -102,21 +117,14 @@ function Hero({ p }: { p: Project }) {
             </LaptopFrame>
           </div>
         )}
-        {(p.frame === "none" || (p.frame === "phone" && p.cover?.bare)) && (
-          <div
-            className={cn(
-              "relative size-full overflow-hidden rounded-t-[20px]",
-              !p.cover?.bare && "bg-bg",
-            )}
-          >
-            <ImageSlot
-              media={p.cover}
-              placeholder={`${p.title} main image`}
-              sizes="(max-width: 1680px) 100vw, 1680px"
-              priority
-              fit={p.cover?.bare ? "contain" : undefined}
-            />
-          </div>
+        {natural && (
+          <NaturalImage
+            media={p.cover}
+            placeholder={`${p.title} main image`}
+            sizes="(max-width: 1680px) 100vw, 1680px"
+            priority
+            className={cn(p.cover?.bare && "mx-auto max-w-[760px]")}
+          />
         )}
       </div>
     </section>

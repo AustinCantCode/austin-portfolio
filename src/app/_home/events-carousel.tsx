@@ -5,7 +5,7 @@ import { events } from "@data/events";
 import { home } from "@data/home";
 import { Icon } from "@components/icon";
 import { TextLink } from "@components/ui";
-import { ImageSlot } from "@components/media";
+import { NaturalImage } from "@components/media";
 
 // Line the first card up with the page container.
 const pad = "max(var(--gutter), calc((100% - var(--container)) / 2))";
@@ -53,7 +53,7 @@ export function EventsCarousel() {
         tabIndex={0}
         role="region"
         aria-label="Events"
-        className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pt-1 pb-2"
+        className="no-scrollbar flex snap-x snap-mandatory items-start gap-4 overflow-x-auto pt-1 pb-2"
         style={{ paddingInline: pad, scrollPaddingInline: pad }}
       >
         {events.map((e) => (
@@ -62,13 +62,12 @@ export function EventsCarousel() {
             data-hover-card=""
             className="flex w-[clamp(280px,28vw,420px)] flex-none snap-start flex-col overflow-hidden rounded-[24px] bg-tile"
           >
-            <div className="relative aspect-[4/3] bg-pill">
-              <ImageSlot
-                media={e.image}
-                placeholder={`${e.title} photo`}
-                sizes="(max-width: 768px) 80vw, 420px"
-              />
-            </div>
+            <NaturalImage
+              media={e.image}
+              placeholder={`${e.title} photo`}
+              sizes="(max-width: 768px) 80vw, 420px"
+              className="bg-pill"
+            />
             <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
               <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>
               <p className="font-display text-[19px] leading-[1.3] font-bold tracking-[-0.01em]">

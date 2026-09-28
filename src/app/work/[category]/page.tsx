@@ -18,7 +18,12 @@ import { graphics } from "@data/graphics";
 import { ventures } from "@data/ventures";
 import { events, FEATURED_EVENT_INDEX } from "@data/events";
 import { NextCard, PageHeader } from "@components/ui";
-import { ImageSlot, LaptopFrame, PhoneFrame } from "@components/media";
+import {
+  ImageSlot,
+  LaptopFrame,
+  NaturalImage,
+  PhoneFrame,
+} from "@components/media";
 import {
   ProjectTile,
   RowTile,
@@ -203,8 +208,8 @@ function VentureMedia({ id }: { id: string }) {
   if (id === "zenith") {
     const photo = events[FEATURED_EVENT_INDEX].image;
     return (
-      <div className="relative size-full min-h-[260px] overflow-hidden rounded-t-[20px] bg-pill">
-        <ImageSlot
+      <div className="w-full overflow-hidden rounded-t-[20px] bg-pill">
+        <NaturalImage
           media={photo}
           placeholder="Zenith hackathon photo"
           sizes="(max-width: 768px) 100vw, 50vw"

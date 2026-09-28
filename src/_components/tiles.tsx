@@ -4,7 +4,7 @@ import playBadge from "../../public/stillgood/google-play-badge.png";
 import { cn } from "@lib/utils";
 import type { Project, SmallApp, Venture } from "@data/types";
 import { site } from "@data/site";
-import { ImageSlot, LaptopFrame, PhoneFrame, TileMedia } from "./media";
+import { LaptopFrame, NaturalImage, PhoneFrame, TileMedia } from "./media";
 import { SmartLink } from "./ui";
 
 export const projectHref = (p: Project) => `/projects/${p.slug}`;
@@ -116,8 +116,8 @@ export function RowTile({ project }: { project: Project }) {
           Read the case study ›
         </p>
       </div>
-      <div className="relative h-[clamp(300px,40vw,460px)] min-w-0 flex-[1.4_1_420px] bg-pill">
-        <ImageSlot
+      <div className="flex min-w-0 flex-[1.4_1_420px] items-center bg-pill">
+        <NaturalImage
           media={project.cover}
           placeholder={`${project.title} image`}
           sizes="(max-width: 768px) 100vw, 60vw"
@@ -278,8 +278,8 @@ export function SmallAppCard({
         sm ? "min-w-[180px] rounded-[20px]" : "rounded-[24px]",
       )}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-pill">
-        <ImageSlot
+      <div className="overflow-hidden bg-pill">
+        <NaturalImage
           media={app.image}
           placeholder={`${app.title} screenshot`}
           sizes={sm ? "240px" : "(max-width: 768px) 100vw, 25vw"}
