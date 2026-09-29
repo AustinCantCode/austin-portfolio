@@ -369,3 +369,11 @@
 .prose-post :where(h2, h3) {
   color: var(--text);
 }
+
+/* The soft shadow devices stand on in Selected work (_home/selected-work). */
+.floor-shadow {
+  background: rgba(26, 24, 19, 0.22);
+}
+[data-theme="dark"] .floor-shadow {
+  background: rgba(0, 0, 0, 0.7);
+}

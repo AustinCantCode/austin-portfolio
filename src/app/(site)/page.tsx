@@ -1,11 +1,11 @@
 import { SectionHeader } from "@components/ui";
-import { ProjectTile } from "@components/tiles";
 import { home } from "@data/home";
 import { pickProjects } from "@data/projects";
 import { JsonLd, graph, webPageLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { Hero } from "./_home/hero";
+import { SelectedWork } from "./_home/selected-work";
 import { Journey } from "./_home/journey";
 import { WhatIDo } from "./_home/what-i-do";
 import { ToolsMarquee } from "./_home/marquee";
@@ -54,11 +54,7 @@ export default function HomePage() {
             title={home.selectedWork.title}
             link={home.selectedWork.link}
           />
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,max(300px,calc((100%_-_48px)/3))),1fr))] gap-[clamp(20px,2.4vw,32px)]">
-            {selected.map((p) => (
-              <ProjectTile key={p.slug} project={p} devices />
-            ))}
-          </div>
+          <SelectedWork projects={selected} />
           <Clients title={home.clients.title} items={home.clients.items} />
         </div>
       </section>
