@@ -132,7 +132,7 @@ function Device({
       );
     case "phone":
       return (
-        <PhoneFrame size={PHONE[size][0]} width="100%" ratio={look.ratio}>
+        <PhoneFrame size={PHONE[size]} width="100%" ratio={look.ratio}>
           {slot}
           {badge}
         </PhoneFrame>

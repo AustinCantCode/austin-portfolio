@@ -58,11 +58,13 @@ export function Numbers() {
             key={s.label}
             href={s.href}
             data-hover-card=""
-            className="flex flex-col gap-1.5 border-t-2 border-rule pt-5 text-fg hover:no-underline"
+            className="flex flex-col gap-3 border-t-2 border-rule pt-5 text-fg hover:no-underline"
           >
+            {/* Lining figures: Cormorant's default old-style 3, 4, 5, 7 and 9
+                drop below the line and ran into the label. */}
             <p
               aria-label={String(s.n)}
-              className="font-display text-[clamp(44px,5.5vw,72px)] leading-none font-bold tracking-[-0.04em] tabular-nums"
+              className="font-display text-[clamp(44px,5.5vw,72px)] leading-[1.05] font-bold tracking-[-0.04em] lining-nums tabular-nums"
             >
               {show(s.n)}
             </p>

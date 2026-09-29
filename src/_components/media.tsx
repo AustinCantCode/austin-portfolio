@@ -116,17 +116,18 @@ export function NaturalImage({
   );
 }
 
-const PHONE_SIZES: Record<number, [number, number]> = {
-  160: [28, 7],
-  200: [34, 8],
-  210: [36, 8],
-  230: [38, 9],
-  240: [40, 10],
-  260: [44, 10],
-  280: [46, 10],
-  300: [48, 11],
-  320: [52, 12],
-  360: [56, 12],
+/** Phone bezels by width: [corner radius, bezel]. */
+export const PHONE_SIZES: Record<number, [number, number]> = {
+  160: [26, 5],
+  200: [32, 5],
+  210: [34, 5],
+  230: [36, 6],
+  240: [38, 6],
+  260: [42, 6],
+  280: [44, 6],
+  300: [46, 7],
+  320: [50, 7],
+  360: [54, 8],
 };
 
 /**
@@ -232,10 +233,10 @@ export function TabletFrame({
 }) {
   return (
     <div className={cn("w-full", className)}>
-      <div className="rounded-[clamp(18px,2vw,24px)] bg-frame p-[clamp(8px,0.9vw,11px)]">
+      <div className="rounded-[clamp(12px,1.3vw,16px)] bg-frame p-[clamp(4px,0.45vw,6px)]">
         <div
           className={cn(
-            "relative overflow-hidden rounded-[clamp(10px,1.1vw,13px)] bg-bg",
+            "relative overflow-hidden rounded-[clamp(8px,0.85vw,10px)] bg-bg",
             !ratio && "aspect-[4/3]",
           )}
           style={ratio ? { aspectRatio: String(ratio) } : undefined}

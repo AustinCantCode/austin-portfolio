@@ -1,4 +1,5 @@
 import type { Media, Project } from "@data/types";
+import { PHONE_SIZES } from "./media";
 
 /**
  * How a piece of work stands in the showroom (see client/showroom.tsx):
@@ -62,9 +63,9 @@ export const isWide = (look: Look) =>
 
 export type Size = "lg" | "sm";
 
-/** Phone frame size key and its bezel, per showroom size. */
-export const PHONE = { lg: [240, 10], sm: [160, 7] } as const;
-const BEZEL = "clamp(8px,0.9vw,11px)"; // TabletFrame's padding
+/** Phone frame size key per showroom size, and its bezel (PHONE_SIZES). */
+export const PHONE = { lg: 240, sm: 160 } as const;
+const BEZEL = "clamp(4px,0.45vw,6px)"; // TabletFrame's padding
 
 /**
  * The device's width, so that its height is at most var(--stage) and it
@@ -76,7 +77,7 @@ export function widthOf(look: Look, size: Size) {
     case "tablet":
       return `min(100%, calc((var(--stage) - 2 * ${BEZEL}) * ${r} + 2 * ${BEZEL}))`;
     case "phone": {
-      const pad = PHONE[size][1] * 2;
+      const pad = PHONE_SIZES[PHONE[size]][1] * 2;
       return `min(100%, calc((var(--stage) - ${pad}px) * ${r} + ${pad}px))`;
     }
     case "object":

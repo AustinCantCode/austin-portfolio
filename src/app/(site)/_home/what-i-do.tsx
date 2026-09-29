@@ -207,9 +207,6 @@ export function WhatIDo() {
                   ref={copyRef}
                   className="flex min-w-0 flex-[1_1_420px] flex-col gap-[clamp(10px,1.7vh,20px)] overflow-hidden p-[clamp(22px,min(3vw,4.4vh),48px)]"
                 >
-                  <p className="text-[13px] font-semibold text-fg-2">
-                    {cur.kicker}
-                  </p>
                   <h3 className="text-[clamp(24px,min(2.6vw,4.2vh),38px)] leading-[1.06] font-bold tracking-[-0.03em] text-balance">
                     {cur.headline}
                   </h3>
@@ -225,13 +222,8 @@ export function WhatIDo() {
                         <span className="grid size-8 flex-none place-items-center rounded-full bg-tile">
                           <Icon name={sv.icon} size={16} />
                         </span>
-                        <span className="flex min-w-0 flex-col">
-                          <span className="text-[15px] leading-snug font-semibold">
-                            {sv.title}
-                          </span>
-                          <span className="text-[13px] leading-snug text-fg-2">
-                            {sv.text}
-                          </span>
+                        <span className="text-[15px] leading-snug font-semibold">
+                          {sv.title}
                         </span>
                       </li>
                     ))}
@@ -250,7 +242,6 @@ export function WhatIDo() {
                     <ButtonLink href={cur.href} size="md">
                       {cur.cta}
                     </ButtonLink>
-                    <p className="text-[14px] text-fg-2">{cur.stat}</p>
                   </div>
                 </div>
                 <div

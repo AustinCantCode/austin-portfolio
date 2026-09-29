@@ -462,14 +462,12 @@ const home = singleton({
             icon,
             label: line("Tab label"),
             count: fields.integer({ label: "Count on the tab" }),
-            kicker: line("Small line above the headline"),
             headline: line("Headline"),
             blurb: para("Paragraph"),
             services: fields.array(
               fields.object({
                 icon,
                 title: line("Title"),
-                text: line("Text"),
               }),
               {
                 label: "Services",
@@ -477,7 +475,6 @@ const home = singleton({
               },
             ),
             stack: list("Tools", "Tool"),
-            stat: line("Stat next to the button"),
             href: line("Button link"),
             cta: line("Button text"),
             featuredProjects: fields.multiRelationship({
