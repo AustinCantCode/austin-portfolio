@@ -53,7 +53,7 @@ export function Letters({ letters }: { letters: Letter[] }) {
 
             <figure className="m-0 flex min-w-0 flex-col gap-6">
               <blockquote className="m-0">
-                <p className="font-display text-[clamp(26px,3vw,38px)] leading-[1.25] font-medium tracking-[-0.01em] text-pretty">
+                <p className="font-display text-[clamp(24px,2.6vw,34px)] leading-[1.28] font-medium tracking-[-0.01em] text-pretty">
                   &ldquo;{l.excerpt}&rdquo;
                 </p>
               </blockquote>

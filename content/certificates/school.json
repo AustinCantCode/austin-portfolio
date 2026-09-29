@@ -9,12 +9,6 @@
       "image": "/images/certificates/school/items/0/image.png"
     },
     {
-      "title": "Edusave Good Progress Award 2022",
-      "issuer": "Ministry of Education, People's Association",
-      "description": "Improvement in academic performance and conduct.",
-      "image": "/images/certificates/school/items/1/image.png"
-    },
-    {
       "title": "Edusave Merit Bursary 2022",
       "issuer": "Ministry of Education, People's Association",
       "description": "Good academic progress and conduct.",
@@ -44,25 +38,37 @@
       "title": "VIA Champion 2021",
       "issuer": "Compassvale Secondary School",
       "description": "Certificate of Appreciation for my service as VIA Champion of my class, 4N1.",
-      "image": "/images/certificates/school/items/6/image.png"
+      "image": "/images/certificates/school/items/6/image.avif"
     },
     {
       "title": "NCC Assistant Land Training Master 2020/2021",
       "issuer": "Compassvale Secondary School",
       "description": "Certificate of Appreciation for my service as Assistant Land Training Master of the National Cadet Corps (NCC).",
-      "image": "/images/certificates/school/items/7/image.png"
+      "image": "/images/certificates/school/items/7/image.avif"
+    },
+    {
+      "title": "NCC Ranks and Total Defence Badges",
+      "issuer": "National Cadet Corps (NCC)",
+      "description": "My NCC rank epaulettes, from Cadet to 3rd Sergeant, and my Total Defence Day badges.",
+      "image": "/images/certificates/school/items/11/image.avif"
     },
     {
       "title": "Edusave Good Progress Award 2019",
       "issuer": "Ministry of Education, People's Association",
       "description": "Improvement in academic performance and good conduct in Secondary 2.",
-      "image": "/images/certificates/school/items/8/image.png"
+      "image": "/images/certificates/school/items/1/image.png"
     },
     {
       "title": "VIA Champion 2018/2019",
       "issuer": "Compassvale Secondary School",
       "description": "Appointed VIA Champion of my class, 1N1.",
-      "image": "/images/certificates/school/items/9/image.png"
+      "image": "/images/certificates/school/items/9/image.avif"
+    },
+    {
+      "title": "Secondary 1 Student Leadership Workshop 2018",
+      "issuer": "TOUCH Leadership & Mentoring",
+      "description": "Certificate of Achievement for completing The Leadership Challenge's Student Leadership Workshop on The Five Practices of Exemplary Student Leadership.",
+      "image": "/images/certificates/school/items/10/image.avif"
     }
   ]
 }
