@@ -9,18 +9,21 @@ import { createElement } from "react";
 import { AREA_IDS, CATEGORY_STRUCTURE } from "./src/data/structure";
 
 /**
- * Local files in development. In production the CMS saves by committing
- * to GitHub, once its GitHub App is set up (docs/CMS.md): the public app
- * slug is readable on the server and in the browser, so both agree.
+ * Local files in development. In production the CMS always saves by
+ * committing to GitHub, and only once its GitHub App is set up
+ * (docs/CMS.md): the public app slug is readable on the server and in the
+ * browser, so both agree. Access is locked by src/middleware.ts (password)
+ * and src/lib/cms-guard.ts (GitHub account allowlist).
  */
 const connected = !!process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG;
 const dev = process.env.NODE_ENV !== "production";
-// NEXT_PUBLIC_KEYSTATIC_STORAGE=github forces GitHub mode in development,
-// which is how the GitHub App is created the first time.
+// Development only: NEXT_PUBLIC_KEYSTATIC_STORAGE=github switches to GitHub
+// mode, which is how the GitHub App is created the first time. The live
+// site never edits local files, whatever this is set to.
 const forced = process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE;
-const useGitHub = forced ? forced === "github" : !dev && connected;
+const useGitHub = dev ? forced === "github" : true;
 /** False on the live site until the CMS's GitHub App is set up. */
-export const cmsEnabled = dev || connected || forced === "github";
+export const cmsEnabled = dev || connected;
 
 // Helpers -------------------------------------------------------------
 

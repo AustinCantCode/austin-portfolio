@@ -24,8 +24,9 @@ export default function Layout() {
       <p>
         The content editor saves by committing to GitHub. Connect it once by
         following <code>docs/CMS.md</code> (&ldquo;Connect the live CMS&rdquo;),
-        then add the four <code>KEYSTATIC_*</code> environment variables to
-        Vercel and redeploy.
+        then add the four <code>KEYSTATIC_*</code> environment variables, plus{" "}
+        <code>CMS_PASSWORD</code> and <code>CMS_ALLOWED_USERS</code>, to Vercel
+        and redeploy.
       </p>
     </main>
   );

@@ -19,9 +19,10 @@ about a minute. Nothing needs a database.
 ## Editing on your computer
 
 1. `pnpm install`, then `pnpm dev`.
-2. Open <http://localhost:3000/keystatic>.
+2. Open <http://127.0.0.1:3000/keystatic>. (The editor only answers on your
+   own computer, never on your Wi-Fi network, so no password is needed here.)
 3. Edit and **Save**. The page updates straight away at
-   <http://localhost:3000>. The "open" icon next to Save jumps to the page.
+   <http://127.0.0.1:3000>. The "open" icon next to Save jumps to the page.
 4. Commit and push the changed files in `content/` and `public/` as usual.
 
 ## Connect the live CMS (once)
@@ -33,18 +34,24 @@ takes about five minutes:
    ```
    NEXT_PUBLIC_KEYSTATIC_STORAGE=github
    ```
-2. Run `pnpm dev` and open <http://localhost:3000/keystatic>. Keystatic offers
+2. Run `pnpm dev` and open <http://127.0.0.1:3000/keystatic>. Keystatic offers
    to **create a GitHub App**. Follow it and install the app on the
    `austincantcode/austin-portfolio` repo. Keystatic then adds four values to
    your `.env` file:
    `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`,
    `KEYSTATIC_SECRET` and `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
 3. In the GitHub App's settings (GitHub → Settings → Developer settings →
-   GitHub Apps → your app), add this **Callback URL**:
-   `https://austinsia.com/api/keystatic/github/oauth/callback`
+   GitHub Apps → your app):
+   - add this **Callback URL**:
+     `https://austinsia.com/api/keystatic/github/oauth/callback`
+   - under **Advanced → Make this GitHub App private** (or "Where can this
+     GitHub App be installed?"), choose **Only on this account**.
 4. In Vercel → Project → Settings → Environment Variables, add those four
-   values for Production (and Preview if you want to edit on previews).
-5. Redeploy, then open `https://austinsia.com/keystatic` and sign in.
+   values, plus the two locks from [Security](#security) (`CMS_PASSWORD` and
+   `CMS_ALLOWED_USERS`), for Production (and Preview if you want to edit on
+   previews).
+5. Redeploy, then open `https://austinsia.com/keystatic`: enter the CMS
+   password, then sign in with GitHub.
 6. Remove the `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` line from `.env.local`,
    so editing on your computer saves to local files again.
 
@@ -52,7 +59,33 @@ Until this is done, `/keystatic` on the live site shows a "CMS not connected
 yet" page, and the site itself works normally.
 
 The editor saves to the branch picked in its top-left menu. Pick the branch
-Vercel deploys from (normally `main`).
+Vercel deploys from (`master`, this repo's default branch).
+
+## Security
+
+Three locks stand between the internet and your content:
+
+1. **A password** (`CMS_PASSWORD`). Before `/keystatic` or its API load at
+   all, the browser asks for it (any username works). Use a long random one
+   from a password manager. If it isn't set, the live CMS stays locked.
+2. **Your GitHub account only** (`CMS_ALLOWED_USERS=AustinCantCode`; add
+   more usernames separated by commas). Anyone else who signs in with GitHub
+   is signed straight back out and their token is cancelled. If it isn't
+   set, nobody can sign in.
+3. **GitHub's own permissions.** Saving means committing to the repo, which
+   only accounts with write access can do.
+
+Also:
+
+- **Make the repo private**: GitHub → the repo → Settings → General →
+  Danger Zone → Change visibility → Private. Everything the CMS saves
+  (drafts, "Notes for me", testimonials) is kept in the repo and its history,
+  so a public repo would let anyone read it. Nothing on the site loads files
+  from the repo, and Vercel deploys private repos normally.
+- **Only paste testimonials you have permission to use.** Even unticked ones
+  are saved in the repo's history.
+- The editor on your computer (`pnpm dev`) needs no password because it only
+  answers on `127.0.0.1`. The live site never edits local files.
 
 ## Common tasks
 
@@ -116,12 +149,14 @@ description for Google (about 60 and 160 characters at most).
 
 ## Services to switch on (Vercel environment variables)
 
-| Variable | What it turns on |
-| --- | --- |
-| `RESEND_API_KEY` | The contact form sends messages to your inbox (resend.com, free tier). Until it's set, the form offers to email you instead. |
-| `CONTACT_FROM` | Optional. The sender, e.g. `Austin Sia <hello@austinsia.com>`, once you verify your domain in Resend. |
+| Variable            | What it turns on                                                                                                                                                                             |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`    | The contact form sends messages to your inbox (resend.com, free tier). Until it's set, the form offers to email you instead.                                                                 |
+| `CONTACT_FROM`      | Optional. The sender, e.g. `Austin Sia <hello@austinsia.com>`, once you verify your domain in Resend.                                                                                        |
+| `CMS_PASSWORD`      | Required for the live CMS: the password asked before `/keystatic` opens. See [Security](#security).                                                                                          |
+| `CMS_ALLOWED_USERS` | Required for the live CMS: GitHub usernames allowed to sign in, e.g. `AustinCantCode`.                                                                                                       |
 | `ANTHROPIC_API_KEY` | The "Ask about Austin" chat button (console.anthropic.com). It stays hidden until the key is set. Answers come only from the site's content, a few sentences each, with a per-visitor limit. |
-| `ASK_MODEL` | Optional. The Claude model for the chat; defaults to `claude-haiku-4-5`, the fastest and cheapest. |
+| `ASK_MODEL`         | Optional. The Claude model for the chat; defaults to `claude-haiku-4-5`, the fastest and cheapest.                                                                                           |
 
 The chat's greeting, button text and suggested questions are under
 Site → Ask Austin (chatbot).
@@ -152,3 +187,7 @@ Site → Ask Austin (chatbot).
   components always used (`projects`, `site`, `home`, …).
 - The site's layout lives in `src/app/(site)`, so `/keystatic` renders without
   the site's nav, footer and styles.
+- Locks: `src/middleware.ts` (the password, production only) and
+  `src/lib/cms-guard.ts` (the GitHub account allowlist, checked when a
+  sign-in or token refresh completes in
+  `src/app/api/keystatic/[...params]/route.ts`).
