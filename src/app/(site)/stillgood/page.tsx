@@ -9,7 +9,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { Icon } from "@components/icon";
 import { StatusPill, TextLink } from "@components/ui";
-import { GooglePlayBadge } from "@components/tiles";
+import { GooglePlayBadge } from "@components/play-badge";
 import { ImageSlot, PhoneFrame } from "@components/media";
 import { stillgoodScreens as screens } from "@data/stillgood-screens";
 

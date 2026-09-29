@@ -95,7 +95,9 @@ export function Carousel({
               page(e.key === "ArrowRight" ? 1 : -1);
             }
           }}
-          className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-[20px]"
+          // The padding (taken back by the margin) leaves room inside the
+          // scroller for hover lifts and focus outlines.
+          className="no-scrollbar -m-3 flex scroll-px-3 snap-x snap-mandatory gap-[clamp(20px,2vw,28px)] overflow-x-auto overscroll-x-contain rounded-[20px] p-3"
           style={{ maskImage: mask, WebkitMaskImage: mask }}
         >
           {children}

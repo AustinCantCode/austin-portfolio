@@ -16,24 +16,15 @@ import { byYear } from "@data/projects";
 import { smallApps } from "@data/small-apps";
 import { graphics } from "@data/graphics";
 import { ventures } from "@data/ventures";
-import { events, FEATURED_EVENT_INDEX } from "@data/events";
 import { NextCard, PageHeader } from "@components/ui";
 import {
-  ImageSlot,
-  LaptopFrame,
-  NaturalImage,
-  PhoneFrame,
-} from "@components/media";
-import {
-  ProjectTile,
-  RowTile,
-  SmallAppCard,
-  VenturePanel,
-} from "@components/tiles";
-import { projectBySlug } from "@data/projects";
-import { stillgoodScreens } from "@data/stillgood-screens";
+  ShowroomPairs,
+  SmallAppItem,
+  VentureFeature,
+} from "@components/client/showroom";
 import { ScrollToCurrent } from "@components/client/scroll-to-current";
 import { Gallery } from "./gallery";
+import { ventureLook } from "../venture-looks";
 
 type Params = { category: string };
 
@@ -148,23 +139,13 @@ export default async function CategoryPage({
             {n} {n === 1 ? noun : `${noun}s`}
           </h2>
 
-          {cat.layout === "projects" && list.length > 2 && (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
-              {list.map((p) => (
-                <ProjectTile key={p.slug} project={p} />
-              ))}
-            </div>
-          )}
-
-          {cat.layout === "projects" &&
-            list.length <= 2 &&
-            list.map((p) => <RowTile key={p.slug} project={p} />)}
+          {cat.layout === "projects" && <ShowroomPairs projects={list} />}
 
           {cat.layout === "small-apps" && (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,240px),1fr))] gap-4">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-x-[clamp(24px,3vw,40px)] gap-y-[clamp(44px,5vw,64px)]">
               {smallApps.map((a) => (
                 <div key={a.title} data-reveal="">
-                  <SmallAppCard app={a} />
+                  <SmallAppItem app={a} />
                 </div>
               ))}
             </div>
@@ -172,14 +153,17 @@ export default async function CategoryPage({
 
           {cat.layout === "gallery" && <Gallery items={graphics} />}
 
-          {cat.layout === "ventures" &&
-            ventures.map((v) => (
-              <VenturePanel
-                key={v.id}
-                venture={v}
-                media={<VentureMedia id={v.id} />}
-              />
-            ))}
+          {cat.layout === "ventures" && (
+            <div className="flex flex-col gap-[clamp(72px,8vw,120px)]">
+              {ventures.map((v) => (
+                <VentureFeature
+                  key={v.id}
+                  venture={v}
+                  look={ventureLook(v.id)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -190,37 +174,5 @@ export default async function CategoryPage({
         line={next.blurb}
       />
     </>
-  );
-}
-
-function VentureMedia({ id }: { id: string }) {
-  if (id === "stillgood") {
-    return (
-      <PhoneFrame size={240} className="-mb-[35%]">
-        <ImageSlot
-          media={stillgoodScreens.home}
-          placeholder="StillGood screenshot"
-          sizes="240px"
-        />
-      </PhoneFrame>
-    );
-  }
-  if (id === "zenith") {
-    const photo = events[FEATURED_EVENT_INDEX].image;
-    return (
-      <div className="w-full overflow-hidden rounded-t-[20px] bg-pill">
-        <NaturalImage
-          media={photo}
-          placeholder="Zenith hackathon photo"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    );
-  }
-  const calibrium = projectBySlug("calibrium");
-  return (
-    <LaptopFrame>
-      <ImageSlot media={calibrium?.cover} placeholder="Calibrium screenshot" />
-    </LaptopFrame>
   );
 }

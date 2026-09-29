@@ -4,8 +4,14 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { AreaId, Graphic, Project, SmallApp, Venture } from "@data/types";
+import type { Look } from "@components/showroom-look";
 import { NaturalImage } from "@components/media";
-import { ProjectTile, SmallAppCard, VentureCard } from "@components/tiles";
+import {
+  GRID_SM,
+  ShowroomGrid,
+  SmallAppItem,
+  VentureItem,
+} from "@components/client/showroom";
 import { SegmentedControl } from "@components/client/segmented";
 import { Carousel } from "@components/client/carousel";
 import { Lightbox } from "@components/client/lightbox";
@@ -46,7 +52,7 @@ export type WorkGroup =
       href: string;
       linkLabel: string;
       flex: string;
-      ventures: Venture[];
+      ventures: (Venture & { look: Look })[];
     };
 
 export type WorkSection = {
@@ -205,24 +211,16 @@ export function WorkView({ sections }: { sections: WorkSection[] }) {
 
 function GroupBody({ group: g }: { group: WorkGroup }) {
   const [art, setArt] = useState<number | null>(null);
-  if (g.kind === "tiles") {
-    return (
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
-        {g.projects.map((p) => (
-          <ProjectTile key={p.slug} project={p} compact reveal={false} />
-        ))}
-      </div>
-    );
-  }
+  if (g.kind === "tiles") return <ShowroomGrid projects={g.projects} />;
   if (g.kind === "small") {
     return (
       <Carousel label="small apps">
         {g.apps.map((a) => (
           <div
             key={a.title}
-            className="w-[clamp(180px,16vw,220px)] flex-none snap-start"
+            className="w-[clamp(210px,19vw,250px)] flex-none snap-start"
           >
-            <SmallAppCard app={a} size="sm" />
+            <SmallAppItem app={a} size="sm" />
           </div>
         ))}
       </Carousel>
@@ -239,7 +237,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
               onClick={() => setArt(i)}
               aria-haspopup="dialog"
               aria-label={`View ${a.title} larger`}
-              className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-[18px] border-0 bg-tile-alt p-0 lift [--hover-scale:1.02]"
+              className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-[14px] border-0 bg-transparent p-0 lift [--hover-scale:1.02]"
             >
               <NaturalImage
                 media={a.image}
@@ -267,9 +265,9 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
     );
   }
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
+    <div className={GRID_SM}>
       {g.ventures.map((v) => (
-        <VentureCard key={v.id} venture={v} />
+        <VentureItem key={v.id} venture={v} look={v.look} />
       ))}
     </div>
   );

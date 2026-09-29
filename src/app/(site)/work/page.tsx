@@ -7,6 +7,7 @@ import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { WorkView, type WorkSection } from "./work-view";
+import { ventureLook } from "./venture-looks";
 
 export const metadata = pageMetadata({
   title: pageCopy.work.title,
@@ -109,7 +110,7 @@ const sections: WorkSection[] = [
         href: "/work/ventures",
         linkLabel: "See all ›",
         flex: "1 1 100%",
-        ventures,
+        ventures: ventures.map((v) => ({ ...v, look: ventureLook(v.id) })),
       },
     ],
   },
