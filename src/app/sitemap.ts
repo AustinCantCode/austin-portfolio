@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { categories } from "@data/categories";
+import { AREA_PATH, categories, categoryHref } from "@data/categories";
 import { projects } from "@data/projects";
 import { site } from "@data/site";
 import { posts } from "@data/writing";
@@ -7,8 +7,12 @@ import { posts } from "@data/writing";
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "/",
-    "/work",
-    ...categories.map((c) => `/work/${c.slug}`),
+    AREA_PATH.dev,
+    AREA_PATH.design,
+    AREA_PATH.ventures,
+    ...categories
+      .filter((c) => c.area !== "ventures")
+      .map((c) => categoryHref(c.slug)),
     ...projects.map((p) => `/projects/${p.slug}`),
     "/stillgood",
     "/about",
@@ -27,6 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}${p === "/" ? "" : p}`,
     lastModified,
     changeFrequency: "monthly",
-    priority: p === "/" ? 1 : p === "/work" || p === "/about" ? 0.8 : 0.6,
+    priority:
+      p === "/"
+        ? 1
+        : [AREA_PATH.dev, AREA_PATH.design, "/about"].includes(p)
+          ? 0.8
+          : 0.6,
   }));
 }

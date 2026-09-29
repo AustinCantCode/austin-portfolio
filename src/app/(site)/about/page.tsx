@@ -8,6 +8,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { IconCircle, TextLink } from "@components/ui";
 import GitHubCalendar from "@components/complex-ui/github-calendar";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.about.title,
@@ -32,6 +33,7 @@ export default function AboutPage() {
           breadcrumbLd([{ name: "About", path: "/about" }]),
         )}
       />
+      <AboutNav current="/about" />
       <section className="gutter pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(72px,min(9vw,13vh),136px)]">
         <div className="wrap flex flex-wrap items-center gap-[clamp(40px,7vw,104px)]">
           {aboutPhotos.length >= 2 ? (

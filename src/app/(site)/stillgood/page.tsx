@@ -12,6 +12,7 @@ import { StatusPill, TextLink } from "@components/ui";
 import { GooglePlayBadge } from "@components/play-badge";
 import { ImageSlot, PhoneFrame } from "@components/media";
 import { stillgoodScreens as screens } from "@data/stillgood-screens";
+import { VenturesNav } from "@components/local-nav";
 
 const FEATURE_SCREENS = [screens.scan, screens.pantry, screens.recipeStudio];
 
@@ -28,11 +29,12 @@ export default function StillGoodPage() {
         data={graph(
           stillgoodAppLd(),
           breadcrumbLd([
-            { name: "Work", path: "/work" },
+            { name: "Ventures", path: "/ventures" },
             { name: "StillGood", path: "/stillgood" },
           ]),
         )}
       />
+      <VenturesNav current="/stillgood" />
       <section
         aria-labelledby="sg-hero"
         className="gutter flex flex-col items-center overflow-hidden bg-band pt-[clamp(56px,min(7vw,11vh),104px)] text-center text-band-fg"

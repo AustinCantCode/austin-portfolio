@@ -5,7 +5,12 @@ import { cn } from "@lib/utils";
 import { clip, pageMetadata } from "@lib/metadata";
 import { JsonLd, breadcrumbLd, graph, projectLd } from "@lib/structured-data";
 import { projects, projectBySlug } from "@data/projects";
-import { categoryBySlug, categoryHref } from "@data/categories";
+import {
+  AREA_PATH,
+  categoryBySlug,
+  categoryHref,
+  navSections,
+} from "@data/categories";
 import { isPlaceholderLink } from "@data/site";
 import { Icon } from "@components/icon";
 import { NextCard, PageHeader, SmartLink } from "@components/ui";
@@ -211,6 +216,10 @@ export default async function ProjectPage({
   const idx = projects.indexOf(p);
   const next = projects[(idx + 1) % projects.length];
   const cats = p.categories.map((c) => categoryBySlug(c)!).filter(Boolean);
+  // "Back" goes to the area the project is filed under first.
+  const area = cats[0]?.area ?? "dev";
+  const areaHref = AREA_PATH[area];
+  const areaName = navSections.find((s) => s.id === area)?.label ?? "";
   const links = p.links;
   const quote = testimonialFor(p.slug);
 
@@ -341,13 +350,13 @@ export default async function ProjectPage({
         data={graph(
           projectLd(p),
           breadcrumbLd([
-            { name: "Work", path: "/work" },
+            { name: areaName, path: areaHref },
             { name: p.title, path: `/projects/${p.slug}` },
           ]),
         )}
       />
       <PageHeader
-        back={{ label: "All work", href: "/work" }}
+        back={{ label: areaName, href: areaHref }}
         title={p.title}
         className="pb-[clamp(48px,6vw,88px)]"
       >

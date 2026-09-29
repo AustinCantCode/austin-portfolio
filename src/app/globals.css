@@ -268,11 +268,13 @@
 /* ------------------------------------------------------------------
    Serif display. Unlayered so it wins over the tight tracking utilities
    written for the old grotesk; font-size-adjust lifts Cormorant's small
-   x-height to read at the same size as the sans.
+   x-height to read at the same size as the sans. Lining figures, since
+   Cormorant's old-style 3, 4, 5, 7 and 9 drop below the line.
    ------------------------------------------------------------------ */
 :where(h1, h2, h3, .font-display) {
   letter-spacing: -0.005em;
   font-size-adjust: 0.46;
+  font-variant-numeric: lining-nums;
 }
 
 /* ------------------------------------------------------------------

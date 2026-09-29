@@ -8,6 +8,7 @@ import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { ButtonLink, SmartLink } from "@components/ui";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.cv.title,
@@ -37,6 +38,7 @@ export default function CVPage() {
   return (
     <>
       <JsonLd data={graph(breadcrumbLd([{ name: "CV", path: "/cv" }]))} />
+      <AboutNav current="/cv" />
       <section className="gutter pt-[clamp(44px,min(7vw,10vh),100px)] pb-[clamp(32px,4vw,56px)]">
         <div className="wrap flex flex-col gap-4">
           <p className="text-[15px] font-semibold text-fg-2">

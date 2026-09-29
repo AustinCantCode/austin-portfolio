@@ -3,10 +3,20 @@
     "title": "Austin Sia – Full-Stack Developer & Designer in Singapore",
     "description": "Portfolio of Austin Sia, a full-stack developer and UI/UX designer in Singapore: client platforms for ITE, KiasuParents and IAL, mobile apps and design work."
   },
-  "work": {
-    "title": "Projects: Websites, Apps and UI/UX Design",
-    "description": "Browse 35 projects by Austin Sia across web development, mobile apps, UI/UX, product and graphic design, from live client platforms to school projects.",
-    "heading": "Work."
+  "development": {
+    "title": "Development: Websites, Web Apps and Mobile Apps",
+    "description": "Websites, web apps and mobile apps I have developed as a full-stack developer in Singapore, from live client platforms to school and personal projects.",
+    "heading": "Development"
+  },
+  "design": {
+    "title": "Design: UI/UX, Product and Graphic Design",
+    "description": "App prototypes, a 3D-printed product and graphic artwork I have designed, from school modules at Singapore Polytechnic to a hackathon.",
+    "heading": "Design"
+  },
+  "ventures": {
+    "title": "Ventures: StillGood, Zenith Technologies and Freelance",
+    "description": "The ventures I have started, from Zenith Technologies at the SP Batey Hackathon to freelance client work and StillGood, my food waste app.",
+    "heading": "Ventures"
   },
   "about": {
     "title": "About Austin Sia | Full-Stack Developer & UI/UX Designer",

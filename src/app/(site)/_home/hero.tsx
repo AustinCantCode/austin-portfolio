@@ -149,7 +149,7 @@ export function Hero() {
             data-intro-hide=""
             className="mt-[clamp(36px,4vw,56px)] flex w-full flex-wrap gap-4"
           >
-            <ButtonLink href="/work" data-track="view_work_click">
+            <ButtonLink href="/development" data-track="view_work_click">
               View work
             </ButtonLink>
             <ButtonLink

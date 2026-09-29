@@ -4,6 +4,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader, TextLink } from "@components/ui";
 import { NaturalImage } from "@components/media";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.events.title,
@@ -24,8 +25,8 @@ export default function EventsPage() {
           ]),
         )}
       />
+      <AboutNav current="/about/events" />
       <PageHeader
-        back={{ label: "About", href: "/about" }}
         title={pageCopy.events.heading}
         sub="Hackathons, trips and volunteering."
         className="pb-[clamp(48px,6vw,88px)]"

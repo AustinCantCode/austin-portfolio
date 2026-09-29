@@ -6,6 +6,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { IconCircle, PageHeader } from "@components/ui";
 import { SkillsView } from "./skills-view";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.skills.title,
@@ -24,8 +25,8 @@ export default function SkillsPage() {
           ]),
         )}
       />
+      <AboutNav current="/about/skills" />
       <PageHeader
-        back={{ label: "About", href: "/about" }}
         title={pageCopy.skills.heading}
         sub="The tools I use to design and build. Tap any one to see which projects used it."
         className="pb-[clamp(48px,6vw,88px)]"

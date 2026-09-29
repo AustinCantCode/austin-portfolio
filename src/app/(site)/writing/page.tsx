@@ -5,6 +5,7 @@ import { JsonLd, breadcrumbLd, graph, webPageLd } from "@lib/structured-data";
 import { pageCopy } from "@data/pages";
 import { formatDate, posts } from "@data/writing";
 import { PageHeader } from "@components/ui";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.writing.title,
@@ -28,6 +29,7 @@ export default function WritingPage() {
           breadcrumbLd([{ name: "Writing", path: "/writing" }]),
         )}
       />
+      <AboutNav current="/writing" />
       <PageHeader
         title={pageCopy.writing.heading}
         sub={pageCopy.writing.intro}

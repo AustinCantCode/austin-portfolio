@@ -4,7 +4,6 @@ import { Nav } from "@components/client/nav";
 import { GestureManager, MotionManager } from "@components/client/motion";
 import { Footer } from "@components/footer";
 import { JsonLd, graph, personLd, websiteLd } from "@lib/structured-data";
-import { posts } from "@data/writing";
 import { chatbot } from "@data/chatbot";
 import { Ask } from "@components/client/ask";
 import { BackToTop } from "@components/client/back-to-top";
@@ -23,7 +22,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         >
           Skip to content
         </a>
-        <Nav writingCount={posts.length} />
+        <Nav />
         <main id="main">{children}</main>
         <Footer />
         {/* "Ask about Austin" appears only once the API key is set. */}

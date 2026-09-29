@@ -762,7 +762,7 @@ const categories = singleton({
   label: "Work categories",
   path: "content/categories",
   format: { data: "json" },
-  previewUrl: "/work",
+  previewUrl: "/development",
   schema: {
     items: fields.array(
       fields.object({
@@ -797,7 +797,9 @@ const pages = singleton({
   format: { data: "json" },
   schema: {
     home: pageFields("Homepage", false),
-    work: pageFields("Work", true),
+    development: pageFields("Development", true),
+    design: pageFields("Design", true),
+    ventures: pageFields("Ventures", true),
     about: pageFields("About", true),
     skills: pageFields("Skills", true),
     certificates: pageFields("Certificates", false),
@@ -845,7 +847,7 @@ const chatbot = singleton({
 });
 
 const navigation = singleton({
-  label: "Menus",
+  label: "Work areas",
   path: "content/navigation",
   format: { data: "json" },
   schema: {
@@ -856,12 +858,8 @@ const navigation = singleton({
           options: AREA_IDS.map((id) => ({ label: id, value: id })),
           defaultValue: "dev",
         }),
-        label: line("Menu label"),
-        line: line("Line under the name in the menu"),
-        featured: fields.multiRelationship({
-          label: "Featured projects in the menu (3)",
-          collection: "projects",
-        }),
+        label: line("Name"),
+        line: line("Line under the page title"),
       }),
       { label: "Areas", itemLabel: (p) => p.fields.label.value },
     ),

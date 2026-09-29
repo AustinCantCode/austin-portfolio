@@ -43,7 +43,7 @@ const ICONS: Record<AreaId, NavSection["icon"]> = {
   ventures: "rocket",
 };
 
-type RawArea = { id: AreaId; label: string; line: string; featured: string[] };
+type RawArea = { id: AreaId; label: string; line: string };
 const navAreas = navRaw.areas as RawArea[];
 
 /** The three areas of work, as shown in the nav, footer and Work page. */
@@ -56,12 +56,17 @@ export const navSections: NavSection[] = navAreas.map((a) => ({
   ),
 }));
 
-/** Menu extras for each area: a line under its name and featured projects. */
-export const navExtras: Partial<
-  Record<AreaId, { line: string; featured: string[] }>
-> = Object.fromEntries(
-  navAreas.map((a) => [a.id, { line: a.line, featured: a.featured }]),
+/** A line under each area's name, used as its page intro (CMS → Work areas). */
+export const areaLine: Partial<Record<AreaId, string>> = Object.fromEntries(
+  navAreas.map((a) => [a.id, a.line]),
 );
+
+/** Each area has its own page: /development, /design and /ventures. */
+export const AREA_PATH: Record<AreaId, string> = {
+  dev: "/development",
+  design: "/design",
+  ventures: "/ventures",
+};
 
 /** Search titles for each category page (kept under 50 characters). */
 export const categorySeoTitle = Object.fromEntries(
@@ -71,7 +76,17 @@ export const categorySeoTitle = Object.fromEntries(
   ]),
 ) as Record<CategorySlug, string>;
 
-export const categoryHref = (slug: CategorySlug) => `/work/${slug}`;
+/** A category's page, under its area (Ventures is the area page itself). */
+export const categoryHref = (slug: CategorySlug) => {
+  const area = CATEGORY_STRUCTURE.find((c) => c.slug === slug)!.area;
+  return area === "ventures"
+    ? AREA_PATH.ventures
+    : `${AREA_PATH[area]}/${slug}`;
+};
+
+/** The categories of one area, in order. */
+export const categoriesIn = (area: AreaId) =>
+  categories.filter((c) => c.area === area);
 
 export const categoryBySlug = (slug: string) =>
   categories.find((c) => c.slug === slug);

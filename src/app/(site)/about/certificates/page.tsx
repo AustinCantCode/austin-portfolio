@@ -4,6 +4,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader } from "@components/ui";
 import { CertificatesView } from "./certificates-view";
+import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.certificates.title,
@@ -22,8 +23,8 @@ export default function CertificatesPage() {
           ]),
         )}
       />
+      <AboutNav current="/about/certificates" />
       <PageHeader
-        back={{ label: "About", href: "/about" }}
         title={`${allCertificates.length} certificates.`}
         sub="From AWS, GitHub, LinkedIn Learning and more."
       />

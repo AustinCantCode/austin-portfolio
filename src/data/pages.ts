@@ -16,7 +16,9 @@ type PageCopy = {
 
 export const pageCopy = raw as Record<
   | "home"
-  | "work"
+  | "development"
+  | "design"
+  | "ventures"
   | "about"
   | "skills"
   | "certificates"

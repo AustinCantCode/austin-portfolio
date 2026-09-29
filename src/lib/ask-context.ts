@@ -14,7 +14,7 @@ import { smallApps } from "@data/small-apps";
 import { stillgoodPage } from "@data/stillgood";
 import { testimonials } from "@data/testimonials";
 import { posts } from "@data/writing";
-import { categories } from "@data/categories";
+import { categories, categoryHref } from "@data/categories";
 import { pageCopy } from "@data/pages";
 
 const lines = (xs: (string | undefined | false)[]) =>
@@ -104,8 +104,8 @@ function knowledge() {
       .map((p) => `- ${p.title} (/writing/${p.slug}): ${p.summary}`),
     "",
     "## Pages on the site",
-    "- /work (all work), " +
-      categories.map((c) => `/work/${c.slug} (${c.label})`).join(", "),
+    "- /development, /design and /ventures (one page per area), " +
+      categories.map((c) => `${categoryHref(c.slug)} (${c.label})`).join(", "),
     "- /about, /about/skills, /about/certificates, /about/events, /cv, /contact, /stillgood",
     "",
     "## Contact",

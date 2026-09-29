@@ -40,7 +40,7 @@
         "links": [
           {
             "label": "Client work",
-            "href": "/work/client-work"
+            "href": "/development/client-work"
           }
         ]
       },
@@ -112,7 +112,7 @@
           "PostgreSQL",
           "Docker"
         ],
-        "href": "/work",
+        "href": "/development",
         "cta": "Explore development",
         "featuredProjects": [
           "calibrium",
@@ -154,7 +154,7 @@
           "Illustrator",
           "Tinkercad"
         ],
-        "href": "/work",
+        "href": "/design",
         "cta": "Explore design",
         "featuredProjects": [
           "fresko",
@@ -195,7 +195,7 @@
           "Working with clients",
           "Tracking what users do"
         ],
-        "href": "/work/ventures",
+        "href": "/ventures",
         "cta": "Explore ventures",
         "featuredProjects": [
           "stillgood",
@@ -224,7 +224,7 @@
     "title": "Selected work.",
     "link": {
       "label": "See all work ›",
-      "href": "/work"
+      "href": "/development"
     },
     "projects": [
       "ite",
@@ -300,7 +300,7 @@
         "n": "10+",
         "label": "projects shipped",
         "cta": "See work",
-        "href": "/work"
+        "href": "/development"
       },
       {
         "n": "3+",
@@ -312,7 +312,7 @@
         "n": "8",
         "label": "client platforms",
         "cta": "See client work",
-        "href": "/work/client-work"
+        "href": "/development/client-work"
       }
     ]
   },

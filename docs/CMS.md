@@ -1,7 +1,7 @@
 # Editing the site (CMS)
 
 Everything you see on the site (projects, small apps, artwork, certificates,
-events, the homepage, About, CV, skills, the StillGood page, menus, and each
+events, the homepage, About, CV, skills, the StillGood page, the work areas, and each
 page's search title and description) is edited in **Keystatic**, a content
 editor built into the site at **`/keystatic`**.
 
@@ -106,8 +106,8 @@ Calibrium, ITE, KiasuParents, Glovida-RX, Frésko) list there what to check.
 
 **Write a post.** Writing → **Add**. New posts start as **Draft**: they show
 on your computer (`pnpm dev`, with a "Draft" badge) but never on the live
-site. Untick Draft to publish; Writing then appears in the About menu, the
-footer, the sitemap and the RSS feed (`/writing/rss.xml`). Use "Heading 2"
+site. Untick Draft to publish; Writing then appears in the About page's
+selector, the sitemap and the RSS feed (`/writing/rss.xml`). Use "Heading 2"
 for sections (three or more add an "On this page" list), and drop images
 straight into the text. Three drafts are waiting for you to edit; their
 notes say what to add.
@@ -164,8 +164,12 @@ stack visitors can drag or tap through.
 **Timeline links and logos.** Site → Homepage → How I got here → open a
 milestone to add a small logo or links such as "Case study" → /projects/fresko.
 
-**Menus.** Site → Menus sets the line and the three featured projects in the
-Development and Design menus.
+**Work areas.** Development, Design and Ventures each have their own page
+(`/development`, `/design`, `/ventures`) with their own selector.
+Site → Work areas sets each area's name and the line under its page title;
+Site → Pages & SEO holds each page's heading and search text. The groups on
+the Development and Design pages are set in code
+(`src/app/(site)/_work/areas.ts`).
 
 **Search results.** Site → Pages & SEO holds each page's title and
 description for Google (about 60 and 160 characters at most).

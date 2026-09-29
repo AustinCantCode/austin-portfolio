@@ -351,13 +351,13 @@ export function ShowroomPairs({
 }
 
 /** The compact showroom's grid: as many across as fit. */
-export const GRID_SM =
+const GRID_SM =
   "grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-x-[clamp(24px,3vw,48px)] gap-y-[clamp(48px,5vw,72px)] [--stage:clamp(200px,17vw,240px)]";
 
 /** The compact showroom for the Work overview. */
 export function ShowroomGrid({
   projects,
-  heading = "h4",
+  heading = "h3",
 }: {
   projects: Project[];
   heading?: Heading;
@@ -506,29 +506,6 @@ function VentureText({
         {v.cta} ›
       </p>
     </div>
-  );
-}
-
-/** A venture in the Work overview, standing like a project. */
-export function VentureItem({
-  venture,
-  look,
-  heading = "h4",
-}: {
-  venture: Venture;
-  look: Look;
-  heading?: Heading;
-}) {
-  const rows = cn("row-span-2 grid grid-rows-subgrid", GAP.sm);
-  return (
-    <HoverHost className={rows}>
-      <Link href={venture.href} className={cn(linkClass, rows)}>
-        <Stand width={widthOf(look, "sm")} size="sm" className="self-end">
-          <Device look={look} size="sm" label={`${venture.name} image`} />
-        </Stand>
-        <VentureText venture={venture} size="sm" heading={heading} />
-      </Link>
-    </HoverHost>
   );
 }
 
