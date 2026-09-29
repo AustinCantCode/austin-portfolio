@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@lib/utils";
-import { AREA_PATH, categoryBySlug } from "@data/categories";
+import { AREA_PATH, projectArea } from "@data/categories";
 import { projectBySlug } from "@data/projects";
 import type { AreaId } from "@data/types";
 import logo from "../../../public/AS-Circle-Logo.png";
@@ -43,7 +43,7 @@ const activeSection = (path: string): Section => {
   const slug = path.match(/^\/projects\/([^/]+)/)?.[1];
   if (slug) {
     const p = projectBySlug(slug);
-    return p ? (categoryBySlug(p.categories[0])?.area ?? null) : null;
+    return p ? projectArea(p) : null;
   }
   if (/^\/(about|cv|writing)(\/|$)/.test(path)) return "about";
   if (/^\/contact(\/|$)/.test(path)) return "contact";

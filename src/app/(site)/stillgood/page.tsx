@@ -13,6 +13,9 @@ import { GooglePlayBadge } from "@components/play-badge";
 import { ImageSlot, PhoneFrame } from "@components/media";
 import { stillgoodScreens as screens } from "@data/stillgood-screens";
 import { VenturesNav } from "@components/local-nav";
+import { ShowroomCarousel } from "@components/client/showroom";
+import { projectsInArea } from "@data/categories";
+import { byYear } from "@data/projects";
 
 const FEATURE_SCREENS = [screens.scan, screens.pantry, screens.recipeStudio];
 
@@ -197,6 +200,14 @@ export default function StillGoodPage() {
           </ul>
         </div>
       </section>
+
+      <ShowroomCarousel
+        title="More From My Ventures"
+        href="/ventures"
+        projects={byYear(
+          projectsInArea("ventures").filter((p) => p.slug !== "stillgood"),
+        )}
+      />
 
       <section
         aria-labelledby="sg-cta"

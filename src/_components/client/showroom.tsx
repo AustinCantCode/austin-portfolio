@@ -11,12 +11,14 @@ import {
   PHONE,
   isWide,
   lookOf,
+  phoneLook,
   tabletLook,
   widthOf,
   type Look,
   type Size,
 } from "../showroom-look";
 import { ProjectPeek, SmallAppPeek } from "./project-peek";
+import { Carousel } from "./carousel";
 import { EASE, useReducedMotionPref } from "./motion";
 
 /*
@@ -106,18 +108,23 @@ function Device({
   size,
   label,
   badge,
+  sizes: sizesOverride,
+  priority,
 }: {
   look: Look;
   size: Size;
   label: string;
   badge?: ReactNode;
+  sizes?: string;
+  priority?: boolean;
 }) {
-  const sizes = SIZES[size][isWide(look) ? "wide" : "tall"];
+  const sizes = sizesOverride ?? SIZES[size][isWide(look) ? "wide" : "tall"];
   const slot = (
     <ImageSlot
       media={look.media}
       placeholder={look.label ?? label}
       sizes={sizes}
+      priority={priority}
       fit="contain"
       compact={size === "sm" && look.kind === "phone"}
     />
@@ -156,6 +163,7 @@ function Device({
             media={look.media}
             placeholder={look.label ?? label}
             sizes={sizes}
+            priority={priority}
           />
           {badge}
         </div>
@@ -538,5 +546,109 @@ export function VentureFeature({
         </div>
       </Link>
     </HoverHost>
+  );
+}
+
+/**
+ * A project page's hero: the work standing large on the page, uncropped.
+ * Apps show their main and second screens side by side.
+ */
+export function ShowroomHero({ project: p }: { project: Project }) {
+  const main = lookOf(p);
+  const second =
+    main.kind === "phone" && p.second && p.slug !== "telegpt"
+      ? phoneLook(p.second)
+      : null;
+  const wide = isWide(main);
+  return (
+    <div className="flex items-end justify-center gap-[clamp(24px,5vw,72px)] [--stage:clamp(300px,78vw,420px)] md:[--stage:clamp(340px,42vw,580px)]">
+      <Stand width={widthOf(main, "lg")} size="lg">
+        <Device
+          look={main}
+          size="lg"
+          label={`${p.title} screenshot`}
+          sizes={
+            wide
+              ? "(max-width: 1240px) 100vw, 1200px"
+              : "(max-width: 768px) 70vw, 400px"
+          }
+          priority
+        />
+      </Stand>
+      {second && (
+        <Stand
+          width={widthOf(second, "lg")}
+          size="lg"
+          className="max-[560px]:hidden"
+        >
+          <Device
+            look={second}
+            size="lg"
+            label={`${p.title} second screen`}
+            sizes="(max-width: 768px) 70vw, 400px"
+          />
+        </Stand>
+      )}
+    </div>
+  );
+}
+
+/** One slide of the carousel: the device in a fixed stage, so floors line up. */
+function ShowroomSlide({ project: p }: { project: Project }) {
+  const look = lookOf(p);
+  return (
+    <HoverHost className="h-full">
+      <ProjectPeek
+        project={p}
+        className={cn(linkClass, "flex h-full flex-col", GAP.sm)}
+      >
+        <div className="flex h-[var(--stage)] items-end">
+          <Stand width={widthOf(look, "sm")} size="sm">
+            <Device look={look} size="sm" label={`${p.title} screenshot`} />
+          </Stand>
+        </div>
+        <Caption project={p} size="sm" heading="h3" />
+      </ProjectPeek>
+    </HoverHost>
+  );
+}
+
+/** Other projects from the same area, at the bottom of a project page. */
+export function ShowroomCarousel({
+  title,
+  href,
+  linkLabel = "See all ›",
+  projects,
+}: {
+  title: string;
+  href: string;
+  linkLabel?: string;
+  projects: Project[];
+}) {
+  if (!projects.length) return null;
+  const id = "more-projects";
+  return (
+    <section aria-labelledby={id} className="gutter band-y-2">
+      <div className="wrap flex flex-col gap-[clamp(28px,3.4vw,48px)]">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h2 id={id} className="t-h2">
+            {title}
+          </h2>
+          <Link href={href} className="py-1 text-[15px]">
+            {linkLabel}
+          </Link>
+        </div>
+        <Carousel label="more projects">
+          {projects.map((p) => (
+            <div
+              key={p.slug}
+              className="w-[clamp(250px,24vw,300px)] flex-none snap-start [--stage:clamp(180px,16vw,220px)]"
+            >
+              <ShowroomSlide project={p} />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+    </section>
   );
 }

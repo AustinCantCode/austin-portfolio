@@ -4,23 +4,22 @@ import { notFound } from "next/navigation";
 import { cn } from "@lib/utils";
 import { clip, pageMetadata } from "@lib/metadata";
 import { JsonLd, breadcrumbLd, graph, projectLd } from "@lib/structured-data";
-import { projects, projectBySlug } from "@data/projects";
+import { byYear, projects, projectBySlug } from "@data/projects";
 import {
   AREA_PATH,
   categoryBySlug,
   categoryHref,
   navSections,
+  projectArea,
+  projectsInArea,
 } from "@data/categories";
 import { isPlaceholderLink } from "@data/site";
 import { Icon } from "@components/icon";
-import { NextCard, PageHeader, SmartLink } from "@components/ui";
-import {
-  ImageSlot,
-  LaptopFrame,
-  NaturalImage,
-  PhoneFrame,
-} from "@components/media";
-import type { Project, StorySection } from "@data/types";
+import { SmartLink } from "@components/ui";
+import { NaturalImage } from "@components/media";
+import { AreaNav, VenturesNav } from "@components/local-nav";
+import { ShowroomCarousel, ShowroomHero } from "@components/client/showroom";
+import type { StorySection } from "@data/types";
 import { testimonialFor } from "@data/testimonials";
 import { Toc } from "@components/client/toc";
 import { AnchorHeading } from "@components/anchor-heading";
@@ -93,24 +92,22 @@ function StoryBody({
         </p>
       ))}
       {section.callout && (
-        <p className="rounded-[20px] bg-bg-alt px-[clamp(20px,2.4vw,28px)] py-[clamp(18px,2vw,24px)] text-[clamp(17px,1.6vw,19px)] leading-[1.55] font-medium text-fg">
+        <p className="font-display border-l-2 border-accent pl-[clamp(16px,2vw,24px)] text-[clamp(22px,2.3vw,28px)] leading-[1.35] font-medium text-fg">
           {section.callout}
         </p>
       )}
       {section.image && (
         <figure className="m-0 flex flex-col gap-3">
-          <div className="overflow-hidden rounded-[20px] bg-bg-alt p-[clamp(12px,2vw,24px)]">
-            <NaturalImage
-              media={section.image}
-              placeholder={`${title} image`}
-              sizes="(max-width: 1024px) 100vw, 760px"
-              className={cn(
-                "mx-auto rounded-[10px]",
-                section.image.src.height > section.image.src.width * 1.4 &&
-                  "max-w-[340px]",
-              )}
-            />
-          </div>
+          <NaturalImage
+            media={section.image}
+            placeholder={`${title} image`}
+            sizes="(max-width: 1024px) 100vw, 760px"
+            className={cn(
+              "rounded-[clamp(12px,1.4vw,18px)]",
+              section.image.src.height > section.image.src.width * 1.4 &&
+                "max-w-[340px]",
+            )}
+          />
           {section.image.alt && (
             <figcaption className="text-[14px] text-fg-2">
               {section.image.alt}
@@ -140,72 +137,6 @@ function Results({ items }: { items: { value: string; label: string }[] }) {
   );
 }
 
-function Hero({ p }: { p: Project }) {
-  const phone = p.frame === "phone" && !p.cover?.bare;
-  // Photos and mockups show whole; only device frames use a fixed stage.
-  const natural = p.frame === "none" || !!p.cover?.bare;
-  return (
-    <section aria-label={`${p.title} images`} className="gutter">
-      <div
-        className={cn(
-          "wrap flex items-start justify-center overflow-hidden rounded-[28px] bg-bg-alt",
-          natural
-            ? p.cover?.bare &&
-                "px-[clamp(20px,6vw,96px)] py-[clamp(32px,5vw,64px)]"
-            : "h-[clamp(320px,40vw,520px)] px-[clamp(20px,6vw,96px)] pt-[clamp(32px,6vw,72px)]",
-        )}
-      >
-        {phone && (
-          <div className="flex items-start gap-[clamp(16px,3vw,32px)]">
-            <PhoneFrame size={280} width="clamp(200px,24vw,280px)">
-              <ImageSlot
-                media={p.cover}
-                placeholder={`${p.title} main screen`}
-                sizes="280px"
-                priority
-              />
-            </PhoneFrame>
-            {p.slug !== "telegpt" && (
-              <PhoneFrame
-                size={280}
-                width="clamp(200px,24vw,280px)"
-                className="mt-16 max-[520px]:hidden"
-              >
-                <ImageSlot
-                  media={p.second}
-                  placeholder={`${p.title} second screen`}
-                  sizes="280px"
-                />
-              </PhoneFrame>
-            )}
-          </div>
-        )}
-        {p.frame === "laptop" && (
-          <div className="w-full max-w-[860px]">
-            <LaptopFrame large base>
-              <ImageSlot
-                media={p.cover}
-                placeholder={`${p.title} main screen`}
-                sizes="(max-width: 900px) 100vw, 860px"
-                priority
-              />
-            </LaptopFrame>
-          </div>
-        )}
-        {natural && (
-          <NaturalImage
-            media={p.cover}
-            placeholder={`${p.title} main image`}
-            sizes="(max-width: 1680px) 100vw, 1680px"
-            priority
-            className={cn(p.cover?.bare && "mx-auto max-w-[760px]")}
-          />
-        )}
-      </div>
-    </section>
-  );
-}
-
 export default async function ProjectPage({
   params,
 }: {
@@ -213,13 +144,13 @@ export default async function ProjectPage({
 }) {
   const p = projectBySlug((await params).slug);
   if (!p) notFound();
-  const idx = projects.indexOf(p);
-  const next = projects[(idx + 1) % projects.length];
   const cats = p.categories.map((c) => categoryBySlug(c)!).filter(Boolean);
-  // "Back" goes to the area the project is filed under first.
-  const area = cats[0]?.area ?? "dev";
+  const area = projectArea(p);
   const areaHref = AREA_PATH[area];
   const areaName = navSections.find((s) => s.id === area)?.label ?? "";
+  // The selector highlights the project's first category in its area.
+  const current = cats.find((c) => c.area === area);
+  const more = byYear(projectsInArea(area).filter((o) => o.slug !== p.slug));
   const links = p.links;
   const quote = testimonialFor(p.slug);
 
@@ -253,8 +184,8 @@ export default async function ProjectPage({
             id: "how-i-used-ai",
             title: "How I Used AI",
             body: (
-              <div className="flex items-start gap-4 rounded-[24px] bg-bg-alt p-[clamp(20px,2.4vw,28px)]">
-                <span className="grid size-10 flex-none place-items-center rounded-full bg-well-alt">
+              <div className="flex items-start gap-4">
+                <span className="grid size-10 flex-none place-items-center rounded-full bg-pill">
                   <Icon name="sparkles" size={18} />
                 </span>
                 <div className="flex min-w-0 flex-col gap-1.5">
@@ -355,39 +286,50 @@ export default async function ProjectPage({
           ]),
         )}
       />
-      <PageHeader
-        back={{ label: areaName, href: areaHref }}
-        title={p.title}
-        className="pb-[clamp(48px,6vw,88px)]"
-      >
-        <p className="t-sub max-w-[640px]">{p.line}</p>
-        <dl className="mt-4 mb-0 flex flex-wrap gap-x-[clamp(32px,5vw,64px)] gap-y-4">
-          {[
-            ["Year", p.year],
-            ["Role", p.role],
-            ["Type", p.subtext],
-            ...(p.ai ? [["AI use", "AI assistant, checked by me"]] : []),
-          ].map(([k, v]) => (
-            <div key={k} className="flex flex-col gap-0.5">
-              <dt className="text-[13px] text-fg-2">{k}</dt>
-              <dd className="m-0 text-[17px] font-semibold">{v}</dd>
-            </div>
-          ))}
-        </dl>
-        <div className="mt-1 flex flex-wrap gap-2">
-          {cats.map((c) => (
-            <Link
-              key={c.slug}
-              href={categoryHref(c.slug)}
-              className="inline-flex h-8 items-center rounded-full bg-bg-alt px-3.5 text-[13px] font-medium text-fg hover:bg-pill hover:no-underline"
-            >
-              {c.label}
-            </Link>
-          ))}
-        </div>
-      </PageHeader>
+      {area === "ventures" ? (
+        <VenturesNav current="/stillgood" />
+      ) : (
+        <AreaNav
+          area={area}
+          current={current ? categoryHref(current.slug) : areaHref}
+        />
+      )}
 
-      <Hero p={p} />
+      <section className="gutter pt-[clamp(44px,min(7vw,10vh),100px)]">
+        <div className="wrap flex flex-col gap-[clamp(40px,5vw,72px)]">
+          <div className="flex flex-col gap-3">
+            <p className="text-[14px] font-medium text-fg-2">
+              {p.subtext}, {p.year}
+            </p>
+            <h1 className="t-h1">{p.title}</h1>
+            <p className="t-sub max-w-[640px]">{p.line}</p>
+          </div>
+          <ShowroomHero project={p} />
+          <dl className="m-0 grid grid-cols-[repeat(auto-fit,minmax(min(100%,140px),1fr))] gap-x-[clamp(24px,3vw,40px)] gap-y-6 border-t border-hairline pt-[clamp(20px,2.4vw,32px)]">
+            {[
+              ["Year", p.year],
+              ["Role", p.role],
+              ["Type", p.subtext],
+              ...(p.ai ? [["AI Use", "AI assistant, reviewed by me"]] : []),
+            ].map(([k, v]) => (
+              <div key={k} className="flex flex-col gap-1">
+                <dt className="text-[13px] text-fg-2">{k}</dt>
+                <dd className="m-0 text-[16px] font-semibold">{v}</dd>
+              </div>
+            ))}
+            <div className="flex flex-col gap-1">
+              <dt className="text-[13px] text-fg-2">Categories</dt>
+              <dd className="m-0 flex flex-wrap gap-x-3 gap-y-1 text-[16px] font-semibold">
+                {cats.map((c) => (
+                  <Link key={c.slug} href={categoryHref(c.slug)}>
+                    {c.label}
+                  </Link>
+                ))}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
 
       {p.story ? (
         <section className="gutter band-y-2">
@@ -432,11 +374,14 @@ export default async function ProjectPage({
         </section>
       )}
 
-      <NextCard
-        href={`/projects/${next.slug}`}
-        label="Next Project"
-        title={next.title}
-        line={next.line}
+      <ShowroomCarousel
+        title={
+          area === "ventures"
+            ? "More From My Ventures"
+            : `More ${areaName} Projects`
+        }
+        href={areaHref}
+        projects={more}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import catRaw from "./generated/categories.json";
 import navRaw from "./generated/navigation.json";
-import type { AreaId, Category, CategorySlug } from "./types";
+import type { AreaId, Category, CategorySlug, Project } from "./types";
 import { CATEGORY_STRUCTURE } from "./structure";
 import { projects } from "./projects";
 import { smallApps } from "./small-apps";
@@ -102,3 +102,38 @@ export const categoryCount = (slug: CategorySlug) =>
       : slug === "ventures"
         ? ventures.length
         : projectsInCategory(slug).length;
+
+const DESIGN_CATS: CategorySlug[] = [
+  "ui-ux",
+  "product-design",
+  "graphic-design",
+];
+const BUILT_CATS: CategorySlug[] = ["web-apps", "client-work"];
+
+/**
+ * The area a project's page belongs to. StillGood is a venture in itself;
+ * design work (a design category, and not a built website) is Design, like
+ * the Frésko and Quizzy prototypes; everything else is Development.
+ */
+export const projectArea = (p: Project): AreaId => {
+  if (p.slug === "stillgood") return "ventures";
+  const has = (list: CategorySlug[]) =>
+    p.categories.some((c) => list.includes(c));
+  return has(DESIGN_CATS) && !has(BUILT_CATS) ? "design" : "dev";
+};
+
+/**
+ * Projects in an area, for the "more projects" carousel. Ventures holds
+ * the projects behind each venture (StillGood, Frésko, Calibrium).
+ */
+export const projectsInArea = (area: AreaId): Project[] =>
+  area === "ventures"
+    ? ventures
+        .map((v) =>
+          v.href === "/stillgood"
+            ? "stillgood"
+            : v.href.match(/^\/projects\/([^/]+)/)?.[1],
+        )
+        .map((slug) => projects.find((p) => p.slug === slug))
+        .filter((p): p is Project => !!p)
+    : projects.filter((p) => projectArea(p) === area);
