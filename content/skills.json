@@ -2,7 +2,7 @@
   "groups": [
     {
       "name": "Frontend",
-      "plain": "The parts of websites and apps you see and click.",
+      "plain": "Building the parts of websites and apps that users see and interact with.",
       "items": [
         "Next.js",
         "React",
@@ -16,7 +16,7 @@
     },
     {
       "name": "Mobile",
-      "plain": "Apps for phones.",
+      "plain": "Developing mobile apps for Android and iOS.",
       "items": [
         "React Native",
         "Expo",
@@ -25,7 +25,7 @@
     },
     {
       "name": "Backend",
-      "plain": "The behind-the-scenes systems that store data and make things work.",
+      "plain": "Servers, databases and APIs that store data and keep everything running.",
       "items": [
         "Node.js",
         "Express.js",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Tools",
-      "plain": "Helpers for building, testing and tracking how people use an app.",
+      "plain": "Tools I use for version control, deployment, testing and analytics.",
       "items": [
         "Claude Code",
         "PostHog",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Design",
-      "plain": "Planning how things look and feel before they're built.",
+      "plain": "Designing how products look and feel before they are built.",
       "items": [
         "Figma",
         "Adobe Photoshop",

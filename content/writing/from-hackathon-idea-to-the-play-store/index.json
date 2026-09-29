@@ -1,8 +1,12 @@
 {
-  "title": "From a hackathon idea to the Play Store",
+  "title": "From a Hackathon Idea to the Google Play Store",
   "date": "2026-09-10",
-  "summary": "Frésko reached the grand finals of a student hackathon in 2024. Two years later it's StillGood, a real app on Google Play.",
-  "tags": ["StillGood", "Frésko", "Hackathon"],
+  "summary": "Frésko brought my team to the grand finals of the SP Batey Hackathon in 2024. Two years later, it became StillGood, a real app on the Google Play Store.",
+  "tags": [
+    "StillGood",
+    "Frésko",
+    "Hackathon"
+  ],
   "draft": true,
   "notes": "DRAFT written from the Frésko and StillGood case studies. Add: what the judges said, what you changed from the hackathon design and why, your teammates' names if they're happy to be named."
 }

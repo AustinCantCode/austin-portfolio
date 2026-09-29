@@ -2,56 +2,56 @@
   "items": [
     {
       "slug": "web-apps",
-      "label": "Web apps",
-      "blurb": "Sites and platforms, from storefronts to school systems.",
+      "label": "Web Apps",
+      "blurb": "Websites and web applications I have developed, from online stores to education platforms.",
       "seoTitle": "Web App Projects: Storefronts to School Systems"
     },
     {
       "slug": "mobile-apps",
-      "label": "Mobile apps",
-      "blurb": "Apps built and designed for the phone.",
+      "label": "Mobile Apps",
+      "blurb": "Mobile applications I have developed and designed.",
       "seoTitle": "Mobile App Projects and App Designs"
     },
     {
       "slug": "client-work",
-      "label": "Client work",
-      "blurb": "Built for real clients and live today.",
+      "label": "Client Work",
+      "blurb": "Live platforms I have developed for real clients during my internship and freelance work.",
       "seoTitle": "Client Work: Live Websites and Platforms"
     },
     {
       "slug": "school-projects",
-      "label": "School projects",
-      "blurb": "Made at Singapore Polytechnic.",
+      "label": "School Projects",
+      "blurb": "Projects I completed for my modules at Singapore Polytechnic.",
       "seoTitle": "School Projects from Singapore Polytechnic"
     },
     {
       "slug": "small-apps",
-      "label": "Small apps",
-      "blurb": "Tiny apps I built while learning.",
+      "label": "Small Apps",
+      "blurb": "Small applications I built while learning JavaScript, Node.js and React.",
       "seoTitle": "Small Apps Built While Learning to Code"
     },
     {
       "slug": "ui-ux",
       "label": "UI/UX",
-      "blurb": "Research, flows and prototypes.",
+      "blurb": "App designs, from user research to interactive prototypes in Figma and Adobe XD.",
       "seoTitle": "UI/UX Design Projects and Prototypes"
     },
     {
       "slug": "product-design",
-      "label": "Product design",
-      "blurb": "Physical things, modelled and printed.",
+      "label": "Product Design",
+      "blurb": "Physical products I have designed, modelled in Tinkercad and 3D-printed.",
       "seoTitle": "Product Design: 3D-Printed Prototypes"
     },
     {
       "slug": "graphic-design",
-      "label": "Graphic design",
-      "blurb": "Posters, ads and artwork.",
+      "label": "Graphic Design",
+      "blurb": "Advertisements, posters and artwork I have created in Adobe Photoshop and Illustrator.",
       "seoTitle": "Graphic Design Gallery: Posters and Ads"
     },
     {
       "slug": "ventures",
       "label": "Ventures",
-      "blurb": "Things I started.",
+      "blurb": "The ventures I have started.",
       "seoTitle": "Ventures: A Hackathon Team, Freelance and an App"
     }
   ]

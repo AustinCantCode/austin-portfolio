@@ -2,12 +2,12 @@
   "title": "Glovida-RX",
   "order": 50,
   "year": "2025",
-  "line": "Prescriptions that stay up to date.",
-  "subtext": "Medical prescriptions",
-  "role": "Full-stack developer, Amber Creative",
-  "problem": "Prices and medicine details weren't always updating correctly between doctors and pharmacists.",
-  "did": "I found and fixed the issues so that changes made by one person show up correctly for everyone else.",
-  "outcome": "Doctors and pharmacists now see accurate information straight away.",
+  "line": "A healthcare platform for managing medical prescriptions.",
+  "subtext": "Medical Prescription Management",
+  "role": "Full-stack Developer, Amber Creative",
+  "problem": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the doctor and pharmacist roles.",
+  "did": "As a Full-stack Developer, I resolved issues with dynamic state updates in key UI components, ensuring that product prices and medication details updated accurately in real time. I also improved the backend state handling between the pharmacist and doctor roles so the data reflected correctly across the platform.",
+  "outcome": "Doctors and pharmacists now see accurate information straight away, allowing for faster and more reliable decisions.",
   "skills": [
     "Next.js",
     "React",
@@ -45,12 +45,12 @@
   "gallery": [],
   "story": [
     {
-      "title": "The problem",
-      "body": "Glovida-RX handles prescriptions between doctors and pharmacists. Prices and medicine details weren't always updating correctly between them, so one person could be looking at old information."
+      "title": "The Problem",
+      "body": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the different roles, which meant someone could end up looking at outdated information."
     },
     {
-      "title": "What I did",
-      "body": "I found and fixed the issues, so a change made by one person now shows up correctly for everyone else. I worked with Next.js, React, TypeScript and GraphQL, and used TablePlus to look at the data.",
+      "title": "What I Did",
+      "body": "As a Full-stack Developer, I resolved the issues with dynamic state updates in key UI components, so a change made by one role now shows up correctly for everyone else. I also improved the backend state handling between the pharmacist and doctor roles. For this project, I worked with Next.js, React, TypeScript and GraphQL, and used TablePlus to inspect the data.",
       "image": {
         "image": "/images/projects/grx/story/1/image/image.png",
         "alt": "The Glovida-RX pharmacy website",
@@ -59,8 +59,8 @@
       }
     },
     {
-      "title": "The result",
-      "body": "Doctors and pharmacists now see accurate information straight away."
+      "title": "The Result",
+      "body": "Doctors and pharmacists now see accurate information in real time, allowing them to make faster and more reliable decisions."
     }
   ],
   "notes": "Drafted from the existing Glovida-RX text. Check: add what caused the problem, if you can share it."

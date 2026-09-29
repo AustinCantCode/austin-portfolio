@@ -3,7 +3,7 @@
   "order": 90,
   "tech": "React",
   "year": "2024",
-  "text": "Add, tick off and remove tasks.",
+  "text": "A to-do list where you can add, complete and remove tasks.",
   "image": "/images/small-apps/to-do-list/image.png",
   "alt": "To-Do List screenshot",
   "video": "/videos/small-apps/to-do-list/video.mp4"

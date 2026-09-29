@@ -2,12 +2,12 @@
   "title": "KiasuParents",
   "order": 40,
   "year": "2025",
-  "line": "Singapore's parenting community, kept fast and fresh.",
-  "subtext": "Parenting website",
-  "role": "Full-stack developer, Amber Creative",
-  "problem": "A very busy website with lots of articles and forums needed new pages without slowing down.",
-  "did": "I built new pages, made the site faster and fixed bugs across its main sections. I also kept content up to date.",
-  "outcome": "New features for thousands of parents, on a faster and steadier site.",
+  "line": "Singapore's online community and resource hub for parents.",
+  "subtext": "Parenting Community & Content",
+  "role": "Full-stack Developer, Amber Creative",
+  "problem": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and busy forums. It needed new features and pages without slowing the website down.",
+  "did": "I worked on enhancing the platform through new feature development, bug fixes and continuous content updates based on the client's requirements. My contributions included implementing new webpages, improving application performance and maintaining stability across key modules.",
+  "outcome": "New features for thousands of parents, on a faster and more stable website.",
   "skills": [
     "Next.js",
     "React",
@@ -60,12 +60,12 @@
   ],
   "story": [
     {
-      "title": "The challenge",
-      "body": "KiasuParents is a Singapore parenting community, with lots of articles and busy forums. It needed new pages without slowing the site down."
+      "title": "The Challenge",
+      "body": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and very active forums. The website needed new pages and features without slowing it down for its users."
     },
     {
-      "title": "What I did",
-      "body": "As part of the Amber Creative team, I built new pages, made the site faster and fixed bugs across its main sections. I also kept content up to date.",
+      "title": "What I Did",
+      "body": "As part of the Amber Creative team, I implemented new webpages, improved the application's performance and fixed bugs across its key modules. I also handled continuous content updates guided by the client's requirements, and gained experience with managing content workflows, administrative tasks and backend operations.",
       "image": {
         "image": "/images/projects/ksp/story/1/image/image.png",
         "alt": "A KiasuParents article page",
@@ -74,12 +74,12 @@
       }
     },
     {
-      "title": "The tools",
-      "body": "The site brings several systems together: Next.js, React, TypeScript and Tailwind CSS, alongside WordPress, Strapi CMS, Mautic and NodeBB."
+      "title": "The Tools",
+      "body": "The website brings several systems together: Next.js, React, TypeScript and Tailwind CSS, alongside WordPress, Strapi CMS, Mautic and NodeBB."
     },
     {
-      "title": "The result",
-      "body": "New features for thousands of parents, on a faster and steadier site."
+      "title": "The Result",
+      "body": "New features for thousands of parents in Singapore, on a faster and more stable website."
     }
   ],
   "notes": "Drafted from the existing KiasuParents text. Check: add which pages you built or any speed numbers you have."

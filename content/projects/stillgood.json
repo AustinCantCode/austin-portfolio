@@ -2,13 +2,13 @@
   "title": "StillGood",
   "order": 10,
   "year": "2026",
-  "line": "An app that helps families waste less food.",
-  "subtext": "Food waste app",
-  "role": "Founder & solo developer",
-  "problem": "Families throw away food they forgot they had. Expiry dates get lost at the back of the fridge.",
-  "did": "I came up with the idea, designed every screen and built the whole thing myself: the phone app, the system behind it and the website. You can snap a photo of your groceries and the app lists them for you, reminds you before they expire and suggests recipes to use them up.",
-  "outcome": "Anyone can download it from the Google Play Store since 26 August 2026. It began as a hackathon idea in 2024.",
-  "ai": "I used Claude Code, an AI coding assistant, like a very fast helper. I decided how the app should work, gave the AI clear written rules to follow, and checked every piece of code it wrote before adding it. The idea, the design, the testing and the launch were all mine.",
+  "line": "My own app that helps families reduce their food waste.",
+  "subtext": "Food Waste App",
+  "role": "Founder & Solo Developer",
+  "problem": "Many families throw away food that they forgot they had, because expiry dates get lost at the back of the fridge. StillGood is my own app that I started, designed and built to solve this problem.",
+  "did": "As the founder and solo developer, I came up with the idea, designed every screen and developed the whole product myself, including the mobile app, the backend server and the website. Users can snap a photo of their groceries and the app lists the items for them, reminds them before anything expires and suggests recipes to use them up.",
+  "outcome": "StillGood has been live on the Google Play Store since 26 August 2026, two years after it started as a hackathon idea.",
+  "ai": "I used Claude Code, an AI coding assistant, as a very fast pair programmer. I decided how the app should work, gave the AI clear written rules to follow and reviewed every piece of code it wrote before adding it. The idea, the design, the testing and the launch were all my own.",
   "skills": [
     "React Native",
     "Expo",
@@ -26,7 +26,7 @@
       "href": "https://play.google.com/store/apps/details?id=com.stillgoodapp.org"
     },
     {
-      "label": "Visit website",
+      "label": "Visit Website",
       "href": "https://stillgoodapp.org"
     }
   ],
@@ -100,17 +100,17 @@
   ],
   "story": [
     {
-      "title": "The problem",
-      "body": "Families throw away food they forgot they had. Expiry dates get lost at the back of the fridge, and by the time you notice, it's too late.\n\nI wanted an app that remembers for you: what you bought, when it goes off, and what you could cook with it before then."
+      "title": "The Problem",
+      "body": "Many families throw away food that they forgot they had. Expiry dates get lost at the back of the fridge, and by the time you notice, it is usually too late.\n\nI wanted to create an app that remembers everything for you: what you bought, when it expires and what you can cook with it before then."
     },
     {
-      "title": "Where it started",
-      "body": "The idea began at the SP Batey Hackathon in September 2024. My team, Zenith Technologies, designed Frésko, an app to cut food waste, and it reached the grand finals.\n\nIn April 2026 I picked the idea back up and started building it for real, on my own, as StillGood.",
-      "callout": "From a hackathon design to a real app on the Play Store in about two years."
+      "title": "Where It Started",
+      "body": "The idea started at the SP Batey Hackathon in September 2024. My team, Zenith Technologies, designed Frésko, an app to reduce food waste, which brought us to the grand finals.\n\nIn April 2026, I picked the idea back up and started building it for real on my own as StillGood.",
+      "callout": "From a hackathon design to a real app on the Google Play Store in about two years."
     },
     {
-      "title": "What I built",
-      "body": "I designed every screen and built the whole thing myself: the phone app, the system behind it and the website.\n\nYou snap a photo of your groceries and the app lists them for you. It sorts everything by expiry date, reminds you before something goes off, and suggests recipes that use up what needs eating first. Households can share one pantry.",
+      "title": "What I Built",
+      "body": "I designed every screen and developed the whole product myself, including the mobile app, the backend server and the website.\n\nUsers snap a photo of their groceries and the app lists the items for them. It sorts everything by expiry date, sends a reminder before something expires and suggests recipes that use up the items that need to be eaten first. Households can also share one pantry together.",
       "image": {
         "image": "/images/projects/stillgood/story/2/image/image.webp",
         "alt": "The scanner adding a banana to the pantry",
@@ -119,8 +119,8 @@
       }
     },
     {
-      "title": "How it works",
-      "body": "The app is built with React Native and Expo, so it runs on Android from one codebase. Behind it sit a Fastify server and a Supabase database. Google's Gemini AI reads grocery photos and suggests recipes, and PostHog shows me how people actually use the app so I can improve it.",
+      "title": "How It Works",
+      "body": "The app is built with React Native and Expo, with a Fastify server and a Supabase database behind it. Google's Gemini AI reads the grocery photos and suggests recipes, while PostHog shows me how users actually use the app so I can keep improving it.",
       "image": {
         "image": "/images/projects/stillgood/story/3/image/image.webp",
         "alt": "Recipe suggestions that use expiring items",
@@ -129,8 +129,8 @@
       }
     },
     {
-      "title": "Launch",
-      "body": "StillGood went live on the Google Play Store on 26 August 2026. Anyone with an Android phone can download it."
+      "title": "The Launch",
+      "body": "StillGood went live on the Google Play Store on 26 August 2026, and anyone with an Android phone can now download it for free!"
     }
   ],
   "results": [
@@ -140,7 +140,7 @@
     },
     {
       "value": "Solo",
-      "label": "design, app, server and website, all by me"
+      "label": "design, mobile app, server and website, all done by me"
     },
     {
       "value": "Live",

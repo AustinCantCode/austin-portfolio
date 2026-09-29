@@ -1,56 +1,56 @@
 {
   "hero": {
-    "status": "Live on Google Play",
-    "title": "StillGood.",
-    "tagline": "Less waste. Smarter pantry.",
-    "line": "Snap your groceries, get reminded before they go off, and find recipes to use them up."
+    "status": "Live on the Google Play Store",
+    "title": "StillGood",
+    "tagline": "Less Waste. Smarter Pantry.",
+    "line": "Snap a photo of your groceries, get reminded before they expire and find recipes to use them up."
   },
   "features": {
-    "title": "Scan it. Track it. Cook it.",
+    "title": "Scan It. Track It. Cook It.",
     "items": [
       {
         "icon": "lucide:scan-line",
-        "title": "Snap to add",
-        "text": "Take a photo of your groceries and the app lists them for you.",
+        "title": "Snap to Add",
+        "text": "Take a photo of your groceries and StillGood will list the items for you.",
         "imageHint": "Scanning screen"
       },
       {
         "icon": "lucide:calendar-clock",
-        "title": "Know what's expiring",
-        "text": "Everything sorted by date, with a reminder before it goes off.",
+        "title": "Know What's Expiring",
+        "text": "Everything is sorted by expiry date, with a reminder before anything goes bad.",
         "imageHint": "Expiry list screen"
       },
       {
         "icon": "lucide:chef-hat",
-        "title": "Cook what you have",
-        "text": "Recipe ideas for the food that needs using first.",
+        "title": "Cook What You Have",
+        "text": "Get recipe suggestions for the food that needs to be used up first.",
         "imageHint": "Recipe screen"
       }
     ]
   },
   "story": {
-    "title": "From hackathon to Play Store.",
+    "title": "From a Hackathon to the Play Store",
     "items": [
       {
         "date": "Sep 2024",
         "title": "Frésko",
-        "text": "At a student competition, my team designed the idea and reached the grand finals."
+        "text": "At the SP Batey Hackathon, my team designed the idea and made it to the grand finals."
       },
       {
         "date": "Apr 2026",
-        "title": "StillGood begins",
-        "text": "I turned the idea into a real app, working on my own."
+        "title": "StillGood Begins",
+        "text": "I picked the idea back up and started building it into a real app on my own."
       },
       {
         "date": "26 Aug 2026",
         "title": "Live on Google Play",
-        "text": "Anyone with an Android phone can now download it."
+        "text": "StillGood launched, and anyone with an Android phone can now download it for free!"
       }
     ]
   },
   "builtWith": {
-    "title": "Built by me, with an AI helper.",
-    "text": "I designed and built the app, the system behind it and the website myself. I used Claude Code, an AI coding assistant, to work faster: I decided how everything should work, and checked every piece of code it wrote before using it.",
+    "title": "Built by Me, with an AI Pair Programmer",
+    "text": "I designed and developed the mobile app, the backend server and the website all by myself. I used Claude Code, an AI coding assistant, to work faster: I decided how everything should work and reviewed every piece of code it wrote before using it.",
     "stack": [
       "React Native",
       "Expo",
@@ -64,8 +64,8 @@
     ]
   },
   "cta": {
-    "title": "Get StillGood.",
-    "line": "Available now on Android."
+    "title": "Get StillGood",
+    "line": "Available now for free on Android."
   },
   "screens": {
     "home": {

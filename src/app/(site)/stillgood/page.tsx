@@ -110,9 +110,7 @@ export default function StillGoodPage() {
             data-reveal=""
             className="text-[clamp(32px,4.2vw,52px)] leading-[1.02] font-bold tracking-[-0.03em]"
           >
-            Scan it. Track it.
-            <br />
-            Cook it.
+            {sg.features.title}
           </h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(20px,2.4vw,32px)]">
             {sg.features.items.map((f, i) => (
@@ -148,9 +146,7 @@ export default function StillGoodPage() {
       <section aria-labelledby="sg-story" className="gutter band-y bg-bg-alt">
         <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="sg-story" data-reveal="" className="t-h2">
-            From hackathon
-            <br />
-            to Play Store.
+            {sg.story.title}
           </h2>
           <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-[clamp(20px,2.4vw,32px)] p-0">
             {sg.story.items.map((s) => (

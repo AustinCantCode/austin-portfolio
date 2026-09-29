@@ -2,12 +2,12 @@
   "title": "Frésko",
   "order": 140,
   "year": "2024",
-  "line": "The hackathon idea that became StillGood.",
-  "subtext": "Hackathon app design",
-  "role": "Designer, Zenith Technologies",
-  "problem": "Food waste often starts with forgetting what's in the fridge.",
-  "did": "With my team, I designed an app that tracks expiry dates, reads grocery receipts, sends reminders and suggests recipes.",
-  "outcome": "We reached the grand finals of the SP Batey Hackathon 2024.",
+  "line": "The hackathon app idea that later became StillGood.",
+  "subtext": "Food Waste App Design",
+  "role": "UI/UX Designer, Zenith Technologies",
+  "problem": "Frésko is the app my team, Zenith Technologies, created to compete in the SP Batey Hackathon 2024. A lot of food waste happens simply because people forget what they have in their fridge until it has expired.",
+  "did": "Together with my team, I designed an app that helps users reduce their food waste by tracking expiration dates and suggesting recipes for items that are nearing expiry. Users can scan their groceries, receive reminders and share their own recipes with a community, all in one app.",
+  "outcome": "Our team was awarded Grand Finalist at the SP Batey Hackathon 2024.",
   "skills": [
     "Figma"
   ],
@@ -40,12 +40,12 @@
   "gallery": [],
   "story": [
     {
-      "title": "The idea",
-      "body": "Food waste often starts with forgetting what's in the fridge. At the SP Batey Hackathon in September 2024, my team, Zenith Technologies, set out to fix that."
+      "title": "The Idea",
+      "body": "During my semester break in September 2024, I took part in the SP Batey Hackathon with my team, Zenith Technologies. We noticed that a lot of food waste happens simply because people forget what they have in their fridge until it has already expired, so we decided to tackle that."
     },
     {
-      "title": "What we designed",
-      "body": "We designed Frésko in Figma: an app that tracks expiry dates, reads grocery receipts to add items for you, sends reminders before food goes off, and suggests recipes to use it up.",
+      "title": "What We Designed",
+      "body": "We designed Frésko in Figma, an app that tracks the expiration dates of your food, scans grocery receipts to add items for you, sends reminders before food goes bad and suggests recipes to use it up. We also added a community where users can share their own recipes.",
       "image": {
         "image": "/images/projects/fresko/story/1/image/image.png",
         "alt": "Frésko app screens",
@@ -54,19 +54,19 @@
       }
     },
     {
-      "title": "What happened next",
-      "body": "Frésko reached the grand finals. The idea stayed with me, and in 2026 I built it for real as StillGood, now on the Google Play Store.",
-      "callout": "The hackathon design became the starting point for StillGood."
+      "title": "What Happened Next",
+      "body": "Frésko brought us all the way to the grand finals of the hackathon! The idea stuck with me after the competition, and in 2026 I decided to build it for real as StillGood, which is now live on the Google Play Store.",
+      "callout": "This hackathon design became the starting point for StillGood."
     }
   ],
   "results": [
     {
-      "value": "Finals",
+      "value": "Grand Finalist",
       "label": "SP Batey Hackathon, September 2024"
     },
     {
       "value": "4",
-      "label": "core features, from expiry tracking to recipes"
+      "label": "core features, from expiry tracking to recipe suggestions"
     }
   ],
   "notes": "Drafted from the existing Frésko text. Check: your role in the team, and add the team members and a photo from the finals if you like."

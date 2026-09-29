@@ -2,12 +2,12 @@
   "title": "SP Mobile v3",
   "order": 170,
   "year": "2023",
-  "line": "A calmer app for Singapore Polytechnic students.",
-  "subtext": "App redesign",
-  "role": "UI/UX designer, group project",
-  "problem": "Students found the school's app hard to use.",
-  "did": "We redesigned it to look modern and simple, while keeping important features like taking attendance.",
-  "outcome": "A clickable design for a school module on user experience.",
+  "line": "A redesign of the Singapore Polytechnic mobile app.",
+  "subtext": "App Redesign",
+  "role": "UI/UX Designer, Group Project",
+  "problem": "This was a project done with my group for my User Experience Fundamentals (UXF) module. The Singapore Polytechnic app had received a lot of negative feedback about its user experience.",
+  "did": "We redesigned the app so that it has a modern and minimalist look, without compromising any of its key features such as attendance taking.",
+  "outcome": "A complete interactive prototype designed in Figma.",
   "skills": [
     "Figma"
   ],

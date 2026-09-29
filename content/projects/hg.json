@@ -2,12 +2,12 @@
   "title": "Hidden Gems",
   "order": 160,
   "year": "2023",
-  "line": "Swipe to discover Singapore's hidden places.",
-  "subtext": "Travel app design",
-  "role": "UI/UX designer, group project",
-  "problem": "Tourists rarely find the places locals love.",
-  "did": "Our group designed a swipe-to-like way to discover places, a shared feed and a view of what's nearby.",
-  "outcome": "A clickable design for a school module on designing for people.",
+  "line": "An app design to help tourists find Singapore's lesser-known places.",
+  "subtext": "Travel App Design",
+  "role": "UI/UX Designer, Group Project",
+  "problem": "This was a project done with my group for my Design for User Interaction module. With Singapore becoming an increasingly popular tourist destination, we wanted to help tourists find places that are rarely known.",
+  "did": "We designed an app with a concept similar to Tinder, where users swipe right to like a place and left to skip it, together with a feed like Instagram where users can share places and experiences. We also designed a nearby feature that shows places and events of interest around the user.",
+  "outcome": "A complete interactive prototype designed in Figma.",
   "skills": [
     "Figma"
   ],

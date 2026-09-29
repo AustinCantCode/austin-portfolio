@@ -134,7 +134,7 @@ export function SkillsView({
                         {u.title}
                       </span>
                       <span className="text-[13px] text-fg-2">
-                        {u.subtext} · {u.year}
+                        {u.subtext}, {u.year}
                       </span>
                     </Link>
                   </li>

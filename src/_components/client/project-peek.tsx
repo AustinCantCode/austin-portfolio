@@ -186,7 +186,7 @@ export function ProjectDialog({
       >
         <div className="flex flex-col gap-1.5">
           <p className="text-[13px] font-semibold text-fg-2">
-            {p.subtext} · {p.year}
+            {p.subtext}, {p.year}
           </p>
           <h2 className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] font-bold">
             {p.title}
@@ -267,7 +267,7 @@ export function SmallAppPeek({
               )}
             >
               <p className="text-[13px] font-semibold text-fg-2">
-                {app.tech} · {app.year}
+                {app.tech}, {app.year}
               </p>
               <h2 className="text-[clamp(28px,3.2vw,36px)] leading-[1.05] font-bold">
                 {app.title}

@@ -28,14 +28,14 @@ export default function SkillsPage() {
       <AboutNav current="/about/skills" />
       <PageHeader
         title={pageCopy.skills.heading}
-        sub="The tools I use to design and build. Tap any one to see which projects used it."
+        sub="The tools and technologies I use to design and build. Tap on any of them to see the projects I used it in."
         className="pb-[clamp(48px,6vw,88px)]"
       />
       <SkillsView groups={skillGroups} projects={projects} />
       <section aria-labelledby="learnt" className="gutter band-y-2 bg-bg-alt">
         <div className="wrap flex flex-col gap-[clamp(28px,4vw,48px)]">
           <h2 id="learnt" className="t-h2">
-            Recently learnt.
+            Recently Learnt
           </h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
             {about.learnt.map((l) => (

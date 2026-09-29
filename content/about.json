@@ -5,12 +5,12 @@
     "fit": "",
     "bare": false
   },
-  "intro": "I graduated from Singapore Polytechnic with a Diploma in Information Technology, specialising in UI/UX design. After my internship at Amber Creative, I did freelance software development. Now I'm building my own app, StillGood.",
+  "intro": "I am a Singapore Polytechnic graduate with a Diploma in Information Technology, specializing in User Experience and Interface (UI/UX) design. After my internship at Amber Creative as a Full-stack Software Developer, I took on freelance projects for clients before starting my own app, StillGood, which is now live on the Google Play Store.",
   "timeline": [
     {
       "date": "Aug 2026",
       "title": "Launched StillGood",
-      "sub": "Live on the Google Play Store.",
+      "sub": "StillGood went live on the Google Play Store!",
       "now": false
     },
     {
@@ -34,7 +34,7 @@
     {
       "date": "Sep 2024",
       "title": "SP Batey Hackathon",
-      "sub": "Grand finalist with Frésko, the idea behind StillGood.",
+      "sub": "Grand Finalist with Frésko, the idea that later became StillGood",
       "now": false
     },
     {
@@ -46,7 +46,7 @@
     {
       "date": "2018 – 2022",
       "title": "Compassvale Secondary School",
-      "sub": "GCE O-Level",
+      "sub": "GCE N(A) Level and GCE O Level",
       "now": false
     }
   ],
@@ -55,42 +55,42 @@
       "href": "/about/skills",
       "icon": "layers",
       "title": "Skills",
-      "text": "34 tools across frontend, mobile, backend and design."
+      "text": "The 34 tools and technologies I use across frontend, mobile, backend and design."
     },
     {
       "href": "/about/certificates",
       "icon": "award",
       "title": "Certificates",
-      "text": "29 from AWS, GitHub, LinkedIn Learning and more."
+      "text": "29 certificates attained from organizations such as AWS, GitHub and LinkedIn Learning."
     },
     {
       "href": "/about/events",
       "icon": "calendar-days",
       "title": "Events",
-      "text": "Hackathons, trips and volunteering."
+      "text": "Hackathons, an overseas study trip and volunteering events I have taken part in."
     },
     {
       "href": "/cv",
       "icon": "file-text",
       "title": "CV",
-      "text": "Everything on one page, plus a PDF."
+      "text": "My experience, education and skills on one page, with a PDF to download."
     }
   ],
   "learnt": [
     {
       "icon": "sparkles",
-      "title": "AI-assisted development",
-      "text": "Working with an AI coding assistant responsibly: giving it clear rules and checking everything it writes."
+      "title": "AI-assisted Development",
+      "text": "Using AI coding assistants responsibly, by giving them clear instructions and reviewing every change they make."
     },
     {
       "icon": "chart-line",
-      "title": "PostHog",
-      "text": "Understanding how people actually use an app, so I can improve it."
+      "title": "PostHog Analytics",
+      "text": "Tracking how users actually use my app, so I can make better decisions when improving it."
     },
     {
       "icon": "smartphone",
-      "title": "Mobile development",
-      "text": "Building phone apps with payments, notifications and fingerprint login."
+      "title": "Mobile Development",
+      "text": "Developing mobile apps with React Native, including payments, push notifications and biometric login."
     }
   ]
 }

@@ -1,8 +1,12 @@
 {
-  "title": "What client platforms taught me",
+  "title": "What Working on Client Platforms Taught Me",
   "date": "2026-09-20",
-  "summary": "Ten months at Amber Creative, working on live platforms for ITE, KiasuParents, Glovida-RX and IAL.",
-  "tags": ["Amber Creative", "Client work", "Next.js"],
+  "summary": "My ten months as a Full-stack Software Developer Intern at Amber Creative, working on live platforms for ITE, KiasuParents, Glovida-RX and IAL.",
+  "tags": [
+    "Amber Creative",
+    "Client work",
+    "Next.js"
+  ],
   "draft": true,
   "notes": "DRAFT written from the client case studies and CV. This one needs your own lessons most: replace the general points with real stories from the internship."
 }

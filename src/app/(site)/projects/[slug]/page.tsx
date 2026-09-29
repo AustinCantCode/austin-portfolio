@@ -229,7 +229,7 @@ export default async function ProjectPage({
       ? [
           {
             id: "what-they-said",
-            title: "What they said",
+            title: "Testimonial",
             body: (
               <figure className="m-0 flex flex-col gap-4">
                 <blockquote className="m-0">
@@ -251,7 +251,7 @@ export default async function ProjectPage({
       ? [
           {
             id: "how-i-used-ai",
-            title: "How I used AI",
+            title: "How I Used AI",
             body: (
               <div className="flex items-start gap-4 rounded-[24px] bg-bg-alt p-[clamp(20px,2.4vw,28px)]">
                 <span className="grid size-10 flex-none place-items-center rounded-full bg-well-alt">
@@ -272,7 +272,7 @@ export default async function ProjectPage({
       : []),
     {
       id: "tools-used",
-      title: "Tools used",
+      title: "Tools Used",
       body: (
         <ul className="m-0 flex list-none flex-wrap gap-2 p-0 pt-1">
           {p.skills.map((s) => (
@@ -413,8 +413,8 @@ export default async function ProjectPage({
         <section className="gutter band-y-2">
           <div className="wrap flex flex-col gap-[clamp(32px,4vw,48px)]">
             {[
-              ["Problem", p.problem],
-              ["What I did", p.did],
+              ["Overview", p.problem],
+              ["What I Did", p.did],
               ["Outcome", p.outcome],
             ].map(([label, text]) => (
               <Row key={label} label={label}>
@@ -434,7 +434,7 @@ export default async function ProjectPage({
 
       <NextCard
         href={`/projects/${next.slug}`}
-        label="Next project"
+        label="Next Project"
         title={next.title}
         line={next.line}
       />

@@ -93,7 +93,7 @@ Also:
 made from it), pick categories and a device frame (Laptop for websites, Phone
 for apps, None for photos and artwork), then add a cover image. **Order**
 decides where it appears (lower first). To show it on the homepage, add it to
-Homepage → Selected work.
+Homepage → Featured projects.
 
 **Write a longer case study.** Open the project → **Case study sections** →
 **Add** a section per part of the story (for example "The challenge", "What
@@ -136,7 +136,7 @@ Phone apps: do the same at **390** × **844** (an iPhone-sized screen) and
 upload it as the project's **Single app screen**.
 
 **Change the homepage.** Site → Homepage has every section: the timeline,
-What I do (including its four project thumbnails and photo), Selected work,
+What I Do (including its four project thumbnails and photo), Featured Projects,
 the numbers and the contact tiles.
 
 **Add a certificate.** About → Certificates → open its group (for example
@@ -149,10 +149,10 @@ event (untick the old one).
 exactly, add their name, role and company, and pick the project it's about
 (it then also appears on that case study). Tick **They agreed to be quoted**;
 quotes without it never appear. Tick **Lead quote** on the one to show
-largest. The "Kind words." section stays hidden until there's at least one.
+largest. The Testimonials section stays hidden until there's at least one.
 
 **Awards on the homepage.** About → Certificates → open a group → tick
-**Show on the homepage** on a certificate. Recognition shows every ticked one.
+**Show on the homepage** on a certificate. Achievements shows every ticked one.
 
 **Client names.** Site → Homepage → Clients strip. Add a logo to replace a
 name with the client's logo (shown in one colour to match the site).
@@ -161,7 +161,7 @@ name with the client's logo (shown in one colour to match the site).
 photos (oldest first) with the year. They replace the round portrait with a
 stack visitors can drag or tap through.
 
-**Timeline links and logos.** Site → Homepage → How I got here → open a
+**Timeline links and logos.** Site → Homepage → My Journey → open a
 milestone to add a small logo or links such as "Case study" → /projects/fresko.
 
 **Work areas.** Development, Design and Ventures each have their own page

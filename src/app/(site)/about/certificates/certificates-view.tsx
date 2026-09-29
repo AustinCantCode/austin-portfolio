@@ -96,7 +96,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
             noun="certificate"
             items={list.map((c) => ({
               title: c.title,
-              caption: `${c.issuer} · ${c.description}`,
+              caption: `${c.issuer}: ${c.description}`,
               media: c.image
                 ? {
                     src: c.image,

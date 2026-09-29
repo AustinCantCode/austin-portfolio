@@ -26,9 +26,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Austin Sia – Full-Stack Developer & Designer in Singapore",
+  title: "Austin Sia – Full-stack Developer & Designer in Singapore",
   description:
-    "Portfolio of Austin Sia, a full-stack developer and UI/UX designer in Singapore: client websites and platforms, mobile apps, design work and ventures.",
+    "The portfolio of Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore: client platforms, mobile apps, designs and ventures.",
   applicationName: "Austin Sia",
   authors: [{ name: "Austin Sia", url: site.url }],
   creator: "Austin Sia",

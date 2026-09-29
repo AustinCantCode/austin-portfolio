@@ -98,11 +98,11 @@ export function ContactForm() {
               <Icon name="check" size={22} />
             </span>
             <h3 className="text-[clamp(26px,2.8vw,32px)] leading-[1.1] font-bold">
-              Message sent.
+              Message Sent!
             </h3>
             <p className="max-w-[440px] text-[17px] leading-[1.55] text-fg-2">
-              Thanks{sentName ? `, ${sentName}` : ""}. It&apos;s in my inbox,
-              and I usually reply within a day.
+              Thank you{sentName ? `, ${sentName}` : ""}! Your message is in my
+              inbox, and I usually reply within a day.
             </p>
             <button
               type="button"

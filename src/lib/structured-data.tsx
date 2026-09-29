@@ -26,9 +26,9 @@ export const personLd = () => ({
   name: site.name,
   url: site.url,
   image: portrait ? `${site.url}${portrait.src.src}` : undefined,
-  jobTitle: "Full-stack developer and UI/UX designer",
+  jobTitle: "Full-stack Software Developer and UI/UX Designer",
   description:
-    "Full-stack developer and UI/UX designer in Singapore, building websites and apps for companies and for himself.",
+    "Full-stack Software Developer and UI/UX Designer in Singapore, building websites and mobile apps for companies and for himself.",
   address: {
     "@type": "PostalAddress",
     addressCountry: "SG",
@@ -138,7 +138,7 @@ export const stillgoodAppLd = () => ({
   operatingSystem: "Android",
   applicationCategory: "LifestyleApplication",
   description:
-    "StillGood helps families waste less food: snap your groceries, get reminded before they go off, and find recipes to use them up.",
+    "StillGood helps families reduce their food waste: snap your groceries, get reminded before they expire and find recipes to use them up.",
   datePublished: "2026-08-26",
   author: { "@id": PERSON_ID },
   offers: { "@type": "Offer", price: "0", priceCurrency: "AUD" },

@@ -1,7 +1,7 @@
 {
   "journey": {
-    "title": "How I got here.",
-    "sub": "It started in secondary school and led to shipping my own app.",
+    "title": "My Journey",
+    "sub": "From secondary school to launching my very own app on the Google Play Store.",
     "link": {
       "label": "View my CV ›",
       "href": "/cv"
@@ -10,18 +10,18 @@
       {
         "date": "2018 – 2022",
         "title": "Compassvale Secondary School",
-        "sub": "GCE O-Level"
+        "sub": "GCE N(A) Level and GCE O Level"
       },
       {
         "date": "2023 – 2026",
         "title": "Singapore Polytechnic",
-        "sub": "Diploma in Information Technology, focused on user experience design",
+        "sub": "Diploma in Information Technology, specializing in UI/UX design",
         "logo": "/images/home/journey/items/1/logo.jpg"
       },
       {
         "date": "Sep 2024",
         "title": "SP Batey Hackathon",
-        "sub": "Grand finalist with Frésko, the idea behind StillGood.",
+        "sub": "Grand Finalist with Frésko, the idea that later became StillGood",
         "links": [
           {
             "label": "Frésko case study",
@@ -36,7 +36,7 @@
       {
         "date": "Apr 2025 – Feb 2026",
         "title": "Amber Creative Pte Ltd",
-        "sub": "Software Developer Intern, building websites and apps for clients",
+        "sub": "Full-stack Software Developer Intern, developing websites and web apps for clients",
         "links": [
           {
             "label": "Client work",
@@ -47,7 +47,7 @@
       {
         "date": "Feb 2026 – May 2026",
         "title": "Freelance",
-        "sub": "Software Developer",
+        "sub": "Software Developer, developing websites for clients such as Calibrium",
         "links": [
           {
             "label": "Calibrium",
@@ -58,7 +58,7 @@
       {
         "date": "Apr 2026 – Present",
         "title": "StillGood",
-        "sub": "Founder & Developer",
+        "sub": "Founder & Developer of my own food waste app",
         "links": [
           {
             "label": "About StillGood",
@@ -69,7 +69,7 @@
       {
         "date": "Aug 2026",
         "title": "Launched StillGood",
-        "sub": "Live on the Google Play Store.",
+        "sub": "StillGood went live on the Google Play Store!",
         "links": [
           {
             "label": "Google Play",
@@ -80,27 +80,27 @@
     ]
   },
   "whatIDo": {
-    "title": "What I do.",
+    "title": "What I Do",
     "areas": [
       {
         "id": "dev",
         "icon": "lucide:code-xml",
         "label": "Development",
         "count": 21,
-        "headline": "I build websites and apps, start to finish.",
-        "blurb": "From the screens people tap on to the systems behind them, I build complete websites and phone apps for companies and for myself.",
+        "headline": "Full-stack Web & Mobile Development",
+        "blurb": "I develop websites and mobile apps from start to finish, from the user interface all the way to the backend and databases.",
         "services": [
           {
             "icon": "lucide:monitor",
-            "title": "Websites & online systems"
+            "title": "Websites & Web Apps"
           },
           {
             "icon": "lucide:smartphone",
-            "title": "Phone apps"
+            "title": "Mobile Apps"
           },
           {
             "icon": "lucide:server",
-            "title": "Behind the scenes"
+            "title": "Backend & Databases"
           }
         ],
         "stack": [
@@ -113,7 +113,7 @@
           "Docker"
         ],
         "href": "/development",
-        "cta": "Explore development",
+        "cta": "View my development projects",
         "featuredProjects": [
           "calibrium",
           "ite",
@@ -124,27 +124,27 @@
           "fit": "",
           "bare": false
         },
-        "photoHint": "Photo of you coding, or a desk setup"
+        "photoHint": "Photo of me coding"
       },
       {
         "id": "design",
         "icon": "lucide:pen-tool",
         "label": "Design",
         "count": 11,
-        "headline": "Interfaces people actually enjoy.",
-        "blurb": "I studied user experience design at Singapore Polytechnic. I talk to users, sketch ideas and design every screen before anything is built.",
+        "headline": "UI/UX, Product & Graphic Design",
+        "blurb": "I specialized in UI/UX design at Singapore Polytechnic, so every project I work on starts with the user in mind.",
         "services": [
           {
             "icon": "lucide:layout-template",
-            "title": "App & web design"
+            "title": "UI/UX Design"
           },
           {
             "icon": "lucide:box",
-            "title": "Product design"
+            "title": "Product Design"
           },
           {
             "icon": "lucide:palette",
-            "title": "Graphic design"
+            "title": "Graphic Design"
           }
         ],
         "stack": [
@@ -155,7 +155,7 @@
           "Tinkercad"
         ],
         "href": "/design",
-        "cta": "Explore design",
+        "cta": "View my design projects",
         "featuredProjects": [
           "fresko",
           "quizzy",
@@ -166,15 +166,15 @@
           "fit": "",
           "bare": false
         },
-        "photoHint": "Figma canvas or sketches"
+        "photoHint": "My design work in Figma"
       },
       {
         "id": "ventures",
         "icon": "lucide:rocket",
         "label": "Entrepreneurship",
         "count": 3,
-        "headline": "From hackathon idea to live product.",
-        "blurb": "I like starting things. A student competition led to freelance work, and then to StillGood, my own app that I now run.",
+        "headline": "From a Hackathon Idea to a Live App",
+        "blurb": "What started as a hackathon idea with my team became StillGood, an app I built and launched on my own.",
         "services": [
           {
             "icon": "lucide:leaf",
@@ -190,13 +190,13 @@
           }
         ],
         "stack": [
-          "Product planning",
-          "App store launch",
-          "Working with clients",
-          "Tracking what users do"
+          "Product Planning",
+          "Play Store Launch",
+          "Client Management",
+          "User Analytics"
         ],
         "href": "/ventures",
-        "cta": "Explore ventures",
+        "cta": "View my ventures",
         "featuredProjects": [
           "stillgood",
           "fresko",
@@ -205,25 +205,25 @@
         ],
         "photo": {
           "image": "/images/home/whatIDo/areas/2/photo/image.png",
-          "alt": "Austin presenting at the SP Batey Hackathon",
+          "alt": "Me presenting at the SP Batey Hackathon 2024",
           "fit": "",
           "bare": false
         },
-        "photoHint": "StillGood launch or hackathon photo"
+        "photoHint": "Photo from the StillGood launch"
       }
     ]
   },
   "tools": {
-    "title": "Tools I use.",
+    "title": "Tools I Use",
     "link": {
-      "label": "All skills ›",
+      "label": "See all my skills ›",
       "href": "/about/skills"
     }
   },
   "selectedWork": {
-    "title": "Selected work.",
+    "title": "Featured Projects",
     "link": {
-      "label": "See all work ›",
+      "label": "See all projects ›",
       "href": "/development"
     },
     "projects": [
@@ -236,11 +236,11 @@
     ]
   },
   "kindWords": {
-    "title": "Kind words.",
-    "sub": "From people I've built websites and apps with."
+    "title": "Testimonials",
+    "sub": "What the people I have worked with have to say."
   },
   "clients": {
-    "title": "Teams I've built for",
+    "title": "Clients I've Worked With",
     "items": [
       {
         "name": "ITE",
@@ -273,59 +273,59 @@
     ]
   },
   "events": {
-    "title": "Out and about.",
+    "title": "Events & Participation",
     "link": {
-      "label": "All events ›",
+      "label": "See all events ›",
       "href": "/about/events"
     }
   },
   "recognition": {
-    "title": "Recognition.",
-    "sub": "A hackathon final and awards along the way.",
+    "title": "Achievements",
+    "sub": "Awards and certifications I have attained along the way.",
     "link": {
-      "label": "All certificates ›",
+      "label": "See all certificates ›",
       "href": "/about/certificates"
     }
   },
   "numbers": {
-    "title": "The story in numbers.",
+    "title": "Highlights",
     "stats": [
       {
         "n": "29",
-        "label": "certificates",
-        "cta": "See certificates",
+        "label": "certificates attained",
+        "cta": "See my certificates",
         "href": "/about/certificates"
       },
       {
         "n": "10+",
-        "label": "projects shipped",
-        "cta": "See work",
+        "label": "projects developed",
+        "cta": "See my projects",
         "href": "/development"
       },
       {
         "n": "3+",
-        "label": "years building websites & apps",
-        "cta": "View CV",
+        "label": "years of full-stack development",
+        "cta": "View my CV",
         "href": "/cv"
       },
       {
         "n": "8",
-        "label": "client platforms",
-        "cta": "See client work",
+        "label": "client platforms delivered",
+        "cta": "See my client work",
         "href": "/development/client-work"
       }
     ]
   },
   "contact": {
-    "title": "Let's build something.",
-    "line": "That's the story so far. The next part could be with you: I'm open to developer roles and freelance projects.",
+    "title": "Let's Work Together",
+    "line": "I am currently open to software developer roles and freelance projects. Feel free to reach out to me through any of these channels!",
     "tiles": [
       {
         "icon": "lucide:mail",
         "title": "Email",
         "value": "austin.sia1515@gmail.com",
-        "note": "Best for roles, projects and anything detailed.",
-        "action": "Write",
+        "note": "Best for job opportunities, projects and detailed enquiries.",
+        "action": "Email me",
         "href": "mailto:austin.sia1515@gmail.com",
         "behavior": "copy-to-clipboard"
       },
@@ -333,7 +333,7 @@
         "icon": "lucide:phone",
         "title": "Phone",
         "value": "+65 9107 0598",
-        "note": "Weekdays, Singapore time.",
+        "note": "Available on weekdays, Singapore time.",
         "action": "Call",
         "href": "tel:+6591070598",
         "behavior": "link"
@@ -342,7 +342,7 @@
         "icon": "mdi:linkedin",
         "title": "LinkedIn",
         "value": "linkedin.com/in/austin-sia",
-        "note": "Experience, recommendations and updates.",
+        "note": "My experience, recommendations and updates.",
         "action": "Connect",
         "href": "https://www.linkedin.com/in/austin-sia/",
         "behavior": "link"
@@ -351,7 +351,7 @@
         "icon": "mdi:github",
         "title": "GitHub",
         "value": "github.com/austincantcode",
-        "note": "Code, contributions and side projects.",
+        "note": "My code, contributions and side projects.",
         "action": "Follow",
         "href": "https://github.com/austincantcode",
         "behavior": "link"
@@ -359,8 +359,8 @@
       {
         "icon": "lucide:file-text",
         "title": "CV",
-        "value": "Austin Sia, CV",
-        "note": "Experience, education and skills on one page.",
+        "value": "Austin Sia's CV",
+        "note": "My experience, education and skills on one page.",
         "action": "View",
         "href": "/cv",
         "behavior": "link"
@@ -369,7 +369,7 @@
         "icon": "lucide:map-pin",
         "title": "Based in",
         "value": "Singapore",
-        "note": "SGT, UTC+8. Open to remote and on-site.",
+        "note": "SGT (UTC+8). Open to both remote and on-site work.",
         "action": "Contact page",
         "href": "/contact",
         "behavior": "link"

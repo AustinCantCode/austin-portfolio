@@ -36,7 +36,7 @@ export default function HomePage() {
             path: "/",
             name: "Austin Sia",
             description:
-              "Portfolio of Austin Sia, full-stack developer and UI/UX designer in Singapore.",
+              "The portfolio of Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore.",
           }),
         )}
       />
@@ -85,9 +85,7 @@ export default function HomePage() {
             id="contact-title"
             className="text-[clamp(38px,5.5vw,72px)] leading-none font-bold tracking-[-0.035em]"
           >
-            Let&apos;s build
-            <br />
-            something.
+            {home.contact.title}
           </h2>
           <p className="max-w-[520px] text-[clamp(17px,1.6vw,19px)] text-fg-2">
             {home.contact.line}

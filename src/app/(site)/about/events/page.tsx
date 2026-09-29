@@ -28,7 +28,7 @@ export default function EventsPage() {
       <AboutNav current="/about/events" />
       <PageHeader
         title={pageCopy.events.heading}
-        sub="Hackathons, trips and volunteering."
+        sub="The hackathons, study trips and volunteering events I have taken part in."
         className="pb-[clamp(48px,6vw,88px)]"
       />
       <section className="gutter pb-[clamp(16px,2vw,24px)]">
@@ -46,7 +46,7 @@ export default function EventsPage() {
           </div>
           <div className="flex min-w-0 flex-[1_1_320px] flex-col justify-center gap-2.5 p-[clamp(32px,5.5vw,72px)]">
             <p className="text-[13px] font-semibold text-band-fg-2">
-              {featured.date} · {featured.role}
+              {featured.date}, {featured.role}
             </p>
             <h2 className="text-[clamp(26px,3.2vw,38px)] leading-[1.08] font-bold tracking-[-0.025em]">
               {featured.title}

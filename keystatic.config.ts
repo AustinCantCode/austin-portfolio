@@ -299,7 +299,7 @@ const certificates = collection({
           image: img("certificates", "Certificate image"),
           featured: fields.checkbox({
             label: "Show on the homepage",
-            description: "Featured under Recognition on the homepage.",
+            description: "Featured under Achievements on the homepage.",
           }),
         },
         { label: "Certificate" },
@@ -447,7 +447,7 @@ const home = singleton({
           },
         ),
       },
-      { label: "How I got here (timeline)" },
+      { label: "My Journey (timeline)" },
     ),
     whatIDo: fields.object(
       {
@@ -490,7 +490,7 @@ const home = singleton({
           { label: "Areas", itemLabel: (p) => p.fields.label.value },
         ),
       },
-      { label: "What I do" },
+      { label: "What I Do" },
     ),
     tools: sectionHead("Tools I use"),
     selectedWork: fields.object(
@@ -502,11 +502,11 @@ const home = singleton({
           collection: "projects",
         }),
       },
-      { label: "Selected work" },
+      { label: "Featured projects" },
     ),
     kindWords: fields.object(
       { title: line("Title"), sub: para("Line under the title") },
-      { label: "Kind words (testimonials)" },
+      { label: "Testimonials" },
     ),
     clients: fields.object(
       {

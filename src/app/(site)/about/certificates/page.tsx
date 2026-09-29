@@ -25,8 +25,8 @@ export default function CertificatesPage() {
       />
       <AboutNav current="/about/certificates" />
       <PageHeader
-        title={`${allCertificates.length} certificates.`}
-        sub="From AWS, GitHub, LinkedIn Learning and more."
+        title={`${allCertificates.length} Certificates`}
+        sub="The certificates I have attained from organizations such as AWS, GitHub and LinkedIn Learning."
       />
       <CertificatesView groups={certificateGroups} />
     </>

@@ -28,7 +28,7 @@ export default function AboutPage() {
             path: "/about",
             name: "About Austin Sia",
             description:
-              "About Austin Sia, full-stack developer and UI/UX designer in Singapore.",
+              "About Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore.",
           }),
           breadcrumbLd([{ name: "About", path: "/about" }]),
         )}
@@ -66,7 +66,7 @@ export default function AboutPage() {
       >
         <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="so-far" data-reveal="" className="t-h2">
-            So far.
+            My Journey So Far
           </h2>
           <ol className="m-0 flex list-none flex-col p-0">
             {about.timeline.map((t) => (
@@ -101,7 +101,7 @@ export default function AboutPage() {
       >
         <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="more" data-reveal="" className="t-h2">
-            More about me.
+            More About Me
           </h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(max(180px,calc((100%_-_48px)/4)),1fr))] gap-4">
             {about.more.map((m) => (
@@ -135,7 +135,7 @@ export default function AboutPage() {
             className="flex flex-wrap items-end justify-between gap-4"
           >
             <h2 id="github" className="t-h2">
-              Shipping, most days.
+              My GitHub Contributions
             </h2>
             <TextLink href={site.contact.github}>
               {site.contact.githubLabel} ›

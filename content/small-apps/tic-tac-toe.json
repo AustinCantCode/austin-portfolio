@@ -3,7 +3,7 @@
   "order": 80,
   "tech": "React",
   "year": "2024",
-  "text": "The classic two-player game.",
+  "text": "A tic tac toe game created with React.js.",
   "image": "/images/small-apps/tic-tac-toe/image.png",
   "alt": "Tic Tac Toe screenshot",
   "video": "/videos/small-apps/tic-tac-toe/video.mp4"

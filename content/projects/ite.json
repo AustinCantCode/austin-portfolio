@@ -2,12 +2,12 @@
   "title": "ITE WSDip",
   "order": 30,
   "year": "2025",
-  "line": "One system for students, teachers and companies.",
-  "subtext": "Education platform",
-  "role": "Full-stack developer, Amber Creative",
-  "problem": "ITE's work-study programme has four kinds of users, and each needs to see different information from the same system.",
-  "did": "During my internship I built screens for each type of user, connected them to the data behind the scenes and fixed problems as they came up. I also helped put new versions live.",
-  "outcome": "A more reliable system for everyone who uses it, from students to partner companies.",
+  "line": "A multi-role platform for ITE's Work-Study Diploma.",
+  "subtext": "Education & Training Management",
+  "role": "Full-stack Developer, Amber Creative",
+  "problem": "ITE Work-Study Diploma (WSDip) is a multi-role education management platform supporting trainees, trainers, administrators and company representatives. Each type of user needs to see different information from the same system.",
+  "did": "As a Full-stack Developer, I built features that improved both the user experience and backend reliability. My work involved developing responsive UI with custom ShadCN components, integrating backend APIs and managing data flow across the different user types. I also handled debugging and supported deployments using Docker, Azure Blob Storage and UNIX environments.",
+  "outcome": "A more reliable platform for everyone who uses it, from trainees to partner companies.",
   "skills": [
     "Next.js",
     "React",
@@ -49,12 +49,12 @@
   "gallery": [],
   "story": [
     {
-      "title": "The challenge",
-      "body": "ITE's Work-Study Diploma connects students, their teachers and the companies they train with. Four kinds of users share one system, and each needs to see different information.\n\nKeeping it clear and reliable for all of them is the hard part."
+      "title": "The Challenge",
+      "body": "ITE Work-Study Diploma (WSDip) is a multi-role education management platform that supports trainees, trainers, administrators and company representatives. All four types of users share one system, but each of them needs to see different information.\n\nKeeping the platform clear and reliable for all of them was the main challenge."
     },
     {
-      "title": "What I did",
-      "body": "During my internship at Amber Creative, I built screens for each type of user and connected them to the data behind the scenes. I fixed problems as they came up, and helped put new versions of the platform live.",
+      "title": "What I Did",
+      "body": "During my internship at Amber Creative, I contributed as a Full-stack Developer, developing responsive UI with custom ShadCN components, integrating backend APIs and managing the data flow across the different user types. I also handled debugging, dynamic data handling and supported deployments of new versions of the platform.",
       "image": {
         "image": "/images/projects/ite/story/1/image/image.png",
         "alt": "The ITE Work-Study Diploma sign-in page",
@@ -63,18 +63,18 @@
       }
     },
     {
-      "title": "The tools",
-      "body": "The platform is built with Next.js, React and TypeScript, using shadcn/ui and Tailwind CSS for the interface, with Zustand, Azure Blob Storage, Docker, Node.js and Swagger UI behind the scenes."
+      "title": "The Tools",
+      "body": "The platform is built with Next.js, React and TypeScript, using ShadCN and Tailwind CSS for the interface. Behind the scenes, it uses Zustand, Azure Blob Storage, Docker, Node.js and Swagger UI, deployed in UNIX environments."
     },
     {
-      "title": "The result",
-      "body": "A more reliable system for everyone who uses it, from students to partner companies."
+      "title": "The Result",
+      "body": "A more reliable platform for everyone who uses it, from trainees and trainers to administrators and partner companies."
     }
   ],
   "results": [
     {
       "value": "4",
-      "label": "kinds of user, each with their own screens"
+      "label": "types of users: trainees, trainers, administrators and companies"
     }
   ],
   "notes": "Drafted from the existing ITE text. Check: name the four kinds of user (students, teachers, companies and who else?). Add screenshots of the screens you built, if ITE allows."

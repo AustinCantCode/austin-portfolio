@@ -16,8 +16,10 @@ export default async function Image({
 }) {
   const p = projectBySlug((await params).slug);
   return ogCard({
-    eyebrow: p ? `Case study · ${p.subtext}` : "Case study",
+    eyebrow: p ? `Case Study: ${p.subtext}` : "Case Study",
     title: p?.title ?? "Austin Sia",
-    line: p?.line ?? "Full-stack developer and UI/UX designer in Singapore.",
+    line:
+      p?.line ??
+      "Full-stack Software Developer and UI/UX Designer in Singapore.",
   });
 }

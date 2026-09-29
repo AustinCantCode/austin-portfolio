@@ -1,7 +1,7 @@
 {
   "home": {
     "title": "Austin Sia – Full-Stack Developer & Designer in Singapore",
-    "description": "Portfolio of Austin Sia, a full-stack developer and UI/UX designer in Singapore: client platforms for ITE, KiasuParents and IAL, mobile apps and design work."
+    "description": "I am Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore. Explore my client platforms for ITE, KiasuParents and IAL, and my apps."
   },
   "development": {
     "title": "Development: Websites, Web Apps and Mobile Apps",
@@ -19,44 +19,44 @@
     "heading": "Ventures"
   },
   "about": {
-    "title": "About Austin Sia | Full-Stack Developer & UI/UX Designer",
-    "description": "Austin Sia is a Singapore Polytechnic IT graduate who builds websites and apps. His journey from Amber Creative intern to freelancer, plus skills and events.",
-    "heading": "About."
+    "title": "About Me | Austin Sia, Full-stack Developer & Designer",
+    "description": "I am a Singapore Polytechnic IT graduate who builds websites and apps. Read about my journey from intern at Amber Creative to launching my app, StillGood.",
+    "heading": "About Me"
   },
   "skills": {
     "title": "Skills: Next.js, React, TypeScript and Design",
-    "description": "The 34 tools Austin Sia uses to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects that used each one.",
-    "heading": "Skills."
+    "description": "The 34 tools and technologies I use to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects I used them in.",
+    "heading": "Skills"
   },
   "certificates": {
     "title": "29 Certificates from AWS, GitHub and LinkedIn",
-    "description": "Austin Sia's 29 certificates: generative AI courses from AWS, GitHub and JavaScript certificates from LinkedIn Learning, a hackathon final and school awards."
+    "description": "My 29 certificates, including generative AI programmes from AWS, GitHub and JavaScript courses from LinkedIn Learning, a hackathon final and school awards."
   },
   "events": {
     "title": "Events: Hackathons, Study Trips and Volunteering",
-    "description": "Events Austin Sia has taken part in: the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen, Singapore Technology Week and volunteering.",
-    "heading": "Out and about."
+    "description": "The events I have taken part in, including the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen, Singapore Technology Week and volunteering.",
+    "heading": "Events & Participation"
   },
   "cv": {
     "title": "CV: Full-Stack Developer and UI/UX Designer",
-    "description": "Austin Sia's CV: experience at Amber Creative and as a freelancer, a Diploma in IT from Singapore Polytechnic, selected projects and skills, plus a PDF."
+    "description": "My CV: experience as the founder of StillGood, as a freelancer and at Amber Creative, a Diploma in IT from Singapore Polytechnic, my projects and skills."
   },
   "contact": {
     "title": "Contact Austin Sia: Developer Roles and Freelance",
-    "description": "Get in touch with Austin Sia about developer roles and freelance web or app projects in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
-    "heading": "Let's build something.",
-    "intro": "Open to developer roles and freelance projects. I usually reply within a day.",
-    "formTitle": "Or send a message.",
-    "formLine": "It comes straight to my inbox."
+    "description": "Get in touch with me about software developer roles and freelance web or app projects, in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
+    "heading": "Contact Me",
+    "intro": "I am open to software developer roles and freelance projects. I usually reply within a day!",
+    "formTitle": "Send Me a Message",
+    "formLine": "Your message will go straight to my inbox."
   },
   "stillgood": {
     "title": "StillGood: A Food Waste App for Android",
-    "description": "StillGood helps families waste less food: snap your groceries, get reminded before they go off and find recipes to use them up. Free on Google Play."
+    "description": "StillGood helps families reduce their food waste: snap your groceries, get reminded before they expire and find recipes to use them up. Free on Google Play."
   },
   "writing": {
     "title": "Writing: Notes on Building Apps and Websites",
-    "description": "Posts by Austin Sia on building StillGood, turning a hackathon idea into an app, and working on client platforms in Singapore.",
-    "heading": "Writing.",
-    "intro": "Notes on what I build and what I learn along the way."
+    "description": "My posts on building StillGood, turning a hackathon idea into a real app and what I learnt working on client platforms in Singapore.",
+    "heading": "Writing",
+    "intro": "My thoughts on the things I build and what I learn along the way."
   }
 }

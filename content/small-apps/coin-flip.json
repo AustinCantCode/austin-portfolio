@@ -1,9 +1,9 @@
 {
-  "title": "Coin Flip",
+  "title": "CatFlipper",
   "order": 20,
   "tech": "JavaScript",
   "year": "2023",
-  "text": "Flip a coin and see heads or tails.",
+  "text": "A cat-themed coin flipper game, heads or tails!",
   "image": "/images/small-apps/coin-flip/image.png",
   "alt": "Coin Flip screenshot",
   "video": "/videos/small-apps/coin-flip/video.mp4"

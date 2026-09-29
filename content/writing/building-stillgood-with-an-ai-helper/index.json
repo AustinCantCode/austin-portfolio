@@ -1,8 +1,12 @@
 {
-  "title": "Building StillGood on my own, with an AI helper",
+  "title": "Building StillGood on My Own with an AI Pair Programmer",
   "date": "2026-09-01",
-  "summary": "How I used Claude Code to build a phone app, its server and its website by myself, and why I still checked every line it wrote.",
-  "tags": ["StillGood", "AI", "React Native"],
+  "summary": "How I used Claude Code to develop a mobile app, its backend server and its website all by myself, and why I still reviewed every line of code it wrote.",
+  "tags": [
+    "StillGood",
+    "AI",
+    "React Native"
+  ],
   "draft": true,
   "notes": "DRAFT written from the StillGood case study and CV. Add your own examples: a moment the AI got something wrong, a rule you gave it, how long the build took."
 }

@@ -1,18 +1,18 @@
 {
   "button": "Ask about Austin",
-  "greeting": "Hi! I can answer questions about Austin's work, skills and experience, using what's on this site.",
+  "greeting": "Hi there! I can answer your questions about Austin's projects, skills and experience, based on what is on this website.",
   "prompts": [
-    "What has Austin built for clients?",
-    "Tell me about StillGood",
-    "What tech does Austin use most?",
+    "What has Austin built for his clients?",
+    "Tell me more about StillGood",
+    "What technologies does Austin use the most?",
     "Is Austin open to new roles?",
     "What did Austin do at Amber Creative?",
     "Does Austin do UI/UX design too?",
-    "What's his mobile app experience?",
+    "What mobile app experience does Austin have?",
     "How did StillGood start?",
     "Which hackathon did Austin take part in?",
     "How does Austin use AI when coding?",
-    "What did he study?",
+    "What did Austin study?",
     "How can I contact Austin?"
   ]
 }
