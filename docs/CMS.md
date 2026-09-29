@@ -135,6 +135,14 @@ so capture just the page instead:
 Phone apps: do the same at **390** × **844** (an iPhone-sized screen) and
 upload it as the project's **Single app screen**.
 
+**Update the CV.** About → CV holds everything on the `/cv` page: the
+role line, profile, experience, education, side projects, soft skills and
+awards. The downloadable PDF (`public/AustinResume.pdf`) is made from the
+same content, in the original one-page layout. After editing the CV, run
+`pnpm cv:pdf` on your computer and commit the new PDF. It needs a Chromium
+once: `npx playwright install chromium` (or set `CHROME_PATH` to your
+Chrome).
+
 **Change the homepage.** Site → Homepage has every section: the timeline,
 What I Do (including its four project thumbnails and photo), Featured Projects,
 the numbers and the contact tiles.

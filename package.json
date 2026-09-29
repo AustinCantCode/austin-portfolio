@@ -11,7 +11,8 @@
     "lint": "next lint",
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,md}'",
     "format:write": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'",
-    "postinstall": "node scripts/content.mjs"
+    "postinstall": "node scripts/content.mjs",
+    "cv:pdf": "node scripts/cv-pdf.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
@@ -53,6 +54,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@fontsource/inter": "^5.3.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -61,6 +63,7 @@
     "concurrently": "^10.0.5",
     "eslint": "^9",
     "eslint-config-next": "15.3.6",
+    "playwright-core": "1.56.1",
     "prettier": "^3.6.2",
     "sharp": "^0.35.5",
     "tailwindcss": "^4",

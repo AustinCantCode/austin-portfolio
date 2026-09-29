@@ -1,44 +1,63 @@
 {
-  "role": "Full-stack developer and UI/UX designer · Singapore",
-  "profile": "Singapore Polytechnic IT graduate with over 3 years of full-stack web development. I launched my own app, StillGood, on the Google Play Store, and have built more than 10 projects across a range of tech stacks.",
+  "role": "Full-stack Software Developer, Entrepreneur, UI/UX Designer",
+  "profile": "A Full-stack Software Developer with a strong foundation in both frontend and backend technologies, and a passion for building responsive, user-friendly websites and mobile apps. Proficient in Next.js, React, TypeScript and React Native, I have developed more than 10 projects across a range of tech stacks and launched my own app, StillGood, on the Google Play Store. Always eager to expand my technical expertise and continuously learn new technologies to further improve myself.",
   "experience": [
     {
       "org": "StillGood",
       "role": "Founder & Developer",
       "date": "Apr 2026 – Present",
-      "text": "Designed and built a food waste app, API and website solo. Gemini AI scanning and recipes, PostHog analytics. Built with Claude Code as an AI pair programmer, with every change reviewed through pull requests. Live on Google Play."
+      "text": "Designed and developed StillGood, a food waste app, on my own, including the React Native mobile app, a Fastify backend with a Supabase database and the website. Integrated Google's Gemini AI to scan groceries and suggest recipes, and PostHog to understand how users use the app. Launched on the Google Play Store on 26 August 2026."
     },
     {
       "org": "Freelance",
       "role": "Software Developer",
       "date": "Feb 2026 – May 2026",
-      "text": "Client web development, including accounts, orders, payments and email notifications for the Calibrium watch store. Used Claude Code to speed up parts of the build, reviewing and testing every change."
+      "text": "Developed websites for paying clients, including the Calibrium online watch store, where I added registration and login, a profile page, checkout with payment, order history, favourites and order confirmation emails."
     },
     {
       "org": "Amber Creative Pte Ltd",
       "role": "Full-stack Software Developer Intern",
       "date": "Apr 2025 – Feb 2026",
-      "text": "Built and maintained client platforms including ITE WSDip, KiasuParents, Glovida-RX and IAL, using Next.js, TypeScript, C# and several CMSs."
+      "text": "Developed and contributed to multiple client projects such as ITE Work-Study Diploma (WSDip), KiasuParents, Glovida-RX Pharmacy and the Institute for Adult Learning (IAL), using Next.js, TypeScript, C# and CMSs such as Kentico, Strapi and StoryBlok."
     }
   ],
   "education": [
     {
       "org": "Singapore Polytechnic",
       "date": "2023 – 2026",
-      "text": "Diploma in Information Technology, specialising in UI/UX design"
+      "text": "Diploma in Information Technology (S69), Certificate in Design & Innovation"
     },
     {
       "org": "Compassvale Secondary School",
       "date": "2018 – 2022",
-      "text": "GCE O-Level"
+      "text": "GCE N(A) Level and GCE O Level Certificates"
     }
   ],
   "projects": [
-    "stillgood",
-    "calibrium",
-    "ite",
-    "ksp",
-    "grx",
-    "fresko"
+    "gowhere",
+    "shoply",
+    "telegpt",
+    "port",
+    "fresko",
+    "quizzy"
+  ],
+  "softSkills": [
+    "Leadership",
+    "Time Management",
+    "Teamwork",
+    "Critical Thinking",
+    "Effective Communicator",
+    "Fast and Active Learner",
+    "Attention to Detail"
+  ],
+  "achievements": [
+    "Launched StillGood on the Google Play Store (2026)",
+    "Grand Finalist, SP Batey Hackathon (2024)",
+    "SCS-AWS GenAI (Foundational) Programme",
+    "Career Essentials in GitHub Professional Certificate",
+    "JavaScript Foundations Professional Certificate",
+    "SP Certificate in Design & Innovation",
+    "React.js Essential Training",
+    "HTML Essential Training"
   ]
 }

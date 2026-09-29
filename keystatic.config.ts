@@ -655,7 +655,7 @@ const cv = singleton({
       }),
       {
         label: "Experience",
-        itemLabel: (p) => `${p.fields.org.value} · ${p.fields.role.value}`,
+        itemLabel: (p) => `${p.fields.org.value}, ${p.fields.role.value}`,
       },
     ),
     education: fields.array(
@@ -667,9 +667,11 @@ const cv = singleton({
       { label: "Education", itemLabel: (p) => p.fields.org.value },
     ),
     projects: fields.multiRelationship({
-      label: "Projects on the CV",
+      label: "Side projects on the CV",
       collection: "projects",
     }),
+    softSkills: list("Soft skills", "Skill"),
+    achievements: list("Awards and certifications", "Achievement"),
   },
 });
 

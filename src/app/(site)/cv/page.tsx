@@ -42,7 +42,7 @@ export default function CVPage() {
       <section className="gutter pt-[clamp(44px,min(7vw,10vh),100px)] pb-[clamp(32px,4vw,56px)]">
         <div className="wrap flex flex-col gap-4">
           <p className="text-[15px] font-semibold text-fg-2">
-            Curriculum vitae
+            Curriculum Vitae
           </p>
           <h1 className="text-[clamp(40px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]">
             Austin Sia
@@ -64,7 +64,7 @@ export default function CVPage() {
               Download PDF
             </ButtonLink>
             <ButtonLink href="/contact" variant="secondary">
-              Get in touch
+              Contact me
             </ButtonLink>
           </div>
         </div>
@@ -102,27 +102,7 @@ export default function CVPage() {
               ))}
             </ol>
           </Row>
-          <Row label="Selected projects">
-            <ul className="m-0 flex list-none flex-col gap-3 p-0">
-              {pickProjects(cv.projects).map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    href={`/projects/${p.slug}`}
-                    className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 text-fg hover:text-accent-text hover:no-underline"
-                  >
-                    <span className="text-[17px] font-semibold">
-                      {p.title}{" "}
-                      <span className="font-normal text-fg-2">
-                        · {p.subtext}
-                      </span>
-                    </span>
-                    <span className="text-[14px] text-fg-2">{p.year}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Row>
-          <Row label="Skills">
+          <Row label="Technical Skills">
             <dl className="m-0 flex flex-col gap-2.5">
               {skillGroups.map((g) => (
                 <div key={g.name} className="flex flex-wrap gap-x-4 gap-y-0.5">
@@ -136,17 +116,38 @@ export default function CVPage() {
               ))}
             </dl>
           </Row>
-          <Row label="Highlights">
+          <Row label="Soft Skills">
+            <p className="text-[15px] text-fg-2">{cv.softSkills.join(", ")}</p>
+          </Row>
+          <Row label="Side Projects">
+            <ul className="m-0 flex list-none flex-col gap-3 p-0">
+              {pickProjects(cv.projects).map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 text-fg hover:text-accent-text hover:no-underline"
+                  >
+                    <span className="flex flex-col">
+                      <span className="text-[17px] font-semibold">
+                        {p.title}
+                      </span>
+                      <span className="text-[15px] text-fg-2">{p.subtext}</span>
+                    </span>
+                    <span className="text-[14px] text-fg-2">{p.year}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Row>
+          <Row label="Achievements">
             <ul className="m-0 flex flex-col gap-1.5 pl-[18px] text-[15px] text-fg-2">
-              <li>
-                Launched StillGood on the Google Play Store, 26 August 2026
-              </li>
-              <li>SP Batey Hackathon 2024 grand finalist</li>
+              {cv.achievements.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
               <li>
                 <Link href="/about/certificates" className="underline">
-                  {allCertificates.length} certificates
-                </Link>{" "}
-                from AWS, GitHub, LinkedIn Learning and more
+                  See all {allCertificates.length} of my certificates
+                </Link>
               </li>
             </ul>
           </Row>
