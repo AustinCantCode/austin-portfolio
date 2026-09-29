@@ -112,6 +112,29 @@ for sections (three or more add an "On this page" list), and drop images
 straight into the text. Three drafts are waiting for you to edit; their
 notes say what to add.
 
+**Retake a website screenshot at 1920×1080.** Website projects show in a
+tablet whose screen takes the screenshot's own shape, so a full 1920×1080
+shot looks like a real desktop screen. A normal screenshot of your browser
+window comes out short and wide (the tabs and address bar take up height),
+so capture just the page instead:
+
+1. Open the site in Chrome and press F12 (Cmd+Option+I on a Mac) to open
+   DevTools.
+2. Turn on the device toolbar (the phone-and-tablet icon, or Ctrl+Shift+M /
+   Cmd+Shift+M).
+3. Pick **Responsive**, then type **1920** × **1080** in the size boxes. If a
+   "DPR" box shows (⋮ → Add device pixel ratio), set it to 1 so the file is
+   exactly 1920×1080 (2 gives a sharper 3840×2160, also fine). The zoom
+   menu doesn't affect the screenshot.
+4. Open the device toolbar's **⋮** menu → **Capture screenshot**. Chrome saves
+   a PNG of exactly the visible page (not "Capture full size screenshot", which
+   is the whole scroll length). Close any cookie or chat pop-ups first.
+5. In the CMS, open the project → **Cover image** → replace the image, check
+   the alt text, and save.
+
+Phone apps: do the same at **390** × **844** (an iPhone-sized screen) and
+upload it as the project's **Single app screen**.
+
 **Change the homepage.** Site → Homepage has every section: the timeline,
 What I do (including its four project thumbnails and photo), Selected work,
 the numbers and the contact tiles.
