@@ -152,7 +152,22 @@ the numbers and the contact tiles.
 "AWS / SCS") → **Add** under Certificates. New group? **Add** a new entry.
 
 **Feature an event.** About → Events → tick **Feature this event** on one
-event (untick the old one).
+event (untick the old one). **Link (optional)** adds a link under it, such
+as "See what it became" → /stillgood.
+
+**Add photos and videos to an event** (for example your graduation). Open
+the event → **More photos and videos** → **Add** one per photo or video.
+The event's card then gets a "View Photos" button that opens them full
+screen. For a video, upload the MP4 and a still photo to show before it
+plays. Keep each video under about 20 MB (1080p, H.264, a minute or two):
+every file is saved in the repo, and big ones slow down saving and
+deploying. On a Mac, QuickTime → File → Export As → 1080p does this.
+
+**Add a letter of recommendation.** About → **Letters of recommendation**
+→ **Add**. Upload a scan or photo of the letter, fill in their name, role
+and company, and pick one or two sentences for the **Excerpt**. Typing out
+the **Full text** lets screen readers, Google and the chatbot read it. Only
+add letters the writer is happy to have published.
 
 **Add a testimonial.** About → Testimonials → **Add**. Paste their words
 exactly, add their name, role and company, and pick the project it's about

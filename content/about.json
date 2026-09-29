@@ -62,6 +62,26 @@
       "now": false
     }
   ],
+  "recommendations": [
+    {
+      "image": "/images/about/recommendations/0/image.png",
+      "name": "Julien Heng",
+      "role": "Frontend Developer & Team Lead",
+      "org": "Amber Creative",
+      "date": "21 January 2026",
+      "excerpt": "Austin has proven himself to be someone who learns quickly, adapts well, and contributes meaningfully to team success.",
+      "text": "Dear Admissions Committee,\n\nIt is my great pleasure to recommend Austin Sia for admission to your university program. I had the privilege of supervising Austin Sia during his one-year internship at Amber Creative, where I serve as Frontend Developer and Team Lead. Austin joined us as a Singapore Polytechnic student with minimal software development experience, but his growth over this period has been remarkable.\n\nThroughout his time with us, Austin worked on multiple client projects, including applications for major organizations like ITE, as his contributions were critical to both project outcomes and our company’s success. Like all developing professionals, Austin encountered challenges and made mistakes along the way. What distinguished him, however, was his response to these setbacks. He consistently demonstrated perseverance and patience, approaching each obstacle as a learning opportunity rather than a roadblock. His ability to learn from errors and apply those lessons quickly became invaluable to our team's delivery capabilities.\n\nWhat truly sets Austin apart from his peers is his confidence in communication. He consistently asks thoughtful questions, voices his opinions constructively, and isn't afraid to raise concerns when he spots potential issues. More importantly, he actively seeks alternative solutions rather than simply accepting the status quo. These qualities demonstrate natural leadership potential—the ability to speak up, take initiative, and rally others around better approaches to problem-solving.\n\nAustin has proven himself to be someone who learns quickly, adapts well, and contributes meaningfully to team success. I am confident he will excel in his academic pursuits and make a lasting impact in any organization fortunate enough to have him. I am confident Austin will excel in your university and make valuable contributions to your academic community.\n\nSincerely,\nJulien Heng\nFrontend Developer & Team Lead Supervisor, Amber Creative"
+    },
+    {
+      "image": "/images/about/recommendations/1/image.webp",
+      "name": "Mrs Viddyawati Gunalan",
+      "role": "Form Teacher",
+      "org": "Compassvale Secondary School",
+      "date": "",
+      "excerpt": "Austin is a warm and unassuming student who is well-respected and well-liked among his peers. He has always shown eagerness to seek new knowledge in the field of technology.",
+      "text": "Austin Sia Kai Siang is a student of Compassvale Secondary School since 2018.\n\nAustin is a warm and unassuming student who is well-respected and well-liked among his peers. He has always shown eagerness to seek new knowledge in the field of technology. His interest in technology was piqued and developed during his Design and Technology lessons. Austin further demonstrated his interest by delving deeper into learning about technology through watching relevant tutorials on YouTube and picking up useful information and technology (IT) skills from it.\n\nAs the Cyber Wellness Ambassador of the class, Austin was trained to handle equipment used in class and gained valuable experience in resolving technological issues. His teachers and peers often ask him for advice regarding technology and he derived immense satisfaction in being able to troubleshoot difficult and complex IT issues.\n\nA keen learner, Austin welcomed new learning opportunities and experiences as he sought to develop himself holistically to discover his potential. He was able to produce work of commendable quality and has been prompt in the submission of his assignments and projects. His positive attitude towards learning enabled him to persevere in overcoming challenges faced in his pursuit of excellence. Austin is also an active learner who does not hesitate to seek clarifications when in doubt. His strong ability to relate well with others made him a valuable team player. Austin worked hard to prepare himself to pursue a course related to the IT industry by taking the initiative and making efforts to read beyond the curriculum to inform himself of new developments in the industry.\n\nDue to his strong interest in Design and Technology, I would strongly recommend Austin for admission to the Common ICT Programme in Temasek Polytechnic. His good understanding and passion for IT will serve him well in his further studies in the future.\n\nThank you.\n\nYours faithfully,\nMrs Viddyawati Gunalan\nForm Teacher"
+    }
+  ],
   "more": [
     {
       "href": "/about/skills",
@@ -73,7 +93,7 @@
       "href": "/about/certificates",
       "icon": "award",
       "title": "Certificates",
-      "text": "29 certificates attained from organizations such as AWS, GitHub and LinkedIn Learning."
+      "text": "33 certificates attained from organizations such as AWS, GitHub and LinkedIn Learning."
     },
     {
       "href": "/about/events",
