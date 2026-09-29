@@ -11,6 +11,8 @@ export type LightboxItem = {
   title: string;
   caption?: string;
   media?: Media;
+  /** An MP4 to play instead of the image, which becomes its still. */
+  video?: string;
 };
 
 /**
@@ -101,8 +103,10 @@ export function Lightbox({
         >
           <Icon name="x" size={18} />
         </button>
+        {/* Certificates: tall enough for portrait ones and letters as well
+            as landscape ones, each shown whole. */}
         <div
-          className={`relative w-full overflow-hidden bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)] rounded-[20px]"}`}
+          className={`relative w-full overflow-hidden bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "h-[min(70vh,900px)]" : "h-[min(72vh,860px)] rounded-[20px]"}`}
         >
           <motion.div
             key={index}
@@ -111,13 +115,26 @@ export function Lightbox({
             transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
             className="absolute inset-0"
           >
-            <ImageSlot
-              media={item.media}
-              placeholder={item.title}
-              fit="contain"
-              sizes="(max-width: 900px) 100vw, 900px"
-              tone="dark"
-            />
+            {item.video ? (
+              <video
+                key={item.video}
+                src={item.video}
+                poster={item.media?.src.src}
+                controls
+                playsInline
+                preload="metadata"
+                aria-label={item.media?.alt || item.title}
+                className="block size-full object-contain"
+              />
+            ) : (
+              <ImageSlot
+                media={item.media}
+                placeholder={item.title}
+                fit="contain"
+                sizes="(max-width: 900px) 100vw, 900px"
+                tone="dark"
+              />
+            )}
           </motion.div>
         </div>
         <div className="flex max-w-[620px] flex-col items-center gap-1 text-center">
@@ -131,7 +148,7 @@ export function Lightbox({
             <p className="text-[14px] text-[#a8a294]">{item.caption}</p>
           )}
         </div>
-        <div className="flex items-center gap-3">
+        <div className={`flex items-center gap-3 ${n < 2 ? "hidden" : ""}`}>
           <button
             type="button"
             onClick={() => go(-1)}

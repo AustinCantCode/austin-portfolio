@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { about, aboutPhotos, portrait } from "@data/about";
+import { about, aboutPhotos, letters, portrait } from "@data/about";
+import { Letters } from "./letters";
 import { PhotoStack } from "@components/client/photo-stack";
 import { site } from "@data/site";
 import { JsonLd, graph, webPageLd, breadcrumbLd } from "@lib/structured-data";
@@ -95,6 +96,49 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {letters.length > 0 && (
+        <section
+          id="recommendations"
+          aria-labelledby="letters"
+          className="gutter scroll-mt-28 py-[clamp(72px,min(9vw,13vh),136px)]"
+        >
+          <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
+            <h2 id="letters" data-reveal="" className="t-h2">
+              Letters of Recommendation
+            </h2>
+            <Letters letters={letters} />
+          </div>
+        </section>
+      )}
+
+      <section
+        aria-labelledby="github"
+        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
+      >
+        <div className="wrap flex flex-col gap-[clamp(24px,4vw,40px)]">
+          <div
+            data-reveal=""
+            className="flex flex-wrap items-end justify-between gap-4"
+          >
+            <h2 id="github" className="t-h2">
+              My GitHub Contributions
+            </h2>
+            <TextLink href={site.contact.github}>
+              {site.contact.githubLabel} ›
+            </TextLink>
+          </div>
+          <div
+            data-reveal=""
+            tabIndex={0}
+            role="region"
+            aria-label="GitHub contributions"
+            className="overflow-x-auto rounded-[24px] bg-tile p-[clamp(20px,3vw,36px)]"
+          >
+            <GitHubCalendar username={site.contact.githubUser} />
+          </div>
+        </div>
+      </section>
+
       <section
         aria-labelledby="more"
         className="gutter py-[clamp(72px,min(9vw,13vh),136px)]"
@@ -121,34 +165,6 @@ export default function AboutPage() {
                 </p>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        aria-labelledby="github"
-        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
-      >
-        <div className="wrap flex flex-col gap-[clamp(24px,4vw,40px)]">
-          <div
-            data-reveal=""
-            className="flex flex-wrap items-end justify-between gap-4"
-          >
-            <h2 id="github" className="t-h2">
-              My GitHub Contributions
-            </h2>
-            <TextLink href={site.contact.github}>
-              {site.contact.githubLabel} ›
-            </TextLink>
-          </div>
-          <div
-            data-reveal=""
-            tabIndex={0}
-            role="region"
-            aria-label="GitHub contributions"
-            className="overflow-x-auto rounded-[24px] bg-tile p-[clamp(20px,3vw,36px)]"
-          >
-            <GitHubCalendar username={site.contact.githubUser} />
           </div>
         </div>
       </section>

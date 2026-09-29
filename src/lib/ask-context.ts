@@ -4,7 +4,7 @@
  * system prompt stays identical between requests and prompt caching works.
  */
 import { site } from "@data/site";
-import { about, cv } from "@data/about";
+import { about, cv, letters } from "@data/about";
 import { projects } from "@data/projects";
 import { skillGroups } from "@data/skills";
 import { allCertificates } from "@data/certificates";
@@ -96,6 +96,15 @@ function knowledge() {
     ...testimonials.map(
       (t) =>
         `- ${t.name}, ${[t.role, t.org].filter(Boolean).join(", ")}: "${t.quote}"`,
+    ),
+    "",
+    letters.length > 0 &&
+      "## Letters of recommendation (/about#recommendations)",
+    ...letters.map((l) =>
+      lines([
+        `### From ${l.name}, ${[l.role, l.org, l.date].filter(Boolean).join(", ")}`,
+        ...l.paragraphs,
+      ]),
     ),
     "",
     posts.filter((p) => !p.draft).length > 0 && "## Posts (/writing)",

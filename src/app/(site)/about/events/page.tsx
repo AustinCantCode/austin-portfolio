@@ -5,6 +5,7 @@ import { pageCopy } from "@data/pages";
 import { PageHeader, TextLink } from "@components/ui";
 import { NaturalImage } from "@components/media";
 import { AboutNav } from "@components/local-nav";
+import { GalleryButton } from "./gallery-button";
 
 export const metadata = pageMetadata({
   title: pageCopy.events.title,
@@ -52,9 +53,21 @@ export default function EventsPage() {
               {featured.title}
             </h2>
             <p className="text-[17px] text-band-fg-2">{featured.text}</p>
-            <TextLink href="/stillgood" className="mt-2 text-band-link">
-              See what it became ›
-            </TextLink>
+            {featured.gallery.length > 0 && (
+              <GalleryButton
+                title={featured.title}
+                items={featured.gallery}
+                className="mt-2 bg-band-pill text-band-fg"
+              />
+            )}
+            {featured.link && (
+              <TextLink
+                href={featured.link.href}
+                className="mt-2 text-band-link"
+              >
+                {featured.link.label} ›
+              </TextLink>
+            )}
           </div>
         </article>
       </section>
@@ -83,6 +96,18 @@ export default function EventsPage() {
                 <p data-hover-detail="" className="text-[15px] text-fg-2">
                   {e.text}
                 </p>
+                {e.gallery.length > 0 && (
+                  <GalleryButton
+                    title={e.title}
+                    items={e.gallery}
+                    className="mt-2 bg-pill text-fg"
+                  />
+                )}
+                {e.link && (
+                  <TextLink href={e.link.href} className="mt-1 text-[15px]">
+                    {e.link.label} ›
+                  </TextLink>
+                )}
               </div>
             </article>
           ))}

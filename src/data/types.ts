@@ -102,7 +102,13 @@ export type EventItem = {
   role: string;
   text: string;
   image?: Media;
+  link?: Link;
+  /** Extra photos and videos, opened full screen from the card. */
+  gallery: GalleryItem[];
 };
+
+/** A photo, or a video with an optional still. */
+export type GalleryItem = { media?: Media; video?: string };
 
 export type Certificate = {
   title: string;

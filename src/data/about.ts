@@ -25,6 +25,46 @@ export const aboutPhotos = (
     alt: p.alt || "Austin Sia",
   }));
 
+type RawLetter = {
+  image?: Img;
+  name?: string;
+  role?: string;
+  org?: string;
+  date?: string;
+  excerpt?: string;
+  text?: string;
+};
+
+export type Letter = {
+  image: NonNullable<Img>;
+  name: string;
+  role: string;
+  org: string;
+  date: string;
+  excerpt: string;
+  /** The full letter, one string per paragraph. */
+  paragraphs: string[];
+};
+
+/** Letters of recommendation on /about, in the CMS order. */
+export const letters: Letter[] = (
+  ((aboutRaw as { recommendations?: RawLetter[] }).recommendations ??
+    []) as RawLetter[]
+)
+  .filter((l): l is RawLetter & { image: NonNullable<Img> } => !!l.image)
+  .map((l) => ({
+    image: l.image,
+    name: l.name ?? "",
+    role: l.role ?? "",
+    org: l.org ?? "",
+    date: l.date ?? "",
+    excerpt: l.excerpt ?? "",
+    paragraphs: (l.text ?? "")
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
+      .filter(Boolean),
+  }));
+
 /** The portrait on /about (also used in structured data). */
 export const portrait = toMedia(aboutRaw.portrait as unknown as RawMedia);
 

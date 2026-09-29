@@ -10,5 +10,9 @@
     "alt": "Team Zenith Technologies at the SP Batey Hackathon",
     "fit": "cover",
     "bare": false
+  },
+  "link": {
+    "label": "See what it became",
+    "href": "/stillgood"
   }
 }

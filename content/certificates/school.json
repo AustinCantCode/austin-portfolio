@@ -39,6 +39,30 @@
       "issuer": "Ministry of Education, SEAB",
       "description": "GCE O-Level 2022 and N-Level 2021.",
       "image": "/images/certificates/school/items/5/image.png"
+    },
+    {
+      "title": "VIA Champion 2021",
+      "issuer": "Compassvale Secondary School",
+      "description": "Certificate of Appreciation for my service as VIA Champion of my class, 4N1.",
+      "image": "/images/certificates/school/items/6/image.png"
+    },
+    {
+      "title": "NCC Assistant Land Training Master 2020/2021",
+      "issuer": "Compassvale Secondary School",
+      "description": "Certificate of Appreciation for my service as Assistant Land Training Master of the National Cadet Corps (NCC).",
+      "image": "/images/certificates/school/items/7/image.png"
+    },
+    {
+      "title": "Edusave Good Progress Award 2019",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Improvement in academic performance and good conduct in Secondary 2.",
+      "image": "/images/certificates/school/items/8/image.png"
+    },
+    {
+      "title": "VIA Champion 2018/2019",
+      "issuer": "Compassvale Secondary School",
+      "description": "Appointed VIA Champion of my class, 1N1.",
+      "image": "/images/certificates/school/items/9/image.png"
     }
   ]
 }

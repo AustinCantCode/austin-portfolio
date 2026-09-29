@@ -273,6 +273,30 @@ const events = collection({
     role: line("My role"),
     text: para("What happened"),
     photo: media("events", "Photo"),
+    link: link("Link (optional)"),
+    gallery: fields.array(
+      fields.object({
+        image: img(
+          "events",
+          "Photo",
+          "For a video, the still shown before it plays.",
+        ),
+        video: fields.file({
+          label: "Video (MP4, optional)",
+          description:
+            "Keep it under about 20 MB: 1080p H.264, a minute or two at most.",
+          directory: "public/videos/events",
+          publicPath: "/videos/events/",
+        }),
+        alt: line("Alt text", "Describe the photo or video."),
+      }),
+      {
+        label: "More photos and videos",
+        description:
+          'Adds a "View photos" button that opens them full screen, in this order.',
+        itemLabel: (p) => p.fields.alt.value || "Photo",
+      },
+    ),
   },
 });
 
@@ -620,6 +644,29 @@ const about = singleton({
       {
         label: "Timeline",
         itemLabel: (p) => `${p.fields.date.value} · ${p.fields.title.value}`,
+      },
+    ),
+    recommendations: fields.array(
+      fields.object({
+        image: img("about", "Scan of the letter"),
+        name: line("Their name"),
+        role: line("Their role", 'e.g. "Form Teacher"'),
+        org: line("Company or school"),
+        date: line("Date (optional)", 'e.g. "2022"'),
+        excerpt: para(
+          "Excerpt",
+          "One or two sentences from the letter, shown large. Their words, as they wrote them.",
+        ),
+        text: para(
+          "Full text (optional)",
+          "The letter typed out, for screen readers and search. Leave a blank line between paragraphs.",
+        ),
+      }),
+      {
+        label: "Letters of recommendation",
+        description:
+          'Shown on the About page under "Letters of Recommendation". Only add letters the writer is happy to have published.',
+        itemLabel: (p) => p.fields.name.value || "Letter",
       },
     ),
     more: fields.array(
