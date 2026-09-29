@@ -8,7 +8,6 @@ import {
   useSpring,
 } from "framer-motion";
 import { useState } from "react";
-import { cn } from "@lib/utils";
 import { Icon } from "../icon";
 import { prefersReducedMotion } from "./motion";
 
@@ -17,7 +16,7 @@ import { prefersReducedMotion } from "./motion";
  * and a gold ring around it shows how far down the page you are. (Phones
  * have the tab bar instead.)
  */
-export function BackToTop({ raised }: { raised?: boolean }) {
+export function BackToTop() {
   const { scrollY, scrollYProgress } = useScroll();
   const ring = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
   const [show, setShow] = useState(false);
@@ -41,10 +40,7 @@ export function BackToTop({ raised }: { raised?: boolean }) {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.15 } }}
           transition={{ type: "spring", stiffness: 380, damping: 26 }}
-          className={cn(
-            "press fixed right-6 z-[58] hidden size-12 place-items-center rounded-full border border-hairline bg-menu text-fg shadow-[var(--shadow-menu)] transition-colors hover:bg-pill lg:grid",
-            raised ? "bottom-[88px]" : "bottom-6",
-          )}
+          className="press fixed right-6 bottom-6 z-[58] hidden size-12 place-items-center rounded-full border border-hairline bg-menu text-fg shadow-[var(--shadow-menu)] transition-colors hover:bg-pill lg:grid"
         >
           <svg
             aria-hidden="true"

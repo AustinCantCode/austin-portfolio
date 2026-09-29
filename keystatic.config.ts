@@ -901,17 +901,6 @@ const pages = singleton({
   },
 });
 
-const chatbot = singleton({
-  label: "Ask Austin (chatbot)",
-  path: "content/chatbot",
-  format: { data: "json" },
-  schema: {
-    button: line("Button text"),
-    greeting: para("Greeting", "The first message people see."),
-    prompts: list("Suggested questions", "Question"),
-  },
-});
-
 const navigation = singleton({
   label: "Work areas",
   path: "content/navigation",
@@ -953,7 +942,7 @@ export default config({
     },
     navigation: {
       Writing: ["writing"],
-      Site: ["site", "home", "pages", "navigation", "categories", "chatbot"],
+      Site: ["site", "home", "pages", "navigation", "categories"],
       Work: ["projects", "smallApps", "graphics", "ventures", "stillgood"],
       About: [
         "about",
@@ -985,6 +974,5 @@ export default config({
     categories,
     navigation,
     pages,
-    chatbot,
   },
 });

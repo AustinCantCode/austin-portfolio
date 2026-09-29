@@ -166,7 +166,7 @@ deploying. On a Mac, QuickTime → File → Export As → 1080p does this.
 **Add a letter of recommendation.** About → **Letters of recommendation**
 → **Add**. Upload a scan or photo of the letter, fill in their name, role
 and company, and pick one or two sentences for the **Excerpt**. Typing out
-the **Full text** lets screen readers, Google and the chatbot read it. Only
+the **Full text** lets screen readers and Google read it. Only
 add letters the writer is happy to have published.
 
 **Add a testimonial.** About → Testimonials → **Add**. Paste their words
@@ -203,17 +203,12 @@ description for Google (about 60 and 160 characters at most).
 
 ## Services to switch on (Vercel environment variables)
 
-| Variable            | What it turns on                                                                                                                                                                             |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RESEND_API_KEY`    | The contact form sends messages to your inbox (resend.com, free tier). Until it's set, the form offers to email you instead.                                                                 |
-| `CONTACT_FROM`      | Optional. The sender, e.g. `Austin Sia <hello@austinsia.com>`, once you verify your domain in Resend.                                                                                        |
-| `CMS_PASSWORD`      | Required for the live CMS: the password asked before `/keystatic` opens. See [Security](#security).                                                                                          |
-| `CMS_ALLOWED_USERS` | Required for the live CMS: GitHub usernames allowed to sign in, e.g. `AustinCantCode`.                                                                                                       |
-| `ANTHROPIC_API_KEY` | The "Ask about Austin" chat button (console.anthropic.com). It stays hidden until the key is set. Answers come only from the site's content, a few sentences each, with a per-visitor limit. |
-| `ASK_MODEL`         | Optional. The Claude model for the chat; defaults to `claude-haiku-4-5`, the fastest and cheapest.                                                                                           |
-
-The chat's greeting, button text and suggested questions are under
-Site → Ask Austin (chatbot).
+| Variable            | What it turns on                                                                                                             |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`    | The contact form sends messages to your inbox (resend.com, free tier). Until it's set, the form offers to email you instead. |
+| `CONTACT_FROM`      | Optional. The sender, e.g. `Austin Sia <hello@austinsia.com>`, once you verify your domain in Resend.                        |
+| `CMS_PASSWORD`      | Required for the live CMS: the password asked before `/keystatic` opens. See [Security](#security).                          |
+| `CMS_ALLOWED_USERS` | Required for the live CMS: GitHub usernames allowed to sign in, e.g. `AustinCantCode`.                                       |
 
 ## Good to know
 
