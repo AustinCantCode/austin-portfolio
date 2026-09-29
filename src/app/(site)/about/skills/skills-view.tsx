@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import { cn } from "@lib/utils";
 import type { Project, SkillGroup } from "@data/types";
 import { Icon } from "@components/icon";
+import { SkillIcon } from "@components/skill-icon";
+import type { SkillIcon as IconData } from "@data/skill-icons";
 
 const norm = (s: string) =>
   s
@@ -17,9 +19,13 @@ const norm = (s: string) =>
 export function SkillsView({
   groups,
   projects,
+  icons,
+  languages,
 }: {
   groups: SkillGroup[];
   projects: Project[];
+  icons: Record<string, IconData>;
+  languages: { name: string; level: string }[];
 }) {
   const [pick, setPick] = useState<string | null>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -79,6 +85,7 @@ export function SkillsView({
                           on ? "bg-fg text-bg" : "bg-bg-alt text-fg",
                         )}
                       >
+                        <SkillIcon icon={icons[name]} className="flex-none" />
                         {name}
                         {n > 0 && (
                           <span
@@ -95,6 +102,29 @@ export function SkillsView({
               </ul>
             </div>
           ))}
+          {languages.length > 0 && (
+            <div className="flex flex-wrap gap-x-[clamp(28px,6vw,88px)] gap-y-3 border-t border-pill py-7">
+              <div className="flex flex-[0_0_240px] flex-col gap-1">
+                <h2 className="text-[clamp(21px,2.4vw,26px)] font-bold tracking-[-0.015em]">
+                  Languages
+                </h2>
+                <p className="text-[14px] text-fg-2">
+                  The languages I speak, and one I am still learning.
+                </p>
+              </div>
+              <ul className="m-0 flex min-w-0 flex-[1_1_360px] list-none flex-wrap content-start gap-2 p-0">
+                {languages.map((l) => (
+                  <li
+                    key={l.name}
+                    className="inline-flex h-[38px] items-center gap-2 rounded-full bg-bg-alt px-4 text-[15px] font-medium text-fg"
+                  >
+                    {l.name}
+                    <span className="text-[12px] text-fg-2">{l.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 

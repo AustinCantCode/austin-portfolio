@@ -48,20 +48,20 @@ const html = `<!doctype html>
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Inter, system-ui, sans-serif; color: #555; font-size: 8.1pt; line-height: 1.38; }
-  .page { width: 210mm; height: 297mm; padding: 11mm 14mm 9mm; display: flex; flex-direction: column; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 14mm 8mm; display: flex; flex-direction: column; }
   header { text-align: center; }
   h1 { font-size: 27pt; font-weight: 800; letter-spacing: 0.01em; color: #555; line-height: 1.1; }
   .role { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.02em; margin-top: 2mm; }
   .contact { margin-top: 2mm; font-size: 8.4pt; display: flex; justify-content: center; gap: 9mm; }
   .contact b { font-weight: 700; }
-  hr { border: 0; border-top: 0.8pt solid #777; margin: 2.8mm 0; }
+  hr { border: 0; border-top: 0.8pt solid #777; margin: 2.4mm 0; }
   h2 { font-size: 12.5pt; font-weight: 800; color: #555; margin-bottom: 1.4mm; text-transform: uppercase; }
   h3 { font-size: 9.8pt; font-weight: 700; color: #555; }
   h4 { font-size: 8.3pt; font-weight: 700; color: #555; margin-top: 1.4mm; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
   .cols.split { position: relative; flex: 1; }
   .cols.split::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 0.8pt solid #777; }
-  .item { margin-bottom: 2mm; }
+  .item { margin-bottom: 1.6mm; }
   .date { font-size: 7.9pt; }
   .strong { font-weight: 700; }
   ul { list-style: none; }
@@ -111,6 +111,8 @@ const html = `<!doctype html>
     <section><h2>Skills</h2>
       <h3>Soft Skills</h3>
       <ul class="two">${cv.softSkills.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+      <h3 style="margin-top:2.2mm">Languages</h3>
+      <p>${(cv.languages ?? []).map((l) => `${esc(l.name)} (${esc(l.level)})`).join(", ")}</p>
       <h3 style="margin-top:2.2mm">Technical Skills</h3>
       ${skills.groups
         .map((g) => `<h4>${esc(g.name)}</h4><p>${esc(g.items.join(", "))}</p>`)

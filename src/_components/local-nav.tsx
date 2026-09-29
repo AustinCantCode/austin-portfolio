@@ -10,7 +10,6 @@ import {
 } from "@data/categories";
 import { smallApps } from "@data/small-apps";
 import { graphics } from "@data/graphics";
-import { posts } from "@data/writing";
 import type { AreaId } from "@data/types";
 import { ScrollToCurrent } from "./client/scroll-to-current";
 
@@ -143,7 +142,6 @@ export function AboutNav({ current }: { current: string }) {
         { label: "Skills", href: "/about/skills" },
         { label: "Certificates", href: "/about/certificates" },
         { label: "Events", href: "/about/events" },
-        ...(posts.length ? [{ label: "Writing", href: "/writing" }] : []),
         { label: "CV", href: "/cv" },
       ]}
     />

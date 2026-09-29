@@ -12,6 +12,8 @@ import { cn } from "@lib/utils";
 import { allSkills } from "@data/skills";
 import { home } from "@data/home";
 import { SectionHeader } from "@components/ui";
+import { SkillIcon } from "@components/skill-icon";
+import type { SkillIcon as IconData } from "@data/skill-icons";
 
 const half = Math.ceil(allSkills.length / 2);
 const ROWS = [
@@ -24,7 +26,7 @@ const ROWS = [
  * Framer Motion (useAnimationFrame + motion values). Hover or focus
  * pauses them; reduced motion turns them into plain scrollable rows.
  */
-export function ToolsMarquee() {
+export function ToolsMarquee({ icons }: { icons: Record<string, IconData> }) {
   const { title, link } = home.tools;
   const reduce = useReducedMotion();
   const paused = useRef(false);
@@ -80,8 +82,9 @@ export function ToolsMarquee() {
                     href="/about/skills"
                     tabIndex={i >= row.items.length ? -1 : undefined}
                     aria-hidden={i >= row.items.length ? true : undefined}
-                    className="inline-flex h-14 flex-none items-center rounded-full bg-tile px-6 text-[clamp(16px,1.6vw,19px)] font-semibold whitespace-nowrap text-fg rise transition-[background-color,color] duration-[250ms] hover:bg-fg hover:text-bg hover:no-underline"
+                    className="inline-flex h-14 flex-none items-center gap-2.5 rounded-full bg-tile px-6 text-[clamp(16px,1.6vw,19px)] font-semibold whitespace-nowrap text-fg rise transition-[background-color,color] duration-[250ms] hover:bg-fg hover:text-bg hover:no-underline"
                   >
+                    <SkillIcon icon={icons[k]} size={18} />
                     {k}
                   </Link>
                 ),

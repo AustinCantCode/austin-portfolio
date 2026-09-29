@@ -44,7 +44,7 @@ export function Recognition({
                 aria-haspopup="dialog"
                 className="zoom-host press group flex w-full flex-col gap-4 border-0 bg-transparent p-0 text-left text-fg"
               >
-                <span className="block w-full overflow-hidden rounded-[20px] bg-pill p-[clamp(12px,1.4vw,18px)]">
+                <span className="block w-full overflow-hidden bg-pill p-[clamp(12px,1.4vw,18px)]">
                   <span data-zoom="" className="block">
                     <Image
                       quality={100}
@@ -52,7 +52,7 @@ export function Recognition({
                       alt={`${a.title} certificate`}
                       sizes="(max-width: 640px) 100vw, 380px"
                       placeholder={a.image.blurDataURL ? "blur" : "empty"}
-                      className="block h-auto w-full rounded-[6px]"
+                      className="block h-auto w-full"
                     />
                   </span>
                 </span>

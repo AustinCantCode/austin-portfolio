@@ -1,5 +1,7 @@
 import { about } from "@data/about";
-import { skillGroups } from "@data/skills";
+import { allSkills, skillGroups } from "@data/skills";
+import { skillIcons } from "@data/skill-icons";
+import { cv } from "@data/about";
 import { projects } from "@data/projects";
 import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
@@ -31,7 +33,12 @@ export default function SkillsPage() {
         sub="The tools and technologies I use to design and build. Tap on any of them to see the projects I used it in."
         className="pb-[clamp(48px,6vw,88px)]"
       />
-      <SkillsView groups={skillGroups} projects={projects} />
+      <SkillsView
+        groups={skillGroups}
+        projects={projects}
+        icons={skillIcons(allSkills)}
+        languages={cv.languages}
+      />
       <section aria-labelledby="learnt" className="gutter band-y-2 bg-bg-alt">
         <div className="wrap flex flex-col gap-[clamp(28px,4vw,48px)]">
           <h2 id="learnt" className="t-h2">

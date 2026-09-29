@@ -106,8 +106,9 @@ Calibrium, ITE, KiasuParents, Glovida-RX, Frésko) list there what to check.
 
 **Write a post.** Writing → **Add**. New posts start as **Draft**: they show
 on your computer (`pnpm dev`, with a "Draft" badge) but never on the live
-site. Untick Draft to publish; Writing then appears in the About page's
-selector, the sitemap and the RSS feed (`/writing/rss.xml`). Use "Heading 2"
+site. Untick Draft to publish; the post then appears at `/writing`, in the
+sitemap and the RSS feed (`/writing/rss.xml`). Writing isn't linked from the
+nav or the About page. Use "Heading 2"
 for sections (three or more add an "On this page" list), and drop images
 straight into the text. Three drafts are waiting for you to edit; their
 notes say what to add.

@@ -1,6 +1,6 @@
 {
   "role": "Full-stack Software Developer, Entrepreneur, UI/UX Designer",
-  "profile": "A Full-stack Software Developer with a strong foundation in both frontend and backend technologies, and a passion for building responsive, user-friendly websites and mobile apps. Proficient in Next.js, React, TypeScript and React Native, I have developed more than 10 projects across a range of tech stacks and launched my own app, StillGood, on the Google Play Store. Always eager to expand my technical expertise and continuously learn new technologies to further improve myself.",
+  "profile": "A Full-stack Software Developer with a strong foundation in both frontend and backend technologies, and a passion for building responsive, user-friendly websites and mobile apps. Proficient in Next.js, React, TypeScript and React Native, I have developed more than 10 projects across a range of tech stacks and launched my own app, StillGood, on the Google Play Store. Always eager to expand my technical expertise, I will be pursuing a degree in Software Engineering at SIT after completing my National Service.",
   "experience": [
     {
       "org": "StillGood",
@@ -22,6 +22,11 @@
     }
   ],
   "education": [
+    {
+      "org": "Singapore Institute of Technology",
+      "date": "2028 – 2031 (Incoming)",
+      "text": "Bachelor of Engineering (Honours) in Software Engineering"
+    },
     {
       "org": "Singapore Polytechnic",
       "date": "2023 – 2026",
@@ -59,5 +64,19 @@
     "SP Certificate in Design & Innovation",
     "React.js Essential Training",
     "HTML Essential Training"
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Mandarin",
+      "level": "Conversational"
+    },
+    {
+      "name": "French",
+      "level": "Beginner, still learning"
+    }
   ]
 }

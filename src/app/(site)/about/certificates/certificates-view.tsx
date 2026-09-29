@@ -53,7 +53,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
             <article
               key={c.title}
               data-hover-card=""
-              className="mb-4 flex break-inside-avoid flex-col overflow-hidden rounded-[24px] bg-bg-alt"
+              className="mb-4 flex break-inside-avoid flex-col overflow-hidden bg-bg-alt"
             >
               {c.image ? (
                 <Image

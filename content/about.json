@@ -5,8 +5,20 @@
     "fit": "",
     "bare": false
   },
-  "intro": "I am a Singapore Polytechnic graduate with a Diploma in Information Technology, specializing in User Experience and Interface (UI/UX) design. After my internship at Amber Creative as a Full-stack Software Developer, I took on freelance projects for clients before starting my own app, StillGood, which is now live on the Google Play Store.",
+  "intro": "I am a Singapore Polytechnic graduate with a Diploma in Information Technology, specializing in User Experience and Interface (UI/UX) design. After my internship at Amber Creative as a Full-stack Software Developer, I took on freelance projects for clients before starting my own app, StillGood, which is now live on the Google Play Store. Next, I will be serving my National Service until 2028, before pursuing a Bachelor's degree in Software Engineering at the Singapore Institute of Technology (SIT) from 2028 to 2031.",
   "timeline": [
+    {
+      "date": "2028 – 2031",
+      "title": "Singapore Institute of Technology",
+      "sub": "Bachelor of Engineering (Honours) in Software Engineering",
+      "now": false
+    },
+    {
+      "date": "2026 – 2028",
+      "title": "National Service",
+      "sub": "Serving my National Service",
+      "now": true
+    },
     {
       "date": "Aug 2026",
       "title": "Launched StillGood",
@@ -17,7 +29,7 @@
       "date": "Apr 2026 – Present",
       "title": "StillGood",
       "sub": "Founder & Developer",
-      "now": true
+      "now": false
     },
     {
       "date": "Feb 2026 – May 2026",

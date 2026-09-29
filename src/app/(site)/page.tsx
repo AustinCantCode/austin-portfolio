@@ -9,6 +9,8 @@ import { SelectedWork } from "./_home/selected-work";
 import { Journey } from "./_home/journey";
 import { WhatIDo } from "./_home/what-i-do";
 import { ToolsMarquee } from "./_home/marquee";
+import { allSkills } from "@data/skills";
+import { skillIcons } from "@data/skill-icons";
 import { EventsCarousel } from "./_home/events-carousel";
 import { Numbers } from "./_home/numbers";
 import { ContactTiles } from "./_home/contact-tiles";
@@ -44,7 +46,7 @@ export default function HomePage() {
 
       <Journey />
       <WhatIDo />
-      <ToolsMarquee />
+      <ToolsMarquee icons={skillIcons(allSkills)} />
 
       {/* Selected work */}
       <section aria-labelledby="work-title" className="gutter band-y">

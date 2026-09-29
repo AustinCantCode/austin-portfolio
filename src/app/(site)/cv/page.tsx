@@ -8,6 +8,8 @@ import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { ButtonLink, SmartLink } from "@components/ui";
+import { Icon } from "@components/icon";
+import Coin from "@components/complex-ui/coin";
 import { AboutNav } from "@components/local-nav";
 
 export const metadata = pageMetadata({
@@ -40,33 +42,50 @@ export default function CVPage() {
       <JsonLd data={graph(breadcrumbLd([{ name: "CV", path: "/cv" }]))} />
       <AboutNav current="/cv" />
       <section className="gutter pt-[clamp(44px,min(7vw,10vh),100px)] pb-[clamp(32px,4vw,56px)]">
-        <div className="wrap flex flex-col gap-4">
-          <p className="text-[15px] font-semibold text-fg-2">
-            Curriculum Vitae
-          </p>
-          <h1 className="text-[clamp(40px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]">
-            Austin Sia
-          </h1>
-          <p className="text-[clamp(19px,2.2vw,22px)] text-fg-2">{cv.role}</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-[15px] [&>a]:py-0.5">
-            <a href={c.mailto}>{c.email}</a>
-            <a href={c.tel}>{c.phone}</a>
-            <SmartLink href={c.linkedin}>{c.linkedinLabel}</SmartLink>
-            <SmartLink href={c.github}>{c.githubLabel}</SmartLink>
+        <div className="wrap flex flex-col-reverse items-start gap-[clamp(28px,4vw,56px)] md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4">
+            <p className="text-[15px] font-semibold text-fg-2">
+              Curriculum Vitae
+            </p>
+            <h1 className="text-[clamp(40px,6vw,64px)] leading-[1.02] font-bold tracking-[-0.03em]">
+              Austin Sia
+            </h1>
+            <p className="text-[clamp(19px,2.2vw,22px)] text-fg-2">{cv.role}</p>
+            <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
+              {[
+                { label: `Email ${c.email}`, href: c.mailto, icon: "mail" },
+                { label: `Call ${c.phone}`, href: c.tel, icon: "phone" },
+                { label: "WhatsApp", href: c.whatsapp, icon: "mdi:whatsapp" },
+                { label: "LinkedIn", href: c.linkedin, icon: "mdi:linkedin" },
+                { label: "GitHub", href: c.github, icon: "mdi:github" },
+              ].map((l) => (
+                <li key={l.icon}>
+                  <SmartLink
+                    href={l.href}
+                    aria-label={l.label}
+                    title={l.label}
+                    className="grid size-11 place-items-center rounded-full bg-bg-alt text-fg transition-colors duration-200 hover:bg-pill hover:text-accent-text hover:no-underline"
+                  >
+                    <Icon name={l.icon} size={19} />
+                  </SmartLink>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <ButtonLink
+                href={c.cvPdf}
+                download
+                icon="arrow-down-to-line"
+                data-track="cv_download"
+              >
+                Download PDF
+              </ButtonLink>
+              <ButtonLink href="/contact" variant="secondary">
+                Contact me
+              </ButtonLink>
+            </div>
           </div>
-          <div className="mt-3 flex flex-wrap gap-3">
-            <ButtonLink
-              href={c.cvPdf}
-              download
-              icon="arrow-down-to-line"
-              data-track="cv_download"
-            >
-              Download PDF
-            </ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
-              Contact me
-            </ButtonLink>
-          </div>
+          <Coin className="w-[clamp(160px,22vw,280px)] flex-none" delay={600} />
         </div>
       </section>
 
@@ -118,6 +137,16 @@ export default function CVPage() {
           </Row>
           <Row label="Soft Skills">
             <p className="text-[15px] text-fg-2">{cv.softSkills.join(", ")}</p>
+          </Row>
+          <Row label="Languages">
+            <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-[15px]">
+              {cv.languages.map((l) => (
+                <li key={l.name}>
+                  <span className="font-semibold">{l.name}</span>
+                  <span className="text-fg-2">, {l.level}</span>
+                </li>
+              ))}
+            </ul>
           </Row>
           <Row label="Side Projects">
             <ul className="m-0 flex list-none flex-col gap-3 p-0">

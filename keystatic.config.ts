@@ -671,6 +671,13 @@ const cv = singleton({
       collection: "projects",
     }),
     softSkills: list("Soft skills", "Skill"),
+    languages: fields.array(
+      fields.object({
+        name: line("Language"),
+        level: line("Level", 'e.g. "Fluent" or "Beginner, still learning"'),
+      }),
+      { label: "Languages", itemLabel: (p) => p.fields.name.value },
+    ),
     achievements: list("Awards and certifications", "Achievement"),
   },
 });

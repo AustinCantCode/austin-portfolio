@@ -102,7 +102,7 @@ export function Lightbox({
           <Icon name="x" size={18} />
         </button>
         <div
-          className={`relative w-full overflow-hidden rounded-[20px] bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)]"}`}
+          className={`relative w-full overflow-hidden bg-[#1b1a16] shadow-[0_30px_80px_rgba(0,0,0,.3)] ${cert ? "aspect-[1.41/1] max-h-[66vh]" : "h-[min(72vh,860px)] rounded-[20px]"}`}
         >
           <motion.div
             key={index}
