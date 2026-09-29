@@ -97,6 +97,8 @@ export type Venture = {
 };
 
 export type EventItem = {
+  /** The file name in content/events. */
+  slug: string;
   title: string;
   date: string;
   role: string;

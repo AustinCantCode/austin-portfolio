@@ -163,7 +163,7 @@ function PagerLink({ item, dir }: { item: Item; dir: "prev" | "next" }) {
       rel={dir}
       className={cn(
         "group flex min-w-0 items-center gap-4 rounded-[20px] bg-bg-alt p-[clamp(16px,2.2vw,24px)] text-fg transition-colors duration-200 hover:bg-pill hover:no-underline",
-        next && "col-start-2 flex-row-reverse text-right",
+        next && "flex-row-reverse text-right sm:col-start-2",
       )}
     >
       <span
@@ -204,7 +204,7 @@ export function AboutPager({ current }: { current: string }) {
           <p className="text-center text-[13px] font-medium text-fg-2 tabular-nums">
             {i + 1} of {ABOUT_PAGES.length}
           </p>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {prev && <PagerLink item={prev} dir="prev" />}
             {next && <PagerLink item={next} dir="next" />}
           </div>

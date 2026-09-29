@@ -4,6 +4,7 @@ import { opt, toMedia, type Img, type RawLink, type RawMedia } from "./cms";
 import type { EventItem, GalleryItem } from "./types";
 
 type RawEvent = {
+  slug: string;
   title: string;
   featured: boolean;
   date: string;
@@ -17,6 +18,7 @@ type RawEvent = {
 const rows = raw as unknown as RawEvent[];
 
 export const events: EventItem[] = rows.map((r) => ({
+  slug: r.slug,
   title: r.title,
   date: r.date,
   role: r.role,
@@ -40,3 +42,6 @@ export const FEATURED_EVENT_INDEX = Math.max(
   0,
   rows.findIndex((r) => r.featured),
 );
+
+export const eventBySlug = (slug: string) =>
+  events.find((e) => e.slug === slug);

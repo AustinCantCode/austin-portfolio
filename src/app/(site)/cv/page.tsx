@@ -169,7 +169,7 @@ export default function CVPage() {
             </ul>
           </Row>
           <Row label="Achievements">
-            <ul className="m-0 flex flex-col gap-1.5 pl-[18px] text-[15px] text-fg-2">
+            <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-[15px] text-fg-2">
               {cv.achievements.map((a) => (
                 <li key={a}>{a}</li>
               ))}

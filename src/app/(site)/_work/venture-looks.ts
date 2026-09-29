@@ -1,4 +1,4 @@
-import { events, FEATURED_EVENT_INDEX } from "@data/events";
+import { eventBySlug } from "@data/events";
 import { projectBySlug } from "@data/projects";
 import { stillgoodScreens } from "@data/stillgood-screens";
 import {
@@ -11,7 +11,9 @@ import {
 /** What each venture stands as in the showroom. */
 export function ventureLook(id: string): Look {
   if (id === "stillgood") return phoneLook(stillgoodScreens.home);
-  if (id === "zenith") return photoLook(events[FEATURED_EVENT_INDEX]?.image);
+  // Zenith Technologies was the SP Batey Hackathon team.
+  if (id === "zenith")
+    return photoLook(eventBySlug("sp-batey-hackathon")?.image);
   return {
     ...tabletLook(projectBySlug("calibrium")?.cover),
     label: "Calibrium screenshot",
