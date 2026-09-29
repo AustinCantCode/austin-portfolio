@@ -43,33 +43,33 @@
   color-scheme: light;
 }
 
-/* Dark: warm near-black base (not #000), off-white text at ~15:1 rather
-   than 17:1+, and tonal elevation: each raised layer is a step lighter,
-   with a faint hairline, since shadows vanish on dark surfaces. */
+/* Dark: warm charcoal base (lifted off near-black so it reads softer),
+   off-white text at ~15:1, and tonal elevation: each raised layer is a
+   step lighter, with a faint hairline, since shadows fade on dark. */
 [data-theme="dark"] {
-  --bg: #0f0e0c; /* elevation 0 */
-  --bg-alt: #171612; /* 1: alternate sections */
-  --menu: #171612;
-  --tile: #1f1d19; /* 2: cards */
-  --tile-alt: #1f1d19;
-  --pill: #2b2924; /* 3: chips, secondary buttons */
-  --text: #ebe7de;
-  --text-2: #a8a294;
-  --band: #1b1a16;
-  --band-text: #ebe7de;
-  --frame: #3a3731;
-  --frame-base: #4a463f;
+  --bg: #1a1916; /* elevation 0 */
+  --bg-alt: #22201c; /* 1: alternate sections */
+  --menu: #22201c;
+  --tile: #2a2824; /* 2: cards */
+  --tile-alt: #2a2824;
+  --pill: #37342e; /* 3: chips, secondary buttons */
+  --text: #f2eee6;
+  --text-2: #bdb7a9;
+  --band: #24221e;
+  --band-text: #f2eee6;
+  --frame: #4a463f;
+  --frame-base: #5a554d;
   /* Brighter gold on dark so the accent keeps its weight. */
   --accent-fill: #b8b35e;
   --accent-fill-hover: #c4bf69;
-  --accent-text: #cac873;
+  --accent-text: #d4d27e;
   --danger: #f2877e;
-  --well: #2b2924;
-  --well-alt: #2b2924;
-  --rule: #4a463f;
-  --hairline: rgba(235, 231, 222, 0.07);
+  --well: #37342e;
+  --well-alt: #37342e;
+  --rule: #5c574e;
+  --hairline: rgba(242, 238, 230, 0.09);
   --glow-accent: 0 0 28px rgba(184, 179, 94, 0.3);
-  --shadow-tab: inset 0 0 0 1px rgba(235, 231, 222, 0.08);
+  --shadow-tab: inset 0 0 0 1px rgba(242, 238, 230, 0.1);
   --shadow-menu:
     0 1px 0 rgba(235, 231, 222, 0.06), 0 24px 48px rgba(0, 0, 0, 0.5);
   --shadow-lift:
