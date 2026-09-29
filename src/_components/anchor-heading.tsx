@@ -2,7 +2,8 @@ import { cn } from "@lib/utils";
 
 /**
  * A section heading you can link to: a "#" link appears beside it on
- * hover or keyboard focus, and it stops clear of the fixed nav.
+ * hover or keyboard focus (not on touch screens, where it can't be
+ * seen), and it stops clear of the nav and the page's selector bar.
  */
 export function AnchorHeading({
   id,
@@ -18,7 +19,7 @@ export function AnchorHeading({
       id={id}
       tabIndex={-1}
       className={cn(
-        "group relative scroll-mt-[96px] text-[clamp(28px,3.2vw,40px)] leading-[1.1] font-bold tracking-[-0.02em] outline-none",
+        "group relative scroll-mt-[128px] text-[clamp(28px,3.2vw,40px)] leading-[1.1] font-bold tracking-[-0.02em] outline-none",
         className,
       )}
     >
@@ -26,7 +27,7 @@ export function AnchorHeading({
       <a
         href={`#${id}`}
         aria-label={`Link to “${children}”`}
-        className="ml-3 align-middle text-[0.6em] font-normal text-fg-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100 hover:text-accent-text hover:no-underline focus-visible:opacity-100"
+        className="ml-2 inline-grid min-h-6 min-w-6 place-items-center align-middle text-[0.6em] font-normal text-fg-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100 hover:text-accent-text hover:no-underline focus-visible:opacity-100 [@media(hover:none)]:hidden"
       >
         #
       </a>

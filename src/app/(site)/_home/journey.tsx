@@ -1,9 +1,9 @@
 "use client";
 
+import { useReducedMotionPref } from "@components/client/motion";
 import {
   motion,
   useMotionValueEvent,
-  useReducedMotion,
   useScroll,
   useSpring,
 } from "framer-motion";
@@ -20,7 +20,8 @@ import { Icon } from "@components/icon";
 export function Journey() {
   const { title, sub, link, items } = home.journey;
   const listRef = useRef<HTMLOListElement>(null);
-  const reduce = useReducedMotion();
+  // Hydration-safe: false on the first render, like the server.
+  const reduce = useReducedMotionPref();
   const { scrollYProgress } = useScroll({
     target: listRef,
     offset: ["start 55%", "end 55%"],

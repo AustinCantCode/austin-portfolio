@@ -1,12 +1,8 @@
 "use client";
 
+import { useReducedMotionPref } from "@components/client/motion";
 import Link from "next/link";
-import {
-  motion,
-  useAnimationFrame,
-  useMotionValue,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@lib/utils";
 import { allSkills } from "@data/skills";
@@ -28,7 +24,8 @@ const ROWS = [
  */
 export function ToolsMarquee({ icons }: { icons: Record<string, IconData> }) {
   const { title, link } = home.tools;
-  const reduce = useReducedMotion();
+  // Hydration-safe: false on the first render, like the server.
+  const reduce = useReducedMotionPref();
   const paused = useRef(false);
   const offset = useRef(0);
   const rows = useRef<(HTMLDivElement | null)[]>([]);
