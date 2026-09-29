@@ -14,8 +14,8 @@ import { ImageSlot, PhoneFrame } from "@components/media";
 import { stillgoodScreens as screens } from "@data/stillgood-screens";
 import { VenturesNav } from "@components/local-nav";
 import { ShowroomCarousel } from "@components/client/showroom";
-import { projectsInArea } from "@data/categories";
-import { byYear } from "@data/projects";
+import { moreProjects } from "@data/categories";
+import { projectBySlug } from "@data/projects";
 
 const FEATURE_SCREENS = [screens.scan, screens.pantry, screens.recipeStudio];
 
@@ -24,6 +24,12 @@ export const metadata = pageMetadata({
   description: pageCopy.stillgood.description,
   path: "/stillgood",
 });
+
+// The StillGood case study's own carousel, so both pages end the same.
+const stillgood = projectBySlug("stillgood");
+const more = stillgood
+  ? moreProjects(stillgood)
+  : { title: "", href: "/ventures", projects: [] };
 
 export default function StillGoodPage() {
   return (
@@ -202,11 +208,9 @@ export default function StillGoodPage() {
       </section>
 
       <ShowroomCarousel
-        title="More From My Ventures"
-        href="/ventures"
-        projects={byYear(
-          projectsInArea("ventures").filter((p) => p.slug !== "stillgood"),
-        )}
+        title={more.title}
+        href={more.href}
+        projects={more.projects}
       />
 
       <section

@@ -2,7 +2,7 @@ import catRaw from "./generated/categories.json";
 import navRaw from "./generated/navigation.json";
 import type { AreaId, Category, CategorySlug, Project } from "./types";
 import { CATEGORY_STRUCTURE } from "./structure";
-import { projects } from "./projects";
+import { byYear, projects } from "./projects";
 import { smallApps } from "./small-apps";
 import { graphics } from "./graphics";
 import { ventures } from "./ventures";
@@ -137,3 +137,35 @@ export const projectsInArea = (area: AreaId): Project[] =>
         .map((slug) => projects.find((p) => p.slug === slug))
         .filter((p): p is Project => !!p)
     : projects.filter((p) => projectArea(p) === area);
+
+/**
+ * The carousel at the foot of a project page: the other projects in its
+ * area, or, if the area has no others, my other Development and Design
+ * work, so every project page ends with more to see.
+ */
+export function moreProjects(p: Project): {
+  title: string;
+  href: string;
+  projects: Project[];
+} {
+  const area = projectArea(p);
+  const same = byYear(projectsInArea(area).filter((o) => o.slug !== p.slug));
+  if (same.length)
+    return {
+      title:
+        area === "ventures"
+          ? "More From My Ventures"
+          : `More ${navSections.find((s) => s.id === area)?.label ?? ""} Projects`,
+      href: AREA_PATH[area],
+      projects: same,
+    };
+  return {
+    title: "More of My Work",
+    href: AREA_PATH.dev,
+    projects: byYear(
+      projects.filter(
+        (o) => o.slug !== p.slug && projectArea(o) !== "ventures",
+      ),
+    ),
+  };
+}

@@ -311,6 +311,19 @@
     opacity: 0;
     transition: none;
   }
+  /* First open of a page: fade in too (the homepage intro has its own).
+     data-load is set once before first paint (app/layout.tsx), so this
+     never restarts. "backwards" holds opacity only before it starts, so
+     the leaving fade still works afterwards. */
+  [data-load="fade"] :is(#main, #main + footer) {
+    animation: page-in 480ms var(--ease-out) backwards;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
 }
 
 /* The "Now" milestone in My Journey: a ring that breathes outwards. */

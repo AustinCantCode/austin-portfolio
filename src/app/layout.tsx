@@ -55,11 +55,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Marks the first homepage visit of a session so the hero intro
-            (see _home/hero.tsx) can play without a flash of content. */}
+        {/* Before first paint: the first homepage visit of a session gets
+            the hero intro (see _home/hero.tsx) without a flash of content;
+            any other first page load fades in (data-load, globals.css). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(location.pathname==="/"&&!sessionStorage.getItem("as-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.intro="1"}catch(e){}`,
+            __html: `try{var d=document.documentElement;if(location.pathname==="/"&&!sessionStorage.getItem("as-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)d.dataset.intro="1";else d.dataset.load="fade"}catch(e){}`,
           }}
         />
       </head>

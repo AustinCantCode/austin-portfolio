@@ -13,6 +13,9 @@ import { graphics } from "@data/graphics";
 import type { AreaId } from "@data/types";
 import { ScrollToCurrent } from "./client/scroll-to-current";
 import { Icon } from "./icon";
+import { ShowroomCarousel } from "./client/showroom";
+import { home } from "@data/home";
+import { pickProjects } from "@data/projects";
 
 type Item = { label: string; href: string; count?: number };
 
@@ -186,7 +189,8 @@ function PagerLink({ item, dir }: { item: Item; dir: "prev" | "next" }) {
 
 /**
  * Previous and next About pages at the foot of each one, so moving on
- * doesn't mean scrolling back up to the selector.
+ * doesn't mean scrolling back up to the selector, then the featured
+ * projects carousel.
  */
 export function AboutPager({ current }: { current: string }) {
   const i = ABOUT_PAGES.findIndex((p) => p.href === current);
@@ -194,19 +198,25 @@ export function AboutPager({ current }: { current: string }) {
   const next = ABOUT_PAGES[i + 1];
   if (i < 0) return null;
   return (
-    <nav
-      aria-label="More about me"
-      className="gutter pb-[clamp(56px,7vw,96px)]"
-    >
-      <div className="wrap flex flex-col gap-5 border-t border-hairline pt-[clamp(28px,3.4vw,44px)]">
-        <p className="text-center text-[13px] font-medium text-fg-2 tabular-nums">
-          {i + 1} of {ABOUT_PAGES.length}
-        </p>
-        <div className="grid grid-cols-2 gap-3">
-          {prev && <PagerLink item={prev} dir="prev" />}
-          {next && <PagerLink item={next} dir="next" />}
+    <>
+      <nav aria-label="More about me" className="gutter">
+        <div className="wrap flex flex-col gap-5 border-t border-hairline pt-[clamp(28px,3.4vw,44px)]">
+          <p className="text-center text-[13px] font-medium text-fg-2 tabular-nums">
+            {i + 1} of {ABOUT_PAGES.length}
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {prev && <PagerLink item={prev} dir="prev" />}
+            {next && <PagerLink item={next} dir="next" />}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      {/* Featured projects (Site → Homepage → Featured projects). */}
+      <ShowroomCarousel
+        title={home.selectedWork.title}
+        href={home.selectedWork.link.href}
+        linkLabel={home.selectedWork.link.label}
+        projects={pickProjects(home.selectedWork.projects)}
+      />
+    </>
   );
 }

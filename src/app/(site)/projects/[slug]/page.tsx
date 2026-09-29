@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import { cn } from "@lib/utils";
 import { clip, pageMetadata } from "@lib/metadata";
 import { JsonLd, breadcrumbLd, graph, projectLd } from "@lib/structured-data";
-import { byYear, projects, projectBySlug } from "@data/projects";
+import { projects, projectBySlug } from "@data/projects";
 import {
   AREA_PATH,
   categoryBySlug,
   categoryHref,
+  moreProjects,
   navSections,
   projectArea,
-  projectsInArea,
 } from "@data/categories";
 import { isPlaceholderLink } from "@data/site";
 import { Icon } from "@components/icon";
@@ -150,7 +150,7 @@ export default async function ProjectPage({
   const areaName = navSections.find((s) => s.id === area)?.label ?? "";
   // The selector highlights the project's first category in its area.
   const current = cats.find((c) => c.area === area);
-  const more = byYear(projectsInArea(area).filter((o) => o.slug !== p.slug));
+  const more = moreProjects(p);
   const links = p.links;
   const quote = testimonialFor(p.slug);
 
@@ -375,13 +375,9 @@ export default async function ProjectPage({
       )}
 
       <ShowroomCarousel
-        title={
-          area === "ventures"
-            ? "More From My Ventures"
-            : `More ${areaName} Projects`
-        }
-        href={areaHref}
-        projects={more}
+        title={more.title}
+        href={more.href}
+        projects={more.projects}
       />
     </>
   );

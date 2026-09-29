@@ -4,7 +4,8 @@ import { clip, pageMetadata } from "@lib/metadata";
 import { JsonLd, breadcrumbLd, graph, postLd } from "@lib/structured-data";
 import { parseMarkdoc } from "@lib/markdoc";
 import { formatDate, postBySlug, posts } from "@data/writing";
-import { NextCard, PageHeader } from "@components/ui";
+import { PageHeader } from "@components/ui";
+import { MorePosts } from "../more-posts";
 import { Toc } from "@components/client/toc";
 
 type Params = { slug: string };
@@ -38,8 +39,9 @@ export default async function PostPage({
   const p = postBySlug((await params).slug);
   if (!p) notFound();
   const { toc, node } = parseMarkdoc(p.body);
+  // The other posts, starting from the next one.
   const i = posts.indexOf(p);
-  const next = posts.length > 1 ? posts[(i + 1) % posts.length] : null;
+  const others = [...posts.slice(i + 1), ...posts.slice(0, i)];
   // A contents list only helps once there are a few sections.
   const withToc = toc.length >= 3;
 
@@ -87,14 +89,7 @@ export default async function PostPage({
         </div>
       </section>
 
-      {next && (
-        <NextCard
-          href={`/writing/${next.slug}`}
-          label="Next post"
-          title={next.title}
-          line={next.summary}
-        />
-      )}
+      <MorePosts posts={others} />
     </>
   );
 }
