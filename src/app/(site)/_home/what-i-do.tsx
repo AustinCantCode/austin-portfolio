@@ -205,19 +205,21 @@ export function WhatIDo() {
               >
                 <div
                   ref={copyRef}
-                  className="flex min-w-0 flex-[1_1_420px] flex-col gap-[clamp(10px,1.7vh,20px)] overflow-hidden p-[clamp(22px,min(3vw,4.4vh),48px)]"
+                  className="flex min-w-0 flex-[1_1_420px] flex-col gap-[clamp(14px,calc(6vh_-_24px),48px)] overflow-hidden p-[clamp(22px,min(3.6vw,calc(6.4vh_-_16px)),60px)]"
                 >
-                  <h3 className="text-[clamp(24px,min(2.6vw,4.2vh),38px)] leading-[1.06] font-bold tracking-[-0.03em] text-balance">
-                    {cur.headline}
-                  </h3>
-                  <p className="max-w-[540px] text-[clamp(15px,min(1.4vw,2.2vh),18px)] leading-[1.45] text-fg-2">
-                    {cur.blurb}
-                  </p>
+                  <div className="flex flex-col gap-[clamp(8px,calc(2.4vh_-_6px),20px)]">
+                    <h3 className="text-[clamp(24px,min(2.6vw,4.2vh),38px)] leading-[1.1] font-bold tracking-[-0.03em] text-balance">
+                      {cur.headline}
+                    </h3>
+                    <p className="max-w-[540px] text-[clamp(15px,min(1.4vw,2.2vh),18px)] leading-[1.55] text-fg-2">
+                      {cur.blurb}
+                    </p>
+                  </div>
                   <ul className="m-0 flex list-none flex-col p-0">
                     {cur.services.map((sv) => (
                       <li
                         key={sv.title}
-                        className="flex items-center gap-3 border-t border-pill py-[clamp(6px,1vh,11px)]"
+                        className="flex items-center gap-3.5 border-t border-pill py-[clamp(7px,calc(2.6vh_-_10px),18px)] last:border-b"
                       >
                         <span className="grid size-8 flex-none place-items-center rounded-full bg-tile">
                           <Icon name={sv.icon} size={16} />
@@ -228,17 +230,17 @@ export function WhatIDo() {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2">
                     {cur.stack.map((k) => (
                       <span
                         key={k}
-                        className="rounded-full bg-tile px-2.5 py-1 text-[12px] font-medium"
+                        className="rounded-full bg-tile px-3 py-1.5 text-[12px] font-medium"
                       >
                         {k}
                       </span>
                     ))}
                   </div>
-                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-[clamp(4px,1vh,12px)]">
                     <ButtonLink href={cur.href} size="md">
                       {cur.cta}
                     </ButtonLink>
