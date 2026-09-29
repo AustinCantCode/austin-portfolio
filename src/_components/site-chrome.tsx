@@ -7,6 +7,7 @@ import { JsonLd, graph, personLd, websiteLd } from "@lib/structured-data";
 import { chatbot } from "@data/chatbot";
 import { Ask } from "@components/client/ask";
 import { BackToTop } from "@components/client/back-to-top";
+import { PageTransition } from "@components/client/page-transition";
 
 /**
  * The site's nav, footer and motion around a page. Used by the (site)
@@ -34,6 +35,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
           />
         )}
         <BackToTop raised={!!process.env.ANTHROPIC_API_KEY} />
+        <PageTransition />
         <MotionManager />
         <GestureManager />
       </Providers>

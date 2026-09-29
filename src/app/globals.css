@@ -293,6 +293,26 @@
   }
 }
 
+/* ------------------------------------------------------------------
+   Page transitions (PageTransition): the page fades out quickly on an
+   internal link, then the next one fades in. The nav stays put.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  :is(#main, #main + footer) {
+    transition: opacity 320ms var(--ease-out);
+  }
+  [data-page="leaving"] :is(#main, #main + footer) {
+    opacity: 0;
+    transition-duration: 180ms;
+    transition-timing-function: ease-in;
+    pointer-events: none;
+  }
+  [data-page="entering"] :is(#main, #main + footer) {
+    opacity: 0;
+    transition: none;
+  }
+}
+
 /* The "Now" milestone in My Journey: a ring that breathes outwards. */
 @keyframes now-pulse {
   0% {
