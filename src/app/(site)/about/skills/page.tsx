@@ -8,7 +8,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { IconCircle, PageHeader } from "@components/ui";
 import { SkillsView } from "./skills-view";
-import { AboutNav } from "@components/local-nav";
+import { AboutNav, AboutPager } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.skills.title,
@@ -30,7 +30,7 @@ export default function SkillsPage() {
       <AboutNav current="/about/skills" />
       <PageHeader
         title={pageCopy.skills.heading}
-        sub="The tools and technologies I use to design and build. Tap on any of them to see the projects I used it in."
+        sub={pageCopy.skills.intro}
         className="pb-[clamp(48px,6vw,88px)]"
       />
       <SkillsView
@@ -60,6 +60,7 @@ export default function SkillsPage() {
           </div>
         </div>
       </section>
+      <AboutPager current="/about/skills" />
     </>
   );
 }

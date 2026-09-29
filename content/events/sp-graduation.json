@@ -1,0 +1,24 @@
+{
+  "title": "Singapore Polytechnic Graduation",
+  "order": 5,
+  "featured": true,
+  "date": "2026",
+  "role": "Graduate, Diploma in Information Technology",
+  "text": "I graduated from Singapore Polytechnic with a Diploma in Information Technology, specializing in UI/UX design. Three years of modules, projects, a hackathon and an internship at Amber Creative all led up to this moment, walking across the stage to receive my diploma!",
+  "photo": {
+    "image": "/images/events/sp-graduation/photo/image.jpeg",
+    "alt": "Receiving my diploma on stage at the Singapore Polytechnic graduation ceremony",
+    "fit": "",
+    "bare": false
+  },
+  "link": {
+    "label": "",
+    "href": ""
+  },
+  "gallery": [
+    {
+      "image": "/images/events/sp-graduation/gallery/0/image.jpeg",
+      "alt": "Shaking hands on stage after receiving my diploma"
+    }
+  ]
+}

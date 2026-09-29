@@ -453,11 +453,20 @@ const home = singleton({
             date: line("Date"),
             title: line("Title"),
             sub: para("Detail"),
+            now: fields.checkbox({
+              label: 'Show the "Now" badge',
+              description: "Where I am today. Tick only one.",
+            }),
             logo: img(
               "home",
               "Logo (optional)",
               "A small square logo shown beside the title.",
             ),
+            icon: fields.text({
+              label: "Icon (if there's no logo)",
+              description:
+                'e.g. "lucide:briefcase", "lucide:graduation-cap" or "lucide:shield-check".',
+            }),
             links: fields.array(link("Link"), {
               label: "Links (optional)",
               description: 'e.g. "Case study" → /projects/fresko',
@@ -837,12 +846,13 @@ const categories = singleton({
   },
 });
 
-const pageFields = (label: string, heading: boolean) =>
+const pageFields = (label: string, heading: boolean, intro = false) =>
   fields.object(
     {
       title: line("Search title", "About 60 characters at most."),
       description: para("Search description", "About 160 characters at most."),
       ...(heading ? { heading: line("Page heading") } : {}),
+      ...(intro ? { intro: para("Line under the heading") } : {}),
     },
     { label },
   );
@@ -857,9 +867,9 @@ const pages = singleton({
     design: pageFields("Design", true),
     ventures: pageFields("Ventures", true),
     about: pageFields("About", true),
-    skills: pageFields("Skills", true),
-    certificates: pageFields("Certificates", false),
-    events: pageFields("Events", true),
+    skills: pageFields("Skills", true, true),
+    certificates: pageFields("Certificates", false, true),
+    events: pageFields("Events", true, true),
     cv: pageFields("CV", false),
     contact: fields.object(
       {

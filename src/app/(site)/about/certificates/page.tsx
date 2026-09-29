@@ -4,7 +4,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader } from "@components/ui";
 import { CertificatesView } from "./certificates-view";
-import { AboutNav } from "@components/local-nav";
+import { AboutNav, AboutPager } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.certificates.title,
@@ -26,9 +26,10 @@ export default function CertificatesPage() {
       <AboutNav current="/about/certificates" />
       <PageHeader
         title={`${allCertificates.length} Certificates`}
-        sub="The certificates I have attained from organizations such as AWS, GitHub and LinkedIn Learning."
+        sub={pageCopy.certificates.intro}
       />
       <CertificatesView groups={certificateGroups} />
+      <AboutPager current="/about/certificates" />
     </>
   );
 }

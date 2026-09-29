@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   // Dark is the default theme, so the browser chrome matches it.
-  themeColor: "#1a1916",
+  themeColor: "#171717",
   colorScheme: "dark light",
 };
 

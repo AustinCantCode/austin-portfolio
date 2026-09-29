@@ -12,7 +12,9 @@ type RawJourneyItem = {
   date: string;
   title: string;
   sub: string;
+  now?: boolean;
   logo?: StaticImageData | null;
+  icon?: string;
   links?: { label: string; href: string }[];
 };
 
@@ -23,7 +25,9 @@ export const home = {
       date: t.date,
       title: t.title,
       sub: t.sub,
+      now: !!t.now,
       logo: t.logo ?? undefined,
+      icon: t.icon || undefined,
       links: (t.links ?? []).filter((l) => l.label && l.href),
     })),
   },

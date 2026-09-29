@@ -4,7 +4,8 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader, TextLink } from "@components/ui";
 import { NaturalImage } from "@components/media";
-import { AboutNav } from "@components/local-nav";
+import { AboutNav, AboutPager } from "@components/local-nav";
+import type { EventItem, GalleryItem } from "@data/types";
 import { GalleryButton } from "./gallery-button";
 
 export const metadata = pageMetadata({
@@ -12,6 +13,12 @@ export const metadata = pageMetadata({
   description: pageCopy.events.description,
   path: "/about/events",
 });
+
+/** The card's photo first, then the rest, for the full-screen viewer. */
+const allPhotos = (e: EventItem): GalleryItem[] =>
+  e.gallery.length
+    ? [...(e.image ? [{ media: e.image }] : []), ...e.gallery]
+    : [];
 
 export default function EventsPage() {
   const featured = events[FEATURED_EVENT_INDEX];
@@ -29,7 +36,7 @@ export default function EventsPage() {
       <AboutNav current="/about/events" />
       <PageHeader
         title={pageCopy.events.heading}
-        sub="The hackathons, study trips and volunteering events I have taken part in."
+        sub={pageCopy.events.intro}
         className="pb-[clamp(48px,6vw,88px)]"
       />
       <section className="gutter pb-[clamp(16px,2vw,24px)]">
@@ -56,7 +63,7 @@ export default function EventsPage() {
             {featured.gallery.length > 0 && (
               <GalleryButton
                 title={featured.title}
-                items={featured.gallery}
+                items={allPhotos(featured)}
                 className="mt-2 bg-band-pill text-band-fg"
               />
             )}
@@ -99,7 +106,7 @@ export default function EventsPage() {
                 {e.gallery.length > 0 && (
                   <GalleryButton
                     title={e.title}
-                    items={e.gallery}
+                    items={allPhotos(e)}
                     className="mt-2 bg-pill text-fg"
                   />
                 )}
@@ -113,6 +120,7 @@ export default function EventsPage() {
           ))}
         </div>
       </section>
+      <AboutPager current="/about/events" />
     </>
   );
 }

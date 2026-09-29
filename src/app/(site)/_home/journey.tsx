@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { home } from "@data/home";
 import { SmartLink, TextLink } from "@components/ui";
+import { Icon } from "@components/icon";
 
 /**
  * Timeline whose gold rail fills as you scroll (Framer Motion useScroll),
@@ -39,7 +40,10 @@ export function Journey() {
     setLit(n);
   });
 
-  const on = (i: number) => reduce || i < lit;
+  // Milestones up to "Now" light as the rail reaches them; later ones
+  // (what comes next) stay as outlines.
+  const nowAt = items.findIndex((t) => t.now);
+  const on = (i: number) => (nowAt < 0 || i <= nowAt) && (reduce || i < lit);
 
   return (
     <section
@@ -85,22 +89,41 @@ export function Journey() {
                   animate={{ scale: on(i) ? 1 : 0, opacity: on(i) ? 1 : 0 }}
                   transition={{ type: "spring", stiffness: 380, damping: 22 }}
                 />
+                {t.now && (
+                  <span className="absolute -inset-1.5 rounded-full border-2 border-accent/50 motion-safe:animate-[now-pulse_2.4s_ease-out_infinite]" />
+                )}
               </span>
               <p className="flex-[0_0_190px] pt-px font-mono text-[13px] font-medium text-fg-2">
                 {t.date}
               </p>
               <div className="flex min-w-0 flex-[1_1_280px] flex-col gap-0.5">
-                <p className="font-display flex items-center gap-2.5 text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
-                  {t.logo && (
+                <p className="font-display flex items-start gap-2.5 text-[clamp(19px,2vw,23px)] leading-[1.25] font-bold tracking-[-0.015em]">
+                  {t.logo ? (
                     <Image
                       src={t.logo}
                       alt=""
-                      width={28}
-                      height={28}
-                      className="size-7 flex-none rounded-full bg-white object-contain"
+                      width={56}
+                      height={56}
+                      className="-mt-0.5 size-8 flex-none rounded-full bg-white object-contain p-[3px] shadow-[0_0_0_1px_var(--color-hairline)]"
                     />
+                  ) : (
+                    t.icon && (
+                      <span
+                        aria-hidden="true"
+                        className="-mt-0.5 grid size-8 flex-none place-items-center rounded-full bg-tile text-fg shadow-[0_0_0_1px_var(--color-hairline)]"
+                      >
+                        <Icon name={t.icon} size={16} />
+                      </span>
+                    )
                   )}
-                  {t.title}
+                  <span className="min-w-0">
+                    {t.title}
+                    {t.now && (
+                      <span className="ml-2.5 inline-block translate-y-[-3px] rounded-full bg-accent px-2.5 py-[3px] align-middle font-sans text-[12px] leading-[1.4] font-semibold tracking-normal text-on-accent">
+                        Now
+                      </span>
+                    )}
+                  </span>
                 </p>
                 <p className="text-[16px] text-fg-2">{t.sub}</p>
                 {t.links.length > 0 && (

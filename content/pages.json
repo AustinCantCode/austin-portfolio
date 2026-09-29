@@ -26,16 +26,19 @@
   "skills": {
     "title": "Skills: Next.js, React, TypeScript and Design",
     "description": "The 34 tools and technologies I use to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects I used them in.",
-    "heading": "Skills"
+    "heading": "Skills",
+    "intro": "The tools and technologies I use to design and build. Tap on any of them to see the projects I used it in."
   },
   "certificates": {
     "title": "34 Certificates from AWS, GitHub and LinkedIn",
-    "description": "My 34 certificates, including generative AI programmes from AWS, GitHub and JavaScript courses from LinkedIn Learning, a hackathon final and school awards."
+    "description": "My 34 certificates, including generative AI programmes from AWS, GitHub and JavaScript courses from LinkedIn Learning, a hackathon final and school awards.",
+    "intro": "The certificates I have attained from organizations such as AWS, GitHub and LinkedIn Learning."
   },
   "events": {
     "title": "Events: Hackathons, Study Trips and Volunteering",
-    "description": "The events I have taken part in, including the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen, Singapore Technology Week and volunteering.",
-    "heading": "Events & Participation"
+    "description": "The events I have taken part in, including my Singapore Polytechnic graduation, the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen and volunteering.",
+    "heading": "Events & Participation",
+    "intro": "My graduation, and the hackathons, study trips and volunteering events I have taken part in."
   },
   "cv": {
     "title": "CV: Full-Stack Developer and UI/UX Designer",

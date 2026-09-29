@@ -9,7 +9,7 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { IconCircle, TextLink } from "@components/ui";
 import GitHubCalendar from "@components/complex-ui/github-calendar";
-import { AboutNav } from "@components/local-nav";
+import { AboutNav, AboutPager } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.about.title,
@@ -168,6 +168,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <AboutPager current="/about" />
     </>
   );
 }

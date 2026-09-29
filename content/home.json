@@ -10,7 +10,8 @@
       {
         "date": "2018 – 2022",
         "title": "Compassvale Secondary School",
-        "sub": "GCE N(A) Level and GCE O Level"
+        "sub": "GCE N(A) Level and GCE O Level",
+        "logo": "/images/home/journey/items/0/logo.png"
       },
       {
         "date": "2023 – 2026",
@@ -31,7 +32,8 @@
             "label": "Certificate",
             "href": "/about/certificates"
           }
-        ]
+        ],
+        "logo": "/images/home/journey/items/2/logo.png"
       },
       {
         "date": "Apr 2025 – Feb 2026",
@@ -42,7 +44,8 @@
             "label": "Client work",
             "href": "/development/client-work"
           }
-        ]
+        ],
+        "icon": "lucide:briefcase"
       },
       {
         "date": "Feb 2026 – May 2026",
@@ -53,7 +56,8 @@
             "label": "Calibrium",
             "href": "/projects/calibrium"
           }
-        ]
+        ],
+        "icon": "lucide:laptop"
       },
       {
         "date": "Apr 2026 – Present",
@@ -64,7 +68,8 @@
             "label": "About StillGood",
             "href": "/stillgood"
           }
-        ]
+        ],
+        "icon": "lucide:leaf"
       },
       {
         "date": "Aug 2026",
@@ -75,19 +80,23 @@
             "label": "Google Play",
             "href": "https://play.google.com/store/apps/details?id=com.stillgoodapp.org"
           }
-        ]
+        ],
+        "icon": "lucide:rocket"
       },
       {
         "date": "2026 – 2028",
         "title": "National Service",
         "sub": "Serving my National Service",
-        "links": []
+        "links": [],
+        "icon": "lucide:shield-check",
+        "now": true
       },
       {
         "date": "2028 – 2031",
         "title": "Singapore Institute of Technology",
         "sub": "Bachelor of Engineering (Honours) in Software Engineering",
-        "links": []
+        "links": [],
+        "icon": "lucide:graduation-cap"
       }
     ]
   },

@@ -10,7 +10,7 @@ import { pageCopy } from "@data/pages";
 import { ButtonLink, SmartLink } from "@components/ui";
 import { Icon } from "@components/icon";
 import Coin from "@components/complex-ui/coin";
-import { AboutNav } from "@components/local-nav";
+import { AboutNav, AboutPager } from "@components/local-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.cv.title,
@@ -182,6 +182,7 @@ export default function CVPage() {
           </Row>
         </div>
       </section>
+      <AboutPager current="/cv" />
     </>
   );
 }

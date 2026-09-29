@@ -185,8 +185,11 @@ name with the client's logo (shown in one colour to match the site).
 photos (oldest first) with the year. They replace the round portrait with a
 stack visitors can drag or tap through.
 
-**Timeline links and logos.** Site → Homepage → My Journey → open a
-milestone to add a small logo or links such as "Case study" → /projects/fresko.
+**Timeline links, logos and "Now".** Site → Homepage → My Journey → open a
+milestone to add a small logo (or, without one, an **Icon** such as
+`lucide:briefcase`), links such as "Case study" → /projects/fresko, or tick
+**Show the "Now" badge** on where you are today (tick only one). Milestones
+after "Now" show as outlines, as what comes next.
 
 **Work areas.** Development, Design and Ventures each have their own page
 (`/development`, `/design`, `/ventures`) with their own selector.

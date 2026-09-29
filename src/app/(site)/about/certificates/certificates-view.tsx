@@ -28,7 +28,6 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
               setFilter(id);
               setOpen(null);
             }}
-            className="w-max"
             segments={[
               { id: "all", label: "All", count: all.length },
               ...groups.map((g) => ({
