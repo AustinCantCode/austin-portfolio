@@ -26,6 +26,11 @@ const N = AREAS.length;
 // The homepage header isn't sticky (nav.tsx), so the panel pins to the
 // very top of the screen.
 const NAV = 0;
+// Scroll per area while pinned (in screen heights), and how much of that,
+// either side of the switch, the pill spends gliding to the next tab. The
+// rest of the time it rests, so a quick flick doesn't skip past an area.
+const STEP = 1;
+const GLIDE = 0.12;
 
 /**
  * "What I do". On large screens the section pins for a screen-height per
@@ -41,27 +46,29 @@ export function WhatIDo() {
   const fits = useRef(true);
   const pinnedRef = useRef(false);
   // 0 when the section's top reaches the top of the screen, 1 when its end
-  // reaches the bottom: one pinned screen-height per area.
+  // reaches the bottom: STEP screen-heights of scrolling per area.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: [`start ${NAV}px`, "end end"],
   });
 
   // The selector's pill follows the scroll like a slider: it rests on
-  // each tab for a moment, glides to the next one in between, and the
-  // content switches as it passes halfway. Smoothed so wheel steps glide.
+  // each tab for most of its stretch, glides to the next one around the
+  // switch, and the content changes as it passes halfway. Smoothed so
+  // wheel steps glide.
   const smooth = useSpring(scrollYProgress, {
     stiffness: 260,
     damping: 40,
     restDelta: 0.0005,
   });
   const pillPos = useTransform(smooth, (p) => {
-    const c = Math.max(0, Math.min(0.9999, p)) * N - 0.5;
-    if (c <= 0) return 0;
-    if (c >= N - 1) return N - 1;
-    const i = Math.floor(c);
-    const t = c - i;
-    return i + t * t * (3 - 2 * t);
+    const c = Math.max(0, Math.min(0.9999, p)) * N;
+    const k = Math.round(c);
+    if (k >= 1 && k <= N - 1 && Math.abs(c - k) < GLIDE) {
+      const t = (c - k + GLIDE) / (2 * GLIDE);
+      return k - 1 + t * t * (3 - 2 * t);
+    }
+    return Math.min(N - 1, Math.floor(c));
   });
 
   const overflowing = () => {
@@ -111,8 +118,7 @@ export function WhatIDo() {
       if (pinned && sec) {
         const i = IDS.indexOf(id);
         const total = sec.offsetHeight - (window.innerHeight - NAV);
-        // Where the pill sits right on this tab: the middle of its third
-        // (the very top for the first).
+        // The middle of this tab's stretch (the very top for the first).
         const top =
           sec.getBoundingClientRect().top +
           window.scrollY -
@@ -141,7 +147,7 @@ export function WhatIDo() {
       ref={sectionRef}
       aria-labelledby="what-title"
       className="relative"
-      style={{ height: pinned ? `${N * 100}vh` : "auto" }}
+      style={{ height: pinned ? `${100 + N * STEP * 100}vh` : "auto" }}
     >
       <div
         className={cn(
