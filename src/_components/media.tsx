@@ -116,23 +116,30 @@ export function NaturalImage({
   );
 }
 
-/** Phone bezels by width: [corner radius, bezel]. */
-export const PHONE_SIZES: Record<number, [number, number]> = {
-  160: [26, 5],
-  200: [32, 5],
-  210: [34, 5],
-  230: [36, 6],
-  240: [38, 6],
-  260: [42, 6],
-  280: [44, 6],
-  300: [46, 7],
-  320: [50, 7],
-  360: [54, 8],
+/** Phone bezel thickness (px) by nominal width. */
+export const PHONE_SIZES: Record<number, number> = {
+  160: 5,
+  200: 5,
+  210: 5,
+  230: 6,
+  240: 6,
+  260: 6,
+  280: 6,
+  300: 7,
+  320: 7,
+  360: 8,
 };
 
 /**
- * A phone bezel at 9:19.5. `size` picks the radius and padding pair;
- * `ratio` (width / height) shapes the screen to fit a screenshot instead.
+ * Corner radius as a share of the phone's drawn width, like a modern
+ * Android phone. Measured on the frame itself (a container query), so it
+ * stays in proportion however small the frame is drawn.
+ */
+const PHONE_RADIUS = "11cqw";
+
+/**
+ * A phone bezel at 9:19.5. `size` picks the bezel; `ratio` (width /
+ * height) shapes the screen to fit a screenshot instead.
  */
 export function PhoneFrame({
   size = 200,
@@ -151,18 +158,18 @@ export function PhoneFrame({
   style?: CSSProperties;
   children: ReactNode;
 }) {
-  const [radius, pad] = PHONE_SIZES[size] ?? PHONE_SIZES[200];
+  const pad = PHONE_SIZES[size] ?? PHONE_SIZES[200];
   return (
     <div
       className={cn("shrink-0", className)}
-      style={{ width: width ?? size, ...style }}
+      style={{ width: width ?? size, containerType: "inline-size", ...style }}
     >
       <div
         className={cn(
           !ratio && "aspect-[9/19.5]",
           dark ? "bg-band-pill" : "bg-frame",
         )}
-        style={{ borderRadius: radius, padding: pad }}
+        style={{ borderRadius: PHONE_RADIUS, padding: pad }}
       >
         <div
           className={cn(
@@ -171,7 +178,7 @@ export function PhoneFrame({
             dark ? "bg-[#f4f1ea]" : "bg-bg",
           )}
           style={{
-            borderRadius: radius - pad,
+            borderRadius: `max(0px, calc(${PHONE_RADIUS} - ${pad}px))`,
             aspectRatio: ratio ? String(ratio) : undefined,
           }}
         >

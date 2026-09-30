@@ -77,7 +77,7 @@ export function widthOf(look: Look, size: Size) {
     case "tablet":
       return `min(100%, calc((var(--stage) - 2 * ${BEZEL}) * ${r} + 2 * ${BEZEL}))`;
     case "phone": {
-      const pad = PHONE_SIZES[PHONE[size]][1] * 2;
+      const pad = PHONE_SIZES[PHONE[size]] * 2;
       return `min(100%, calc((var(--stage) - ${pad}px) * ${r} + ${pad}px))`;
     }
     case "object":
