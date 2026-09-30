@@ -159,9 +159,12 @@ export function Hero() {
   return (
     <section
       ref={scope}
-      className="gutter pt-[clamp(56px,min(9vw,13vh),144px)] pb-[clamp(80px,min(11vw,16vh),176px)]"
+      // Fills the first screen under the navbar (and above the tab bar on
+      // phones), with the hero centred in it; the rest of the page starts
+      // below the fold.
+      className="gutter flex min-h-[calc(100svh-56px-64px-env(safe-area-inset-bottom))] items-center py-[clamp(32px,6vh,72px)] lg:min-h-[calc(100svh-56px)]"
     >
-      <div className="wrap flex flex-wrap-reverse items-center gap-[clamp(48px,7vw,112px)]">
+      <div className="wrap flex w-full flex-wrap-reverse items-center gap-[clamp(24px,7vw,112px)]">
         <div className="flex min-w-0 flex-[1_1_440px] flex-col items-start">
           <h1 className="t-h1" aria-label={name}>
             {/* Every letter keeps its place while hidden, so nothing
@@ -179,7 +182,7 @@ export function Hero() {
             </span>
           </h1>
           {titles.length > 0 && (
-            <p className="mt-[clamp(14px,1.6vw,20px)] flex flex-wrap items-center gap-x-3 gap-y-1 text-[clamp(13px,1.2vw,15px)] font-semibold tracking-[0.14em] text-accent-text uppercase">
+            <p className="mt-[clamp(14px,1.6vw,20px)] max-lg:[@media(max-height:720px)]:mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[clamp(13px,1.2vw,15px)] font-semibold tracking-[0.14em] text-accent-text uppercase">
               {titles.map((t, i) => (
                 <span
                   key={t}
@@ -187,12 +190,14 @@ export function Hero() {
                   data-intro-hide=""
                   className="flex items-center gap-3"
                 >
-                  {i > 0 && (
+                  {t}
+                  {/* The dot ends the title before it, so a wrapped line
+                      never starts with one. */}
+                  {i < titles.length - 1 && (
                     <span aria-hidden="true" className="text-fg-2/50">
                       ·
                     </span>
                   )}
-                  {t}
                 </span>
               ))}
             </p>
@@ -200,14 +205,14 @@ export function Hero() {
           <p
             data-i="rise"
             data-intro-hide=""
-            className="t-sub mt-[clamp(20px,2.4vw,32px)] max-w-[540px] leading-[1.5]"
+            className="t-sub mt-[clamp(20px,2.4vw,32px)] max-lg:[@media(max-height:720px)]:mt-3 max-w-[540px] leading-[1.5]"
           >
             {site.heroLine}
           </p>
           <div
             data-i="rise"
             data-intro-hide=""
-            className="mt-[clamp(36px,4vw,56px)] flex w-full flex-wrap gap-4"
+            className="mt-[clamp(36px,4vw,56px)] max-lg:[@media(max-height:720px)]:mt-5 flex w-full flex-wrap gap-4"
           >
             <ButtonLink href="/development" data-track="view_work_click">
               View my projects
@@ -233,7 +238,7 @@ export function Hero() {
           />
           <div data-i="coin" data-intro-hide="" className="relative">
             <Coin
-              className="mx-auto w-[clamp(220px,28vw,400px)] max-w-full"
+              className="mx-auto w-[clamp(140px,26svh,240px)] max-w-full max-lg:[@media(max-height:720px)]:w-[112px] lg:w-[clamp(220px,28vw,400px)]"
               flipOnLoad={false}
               flipMs={T.spin * 1000}
               onReady={onCoinReady}
