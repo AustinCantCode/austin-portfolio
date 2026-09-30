@@ -112,7 +112,9 @@ export function Modal({
         >
           <Icon name="x" size={18} />
         </button>
-        <div className="overflow-y-auto overscroll-contain">{children}</div>
+        <div className="scroll-gold overflow-y-auto overscroll-contain">
+          {children}
+        </div>
       </motion.div>
     </div>,
     document.body,

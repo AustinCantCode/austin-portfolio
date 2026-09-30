@@ -55,7 +55,12 @@ export function ProjectPeek({
   );
 }
 
-/** Image carousel at each image's own shape, with arrows and dots. */
+/**
+ * Image carousel with arrows and dots. Each image keeps its own shape.
+ * All of them sit in one stage sized for the widest, and the current one
+ * fades in over the last, so the pop-up keeps its size and never shows a
+ * blank frame while the next image loads (they all load up front).
+ */
 function Carousel({
   items,
   index,
@@ -66,19 +71,35 @@ function Carousel({
   onIndex: (i: number) => void;
 }) {
   const n = items.length;
-  const item = items[index];
   const go = (d: number) => onIndex((index + d + n) % n);
+  const widest = Math.max(...items.map((m) => m.src.width / m.src.height));
   return (
     <div className="relative bg-bg-alt">
-      <div className="flex min-h-[200px] items-center justify-center px-[clamp(16px,4vw,48px)] pt-16 pb-8">
-        <Image
-          key={index}
-          quality={100}
-          src={item.src}
-          alt={item.alt}
-          sizes="(max-width: 900px) 100vw, 880px"
-          className="h-auto max-h-[52vh] w-auto max-w-full rounded-[12px]"
-        />
+      <div className="px-[clamp(16px,4vw,48px)] pt-16 pb-8">
+        <div
+          className="relative max-h-[52vh] w-full"
+          style={{ aspectRatio: widest }}
+        >
+          {items.map((m, i) => (
+            <div
+              key={i}
+              aria-hidden={i !== index || undefined}
+              className={cn(
+                "absolute inset-0 flex items-center justify-center transition-opacity duration-300 motion-reduce:transition-none",
+                i === index ? "opacity-100" : "pointer-events-none opacity-0",
+              )}
+            >
+              <Image
+                quality={100}
+                src={m.src}
+                alt={m.alt}
+                sizes="(max-width: 900px) 100vw, 880px"
+                placeholder={m.src.blurDataURL ? "blur" : "empty"}
+                className="h-auto max-h-full w-auto max-w-full rounded-[12px]"
+              />
+            </div>
+          ))}
+        </div>
       </div>
       {n > 1 && (
         <>

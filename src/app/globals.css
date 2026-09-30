@@ -240,6 +240,39 @@
     display: none;
   }
 
+  /* Pop-up scrollbars: a gold thumb on a charcoal track, kept clear of
+     the panel's rounded corners (the track stops short of them). */
+  .scroll-gold {
+    --sb-track: var(--pill);
+  }
+  [data-theme="dark"] .scroll-gold {
+    --sb-track: var(--bg); /* the logo's charcoal */
+  }
+  .scroll-gold::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scroll-gold::-webkit-scrollbar-track {
+    margin-block: 28px;
+    border-radius: 999px;
+    background: var(--sb-track);
+  }
+  .scroll-gold::-webkit-scrollbar-thumb {
+    border: 2px solid var(--sb-track);
+    border-radius: 999px;
+    background: var(--accent-fill);
+  }
+  .scroll-gold::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-fill-hover);
+  }
+  /* Firefox has no ::-webkit-scrollbar; Chrome ignores those rules once
+     scrollbar-color is set, so it's only given where they don't exist. */
+  @supports not selector(::-webkit-scrollbar) {
+    .scroll-gold {
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-fill) var(--sb-track);
+    }
+  }
+
   .fade-edges {
     mask-image: linear-gradient(
       90deg,
