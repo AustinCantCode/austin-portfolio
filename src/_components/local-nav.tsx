@@ -1,17 +1,10 @@
 import Link from "next/link";
 import { cn } from "@lib/utils";
-import {
-  AREA_PATH,
-  categoriesIn,
-  categoryCount,
-  categoryHref,
-  navSections,
-  projectsInCategory,
-} from "@data/categories";
-import { smallApps } from "@data/small-apps";
-import { graphics } from "@data/graphics";
+import { AREA_PATH, navSections } from "@data/categories";
 import type { AreaId } from "@data/types";
 import { ScrollToCurrent } from "./client/scroll-to-current";
+import { SectionNav } from "./client/section-nav";
+import { areaGroups } from "../app/(site)/_work/areas";
 import { Icon } from "./icon";
 import { ShowroomCarousel } from "./client/showroom";
 import { home } from "@data/home";
@@ -89,7 +82,11 @@ export function LocalNav({
 const areaLabel = (area: AreaId) =>
   navSections.find((s) => s.id === area)?.label ?? "";
 
-/** Development or Design: All, then that area's own categories. */
+/**
+ * Development or Design: the sections of that area's page. On the page
+ * itself the bar follows your scroll and its tabs scroll to each
+ * section; elsewhere (a category or project page) they link to them.
+ */
 export function AreaNav({
   area,
   current,
@@ -97,24 +94,27 @@ export function AreaNav({
   area: Exclude<AreaId, "ventures">;
   current: string;
 }) {
-  const cats = categoriesIn(area);
-  // Projects filed under several of the area's categories count once.
-  const unique = new Set(cats.flatMap((c) => projectsInCategory(c.slug)));
-  const total =
-    unique.size + (area === "dev" ? smallApps.length : graphics.length);
+  const groups = areaGroups[area];
+  const title = areaLabel(area);
+  if (current === AREA_PATH[area])
+    return (
+      <SectionNav
+        title={title}
+        titleHref={AREA_PATH[area]}
+        sections={groups.map((g) => ({ id: g.anchor, label: g.label }))}
+      />
+    );
+  const items = groups.map((g) => ({
+    label: g.label,
+    href: `${AREA_PATH[area]}#${g.anchor}`,
+    group: g.href,
+  }));
   return (
     <LocalNav
-      title={areaLabel(area)}
+      title={title}
       titleHref={AREA_PATH[area]}
-      current={current}
-      items={[
-        { label: "All", href: AREA_PATH[area], count: total },
-        ...cats.map((c) => ({
-          label: c.label,
-          href: categoryHref(c.slug),
-          count: categoryCount(c.slug),
-        })),
-      ]}
+      current={items.find((it) => it.group === current)?.href ?? ""}
+      items={items}
     />
   );
 }

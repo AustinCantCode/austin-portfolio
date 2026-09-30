@@ -6,13 +6,14 @@ import Coin from "@components/complex-ui/coin";
 import { ButtonLink } from "@components/ui";
 import { site } from "@data/site";
 
-const ease = [0.2, 0.8, 0.2, 1] as const;
+// A soft ease-in-out: eases in gently, then takes its time to settle.
+const ease = [0.45, 0, 0.2, 1] as const;
 
 /**
- * The homepage hero and its opening sequence, "the mint": the name rises
- * out of a mask word by word, the gold coin is struck (it lands and a
- * ring pulses out from it, like the AS logo being minted), then the rest
- * of the hero and the nav settle in.
+ * The homepage hero and its opening sequence: the name rises slowly out
+ * of a mask word by word, the gold coin drifts up into place and turns
+ * over once, then the rest of the hero and the nav settle in. Long
+ * durations and soft, non-bouncing easing keep it calm and unhurried.
  *
  * It plays once per visit: an inline script in the layout sets
  * <html data-intro> before first paint (skipped for reduced motion), CSS
@@ -55,47 +56,37 @@ export function Hero() {
         [
           "[data-i=word]",
           { y: ["110%", "0%"], opacity: [0, 1] },
-          { duration: 0.9, delay: stagger(0.12), at: 0, ease },
+          { duration: 1.6, delay: stagger(0.22), at: 0, ease },
         ],
         [
           "[data-i=coin]",
-          {
-            opacity: [0, 1],
-            scale: [0.62, 1],
-            rotate: [-14, 0],
-            y: [-24, 0],
-          },
-          { duration: 0.85, at: 0.3, ease: [0.3, 1.25, 0.4, 1] },
+          { opacity: [0, 1], scale: [0.92, 1], y: [28, 0] },
+          { duration: 2.2, at: 0.5, ease },
         ],
         [
           "[data-i=rise]",
-          { opacity: [0, 1], y: [16, 0] },
-          { duration: 0.7, delay: stagger(0.1), at: 0.62, ease },
+          { opacity: [0, 1], y: [18, 0] },
+          { duration: 1.4, delay: stagger(0.2), at: 1.2, ease },
         ],
-        ["[data-i=glow]", { opacity: [0, 1] }, { duration: 1.2, at: 0.95 }],
-        [
-          "[data-i=ring]",
-          { opacity: [0, 0.8, 0], scale: [0.72, 0.8, 1.45] },
-          { duration: 1.2, delay: stagger(0.18), at: 0.95, ease: "easeOut" },
-        ],
+        ["[data-i=glow]", { opacity: [0, 1] }, { duration: 2.8, at: 1.2 }],
       ];
       if (nav.length)
         seq.push([
           nav,
           { opacity: [0, 1], y: [-10, 0] },
-          { duration: 0.7, at: 1.15, ease },
+          { duration: 1.4, at: 1.8, ease },
         ]);
       controls = animate(seq);
       // Framer now holds every part at its first keyframe, so the CSS that
       // hid them can go; each fade then ends on the natural visible value.
       frame = requestAnimationFrame(() => delete root.dataset.intro);
-      // The sequence lasts about 2.3s; then hand the chrome back to CSS.
+      // The sequence lasts about 4s; then hand the chrome back to CSS.
       done = setTimeout(() => {
         chrome.forEach((e) => {
           e.style.removeProperty("opacity");
           e.style.removeProperty("transform");
         });
-      }, 2600);
+      }, 4200);
     };
     begin.current = start;
     const fallback = setTimeout(start, 1200);
@@ -171,19 +162,11 @@ export function Hero() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-[-12%] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--accent-fill)_18%,transparent),transparent_62%)]"
           />
-          {/* The "strike": rings that pulse out once when the coin lands. */}
-          {[0, 1].map((i) => (
-            <span
-              key={i}
-              data-i="ring"
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 left-1/2 aspect-square w-[clamp(220px,28vw,400px)] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent opacity-0"
-            />
-          ))}
           <div data-i="coin" data-intro-hide="" className="relative">
             <Coin
               className="mx-auto w-[clamp(220px,28vw,400px)] max-w-full"
-              delay={1000}
+              delay={1500}
+              flipMs={2800}
               onReady={() => begin.current()}
             />
           </div>

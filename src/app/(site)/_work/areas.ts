@@ -34,7 +34,7 @@ export const areaGroups: Record<"dev" | "design", WorkGroup[]> = {
       href: categoryHref("web-apps"),
       linkLabel: "See all ›",
       flex: "1 1 100%",
-      projects: tiles(["port", "gowhere", "telegpt", "shoply"]),
+      projects: tiles(["port", "gowhere", "shoply"]),
     },
     {
       kind: "small",

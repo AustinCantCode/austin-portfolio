@@ -5,19 +5,22 @@ import { cn } from "@lib/utils";
 
 /**
  * The 3D AS coin: Austin's photo on one face, the AS logo on the other.
- * Flips once after `delay` ms, flips again on click, Enter or Space, and
+ * Flips once, `delay` ms after its faces are drawn, taking `flipMs`;
+ * flips again on click, Enter or Space, and
  * tilts gently towards the pointer. Reduced motion flips instantly with
  * no tilt. three.js loads on demand so it stays out of the main bundle.
  */
 export default function Coin({
   className,
   delay = 700,
+  flipMs = 1400,
   flipOnLoad = true,
   label = "Coin showing Austin's photo on one side and the AS logo on the other. Click to flip.",
   onReady,
 }: {
   className?: string;
   delay?: number;
+  flipMs?: number;
   flipOnLoad?: boolean;
   label?: string;
   /** Called once, after the first frame is drawn. */
@@ -112,9 +115,7 @@ export default function Coin({
         to = from + Math.PI;
       };
 
-      const loadTimer = flipOnLoad
-        ? setTimeout(() => flip(1400), delay)
-        : undefined;
+      let loadTimer: ReturnType<typeof setTimeout> | undefined;
       const onClick = () => flip(900);
       const onKey = (e: KeyboardEvent) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -155,6 +156,7 @@ export default function Coin({
         if (!drawn && loaded === 2) {
           drawn = true;
           readyRef.current?.();
+          if (flipOnLoad) loadTimer = setTimeout(() => flip(flipMs), delay);
         }
       };
       loop();
@@ -186,7 +188,7 @@ export default function Coin({
       disposed = true;
       cleanup();
     };
-  }, [delay, flipOnLoad]);
+  }, [delay, flipMs, flipOnLoad]);
 
   return (
     <div
