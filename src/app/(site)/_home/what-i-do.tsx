@@ -20,7 +20,9 @@ import { prefersReducedMotion } from "@components/client/motion";
 
 const AREAS = home.whatIDo.areas;
 const IDS = AREAS.map((a) => a.id);
-const NAV = 56;
+// The homepage header isn't sticky (nav.tsx), so the panel pins to the
+// very top of the screen.
+const NAV = 0;
 
 /**
  * "What I do". On large screens the section pins for three screen-heights
@@ -127,7 +129,7 @@ export function WhatIDo() {
         className={cn(
           "gutter flex flex-col justify-center overflow-hidden",
           pinned
-            ? "sticky top-14 h-[calc(100vh_-_56px)] py-[clamp(16px,2.6vh,36px)]"
+            ? "sticky top-0 h-screen py-[clamp(16px,2.6vh,36px)]"
             : "band-y",
         )}
       >

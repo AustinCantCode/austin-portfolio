@@ -52,7 +52,7 @@ export function Journey() {
       className="gutter band-y bg-bg-alt"
     >
       <div className="wrap flex flex-wrap items-start gap-[clamp(32px,6vw,96px)]">
-        <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-4 min-[1100px]:sticky min-[1100px]:top-[120px]">
+        <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-4 min-[1100px]:sticky min-[1100px]:top-[64px]">
           <h2 id="journey-title" className="t-h2">
             {title}
           </h2>

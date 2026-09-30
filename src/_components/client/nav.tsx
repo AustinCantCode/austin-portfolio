@@ -64,9 +64,14 @@ export function Nav() {
   const active = activeSection(usePathname());
   return (
     <>
+      {/* Sticky everywhere except the homepage, where it scrolls away
+          with the hero to leave the whole screen for the content. */}
       <header
         data-intro-hide=""
-        className="sticky top-0 z-50 w-full bg-bg text-fg"
+        className={cn(
+          "top-0 z-50 w-full bg-bg text-fg",
+          active === "home" ? "relative" : "sticky",
+        )}
       >
         <nav
           aria-label="Main"
