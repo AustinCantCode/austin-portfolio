@@ -250,15 +250,25 @@ export function WhatIDo() {
                 <div
                   className={cn(
                     "grid min-w-0 flex-[1.3_1_480px] grid-rows-[minmax(0,1fr)_auto] gap-[clamp(8px,1vw,12px)] p-[clamp(8px,1vw,12px)]",
-                    pinned ? "min-h-0" : "min-h-[420px]",
+                    pinned && "min-h-0",
                   )}
                 >
-                  <div className="relative min-h-[180px] overflow-hidden rounded-[20px] bg-pill">
-                    <ImageSlot
-                      media={photo ? { ...photo, fit: "contain" } : undefined}
-                      placeholder={cur.photoHint}
-                      sizes="(max-width: 1080px) 100vw, 50vw"
-                    />
+                  {/* The photo is always a square, filled edge to edge. Pinned,
+                      it is as big as the space left above the thumbnails. */}
+                  <div
+                    className="grid min-h-0 place-items-center"
+                    style={pinned ? { containerType: "size" } : undefined}
+                  >
+                    <div
+                      className="relative aspect-square overflow-hidden rounded-[20px] bg-pill"
+                      style={{ width: pinned ? "min(100cqw, 100cqh)" : "100%" }}
+                    >
+                      <ImageSlot
+                        media={photo ? { ...photo, fit: "cover" } : undefined}
+                        placeholder={cur.photoHint}
+                        sizes="(max-width: 1080px) 100vw, 50vw"
+                      />
+                    </div>
                   </div>
                   <div className="grid grid-cols-2 gap-[clamp(8px,1vw,12px)] min-[560px]:grid-cols-4">
                     {items.map((p) => (
