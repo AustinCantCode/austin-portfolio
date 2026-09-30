@@ -279,9 +279,11 @@ export function WhatIDo() {
                         className="relative block aspect-square overflow-hidden rounded-2xl bg-pill text-white lift [--hover-scale:1.03] hover:no-underline"
                       >
                         <ImageSlot
+                          // Always a filled square: covers of any shape are
+                          // cropped to the middle.
                           media={
                             p.cover
-                              ? { ...p.cover, fit: "contain", position: "top" }
+                              ? { ...p.cover, fit: "cover", position: "center" }
                               : undefined
                           }
                           placeholder={p.title}
