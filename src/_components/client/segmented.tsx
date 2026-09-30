@@ -1,9 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  type MotionValue,
+} from "framer-motion";
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
@@ -24,6 +30,10 @@ export type Segment = {
  * When the tabs are wider than the space, the bar scrolls sideways: the
  * edge with more tabs fades out, arrow buttons scroll it on desktop, and
  * the selected tab is kept in view.
+ *
+ * With `position` (a motion value from 0 to the last tab's index), the
+ * pill instead glides continuously between tabs as it changes, like a
+ * slider: the What I Do panel drives it from the page scroll.
  */
 export function SegmentedControl({
   segments,
@@ -33,7 +43,7 @@ export function SegmentedControl({
   idPrefix,
   size = "md",
   className,
-  renderExtra,
+  position,
 }: {
   segments: Segment[];
   value: string;
@@ -42,9 +52,48 @@ export function SegmentedControl({
   idPrefix: string;
   size?: "sm" | "md" | "lg";
   className?: string;
-  renderExtra?: (s: Segment, selected: boolean) => ReactNode;
+  /** Continuous tab position (0 … n − 1) for a gliding pill. */
+  position?: MotionValue<number>;
 }) {
   const listRef = useRef<HTMLDivElement>(null);
+  const fallback = useMotionValue(0);
+  const pos = position ?? fallback;
+  const tabs = useRef<{ left: number; width: number }[]>([]);
+  const glideX = useMotionValue(0);
+  const glideW = useMotionValue(0);
+  const [measured, setMeasured] = useState(false);
+
+  // Place the gliding pill between the two tabs either side of `pos`.
+  const glide = useCallback(() => {
+    const t = tabs.current;
+    if (!t.length) return;
+    const v = Math.max(0, Math.min(t.length - 1, pos.get()));
+    const i = Math.min(Math.floor(v), t.length - 1);
+    const j = Math.min(i + 1, t.length - 1);
+    const f = v - i;
+    glideX.set(t[i].left + (t[j].left - t[i].left) * f);
+    glideW.set(t[i].width + (t[j].width - t[i].width) * f);
+  }, [pos, glideX, glideW]);
+
+  useMotionValueEvent(pos, "change", glide);
+
+  // Measure each tab (again on resize and once fonts load).
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    if (!position || !list) return;
+    const read = () => {
+      tabs.current = [
+        ...list.querySelectorAll<HTMLElement>('[role="tab"]'),
+      ].map((b) => ({ left: b.offsetLeft, width: b.offsetWidth }));
+      glide();
+      setMeasured(true);
+    };
+    read();
+    const ro = new ResizeObserver(read);
+    ro.observe(list);
+    document.fonts?.ready.then(read);
+    return () => ro.disconnect();
+  }, [position, glide]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ left: false, right: false });
   const ids = segments.map((s) => s.id);
@@ -124,6 +173,13 @@ export function SegmentedControl({
           onKeyDown={onKeyDown}
           className="relative flex w-max gap-0.5 rounded-full bg-bg-alt p-1"
         >
+          {position && measured && (
+            <motion.span
+              aria-hidden="true"
+              style={{ x: glideX, width: glideW }}
+              className="absolute top-1 bottom-1 left-0 rounded-full bg-tile shadow-[var(--shadow-tab)]"
+            />
+          )}
           {segments.map((s) => {
             const on = s.id === value;
             return (
@@ -147,7 +203,7 @@ export function SegmentedControl({
                   on ? "text-fg" : "text-fg-2",
                 )}
               >
-                {on && (
+                {on && !position && (
                   <motion.span
                     layoutId={`${idPrefix}-indicator`}
                     aria-hidden="true"
@@ -164,7 +220,6 @@ export function SegmentedControl({
                     </span>
                   )}
                 </span>
-                {renderExtra?.(s, on)}
               </button>
             );
           })}

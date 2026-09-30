@@ -6,6 +6,8 @@ import {
   motion,
   useMotionValueEvent,
   useScroll,
+  useSpring,
+  useTransform,
 } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@lib/utils";
@@ -33,7 +35,6 @@ const NAV = 0;
 export function WhatIDo() {
   const [area, setArea] = useState(IDS[0]);
   const [pinned, setPinned] = useState(false);
-  const [progress, setProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const fits = useRef(true);
@@ -43,6 +44,23 @@ export function WhatIDo() {
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: [`start ${NAV}px`, "end end"],
+  });
+
+  // The selector's pill follows the scroll like a slider: it rests on
+  // each tab for a moment, glides to the next one in between, and the
+  // content switches as it passes halfway. Smoothed so wheel steps glide.
+  const smooth = useSpring(scrollYProgress, {
+    stiffness: 260,
+    damping: 40,
+    restDelta: 0.0005,
+  });
+  const pillPos = useTransform(smooth, (p) => {
+    const c = Math.max(0, Math.min(0.9999, p)) * 3 - 0.5;
+    if (c <= 0) return 0;
+    if (c >= 2) return 2;
+    const i = Math.floor(c);
+    const t = c - i;
+    return i + t * t * (3 - 2 * t);
   });
 
   const overflowing = () => {
@@ -75,9 +93,7 @@ export function WhatIDo() {
     if (pinnedRef.current && overflowing()) evaluate();
     if (!pinnedRef.current) return;
     const q = Math.max(0, Math.min(0.9999, p));
-    const i = Math.floor(q * 3);
-    setArea(IDS[i]);
-    setProgress(q * 3 - i);
+    setArea(IDS[Math.floor(q * 3)]);
   });
 
   // Unpin when the copy is taller than the pinned panel.
@@ -94,11 +110,13 @@ export function WhatIDo() {
       if (pinned && sec) {
         const i = IDS.indexOf(id);
         const total = sec.offsetHeight - (window.innerHeight - NAV);
+        // Where the pill sits right on this tab: the middle of its third
+        // (the very top for the first).
         const top =
           sec.getBoundingClientRect().top +
           window.scrollY -
           NAV +
-          total * (i / 3 + 0.02);
+          total * (i === 0 ? 0.02 : (i + 0.5) / 3);
         if (prefersReducedMotion()) window.scrollTo(0, top);
         else
           animate(window.scrollY, top, {
@@ -114,7 +132,6 @@ export function WhatIDo() {
   );
 
   const cur = AREAS.find((a) => a.id === area) ?? AREAS[0];
-  const curIndex = IDS.indexOf(cur.id);
   const items = pickProjects(cur.featuredProjects);
   const photo = whatIDoPhotos[cur.id];
 
@@ -158,26 +175,7 @@ export function WhatIDo() {
                   count: a.count,
                   icon: <Icon name={a.icon} size={16} />,
                 }))}
-                renderExtra={(s) =>
-                  pinned ? (
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-3.5 bottom-[5px] z-[1] h-0.5 rounded-sm bg-pill"
-                    >
-                      <span
-                        className="block h-full rounded-sm bg-accent"
-                        style={{
-                          width:
-                            IDS.indexOf(s.id) < curIndex
-                              ? "100%"
-                              : s.id === cur.id
-                                ? `${Math.round(progress * 100)}%`
-                                : "0%",
-                        }}
-                      />
-                    </span>
-                  ) : null
-                }
+                position={pinned ? pillPos : undefined}
               />
             </div>
           </div>
