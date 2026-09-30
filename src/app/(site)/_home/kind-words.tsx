@@ -9,7 +9,7 @@ import { projectBySlug } from "@data/projects";
 import type { Testimonial } from "@data/testimonials";
 import { SectionHeader } from "@components/ui";
 import { Modal } from "@components/client/modal";
-import { PersonName } from "@components/person-name";
+import { OrgLogo, PersonName } from "@components/person-name";
 
 /** Quotes longer than this are shortened, with the rest in a pop-up. */
 const SHORT = 260;
@@ -50,6 +50,7 @@ function Person({ t, size = 44 }: { t: Testimonial; size?: number }) {
           )}
         </span>
       </span>
+      <OrgLogo org={t.org} logo={t.orgLogo} href={t.orgLink} />
     </figcaption>
   );
 }

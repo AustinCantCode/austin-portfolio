@@ -31,6 +31,8 @@ type RawLetter = {
   name?: string;
   role?: string;
   org?: string;
+  orgLogo?: Img;
+  orgLink?: string;
   link?: string;
   date?: string;
   excerpt?: string;
@@ -43,6 +45,8 @@ export type Letter = {
   name: string;
   role: string;
   org: string;
+  orgLogo?: Img;
+  orgLink?: string;
   /** Their website, which their name links to. */
   link?: string;
   date: string;
@@ -64,6 +68,8 @@ export const letters: Letter[] = (
     name: l.name ?? "",
     role: l.role ?? "",
     org: l.org ?? "",
+    orgLogo: l.orgLogo || undefined,
+    orgLink: l.orgLink?.trim() || undefined,
     link: l.link?.trim() || undefined,
     date: l.date ?? "",
     excerpt: l.excerpt ?? "",

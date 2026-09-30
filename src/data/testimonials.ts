@@ -8,6 +8,8 @@ export type Testimonial = {
   name: string;
   role: string;
   org: string;
+  orgLogo?: Img;
+  orgLink?: string;
   /** Their website, which their name links to. */
   link?: string;
   project?: string;
@@ -22,6 +24,8 @@ type RawTestimonial = {
   quote?: string;
   role?: string;
   org?: string;
+  orgLogo?: Img;
+  orgLink?: string;
   link?: string;
   project?: string | null;
   photo?: Img;
@@ -37,6 +41,8 @@ export const testimonials: Testimonial[] = (raw as unknown as RawTestimonial[])
     name: t.name,
     role: t.role ?? "",
     org: t.org ?? "",
+    orgLogo: t.orgLogo || undefined,
+    orgLink: t.orgLink?.trim() || undefined,
     link: t.link?.trim() || undefined,
     project: t.project || undefined,
     photo: t.photo || undefined,

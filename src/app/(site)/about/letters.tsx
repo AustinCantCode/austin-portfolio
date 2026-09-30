@@ -7,7 +7,7 @@ import { cn } from "@lib/utils";
 import type { Letter } from "@data/about";
 import { Icon } from "@components/icon";
 import { Lightbox } from "@components/client/lightbox";
-import { PersonName } from "@components/person-name";
+import { OrgLogo, PersonName } from "@components/person-name";
 
 const byline = (l: Letter) =>
   [l.role, [l.org, l.date].filter(Boolean).join(", ")]
@@ -88,13 +88,21 @@ export function Letters({ letters }: { letters: Letter[] }) {
                   &ldquo;{l.excerpt}&rdquo;
                 </p>
               </blockquote>
-              <figcaption className="flex flex-col gap-0.5">
-                <PersonName
-                  name={l.name}
-                  href={l.link}
-                  className="text-[17px] font-semibold"
+              <figcaption className="flex items-center gap-3.5">
+                <OrgLogo
+                  org={l.link && l.link !== l.orgLink ? l.org : l.name}
+                  logo={l.orgLogo}
+                  href={l.orgLink}
+                  size={44}
                 />
-                <span className="text-[15px] text-fg-2">{byline(l)}</span>
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <PersonName
+                    name={l.name}
+                    href={l.link ?? l.orgLink}
+                    className="text-[17px] font-semibold"
+                  />
+                  <span className="text-[15px] text-fg-2">{byline(l)}</span>
+                </span>
               </figcaption>
               {l.paragraphs.length > 0 && (
                 <details className="group/letter">

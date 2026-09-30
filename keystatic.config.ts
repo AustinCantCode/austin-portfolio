@@ -362,6 +362,11 @@ const testimonials = collection({
     quote: para("Quote", "Their words, as they wrote them."),
     role: line("Their role", 'e.g. "Director"'),
     org: line("Company or school"),
+    orgLogo: img("testimonials", "Company or school logo (optional)"),
+    orgLink: line(
+      "Company or school website (optional)",
+      "A full link. The logo and name link to it.",
+    ),
     link: line(
       "Their website or LinkedIn (optional)",
       "A full link, e.g. https://www.julienheng.com/. Their name links to it.",
@@ -685,6 +690,11 @@ const about = singleton({
         name: line("Their name"),
         role: line("Their role", 'e.g. "Form Teacher"'),
         org: line("Company or school"),
+        orgLogo: img("about", "Company or school logo (optional)"),
+        orgLink: line(
+          "Company or school website (optional)",
+          "A full link. The logo and name link to it.",
+        ),
         link: line(
           "Their website or LinkedIn (optional)",
           "A full link. Their name links to it.",

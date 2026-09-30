@@ -21,7 +21,7 @@ import { AreaNav, VenturesNav } from "@components/local-nav";
 import { ShowroomCarousel, ShowroomHero } from "@components/client/showroom";
 import type { Media, StorySection } from "@data/types";
 import { testimonialFor } from "@data/testimonials";
-import { PersonName } from "@components/person-name";
+import { OrgLogo, PersonName } from "@components/person-name";
 import { Toc } from "@components/client/toc";
 import { AnchorHeading } from "@components/anchor-heading";
 
@@ -190,14 +190,21 @@ export default async function ProjectPage({
                     &ldquo;{quote.quote}&rdquo;
                   </p>
                 </blockquote>
-                <figcaption className="text-[15px] text-fg-2">
-                  <PersonName
-                    name={quote.name}
-                    href={quote.link}
-                    className="font-semibold text-fg"
+                <figcaption className="flex items-center gap-3.5 text-[15px] text-fg-2">
+                  <OrgLogo
+                    org={quote.org}
+                    logo={quote.orgLogo}
+                    href={quote.orgLink}
                   />
-                  {[quote.role, quote.org].filter(Boolean).length > 0 &&
-                    `, ${[quote.role, quote.org].filter(Boolean).join(", ")}`}
+                  <span>
+                    <PersonName
+                      name={quote.name}
+                      href={quote.link}
+                      className="font-semibold text-fg"
+                    />
+                    {[quote.role, quote.org].filter(Boolean).length > 0 &&
+                      `, ${[quote.role, quote.org].filter(Boolean).join(", ")}`}
+                  </span>
                 </figcaption>
               </figure>
             ),
