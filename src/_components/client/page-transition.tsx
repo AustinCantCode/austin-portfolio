@@ -10,8 +10,9 @@ const OUT_MS = 180;
  * click is taken over (Next's Link steps aside once it's handled), the
  * content fades out, then the router navigates and the new page fades in.
  * The nav stays put. Back and forward only fade in. Links that open a new
- * tab, jump within the page, download a file or leave the site are left
- * alone, and reduced motion turns it all off. Styles: globals.css
+ * tab, jump within the page, download a file, open a pop-up (project
+ * cards) or leave the site are left alone, and reduced motion turns it
+ * all off. Styles: globals.css
  * ("Page transitions").
  */
 export function PageTransition() {
@@ -36,6 +37,9 @@ export function PageTransition() {
       if (a.target && a.target !== "_self") return;
       if (a.hasAttribute("download") || a.dataset.noTransition !== undefined)
         return;
+      // Links that open a pop-up (project cards: the preview first, then
+      // "Read the full case study") handle their own click.
+      if (a.hasAttribute("aria-haspopup")) return;
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin) return;
       // Same page (a #section or the page you're on): no fade.
