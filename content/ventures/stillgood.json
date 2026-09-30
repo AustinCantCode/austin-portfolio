@@ -6,5 +6,12 @@
   "line": "My own app that helps families reduce their food waste.",
   "status": "Live on the Google Play Store since 26 August 2026",
   "href": "/stillgood",
-  "cta": "Explore StillGood"
+  "cta": "Explore StillGood",
+  "screenshot": {
+    "image": "/images/ventures/stillgood/screenshot/image.png",
+    "alt": "The StillGood website, stillgoodapp.org",
+    "fit": "",
+    "position": "",
+    "bare": false
+  }
 }

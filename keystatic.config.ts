@@ -258,6 +258,11 @@ const ventures = collection({
     status: line("Status"),
     href: line("Link (path or URL)"),
     cta: line("Button text"),
+    screenshot: media(
+      "ventures",
+      "Website screenshot",
+      "Optional. Shown in a laptop frame on the Ventures page, in place of the default picture.",
+    ),
   },
 });
 
@@ -774,8 +779,47 @@ const stillgood = singleton({
         title: line("Title"),
         tagline: line("Tagline"),
         line: para("Line"),
+        site: link("Official site button"),
       },
       { label: "Hero" },
+    ),
+    problem: fields.object(
+      {
+        title: line("Title"),
+        text: para("Text"),
+        stats: fields.array(
+          fields.object({
+            value: line("Figure", 'e.g. "$2,500" or "70%".'),
+            unit: line("Unit", 'e.g. "AUD a year".'),
+            label: line("What it means"),
+            source: line("Source name"),
+            href: line("Source link"),
+          }),
+          { label: "Figures", itemLabel: (p) => p.fields.value.value },
+        ),
+      },
+      { label: "The problem" },
+    ),
+    demo: fields.object(
+      {
+        title: line("Title"),
+        text: para("Text"),
+        points: list("Points"),
+        video: fields.file({
+          label: "Demo video (MP4)",
+          description:
+            "Shown in its own phone frame, so export it with the bezel.",
+          directory: "public/videos/stillgood",
+          publicPath: "/videos/stillgood/",
+        }),
+        poster: img(
+          "stillgood",
+          "Video still",
+          "Shown before the video plays, and instead of it with reduced motion.",
+        ),
+        alt: line("Describe the video"),
+      },
+      { label: "Scanner demo" },
     ),
     features: fields.object(
       {
@@ -784,13 +828,44 @@ const stillgood = singleton({
           fields.object({
             icon,
             title: line("Title"),
-            text: line("Text"),
-            imageHint: line("Placeholder text"),
+            text: para("Text"),
+            screen: fields.select({
+              label: "Screenshot",
+              description: "One of the app screenshots below.",
+              options: [
+                { label: "Home screen", value: "home" },
+                { label: "Pantry", value: "pantry" },
+                { label: "Household pantry", value: "householdPantry" },
+                { label: "Recipes", value: "recipes" },
+                { label: "Scanner", value: "scan" },
+                { label: "Recipe Studio", value: "recipeStudio" },
+                { label: "Alerts", value: "alerts" },
+              ],
+              defaultValue: "home",
+            }),
           }),
-          { label: "Features", itemLabel: (p) => p.fields.title.value },
+          { label: "Steps", itemLabel: (p) => p.fields.title.value },
         ),
       },
-      { label: "Features" },
+      { label: "How it works" },
+    ),
+    plans: fields.object(
+      {
+        title: line("Title"),
+        note: para("Line under the plans"),
+        items: fields.array(
+          fields.object({
+            name: line("Plan"),
+            price: line("Price", 'e.g. "Free" or "AU$7.99".'),
+            period: line("Per", 'e.g. "/month". Leave empty for free.'),
+            line: line("Who it's for"),
+            points: list("What's included"),
+            popular: fields.checkbox({ label: "Highlight this plan" }),
+          }),
+          { label: "Plans", itemLabel: (p) => p.fields.name.value },
+        ),
+      },
+      { label: "Plans" },
     ),
     story: fields.object(
       {
@@ -811,7 +886,7 @@ const stillgood = singleton({
       { label: "Built with" },
     ),
     cta: fields.object(
-      { title: line("Title"), line: line("Line") },
+      { title: line("Title"), line: para("Line") },
       { label: "Call to action" },
     ),
     screens: fields.object(
@@ -822,6 +897,7 @@ const stillgood = singleton({
         recipes: screen("Recipes"),
         scan: screen("Scanner"),
         recipeStudio: screen("Recipe Studio"),
+        alerts: screen("Alerts"),
       },
       { label: "App screenshots" },
     ),

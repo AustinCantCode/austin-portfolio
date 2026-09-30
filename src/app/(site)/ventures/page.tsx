@@ -38,7 +38,7 @@ export default function VenturesPage() {
             <VentureFeature
               key={v.id}
               venture={v}
-              look={ventureLook(v.id)}
+              look={ventureLook(v)}
               heading="h2"
             />
           ))}

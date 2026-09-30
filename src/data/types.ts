@@ -96,6 +96,8 @@ export type Venture = {
   status: string;
   href: string;
   cta: string;
+  /** A website screenshot, shown in a laptop frame when set. */
+  screenshot?: Media;
 };
 
 export type EventItem = {

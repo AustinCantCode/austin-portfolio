@@ -2,29 +2,121 @@
   "hero": {
     "status": "Live on the Google Play Store",
     "title": "StillGood",
-    "tagline": "Less Waste. Smarter Pantry.",
-    "line": "Snap a photo of your groceries, get reminded before they expire and find recipes to use them up."
+    "tagline": "The Recipe for a Smarter Kitchen",
+    "line": "StillGood scans your groceries, tracks every expiry date and tells you what to cook before anything hits the bin.",
+    "site": {
+      "label": "Visit the official site",
+      "href": "https://stillgoodapp.org"
+    }
+  },
+  "problem": {
+    "title": "The Most Expensive Shelf in Your House Is the Bin",
+    "text": "Food gets bought with good intentions, pushed to the back of the fridge and found too late. Not because anyone is careless, but because nobody can keep track of forty expiry dates in their head.",
+    "stats": [
+      {
+        "value": "$2,500",
+        "unit": "AUD a year",
+        "label": "is what food wasted at home costs the average household",
+        "source": "End Food Waste Australia",
+        "href": "https://endfoodwaste.com.au/fact-library/"
+      },
+      {
+        "value": "70%",
+        "unit": "still edible",
+        "label": "of the food Australia throws away could have been eaten",
+        "source": "End Food Waste Australia",
+        "href": "https://endfoodwaste.com.au/about-food-waste/"
+      },
+      {
+        "value": "7.6M",
+        "unit": "tonnes",
+        "label": "of food is wasted across Australia every year",
+        "source": "DCCEEW",
+        "href": "https://www.dcceew.gov.au/environment/protection/waste/food-waste"
+      }
+    ]
+  },
+  "demo": {
+    "title": "Point, Shoot, Shelved",
+    "text": "No forms and no barcode hunting. Point the camera at one item, a whole benchful or the receipt from the shop, and Google Gemini reads the product, the quantity and the expiry date. You check what it found before anything is saved.",
+    "points": [
+      "Name, category and storage spot filled in for you",
+      "Printed dates read by the camera, the rest estimated (Pro and Family)",
+      "Zoom, torch and manual entry for labels that won't cooperate",
+      "Nothing is saved until you have seen it"
+    ],
+    "video": "/videos/stillgood/demo/video.mp4",
+    "poster": "/images/stillgood/demo/poster.webp",
+    "alt": "StillGood scanning a banana, filling in its category and storage spot, and saving it to the pantry"
   },
   "features": {
-    "title": "Scan It. Track It. Cook It.",
+    "title": "Four Steps, and the Food Stops Disappearing",
     "items": [
       {
         "icon": "lucide:scan-line",
-        "title": "Snap to Add",
-        "text": "Take a photo of your groceries and StillGood will list the items for you.",
-        "imageHint": "Scanning screen"
+        "title": "Scan the Shop",
+        "text": "Point your camera at a product, a barcode, a receipt or the whole haul at once. Gemini identifies each item and fills in the details.",
+        "screen": "scan"
       },
       {
         "icon": "lucide:calendar-clock",
-        "title": "Know What's Expiring",
-        "text": "Everything is sorted by expiry date, with a reminder before anything goes bad.",
-        "imageHint": "Expiry list screen"
+        "title": "Watch the Dates",
+        "text": "Your pantry sorts itself by days left, so the food that needs using sits at the top.",
+        "screen": "pantry"
       },
       {
         "icon": "lucide:chef-hat",
-        "title": "Cook What You Have",
-        "text": "Get recipe suggestions for the food that needs to be used up first.",
-        "imageHint": "Recipe screen"
+        "title": "Cook What's Closest",
+        "text": "Recipes are ranked by what's about to expire, so tonight's dinner is the one that saves the most food.",
+        "screen": "recipes"
+      },
+      {
+        "icon": "lucide:bell-ring",
+        "title": "Get Told in Time",
+        "text": "Expiry alerts and recipe nudges arrive at the times you choose, and a monthly summary shows what stayed out of the bin.",
+        "screen": "alerts"
+      }
+    ]
+  },
+  "plans": {
+    "title": "Start Free, Upgrade When You're Ready",
+    "note": "Prices in AUD. Every plan is the same app: upgrading raises the limits and adds the household, and you can upgrade inside the app whenever you like.",
+    "items": [
+      {
+        "name": "Basic",
+        "price": "Free",
+        "period": "",
+        "line": "Everything you need to get started",
+        "points": [
+          "8 AI scans a day",
+          "45 pantry items",
+          "2 expiry and 2 recipe alerts"
+        ],
+        "popular": false
+      },
+      {
+        "name": "Pro",
+        "price": "AU$7.99",
+        "period": "/month",
+        "line": "For serious food savers",
+        "points": [
+          "25 AI scans a day",
+          "Unlimited pantry items",
+          "Full analytics and waste trends"
+        ],
+        "popular": true
+      },
+      {
+        "name": "Family",
+        "price": "AU$12.99",
+        "period": "/month",
+        "line": "For the whole household",
+        "points": [
+          "60 AI scans a day, shared",
+          "Up to 4 members, or 8 with extra seats",
+          "Household analytics and family trends"
+        ],
+        "popular": false
       }
     ]
   },
@@ -65,7 +157,7 @@
   },
   "cta": {
     "title": "Get StillGood",
-    "line": "Available now for free on Android."
+    "line": "Free on Android, with no card needed. On iPhone? Join the iOS waitlist on the official site."
   },
   "screens": {
     "home": {
@@ -106,6 +198,13 @@
     "recipeStudio": {
       "image": "/images/stillgood/screens/recipeStudio/image.webp",
       "alt": "StillGood Recipe Studio choosing ingredients from the pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "alerts": {
+      "image": "/images/stillgood/screens/alerts/image.webp",
+      "alt": "StillGood alert settings for expiry alerts, recipe nudges and the monthly waste summary",
       "fit": "cover",
       "position": "top",
       "bare": false
