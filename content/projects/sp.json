@@ -29,6 +29,11 @@
     "fit": "contain",
     "bare": true
   },
+  "thumbnail": {
+    "image": "/images/projects/sp/thumbnail/image.png",
+    "fit": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false
@@ -37,5 +42,7 @@
     "fit": "",
     "bare": false
   },
-  "gallery": []
+  "gallery": [],
+  "story": [],
+  "results": []
 }
