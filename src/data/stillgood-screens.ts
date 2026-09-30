@@ -5,12 +5,14 @@ import type { Media } from "./types";
 
 export type StillgoodScreen =
   | "home"
+  | "scan"
   | "pantry"
   | "householdPantry"
+  | "household"
   | "recipes"
-  | "scan"
   | "recipeStudio"
-  | "alerts";
+  | "alerts"
+  | "analytics";
 
 const screens = raw.screens as unknown as Record<StillgoodScreen, RawMedia>;
 

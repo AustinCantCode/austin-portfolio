@@ -26,7 +26,7 @@
       {
         "date": "Sep 2024",
         "title": "SP Batey Hackathon",
-        "sub": "Grand Finalist with Frésko, the idea that later became StillGood",
+        "sub": "Grand Finalist with Frésko, the food waste app my team designed",
         "now": false,
         "logo": "/images/home/journey/items/2/logo.png",
         "links": [
@@ -195,8 +195,8 @@
         "icon": "lucide:rocket",
         "label": "Entrepreneurship",
         "count": 3,
-        "headline": "From a Hackathon Idea to a Live App",
-        "blurb": "What started as a hackathon idea with my team became StillGood, an app I built and launched on my own.",
+        "headline": "From a Hackathon Team to My Own App",
+        "blurb": "I made the grand finals of the SP Batey Hackathon with my team, and I have since built and launched StillGood, my own app.",
         "services": [
           {
             "icon": "lucide:leaf",
