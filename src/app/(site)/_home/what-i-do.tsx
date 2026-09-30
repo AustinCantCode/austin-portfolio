@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@lib/utils";
-import { home, whatIDoPhotoHints, whatIDoPhotos } from "@data/home";
+import { home } from "@data/home";
 import { pickProjects } from "@data/projects";
 import { Icon } from "@components/icon";
 import { ButtonLink } from "@components/ui";
@@ -21,14 +21,15 @@ import { SegmentedControl } from "@components/client/segmented";
 import { prefersReducedMotion } from "@components/client/motion";
 
 const AREAS = home.whatIDo.areas;
-const IDS = AREAS.map((a) => a.id);
+const IDS = AREAS.map((a) => a.key);
+const N = AREAS.length;
 // The homepage header isn't sticky (nav.tsx), so the panel pins to the
 // very top of the screen.
 const NAV = 0;
 
 /**
- * "What I do". On large screens the section pins for three screen-heights
- * and scrolling steps through the tabs; elsewhere they are plain tabs.
+ * "What I do". On large screens the section pins for a screen-height per
+ * area and scrolling steps through the tabs; elsewhere they are plain tabs.
  * If the copy would not fit the pinned panel, it stays unpinned rather
  * than scrolling inside the panel.
  */
@@ -39,8 +40,8 @@ export function WhatIDo() {
   const copyRef = useRef<HTMLDivElement>(null);
   const fits = useRef(true);
   const pinnedRef = useRef(false);
-  // 0 when the section's top meets the nav, 1 when its end reaches the
-  // bottom of the viewport: the three pinned screen-heights.
+  // 0 when the section's top reaches the top of the screen, 1 when its end
+  // reaches the bottom: one pinned screen-height per area.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: [`start ${NAV}px`, "end end"],
@@ -55,9 +56,9 @@ export function WhatIDo() {
     restDelta: 0.0005,
   });
   const pillPos = useTransform(smooth, (p) => {
-    const c = Math.max(0, Math.min(0.9999, p)) * 3 - 0.5;
+    const c = Math.max(0, Math.min(0.9999, p)) * N - 0.5;
     if (c <= 0) return 0;
-    if (c >= 2) return 2;
+    if (c >= N - 1) return N - 1;
     const i = Math.floor(c);
     const t = c - i;
     return i + t * t * (3 - 2 * t);
@@ -93,7 +94,7 @@ export function WhatIDo() {
     if (pinnedRef.current && overflowing()) evaluate();
     if (!pinnedRef.current) return;
     const q = Math.max(0, Math.min(0.9999, p));
-    setArea(IDS[Math.floor(q * 3)]);
+    setArea(IDS[Math.floor(q * N)]);
   });
 
   // Unpin when the copy is taller than the pinned panel.
@@ -116,7 +117,7 @@ export function WhatIDo() {
           sec.getBoundingClientRect().top +
           window.scrollY -
           NAV +
-          total * (i === 0 ? 0.02 : (i + 0.5) / 3);
+          total * (i === 0 ? 0.02 : (i + 0.5) / N);
         if (prefersReducedMotion()) window.scrollTo(0, top);
         else
           animate(window.scrollY, top, {
@@ -131,16 +132,16 @@ export function WhatIDo() {
     [pinned],
   );
 
-  const cur = AREAS.find((a) => a.id === area) ?? AREAS[0];
+  const cur = AREAS.find((a) => a.key === area) ?? AREAS[0];
   const items = pickProjects(cur.featuredProjects);
-  const photo = whatIDoPhotos[cur.id];
+  const photo = cur.photo;
 
   return (
     <section
       ref={sectionRef}
       aria-labelledby="what-title"
       className="relative"
-      style={{ height: pinned ? "300vh" : "auto" }}
+      style={{ height: pinned ? `${N * 100}vh` : "auto" }}
     >
       <div
         className={cn(
@@ -167,10 +168,10 @@ export function WhatIDo() {
                 label="What I do"
                 idPrefix="area"
                 size="lg"
-                value={cur.id}
+                value={cur.key}
                 onChange={select}
                 segments={AREAS.map((a) => ({
-                  id: a.id,
+                  id: a.key,
                   label: a.label,
                   count: a.count,
                   icon: <Icon name={a.icon} size={16} />,
@@ -183,14 +184,14 @@ export function WhatIDo() {
           <div
             id="area-panel"
             role="tabpanel"
-            aria-labelledby={`area-${cur.id}`}
+            aria-labelledby={`area-${cur.key}`}
             className={cn(
               "relative min-h-0 flex-1 overflow-hidden rounded-[28px] bg-bg-alt",
             )}
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
-                key={cur.id}
+                key={cur.key}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -255,7 +256,7 @@ export function WhatIDo() {
                   <div className="relative min-h-[180px] overflow-hidden rounded-[20px] bg-pill">
                     <ImageSlot
                       media={photo ? { ...photo, fit: "contain" } : undefined}
-                      placeholder={whatIDoPhotoHints[cur.id]}
+                      placeholder={cur.photoHint}
                       sizes="(max-width: 1080px) 100vw, 50vw"
                     />
                   </div>

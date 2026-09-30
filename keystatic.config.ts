@@ -487,11 +487,6 @@ const home = singleton({
         title: line("Title"),
         areas: fields.array(
           fields.object({
-            id: fields.select({
-              label: "Area",
-              options: AREA_IDS.map((id) => ({ label: id, value: id })),
-              defaultValue: "dev",
-            }),
             icon,
             label: line("Tab label"),
             count: fields.integer({ label: "Count on the tab" }),
@@ -520,7 +515,12 @@ const home = singleton({
               "Shown when there is no photo yet.",
             ),
           }),
-          { label: "Areas", itemLabel: (p) => p.fields.label.value },
+          {
+            label: "Areas",
+            description:
+              "One tab each, in this order. Each area has its own photo and projects.",
+            itemLabel: (p) => p.fields.label.value || "Area",
+          },
         ),
       },
       { label: "What I Do" },

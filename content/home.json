@@ -11,18 +11,24 @@
         "date": "2018 – 2022",
         "title": "Compassvale Secondary School",
         "sub": "GCE N(A) Level and GCE O Level",
-        "logo": "/images/home/journey/items/0/logo.png"
+        "now": false,
+        "logo": "/images/home/journey/items/0/logo.png",
+        "links": []
       },
       {
         "date": "2023 – 2026",
         "title": "Singapore Polytechnic",
         "sub": "Diploma in Information Technology, specializing in UI/UX design",
-        "logo": "/images/home/journey/items/1/logo.jpg"
+        "now": false,
+        "logo": "/images/home/journey/items/1/logo.jpg",
+        "links": []
       },
       {
         "date": "Sep 2024",
         "title": "SP Batey Hackathon",
         "sub": "Grand Finalist with Frésko, the idea that later became StillGood",
+        "now": false,
+        "logo": "/images/home/journey/items/2/logo.png",
         "links": [
           {
             "label": "Frésko case study",
@@ -32,71 +38,75 @@
             "label": "Certificate",
             "href": "/about/certificates"
           }
-        ],
-        "logo": "/images/home/journey/items/2/logo.png"
+        ]
       },
       {
         "date": "Apr 2025 – Feb 2026",
         "title": "Amber Creative Pte Ltd",
         "sub": "Full-stack Software Developer Intern, developing websites and web apps for clients",
+        "now": false,
+        "icon": "lucide:briefcase",
         "links": [
           {
             "label": "Client work",
             "href": "/development/client-work"
           }
-        ],
-        "icon": "lucide:briefcase"
+        ]
       },
       {
         "date": "Feb 2026 – May 2026",
         "title": "Freelance",
         "sub": "Software Developer, developing websites for clients such as Calibrium",
+        "now": false,
+        "icon": "lucide:laptop",
         "links": [
           {
             "label": "Calibrium",
             "href": "/projects/calibrium"
           }
-        ],
-        "icon": "lucide:laptop"
+        ]
       },
       {
         "date": "Apr 2026 – Present",
         "title": "StillGood",
         "sub": "Founder & Developer of my own food waste app",
+        "now": false,
+        "icon": "lucide:leaf",
         "links": [
           {
             "label": "About StillGood",
             "href": "/stillgood"
           }
-        ],
-        "icon": "lucide:leaf"
+        ]
       },
       {
         "date": "Aug 2026",
         "title": "Launched StillGood",
         "sub": "StillGood went live on the Google Play Store!",
+        "now": false,
+        "icon": "lucide:rocket",
         "links": [
           {
             "label": "Google Play",
             "href": "https://play.google.com/store/apps/details?id=com.stillgoodapp.org"
           }
-        ],
-        "icon": "lucide:rocket"
+        ]
       },
       {
         "date": "2026 – 2028",
         "title": "National Service",
         "sub": "Serving my National Service",
-        "links": [],
+        "now": true,
         "icon": "lucide:shield-check",
-        "now": true
+        "links": []
       },
       {
         "date": "2028 – 2031",
         "title": "Singapore Institute of Technology",
         "sub": "Bachelor of Engineering (Honours) in Software Engineering",
-        "links": [],
-        "icon": "lucide:graduation-cap"
+        "now": false,
+        "icon": "lucide:graduation-cap",
+        "links": []
       }
     ]
   },
@@ -104,7 +114,6 @@
     "title": "What I Do",
     "areas": [
       {
-        "id": "dev",
         "icon": "lucide:code-xml",
         "label": "Development",
         "count": 21,
@@ -148,7 +157,6 @@
         "photoHint": "Photo of me coding"
       },
       {
-        "id": "design",
         "icon": "lucide:pen-tool",
         "label": "Design",
         "count": 11,
@@ -190,7 +198,6 @@
         "photoHint": "My design work in Figma"
       },
       {
-        "id": "ventures",
         "icon": "lucide:rocket",
         "label": "Entrepreneurship",
         "count": 3,

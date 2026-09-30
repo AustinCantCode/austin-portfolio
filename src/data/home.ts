@@ -33,11 +33,19 @@ export const home = {
   },
   whatIDo: {
     title: raw.whatIDo.title,
-    areas: areas.map((a) => {
-      const { photo, photoHint, ...rest } = a;
-      void photo;
-      void photoHint;
-      return rest;
+    // Each area keeps its own photo. Areas are told apart by their place
+    // in the list (`key`), never by a field that two entries could share.
+    areas: areas.map(({ photo, photoHint, ...rest }, i) => {
+      const { id, ...area } = rest as typeof rest & { id?: string };
+      void id;
+      return {
+        ...area,
+        key: `a${i}`,
+        photo: photo?.image
+          ? { src: photo.image as StaticImageData, alt: photo.alt ?? "" }
+          : undefined,
+        photoHint: photoHint ?? "",
+      };
     }),
   },
   tools: raw.tools,
@@ -63,18 +71,3 @@ export const home = {
   },
   contact: raw.contact,
 };
-
-/** Photos for the three "What I do" panels. */
-export const whatIDoPhotos: Record<
-  string,
-  { src: StaticImageData; alt: string } | undefined
-> = Object.fromEntries(
-  areas.map((a) => [
-    a.id,
-    a.photo.image ? { src: a.photo.image, alt: a.photo.alt } : undefined,
-  ]),
-);
-
-export const whatIDoPhotoHints: Record<string, string> = Object.fromEntries(
-  areas.map((a) => [a.id, a.photoHint]),
-);
