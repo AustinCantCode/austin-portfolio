@@ -4,38 +4,22 @@ import posthog from "posthog-js";
 import { usePathname } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 
-const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
-
-let started = false;
-
-/** Sends an event to PostHog. Does nothing when no key is configured. */
+/** Sends an event to PostHog. Does nothing when analytics is off. */
 export function track(event: string, props?: Record<string, unknown>) {
-  if (!started) return;
+  if (!posthog.__loaded) return;
   posthog.capture(event, props);
 }
 
 /**
- * Starts PostHog only when NEXT_PUBLIC_POSTHOG_KEY is set, tracks page
- * views, and sends a click event for any element with `data-track`
+ * The site's own events on top of PostHog's automatic page views (PostHog
+ * starts in src/instrumentation-client.ts): a case study view for each
+ * project page, and a click event for any element with `data-track`
  * (props come from `data-track-*` attributes).
  */
 export function AnalyticsProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!KEY || started) return;
-    posthog.init(KEY, {
-      api_host: HOST,
-      capture_pageview: false,
-      person_profiles: "identified_only",
-    });
-    started = true;
-  }, []);
-
-  useEffect(() => {
-    if (!started) return;
-    posthog.capture("$pageview", { $current_url: window.location.href });
     const m = pathname.match(/^\/projects\/([^/]+)/);
     if (m) track("case_study_view", { slug: m[1] });
   }, [pathname]);

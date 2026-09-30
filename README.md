@@ -32,7 +32,7 @@ pnpm install
 pnpm dev
 ```
 
-Environment variables are listed in `.env.example`. Copy it to `.env.local` (`cp .env.example .env.local`) and fill it in, and add the same values in Vercel. The only one that matters is `NEXT_PUBLIC_POSTHOG_KEY`: without it, analytics stays off.
+Environment variables are listed in `.env.example`. Copy it to `.env.local` (`cp .env.example .env.local`) and fill it in, and add the same values in Vercel. The only one that matters is `NEXT_PUBLIC_POSTHOG_KEY`: without it, analytics stays off. PostHog starts in `src/instrumentation-client.ts` and sends its events through this site's `/relay` path (see `next.config.ts`).
 
 ## 📝 To do
 
