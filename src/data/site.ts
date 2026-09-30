@@ -8,6 +8,7 @@ export const site = {
   url: raw.url,
   location: raw.location,
   heroHeadline: raw.heroHeadline,
+  heroTitles: (raw.heroTitles ?? []) as string[],
   heroLine: raw.heroLine,
   contact: {
     email: contact.email,

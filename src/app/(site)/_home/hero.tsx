@@ -1,7 +1,7 @@
 "use client";
 
 import { stagger, useAnimate, type AnimationSequence } from "framer-motion";
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Coin from "@components/complex-ui/coin";
 import { ButtonLink } from "@components/ui";
 import { site } from "@data/site";
@@ -9,26 +9,46 @@ import { site } from "@data/site";
 // A soft ease-in-out: eases in gently, then takes its time to settle.
 const ease = [0.45, 0, 0.2, 1] as const;
 
+/** The opening, in seconds from its start (like the original site's). */
+const T = {
+  type: 0.5, // the name starts typing
+  perChar: 0.18, // one letter every 0.18s
+  pause: 0.45, // after the last letter, before the titles
+  titles: 0.9, // the titles fading in, one after another
+  spin: 3.5, // the coin turning over
+};
+
 /**
- * The homepage hero and its opening sequence: the name rises slowly out
- * of a mask word by word, the gold coin drifts up into place and turns
- * over once, then the rest of the hero and the nav settle in. Long
- * durations and soft, non-bouncing easing keep it calm and unhurried.
+ * The homepage hero and its opening sequence, after the original site:
+ * my name types itself out letter by letter, the titles I hold fade in
+ * under it, then the gold coin turns over from the AS logo to my photo,
+ * and the rest of the hero and the nav settle in.
  *
  * It plays once per visit: an inline script in the layout sets
  * <html data-intro> before first paint (skipped for reduced motion), CSS
- * hides the [data-intro-hide] parts until Framer Motion animates them in,
- * and without JavaScript everything is simply visible.
+ * hides the [data-intro-hide] parts until they're animated in, and
+ * without JavaScript everything is simply visible.
  */
 export function Hero() {
   const [scope, animate] = useAnimate();
-  const words = site.heroHeadline.split(" ");
+  const name = site.heroHeadline;
+  const titles = site.heroTitles;
+  // How many letters of the name are showing (all of them unless the
+  // intro is playing), and whether the typing caret is on screen.
+  const [typed, setTyped] = useState(name.length);
+  const [caret, setCaret] = useState(false);
   // Set by the effect; the coin calls it once its first frame is drawn.
   const begin = useRef<() => void>(() => {});
+  const flipRef = useRef<((ms?: number) => void) | null>(null);
+  // When the intro wants the coin to turn: before it's ready, it turns
+  // as soon as it is.
+  const wantFlip = useRef(false);
+  const playing = useRef(false);
 
   useEffect(() => {
     const root = document.documentElement;
     if (root.dataset.intro !== "1") return;
+    playing.current = true;
     try {
       sessionStorage.setItem("as-intro", "1");
     } catch {}
@@ -39,7 +59,10 @@ export function Hero() {
     ].filter((e): e is HTMLElement => !!e);
 
     let controls: { complete: () => void } | null = null;
-    let done: ReturnType<typeof setTimeout> | undefined;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const later = (s: number, fn: () => void) =>
+      timers.push(setTimeout(fn, s * 1000));
+    let typing: ReturnType<typeof setInterval> | undefined;
     let frame = 0;
     let started = false;
 
@@ -48,58 +71,90 @@ export function Hero() {
     const start = () => {
       if (started) return;
       started = true;
+      setTyped(0);
+      setCaret(true);
+      const typedAt = T.type + name.length * T.perChar;
+      const titlesAt = typedAt + T.pause;
+      const spinAt = titlesAt + 0.4 + titles.length * 0.25;
+      const restAt = spinAt + 0.3;
       // Only animate the chrome that is on screen (the tab bar is hidden
       // on desktop, the top links on phones).
       const nav = chrome.filter((e) => e.getClientRects().length > 0);
-      // One timeline, so every part takes its first keyframe at once.
       const seq: AnimationSequence = [
-        [
-          "[data-i=word]",
-          { y: ["110%", "0%"], opacity: [0, 1] },
-          { duration: 1.6, delay: stagger(0.22), at: 0, ease },
-        ],
+        ["[data-i=name]", { opacity: [1, 1] }, { duration: 0.01, at: 0 }],
         [
           "[data-i=coin]",
-          { opacity: [0, 1], scale: [0.92, 1], y: [28, 0] },
-          { duration: 2.2, at: 0.5, ease },
+          { opacity: [0, 1], scale: [0.94, 1] },
+          { duration: 1.4, at: 0, ease },
+        ],
+        ["[data-i=glow]", { opacity: [0, 1] }, { duration: 2.4, at: 0.2 }],
+        [
+          "[data-i=title]",
+          { opacity: [0, 1], y: [8, 0] },
+          { duration: T.titles, delay: stagger(0.25), at: titlesAt, ease },
         ],
         [
           "[data-i=rise]",
           { opacity: [0, 1], y: [18, 0] },
-          { duration: 1.4, delay: stagger(0.2), at: 1.2, ease },
+          { duration: 1.4, delay: stagger(0.2), at: restAt, ease },
         ],
-        ["[data-i=glow]", { opacity: [0, 1] }, { duration: 2.8, at: 1.2 }],
       ];
       if (nav.length)
         seq.push([
           nav,
           { opacity: [0, 1], y: [-10, 0] },
-          { duration: 1.4, at: 1.8, ease },
+          { duration: 1.4, at: restAt + 0.3, ease },
         ]);
       controls = animate(seq);
       // Framer now holds every part at its first keyframe, so the CSS that
       // hid them can go; each fade then ends on the natural visible value.
       frame = requestAnimationFrame(() => delete root.dataset.intro);
-      // The sequence lasts about 4s; then hand the chrome back to CSS.
-      done = setTimeout(() => {
+
+      // Type the name out, a letter at a time.
+      later(T.type, () => {
+        let n = 0;
+        typing = setInterval(() => {
+          n += 1;
+          setTyped(n);
+          if (n >= name.length) clearInterval(typing);
+        }, T.perChar * 1000);
+      });
+      // The caret blinks on a little after the name, then goes.
+      later(titlesAt + 1.2, () => setCaret(false));
+      later(spinAt, () => {
+        wantFlip.current = true;
+        flipRef.current?.(T.spin * 1000);
+      });
+      // Then hand the chrome back to CSS.
+      later(restAt + 2, () =>
         chrome.forEach((e) => {
           e.style.removeProperty("opacity");
           e.style.removeProperty("transform");
-        });
-      }, 4200);
+        }),
+      );
     };
     begin.current = start;
-    const fallback = setTimeout(start, 1200);
+    later(1.2, start);
 
     return () => {
       begin.current = () => {};
-      clearTimeout(fallback);
-      clearTimeout(done);
+      timers.forEach(clearTimeout);
+      clearInterval(typing);
       cancelAnimationFrame(frame);
       controls?.complete();
+      setTyped(name.length);
+      setCaret(false);
       delete root.dataset.intro;
     };
-  }, [animate, scope]);
+  }, [animate, scope, name, titles.length]);
+
+  // The coin is ready: start the intro, or on a later visit just turn it.
+  const onCoinReady = (flip: (ms?: number) => void) => {
+    flipRef.current = flip;
+    if (!playing.current) setTimeout(() => flip(1400), 700);
+    else if (wantFlip.current) flip(T.spin * 1000);
+    begin.current();
+  };
 
   return (
     <section
@@ -108,26 +163,40 @@ export function Hero() {
     >
       <div className="wrap flex flex-wrap-reverse items-center gap-[clamp(48px,7vw,112px)]">
         <div className="flex min-w-0 flex-[1_1_440px] flex-col items-start">
-          <h1 className="t-h1" aria-label={site.heroHeadline}>
-            {words.map((w, i) => (
-              <Fragment key={i}>
-                {/* The space sits outside the clipped word, so it is kept. */}
-                {i > 0 && " "}
-                <span
-                  aria-hidden="true"
-                  className="inline-block overflow-hidden pb-[0.1em] align-bottom"
-                >
-                  <span
-                    data-i="word"
-                    data-intro-hide=""
-                    className="inline-block"
-                  >
-                    {w}
+          <h1 className="t-h1" aria-label={name}>
+            {/* Every letter keeps its place while hidden, so nothing
+                shifts as the name types out; the caret has no width. */}
+            <span data-i="name" data-intro-hide="" aria-hidden="true">
+              {[...name].map((c, i) => (
+                <Fragment key={i}>
+                  {caret && i === typed && <Caret />}
+                  <span className={i < typed ? undefined : "invisible"}>
+                    {c}
                   </span>
-                </span>
-              </Fragment>
-            ))}
+                </Fragment>
+              ))}
+              {caret && typed >= name.length && <Caret />}
+            </span>
           </h1>
+          {titles.length > 0 && (
+            <p className="mt-[clamp(14px,1.6vw,20px)] flex flex-wrap items-center gap-x-3 gap-y-1 text-[clamp(13px,1.2vw,15px)] font-semibold tracking-[0.14em] text-accent-text uppercase">
+              {titles.map((t, i) => (
+                <span
+                  key={t}
+                  data-i="title"
+                  data-intro-hide=""
+                  className="flex items-center gap-3"
+                >
+                  {i > 0 && (
+                    <span aria-hidden="true" className="text-fg-2/50">
+                      ·
+                    </span>
+                  )}
+                  {t}
+                </span>
+              ))}
+            </p>
+          )}
           <p
             data-i="rise"
             data-intro-hide=""
@@ -165,13 +234,22 @@ export function Hero() {
           <div data-i="coin" data-intro-hide="" className="relative">
             <Coin
               className="mx-auto w-[clamp(220px,28vw,400px)] max-w-full"
-              delay={1500}
-              flipMs={3500}
-              onReady={() => begin.current()}
+              flipOnLoad={false}
+              flipMs={T.spin * 1000}
+              onReady={onCoinReady}
             />
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/** The typing caret: a thin gold bar that blinks, taking up no room. */
+function Caret() {
+  return (
+    <span aria-hidden="true" className="relative inline-block w-0">
+      <span className="absolute bottom-[0.12em] left-[0.04em] h-[0.78em] w-[0.06em] animate-[caret_1s_steps(1)_infinite] rounded-full bg-accent" />
+    </span>
   );
 }

@@ -23,8 +23,8 @@ export default function Coin({
   flipMs?: number;
   flipOnLoad?: boolean;
   label?: string;
-  /** Called once, after the first frame is drawn. */
-  onReady?: () => void;
+  /** Called once, after the first frame is drawn, with a way to flip it. */
+  onReady?: (flip: (ms?: number) => void) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const readyRef = useRef(onReady);
@@ -155,7 +155,7 @@ export default function Coin({
         renderer.render(scene, camera);
         if (!drawn && loaded === 2) {
           drawn = true;
-          readyRef.current?.();
+          readyRef.current?.((ms = flipMs) => flip(ms));
           if (flipOnLoad) loadTimer = setTimeout(() => flip(flipMs), delay);
         }
       };

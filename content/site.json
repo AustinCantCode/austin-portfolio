@@ -3,6 +3,11 @@
   "url": "https://austinsia.com",
   "location": "Singapore",
   "heroHeadline": "Austin Sia",
+  "heroTitles": [
+    "Software Developer",
+    "Entrepreneur",
+    "Designer"
+  ],
   "heroLine": "A Full-stack Software Developer and UI/UX Designer from Singapore, building websites and mobile apps for companies and for myself.",
   "contact": {
     "email": "austin.sia1515@gmail.com",

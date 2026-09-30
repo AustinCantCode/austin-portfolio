@@ -329,6 +329,13 @@
   animation: intro-fallback 0s 4s forwards;
 }
 
+/* The typing caret in the homepage intro. */
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
 @keyframes intro-fallback {
   to {
     opacity: 1;

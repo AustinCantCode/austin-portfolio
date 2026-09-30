@@ -423,6 +423,12 @@ const site = singleton({
     url: line("Site URL"),
     location: line("Location"),
     heroHeadline: line("Homepage headline"),
+    heroTitles: fields.array(line("Title"), {
+      label: "Homepage titles",
+      description:
+        "Shown one after another under your name as it's typed out, e.g. Software Developer.",
+      itemLabel: (p) => p.value || "Title",
+    }),
     heroLine: para("Homepage line under the headline"),
     contact: fields.object(
       {
