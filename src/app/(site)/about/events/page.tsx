@@ -3,9 +3,10 @@ import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader, TextLink } from "@components/ui";
-import { NaturalImage } from "@components/media";
+import Image from "next/image";
+import { ImageSlot, NaturalImage } from "@components/media";
 import { AboutNav, AboutPager } from "@components/local-nav";
-import type { EventItem, GalleryItem } from "@data/types";
+import type { EventItem, GalleryItem, Media } from "@data/types";
 import { GalleryButton } from "./gallery-button";
 
 export const metadata = pageMetadata({
@@ -19,6 +20,40 @@ const allPhotos = (e: EventItem): GalleryItem[] =>
   e.gallery.length
     ? [...(e.image ? [{ media: e.image }] : []), ...e.gallery]
     : [];
+
+const PHOTO_RATIO = 4 / 3;
+
+/**
+ * An event card's photo in a frame of one shape, so every card lines up.
+ * The photo is never cropped: one of another shape sits whole in the
+ * frame, over a blurred copy of itself.
+ */
+function EventPhoto({ media, title }: { media?: Media; title: string }) {
+  const sizes = "(max-width: 768px) 100vw, 33vw";
+  const odd =
+    media &&
+    Math.abs(media.src.width / media.src.height / PHOTO_RATIO - 1) > 0.02;
+  return (
+    <div className="relative aspect-[4/3] overflow-hidden bg-pill">
+      {odd && (
+        <Image
+          src={media.src}
+          alt=""
+          aria-hidden="true"
+          fill
+          quality={100}
+          sizes={sizes}
+          className="scale-110 object-cover opacity-70 blur-2xl"
+        />
+      )}
+      <ImageSlot
+        media={media ? { ...media, fit: "contain" } : undefined}
+        placeholder={`${title} photo`}
+        sizes={sizes}
+      />
+    </div>
+  );
+}
 
 export default function EventsPage() {
   const featured = events[FEATURED_EVENT_INDEX];
@@ -79,22 +114,17 @@ export default function EventsPage() {
         </article>
       </section>
       <section className="gutter pb-[clamp(72px,min(9vw,13vh),136px)]">
-        {/* Masonry columns so every photo keeps its own shape. */}
-        <div className="wrap columns-[320px] gap-[clamp(20px,2.4vw,32px)]">
+        {/* Equal rows: every card is as tall as the tallest one. */}
+        <div className="wrap grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,320px),1fr))] gap-x-[clamp(20px,2.4vw,32px)] gap-y-[clamp(16px,2vw,24px)]">
           {rest.map((e) => (
             <article
               key={e.title}
               data-reveal=""
               data-hover-card=""
-              className="mb-[clamp(16px,2vw,24px)] flex break-inside-avoid flex-col overflow-hidden rounded-[24px] bg-bg-alt"
+              className="flex flex-col overflow-hidden rounded-[24px] bg-bg-alt"
             >
-              <NaturalImage
-                media={e.image}
-                placeholder={`${e.title} photo`}
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="bg-pill"
-              />
-              <div className="flex flex-col gap-1.5 px-6 pt-5 pb-[26px]">
+              <EventPhoto media={e.image} title={e.title} />
+              <div className="flex flex-1 flex-col gap-1.5 px-6 pt-5 pb-[26px]">
                 <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>
                 <h3 className="text-[21px] leading-[1.25] font-bold tracking-[-0.015em]">
                   {e.title}
@@ -103,17 +133,21 @@ export default function EventsPage() {
                 <p data-hover-detail="" className="text-[15px] text-fg-2">
                   {e.text}
                 </p>
-                {e.gallery.length > 0 && (
-                  <GalleryButton
-                    title={e.title}
-                    items={allPhotos(e)}
-                    className="mt-2 bg-pill text-fg"
-                  />
-                )}
-                {e.link && (
-                  <TextLink href={e.link.href} className="mt-1 text-[15px]">
-                    {e.link.label} ›
-                  </TextLink>
+                {(e.gallery.length > 0 || e.link) && (
+                  <div className="mt-auto flex flex-col items-start gap-1 pt-2">
+                    {e.gallery.length > 0 && (
+                      <GalleryButton
+                        title={e.title}
+                        items={allPhotos(e)}
+                        className="bg-pill text-fg"
+                      />
+                    )}
+                    {e.link && (
+                      <TextLink href={e.link.href} className="text-[15px]">
+                        {e.link.label} ›
+                      </TextLink>
+                    )}
+                  </div>
                 )}
               </div>
             </article>
