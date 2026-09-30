@@ -31,6 +31,13 @@
     "fit": "contain",
     "bare": true
   },
+  "thumbnail": {
+    "image": "/images/projects/quizzy/thumbnail/image.png",
+    "alt": "Quizzy logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false
