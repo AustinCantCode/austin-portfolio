@@ -3,9 +3,13 @@ import { PHONE_SIZES } from "./media";
 
 /**
  * How a piece of work stands in the showroom (see client/showroom.tsx):
- * in a tablet or phone whose screen takes the screenshot's own shape, or
- * as the object itself (a mockup, a photo, an app icon). `ratio` is
- * width / height. Nothing is cropped.
+ * in a tablet or phone, or as the object itself (a mockup, a photo, an
+ * app icon). `ratio` is width / height.
+ *
+ * Every kind has one fixed shape (SHAPES), so pieces of the same kind are
+ * always the same size and a row of them lines up. Screenshots fill their
+ * screen from the top (a taller one loses a little of its bottom, like a
+ * browser window); photos fill their print; mockups sit whole in a square.
  */
 export type Look = (
   | { kind: "tablet" | "phone"; media?: Media; ratio: number }
@@ -16,29 +20,37 @@ export type Look = (
   label?: string;
 };
 
-const shape = (m: Media) => m.src.width / m.src.height;
-const within = (n: number, lo: number, hi: number) =>
-  Math.min(hi, Math.max(lo, n));
+/** The one shape of each kind (width / height). */
+export const SHAPES = {
+  /** Web screenshots are 1.8–2.1 wide; 2:1 crops only the odd bottom. */
+  tablet: 2,
+  /** A modern phone screen, 9:19.5 (app screens are about 0.45). */
+  phone: 9 / 19.5,
+  photo: 4 / 3,
+  mockup: 1,
+} as const;
 
-/** A web screenshot in a landscape tablet (2:1 until there's an image). */
+const shape = (m: Media) => m.src.width / m.src.height;
+
+/** A web screenshot in a landscape tablet. */
 export const tabletLook = (media?: Media): Look => ({
   kind: "tablet",
   media,
-  ratio: media ? within(shape(media), 1.2, 2.4) : 2,
+  ratio: SHAPES.tablet,
 });
 
 /** An app screen in a phone. */
 export const phoneLook = (media?: Media): Look => ({
   kind: "phone",
   media,
-  ratio: media ? within(shape(media), 0.4, 0.62) : 0.46,
+  ratio: SHAPES.phone,
 });
 
 /** A photo standing as a print, with rounded corners. */
 export const photoLook = (media?: Media): Look => ({
   kind: "object",
   media,
-  ratio: media ? shape(media) : 4 / 3,
+  ratio: SHAPES.photo,
   photo: true,
 });
 
@@ -47,7 +59,7 @@ export function lookOf(p: Project): Look {
   if (p.screen) return phoneLook(p.screen);
   // A mockup already shows its own devices.
   if (cover?.bare)
-    return { kind: "object", media: cover, ratio: shape(cover), photo: false };
+    return { kind: "object", media: cover, ratio: SHAPES.mockup, photo: false };
   if (p.frame === "phone") {
     // A square image for an app is its icon, not a screen.
     if (cover && shape(cover) > 0.7) return { kind: "icon", media: cover };

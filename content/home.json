@@ -108,7 +108,6 @@
       {
         "icon": "lucide:code-xml",
         "label": "Development",
-        "count": 21,
         "headline": "Full-stack Web & Mobile Development",
         "blurb": "I develop websites and mobile apps from start to finish, from the user interface all the way to the backend and databases.",
         "services": [
@@ -152,7 +151,6 @@
       {
         "icon": "lucide:pen-tool",
         "label": "Design",
-        "count": 11,
         "headline": "UI/UX, Product & Graphic Design",
         "blurb": "I specialized in UI/UX design at Singapore Polytechnic, so every project I work on starts with the user in mind.",
         "services": [
@@ -194,7 +192,6 @@
       {
         "icon": "lucide:rocket",
         "label": "Entrepreneurship",
-        "count": 3,
         "headline": "From a Hackathon Team to My Own App",
         "blurb": "I made the grand finals of the SP Batey Hackathon with my team, and I have since built and launched StillGood, my own app.",
         "services": [

@@ -179,7 +179,6 @@ export function WhatIDo() {
                 segments={AREAS.map((a) => ({
                   id: a.key,
                   label: a.label,
-                  count: a.count,
                   icon: <Icon name={a.icon} size={16} />,
                 }))}
                 position={pinned ? pillPos : undefined}

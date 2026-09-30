@@ -16,10 +16,10 @@ import {
 import { isPlaceholderLink } from "@data/site";
 import { Icon } from "@components/icon";
 import { SmartLink } from "@components/ui";
-import { NaturalImage } from "@components/media";
+import { ImageSlot } from "@components/media";
 import { AreaNav, VenturesNav } from "@components/local-nav";
 import { ShowroomCarousel, ShowroomHero } from "@components/client/showroom";
-import type { StorySection } from "@data/types";
+import type { Media, StorySection } from "@data/types";
 import { testimonialFor } from "@data/testimonials";
 import { Toc } from "@components/client/toc";
 import { AnchorHeading } from "@components/anchor-heading";
@@ -98,16 +98,7 @@ function StoryBody({
       )}
       {section.image && (
         <figure className="m-0 flex flex-col gap-3">
-          <NaturalImage
-            media={section.image}
-            placeholder={`${title} image`}
-            sizes="(max-width: 1024px) 100vw, 760px"
-            className={cn(
-              "rounded-[clamp(12px,1.4vw,18px)]",
-              section.image.src.height > section.image.src.width * 1.4 &&
-                "max-w-[340px]",
-            )}
-          />
+          <StoryImage media={section.image} title={title} />
           {section.image.alt && (
             <figcaption className="text-[14px] text-fg-2">
               {section.image.alt}
@@ -115,6 +106,36 @@ function StoryBody({
           )}
         </figure>
       )}
+    </div>
+  );
+}
+
+/**
+ * A story image in one of three fixed frames, by its shape: an app screen
+ * as a phone screen, a photo as a 4:3 print, a web screenshot at 2:1 (as in
+ * the showroom). Screens fill from the top; photos from the middle.
+ */
+function StoryImage({ media, title }: { media: Media; title: string }) {
+  const r = media.src.width / media.src.height;
+  const frame =
+    r < 0.7
+      ? { ratio: 9 / 19.5, className: "max-w-[300px]", position: "top" }
+      : r < 1.6
+        ? { ratio: 4 / 3, className: "", position: "center" }
+        : { ratio: 2, className: "", position: "top" };
+  return (
+    <div
+      className={cn(
+        "relative w-full overflow-hidden rounded-[clamp(12px,1.4vw,18px)] bg-pill",
+        frame.className,
+      )}
+      style={{ aspectRatio: frame.ratio }}
+    >
+      <ImageSlot
+        media={{ ...media, fit: "cover", position: frame.position }}
+        placeholder={`${title} image`}
+        sizes="(max-width: 1024px) 100vw, 760px"
+      />
     </div>
   );
 }

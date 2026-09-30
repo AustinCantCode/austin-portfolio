@@ -3,10 +3,10 @@ import { JsonLd, graph, breadcrumbLd } from "@lib/structured-data";
 import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { PageHeader, TextLink } from "@components/ui";
-import Image from "next/image";
-import { ImageSlot, NaturalImage } from "@components/media";
+import { NaturalImage } from "@components/media";
+import { EventPhoto } from "@components/event-photo";
 import { AboutNav, AboutPager } from "@components/local-nav";
-import type { EventItem, GalleryItem, Media } from "@data/types";
+import type { EventItem, GalleryItem } from "@data/types";
 import { GalleryButton } from "./gallery-button";
 
 export const metadata = pageMetadata({
@@ -20,40 +20,6 @@ const allPhotos = (e: EventItem): GalleryItem[] =>
   e.gallery.length
     ? [...(e.image ? [{ media: e.image }] : []), ...e.gallery]
     : [];
-
-const PHOTO_RATIO = 4 / 3;
-
-/**
- * An event card's photo in a frame of one shape, so every card lines up.
- * The photo is never cropped: one of another shape sits whole in the
- * frame, over a blurred copy of itself.
- */
-function EventPhoto({ media, title }: { media?: Media; title: string }) {
-  const sizes = "(max-width: 768px) 100vw, 33vw";
-  const odd =
-    media &&
-    Math.abs(media.src.width / media.src.height / PHOTO_RATIO - 1) > 0.02;
-  return (
-    <div className="relative aspect-[4/3] overflow-hidden bg-pill">
-      {odd && (
-        <Image
-          src={media.src}
-          alt=""
-          aria-hidden="true"
-          fill
-          quality={100}
-          sizes={sizes}
-          className="scale-110 object-cover opacity-70 blur-2xl"
-        />
-      )}
-      <ImageSlot
-        media={media ? { ...media, fit: "contain" } : undefined}
-        placeholder={`${title} photo`}
-        sizes={sizes}
-      />
-    </div>
-  );
-}
 
 export default function EventsPage() {
   const featured = events[FEATURED_EVENT_INDEX];

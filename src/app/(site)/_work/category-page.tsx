@@ -19,6 +19,7 @@ import type { AreaId } from "@data/types";
 import { NextCard, PageHeader } from "@components/ui";
 import { AreaNav } from "@components/local-nav";
 import { ShowroomPairs, SmallAppItem } from "@components/client/showroom";
+import { ThumbGrid } from "@components/thumb-grid";
 import { Gallery } from "./gallery";
 
 type Area = Exclude<AreaId, "ventures">;
@@ -90,7 +91,13 @@ export function CategoryView({ area, slug }: { area: Area; slug: string }) {
             {n} {n === 1 ? noun : `${noun}s`}
           </h2>
 
-          {cat.layout === "projects" && <ShowroomPairs projects={list} />}
+          {/* UI/UX apps are shown by their thumbnails (as on Design). */}
+          {cat.layout === "projects" &&
+            (cat.slug === "ui-ux" ? (
+              <ThumbGrid projects={list} />
+            ) : (
+              <ShowroomPairs projects={list} />
+            ))}
 
           {cat.layout === "small-apps" && (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-x-[clamp(24px,3vw,40px)] gap-y-[clamp(44px,5vw,64px)]">

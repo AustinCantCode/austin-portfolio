@@ -46,25 +46,29 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
         aria-labelledby={`cert-tab-${filter}`}
         className="gutter pt-[clamp(24px,3vw,40px)] pb-[clamp(72px,min(9vw,13vh),136px)]"
       >
-        {/* Masonry columns so each certificate keeps its own shape. */}
-        <div className="wrap columns-[250px] gap-4">
+        {/* One tile size for every certificate: each sits whole on a mat
+            in the same A4-landscape frame, portrait or landscape. */}
+        <div className="wrap grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(min(100%,250px),1fr))] gap-4">
           {list.map((c, i) => (
             <article
               key={c.title}
               data-hover-card=""
-              className="mb-4 flex break-inside-avoid flex-col overflow-hidden bg-bg-alt"
+              className="flex flex-col overflow-hidden bg-bg-alt"
             >
-              {c.image ? (
-                <Image
-                  quality={100}
-                  src={c.image}
-                  alt={`${c.title} certificate`}
-                  sizes="(max-width: 640px) 100vw, 300px"
-                  className="block h-auto w-full bg-pill"
-                />
-              ) : (
-                <div className="aspect-[1.41/1] bg-pill" />
-              )}
+              <div className="relative aspect-[1.41/1] bg-pill">
+                {c.image && (
+                  <div className="absolute inset-[7%]">
+                    <Image
+                      quality={100}
+                      src={c.image}
+                      alt={`${c.title} certificate`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 300px"
+                      className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.18)]"
+                    />
+                  </div>
+                )}
+              </div>
               <div className="flex flex-1 items-start gap-3 py-4 pr-4 pl-5">
                 <div className="flex min-w-0 flex-1 flex-col gap-1">
                   <h2 className="text-[15px] leading-[1.35] font-semibold">

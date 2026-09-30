@@ -218,7 +218,7 @@ export default function StillGoodPage() {
                     i % 2 === 1 && "md:order-2",
                   )}
                 >
-                  <div className="w-[clamp(200px,22vw,260px)]">
+                  <div className="w-[clamp(200px,20vw,240px)]">
                     {i === 0 && demo.video ? (
                       <DemoVideo
                         src={demo.video}
@@ -273,7 +273,7 @@ export default function StillGoodPage() {
                     STAGE,
                   )}
                 >
-                  <div className="w-[clamp(190px,19vw,230px)]">
+                  <div className="w-[clamp(200px,20vw,240px)]">
                     <Screen name={t.screen} size={240} width="100%" />
                   </div>
                 </div>

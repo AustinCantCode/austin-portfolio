@@ -5,7 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Graphic, Project, SmallApp } from "@data/types";
 import { NaturalImage } from "@components/media";
-import { ShowroomGrid, SmallAppItem } from "@components/client/showroom";
+import {
+  ShowroomFeature,
+  ShowroomGrid,
+  SmallAppItem,
+} from "@components/client/showroom";
+import { ThumbGrid } from "@components/thumb-grid";
 import { Carousel } from "@components/client/carousel";
 import { Lightbox } from "@components/client/lightbox";
 
@@ -19,11 +24,13 @@ type Base = {
 
 export type WorkGroup =
   | (Base & { kind: "tiles"; projects: Project[] })
+  | (Base & { kind: "thumbs"; projects: Project[] })
+  | (Base & { kind: "feature"; projects: Project[] })
   | (Base & { kind: "small"; apps: SmallApp[] })
   | (Base & { kind: "art"; art: Graphic[] });
 
 const groupCount = (g: WorkGroup) =>
-  g.kind === "tiles"
+  g.kind === "tiles" || g.kind === "thumbs" || g.kind === "feature"
     ? g.projects.length
     : g.kind === "small"
       ? g.apps.length
@@ -67,6 +74,15 @@ export function AreaView({ groups }: { groups: WorkGroup[] }) {
 function GroupBody({ group: g }: { group: WorkGroup }) {
   const [art, setArt] = useState<number | null>(null);
   if (g.kind === "tiles") return <ShowroomGrid projects={g.projects} />;
+  if (g.kind === "thumbs") return <ThumbGrid projects={g.projects} />;
+  if (g.kind === "feature")
+    return (
+      <div className="flex flex-col gap-[clamp(48px,6vw,88px)]">
+        {g.projects.map((p) => (
+          <ShowroomFeature key={p.slug} project={p} />
+        ))}
+      </div>
+    );
   if (g.kind === "small") {
     return (
       <Carousel label="small apps">
@@ -84,7 +100,7 @@ function GroupBody({ group: g }: { group: WorkGroup }) {
   if (g.kind === "art") {
     return (
       <>
-        <div className="flex-1 columns-3 gap-3">
+        <div className="columns-[240px] gap-3">
           {g.art.map((a, i) => (
             <button
               key={a.id}

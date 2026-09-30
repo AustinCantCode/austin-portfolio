@@ -5,7 +5,7 @@ import { events } from "@data/events";
 import { home } from "@data/home";
 import { Icon } from "@components/icon";
 import { TextLink } from "@components/ui";
-import { NaturalImage } from "@components/media";
+import { EventPhoto } from "@components/event-photo";
 
 // Line the first card up with the page container.
 const pad = "max(var(--gutter), calc((100% - var(--container)) / 2))";
@@ -62,11 +62,10 @@ export function EventsCarousel() {
             data-hover-card=""
             className="flex w-[clamp(280px,28vw,420px)] flex-none snap-start flex-col overflow-hidden rounded-[24px] bg-tile"
           >
-            <NaturalImage
+            <EventPhoto
               media={e.image}
-              placeholder={`${e.title} photo`}
+              title={e.title}
               sizes="(max-width: 768px) 80vw, 420px"
-              className="bg-pill"
             />
             <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
               <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>

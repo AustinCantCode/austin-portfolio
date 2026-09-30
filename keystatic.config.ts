@@ -499,7 +499,6 @@ const home = singleton({
           fields.object({
             icon,
             label: line("Tab label"),
-            count: fields.integer({ label: "Count on the tab" }),
             headline: line("Headline"),
             blurb: para("Paragraph"),
             services: fields.array(

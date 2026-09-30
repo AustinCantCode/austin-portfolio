@@ -5,7 +5,7 @@ import { motion, type Variants } from "framer-motion";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@lib/utils";
 import type { Project, SmallApp, Venture } from "@data/types";
-import { ImageSlot, NaturalImage, PhoneFrame, TabletFrame } from "../media";
+import { ImageSlot, PhoneFrame, TabletFrame } from "../media";
 import { Icon } from "../icon";
 import {
   PHONE,
@@ -102,7 +102,11 @@ const SIZES = {
   },
 };
 
-/** The work itself, whole: the image's shape sets the screen's shape. */
+/**
+ * The work itself, in its kind's one fixed shape (showroom-look SHAPES):
+ * a screenshot fills its screen from the top, a photo fills its print, and
+ * a mockup sits whole in its square.
+ */
 function Device({
   look,
   size,
@@ -125,7 +129,8 @@ function Device({
       placeholder={look.label ?? label}
       sizes={sizes}
       priority={priority}
-      fit="contain"
+      fit="cover"
+      position="top"
       compact={size === "sm" && look.kind === "phone"}
     />
   );
@@ -158,12 +163,15 @@ function Device({
             look.photo &&
               "overflow-hidden rounded-[clamp(12px,1.4vw,18px)] bg-pill",
           )}
+          style={{ aspectRatio: look.ratio }}
         >
-          <NaturalImage
+          <ImageSlot
             media={look.media}
             placeholder={look.label ?? label}
             sizes={sizes}
             priority={priority}
+            fit={look.photo ? "cover" : "contain"}
+            position="center"
           />
           {badge}
         </div>
@@ -291,10 +299,10 @@ export function ShowroomFeature({
           STAGE_LG,
         )}
       >
-        <Stand width={widthOf(look, "lg")} size="lg" className="md:col-span-7">
+        <Stand width={widthOf(look, "lg")} size="lg" className="md:col-span-6">
           <Device look={look} size="lg" label={`${p.title} screenshot`} />
         </Stand>
-        <div className="md:col-span-5 md:pb-2">
+        <div className="md:col-span-6 md:pb-2">
           <Caption project={p} size="lg" heading={heading} />
         </div>
       </ProjectPeek>
@@ -303,9 +311,8 @@ export function ShowroomFeature({
 }
 
 /**
- * Projects in pairs. A landscape piece next to a tall one splits 7/5 (the
- * side follows the order given), two of a kind split evenly, and one left
- * over stands on its own with its label beside it.
+ * Projects in pairs, each taking half a row so every device of a kind is
+ * the same size. One left over takes the same half, its label beside it.
  */
 export function ShowroomPairs({
   projects,
@@ -335,24 +342,14 @@ export function ShowroomPairs({
               className="row-span-2 md:col-span-12"
             />
           );
-        const [a, b] = row.map((p) => isWide(lookOf(p)));
-        return row.map((p, k) => {
-          const wide = k === 0 ? a : b;
-          const span =
-            a === b
-              ? "md:col-span-6"
-              : wide
-                ? "md:col-span-7"
-                : "md:col-span-5";
-          return (
-            <ShowroomItem
-              key={p.slug}
-              project={p}
-              heading={heading}
-              className={span}
-            />
-          );
-        });
+        return row.map((p) => (
+          <ShowroomItem
+            key={p.slug}
+            project={p}
+            heading={heading}
+            className="md:col-span-6"
+          />
+        ));
       })}
     </div>
   );

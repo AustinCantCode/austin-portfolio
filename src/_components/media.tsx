@@ -243,7 +243,7 @@ export function TabletFrame({
       <div className="rounded-[clamp(12px,1.3vw,16px)] bg-frame p-[clamp(4px,0.45vw,6px)]">
         <div
           className={cn(
-            "relative overflow-hidden rounded-[clamp(8px,0.85vw,10px)] bg-bg",
+            "tablet-screen relative overflow-hidden rounded-[clamp(8px,0.85vw,10px)] bg-bg",
             !ratio && "aspect-[4/3]",
           )}
           style={ratio ? { aspectRatio: String(ratio) } : undefined}

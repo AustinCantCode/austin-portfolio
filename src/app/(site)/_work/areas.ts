@@ -48,7 +48,7 @@ export const areaGroups: Record<"dev" | "design", WorkGroup[]> = {
   ],
   design: [
     {
-      kind: "tiles",
+      kind: "thumbs",
       anchor: "ui-ux",
       label: "UI/UX",
       href: categoryHref("ui-ux"),
@@ -57,12 +57,12 @@ export const areaGroups: Record<"dev" | "design", WorkGroup[]> = {
       projects: tiles(["fresko", "quizzy", "hg", "sp"]),
     },
     {
-      kind: "tiles",
+      kind: "feature",
       anchor: "product-design",
       label: "Product Design",
       href: categoryHref("product-design"),
       linkLabel: "View ›",
-      flex: "1 1 340px",
+      flex: "1 1 100%",
       projects: tiles(["lawks"]),
     },
     {
@@ -71,7 +71,7 @@ export const areaGroups: Record<"dev" | "design", WorkGroup[]> = {
       label: "Graphic Design",
       href: categoryHref("graphic-design"),
       linkLabel: "Open gallery ›",
-      flex: "2 1 640px",
+      flex: "1 1 100%",
       art: graphics,
     },
   ],

@@ -16,7 +16,8 @@ type Award = {
 
 /**
  * "Recognition." The awards ticked "Show on the homepage" in the CMS,
- * shown whole at their own shape; each opens the certificate viewer.
+ * each whole in the same certificate frame; each opens the certificate
+ * viewer.
  */
 export function Recognition({
   title,
@@ -44,15 +45,18 @@ export function Recognition({
                 aria-haspopup="dialog"
                 className="zoom-host press group flex w-full flex-col gap-4 border-0 bg-transparent p-0 text-left text-fg"
               >
-                <span className="block w-full overflow-hidden bg-pill p-[clamp(12px,1.4vw,18px)]">
-                  <span data-zoom="" className="block">
+                {/* The same frame as the certificates page: every award
+                    sits whole on a mat of one shape. */}
+                <span className="relative block aspect-[1.41/1] w-full overflow-hidden bg-pill">
+                  <span data-zoom="" className="absolute inset-[7%] block">
                     <Image
                       quality={100}
                       src={a.image}
                       alt={`${a.title} certificate`}
+                      fill
                       sizes="(max-width: 640px) 100vw, 380px"
                       placeholder={a.image.blurDataURL ? "blur" : "empty"}
-                      className="block h-auto w-full"
+                      className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.18)]"
                     />
                   </span>
                 </span>

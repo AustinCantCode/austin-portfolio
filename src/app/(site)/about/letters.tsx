@@ -39,13 +39,17 @@ export function Letters({ letters }: { letters: Letter[] }) {
                 i % 2 === 1 && "md:order-2",
               )}
             >
-              <Image
-                quality={100}
-                src={l.image}
-                alt={`Letter of recommendation from ${l.name}`}
-                sizes="(max-width: 768px) 90vw, 440px"
-                className="block h-auto w-full bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,.35)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.02]"
-              />
+              {/* Every letter in the same A4 page frame, shown whole. */}
+              <span className="relative block aspect-[1/1.414] w-full bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,.35)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.02]">
+                <Image
+                  quality={100}
+                  src={l.image}
+                  alt={`Letter of recommendation from ${l.name}`}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 440px"
+                  className="object-contain"
+                />
+              </span>
               <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-black/70 text-white">
                 <Icon name="maximize-2" size={16} />
               </span>
