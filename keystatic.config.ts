@@ -42,7 +42,8 @@ const media = (dir: string, label: string, description?: string) =>
       image: img(dir, label, description),
       alt: fields.text({
         label: "Alt text",
-        description: "Describe the image for screen readers and search.",
+        description:
+          "Describe the image for screen readers and search. Fill it in every time you add an image.",
       }),
       fit: fields.select({
         label: "Fit",

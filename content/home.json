@@ -143,6 +143,7 @@
         ],
         "photo": {
           "image": "/images/home/whatIDo/areas/0/photo/image.jpeg",
+          "alt": "My laptop showing code in an editor, on a library table beside a cup of coffee",
           "fit": "cover",
           "bare": false
         },
@@ -184,6 +185,7 @@
         ],
         "photo": {
           "image": "/images/home/whatIDo/areas/1/photo/image.jpeg",
+          "alt": "My product design sketches of a card holder, with red and black prototypes on the page",
           "fit": "",
           "bare": false
         },
@@ -224,6 +226,7 @@
         ],
         "photo": {
           "image": "/images/home/whatIDo/areas/2/photo/image.jpeg",
+          "alt": "Me speaking on stage with a microphone at Singapore Polytechnic",
           "fit": "cover",
           "bare": false
         },

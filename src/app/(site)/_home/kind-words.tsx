@@ -21,7 +21,7 @@ function Person({ t, size = 44 }: { t: Testimonial; size?: number }) {
       {t.photo && (
         <Image
           src={t.photo}
-          alt=""
+          alt={t.name}
           width={size}
           height={size}
           className="flex-none rounded-full object-cover"

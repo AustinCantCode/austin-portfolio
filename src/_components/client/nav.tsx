@@ -83,7 +83,7 @@ export function Nav() {
             <Image
               quality={100}
               src={logo}
-              alt=""
+              alt="AS logo"
               width={28}
               height={28}
               priority

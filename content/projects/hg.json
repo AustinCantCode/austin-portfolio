@@ -31,6 +31,7 @@
   },
   "thumbnail": {
     "image": "/images/projects/hg/thumbnail/image.png",
+    "alt": "The Hidden Gems app icon: a location pin over two photos",
     "fit": "",
     "bare": false
   },

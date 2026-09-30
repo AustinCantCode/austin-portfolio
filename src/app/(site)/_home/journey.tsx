@@ -102,7 +102,7 @@ export function Journey() {
                   {t.logo ? (
                     <Image
                       src={t.logo}
-                      alt=""
+                      alt={`${t.title} logo`}
                       width={56}
                       height={56}
                       className="-mt-0.5 size-8 flex-none rounded-full bg-white object-contain p-[3px] shadow-[0_0_0_1px_var(--color-hairline)]"

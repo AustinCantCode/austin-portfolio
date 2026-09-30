@@ -88,7 +88,7 @@ function Card({ photo }: { photo: StackPhoto }) {
     <span className="relative block size-full overflow-hidden rounded-[20px] bg-pill shadow-[var(--shadow-lift)]">
       <Image
         src={photo.image}
-        alt=""
+        alt={photo.alt}
         fill
         sizes="240px"
         draggable={false}
