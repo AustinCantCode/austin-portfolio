@@ -6,19 +6,22 @@
       "title": "JavaScript Foundations Professional Certificate",
       "issuer": "LinkedIn Learning",
       "description": "2 of 2 Mozilla courses completed.",
-      "image": "/images/certificates/mozilla/items/0/image.jpg"
+      "image": "/images/certificates/mozilla/items/0/image.jpg",
+      "featured": true
     },
     {
       "title": "JavaScript Essential Training",
       "issuer": "LinkedIn Learning",
       "description": "1 of 2 Mozilla courses.",
-      "image": "/images/certificates/mozilla/items/1/image.jpg"
+      "image": "/images/certificates/mozilla/items/1/image.jpg",
+      "featured": false
     },
     {
       "title": "Learning the JavaScript Language",
       "issuer": "LinkedIn Learning",
       "description": "1 of 2 Mozilla courses.",
-      "image": "/images/certificates/mozilla/items/2/image.jpg"
+      "image": "/images/certificates/mozilla/items/2/image.jpg",
+      "featured": false
     }
   ]
 }

@@ -6,7 +6,8 @@
       "title": "Certificate of Recognition",
       "issuer": "RoboCup Singapore",
       "description": "For volunteering at RoboCup 2025.",
-      "image": "/images/certificates/robocup/items/0/image.png"
+      "image": "/images/certificates/robocup/items/0/image.png",
+      "featured": true
     }
   ]
 }

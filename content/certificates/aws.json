@@ -6,37 +6,43 @@
       "title": "Introduction to Generative AI: Art of the Possible",
       "issuer": "Amazon Web Services (AWS)",
       "description": "1 of 5 generative AI courses.",
-      "image": "/images/certificates/aws/items/0/image.jpg"
+      "image": "/images/certificates/aws/items/0/image.jpg",
+      "featured": false
     },
     {
       "title": "Planning a Generative AI Project",
       "issuer": "Amazon Web Services (AWS)",
       "description": "1 of 5 generative AI courses.",
-      "image": "/images/certificates/aws/items/1/image.jpg"
+      "image": "/images/certificates/aws/items/1/image.jpg",
+      "featured": false
     },
     {
       "title": "Responsible Artificial Intelligence Practices",
       "issuer": "Amazon Web Services (AWS)",
       "description": "1 of 5 generative AI courses.",
-      "image": "/images/certificates/aws/items/2/image.jpg"
+      "image": "/images/certificates/aws/items/2/image.jpg",
+      "featured": false
     },
     {
       "title": "Foundations of Prompt Engineering",
       "issuer": "Amazon Web Services (AWS)",
       "description": "1 of 5 generative AI courses.",
-      "image": "/images/certificates/aws/items/3/image.jpg"
+      "image": "/images/certificates/aws/items/3/image.jpg",
+      "featured": false
     },
     {
       "title": "No-code Learning and Generative AI on AWS",
       "issuer": "Amazon Web Services (AWS)",
       "description": "1 of 5 generative AI courses.",
-      "image": "/images/certificates/aws/items/4/image.jpg"
+      "image": "/images/certificates/aws/items/4/image.jpg",
+      "featured": false
     },
     {
       "title": "SCS-AWS GenAI (Foundational) Programme",
       "issuer": "AWS, Singapore Computer Society",
       "description": "Programme completion.",
-      "image": "/images/certificates/aws/items/5/image.jpeg"
+      "image": "/images/certificates/aws/items/5/image.jpeg",
+      "featured": true
     }
   ]
 }
