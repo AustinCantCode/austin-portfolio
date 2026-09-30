@@ -1,0 +1,10 @@
+{
+  "title": "Magic 8 Ball",
+  "order": 10,
+  "tech": "JavaScript",
+  "year": "2023",
+  "text": "Ask any question and the Magic 8 Ball will give you an answer.",
+  "image": "/images/small-apps/magic-8-ball/image.png",
+  "alt": "Magic 8 Ball screenshot",
+  "video": "/videos/small-apps/magic-8-ball/video.mp4"
+}

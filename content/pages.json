@@ -1,0 +1,65 @@
+{
+  "home": {
+    "title": "Full-Stack Developer & Designer in Singapore",
+    "description": "I am Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore. Explore my client platforms for ITE, KiasuParents and IAL, and my apps."
+  },
+  "development": {
+    "title": "Development: Websites, Web Apps and Mobile Apps",
+    "description": "Websites, web apps and mobile apps I have developed as a full-stack developer in Singapore, from live client platforms to school and personal projects.",
+    "heading": "Development"
+  },
+  "design": {
+    "title": "Design: UI/UX, Product and Graphic Design",
+    "description": "App prototypes, a 3D-printed product and graphic artwork I have designed, from school modules at Singapore Polytechnic to a hackathon.",
+    "heading": "Design"
+  },
+  "ventures": {
+    "title": "Ventures: StillGood, Zenith Technologies and Freelance",
+    "description": "The ventures I have started, from Zenith Technologies at the SP Batey Hackathon to freelance client work and StillGood, my food waste app.",
+    "heading": "Ventures"
+  },
+  "about": {
+    "title": "About Me, Full-stack Developer & Designer",
+    "description": "I am a Singapore Polytechnic IT graduate who builds websites and apps. Read about my journey from intern at Amber Creative to launching my app, StillGood.",
+    "heading": "About Me"
+  },
+  "skills": {
+    "title": "Skills: Next.js, React, TypeScript and Design",
+    "description": "The 34 tools and technologies I use to design and build websites and apps, from Next.js, React and TypeScript to Figma, with the projects I used them in.",
+    "heading": "Skills",
+    "intro": "The tools and technologies I use to design and build. Tap on any of them to see the projects I used it in."
+  },
+  "certificates": {
+    "title": "35 Certificates from AWS, GitHub and LinkedIn",
+    "description": "My 35 certificates, including generative AI programmes from AWS, GitHub and JavaScript courses from LinkedIn Learning, a hackathon final and school awards.",
+    "intro": "The certificates I have attained from organizations such as AWS, GitHub and LinkedIn Learning."
+  },
+  "events": {
+    "title": "Events: Hackathons, Study Trips and Volunteering",
+    "description": "The events I have taken part in, including my Singapore Polytechnic graduation, the SP Batey Hackathon, RoboCup Singapore, a study trip to Shenzhen and volunteering.",
+    "heading": "Events & Participation",
+    "intro": "My graduation, and the hackathons, study trips and volunteering events I have taken part in."
+  },
+  "cv": {
+    "title": "CV: Full-Stack Developer and UI/UX Designer",
+    "description": "My CV: experience as the founder of StillGood, as a freelancer and at Amber Creative, a Diploma in IT from Singapore Polytechnic, my projects and skills."
+  },
+  "contact": {
+    "title": "Contact Me for Developer Roles and Freelance",
+    "description": "Get in touch with me about software developer roles and freelance web or app projects, in Singapore or remote. Email, phone, WhatsApp, LinkedIn or GitHub.",
+    "heading": "Contact Me",
+    "intro": "I am open to software developer roles and freelance projects. I usually reply within a day!",
+    "formTitle": "Send Me a Message",
+    "formLine": "Your message will go straight to my inbox."
+  },
+  "stillgood": {
+    "title": "StillGood: My Food Waste App",
+    "description": "StillGood, my food waste app: how it scans groceries, tracks expiry dates and suggests recipes, and what its Basic, Pro and Family tiers add."
+  },
+  "writing": {
+    "title": "Writing: Notes on Building Apps and Websites",
+    "description": "My posts on building StillGood, taking part in hackathons and what I learnt working on client platforms in Singapore.",
+    "heading": "Writing",
+    "intro": "My thoughts on the things I build and what I learn along the way."
+  }
+}

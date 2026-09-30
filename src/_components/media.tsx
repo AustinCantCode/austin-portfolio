@@ -1,0 +1,256 @@
+import Image from "next/image";
+import type { CSSProperties, ReactNode } from "react";
+import { cn } from "@lib/utils";
+import type { Media } from "@data/types";
+import { Icon } from "./icon";
+
+/**
+ * Fills its parent with an image, or with a labelled placeholder when the
+ * image hasn't been supplied yet. The parent must be positioned.
+ */
+export function ImageSlot({
+  media,
+  placeholder,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  priority,
+  fit,
+  position,
+  className,
+  tone = "default",
+  compact,
+}: {
+  media?: Media;
+  placeholder: string;
+  sizes?: string;
+  priority?: boolean;
+  fit?: "cover" | "contain";
+  position?: string;
+  className?: string;
+  tone?: "default" | "light" | "dark";
+  /** Icon-only placeholder, for thumbnails too small for a label. */
+  compact?: boolean;
+}) {
+  if (media) {
+    return (
+      <Image
+        quality={100}
+        src={media.src}
+        alt={media.alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        placeholder={media.src.blurDataURL ? "blur" : "empty"}
+        className={cn("select-none", className)}
+        style={{
+          objectFit: fit ?? media.fit ?? "cover",
+          objectPosition: position ?? media.position ?? "center",
+        }}
+      />
+    );
+  }
+  return (
+    <div
+      role="img"
+      aria-label={`${placeholder} (image coming soon)`}
+      className={cn(
+        "absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center",
+        tone === "light" && "bg-[#f4f1ea] text-[#1b1a16]",
+        tone === "dark" && "bg-[#2b2924] text-[#f4f1ea]",
+        tone === "default" && "bg-pill text-fg",
+        className,
+      )}
+    >
+      <Icon
+        name="image"
+        size={20}
+        className={cn("opacity-60", compact && "-mt-6")}
+      />
+      {!compact && (
+        <>
+          <span className="max-w-[220px] text-[13px] leading-snug font-medium opacity-80">
+            {placeholder}
+          </span>
+          <span className="text-[11px] font-semibold tracking-wide uppercase opacity-75">
+            Image coming soon
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
+
+/**
+ * An image at its own shape: full width, height from the image, never
+ * cropped. Shows a 4:3 labelled placeholder until the image exists.
+ */
+export function NaturalImage({
+  media,
+  placeholder,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  priority,
+  className,
+}: {
+  media?: Media;
+  placeholder: string;
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  if (!media) {
+    return (
+      <div className={cn("relative aspect-[4/3]", className)}>
+        <ImageSlot placeholder={placeholder} />
+      </div>
+    );
+  }
+  return (
+    <Image
+      quality={100}
+      src={media.src}
+      alt={media.alt}
+      sizes={sizes}
+      priority={priority}
+      placeholder={media.src.blurDataURL ? "blur" : "empty"}
+      className={cn("block h-auto w-full select-none", className)}
+    />
+  );
+}
+
+/** Phone bezel thickness (px) by nominal width. */
+export const PHONE_SIZES: Record<number, number> = {
+  160: 5,
+  200: 5,
+  210: 5,
+  230: 6,
+  240: 6,
+  260: 6,
+  280: 6,
+  300: 7,
+  320: 7,
+  360: 8,
+};
+
+/**
+ * Corner radius as a share of the phone's drawn width, like a modern
+ * Android phone. Measured on the frame itself (a container query), so it
+ * stays in proportion however small the frame is drawn.
+ */
+const PHONE_RADIUS = "11cqw";
+
+/**
+ * A phone bezel at 9:19.5. `size` picks the bezel; `ratio` (width /
+ * height) shapes the screen to fit a screenshot instead.
+ */
+export function PhoneFrame({
+  size = 200,
+  width,
+  dark,
+  ratio,
+  className,
+  style,
+  children,
+}: {
+  size?: keyof typeof PHONE_SIZES;
+  width?: string;
+  dark?: boolean;
+  ratio?: number;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  const pad = PHONE_SIZES[size] ?? PHONE_SIZES[200];
+  return (
+    <div
+      className={cn("shrink-0", className)}
+      style={{ width: width ?? size, containerType: "inline-size", ...style }}
+    >
+      <div
+        className={cn(
+          !ratio && "aspect-[9/19.5]",
+          dark ? "bg-band-pill" : "bg-frame",
+        )}
+        style={{ borderRadius: PHONE_RADIUS, padding: pad }}
+      >
+        <div
+          className={cn(
+            "phone-screen relative overflow-hidden",
+            ratio ? "w-full" : "size-full",
+            dark ? "bg-[#f4f1ea]" : "bg-bg",
+          )}
+          style={{
+            borderRadius: `max(0px, calc(${PHONE_RADIUS} - ${pad}px))`,
+            aspectRatio: ratio ? String(ratio) : undefined,
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** A laptop lid at 16:10, with an optional base bar. */
+export function LaptopFrame({
+  large,
+  base,
+  className,
+  children,
+}: {
+  large?: boolean;
+  base?: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className={cn("w-full", className)}>
+      <div
+        className={cn(
+          "bg-frame",
+          large
+            ? "rounded-t-[20px] px-3 pt-3 pb-3.5"
+            : "rounded-t-2xl px-[9px] pt-[9px] pb-[11px]",
+        )}
+      >
+        <div
+          className={cn(
+            "relative aspect-[16/10] overflow-hidden bg-bg",
+            large ? "rounded-[6px]" : "rounded-[5px]",
+          )}
+        >
+          {children}
+        </div>
+      </div>
+      {base && <div className="mx-[-6%] h-4 rounded-b-2xl bg-frame-base" />}
+    </div>
+  );
+}
+
+/**
+ * A landscape tablet with even bezels, for web screenshots. The screen is
+ * 4:3 unless `ratio` (width / height) shapes it to the screenshot.
+ */
+export function TabletFrame({
+  ratio,
+  className,
+  children,
+}: {
+  ratio?: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className={cn("w-full", className)}>
+      <div className="rounded-[clamp(12px,1.3vw,16px)] bg-frame p-[clamp(4px,0.45vw,6px)]">
+        <div
+          className={cn(
+            "tablet-screen relative overflow-hidden rounded-[clamp(8px,0.85vw,10px)] bg-bg",
+            !ratio && "aspect-[4/3]",
+          )}
+          style={ratio ? { aspectRatio: String(ratio) } : undefined}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}

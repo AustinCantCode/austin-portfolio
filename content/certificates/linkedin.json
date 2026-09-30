@@ -1,0 +1,36 @@
+{
+  "issuerGroup": "LinkedIn Learning",
+  "order": 30,
+  "items": [
+    {
+      "title": "Learning LinkedIn for Students",
+      "issuer": "LinkedIn Learning",
+      "description": "Course completion.",
+      "image": "/images/certificates/linkedin/items/0/image.jpeg"
+    },
+    {
+      "title": "HTML Essential Training",
+      "issuer": "LinkedIn Learning",
+      "description": "Course completion.",
+      "image": "/images/certificates/linkedin/items/1/image.jpeg"
+    },
+    {
+      "title": "React.js Essential Training",
+      "issuer": "LinkedIn Learning",
+      "description": "Course completion.",
+      "image": "/images/certificates/linkedin/items/2/image.jpeg"
+    },
+    {
+      "title": "Illustrator 2021 Training",
+      "issuer": "LinkedIn Learning",
+      "description": "Course completion.",
+      "image": "/images/certificates/linkedin/items/3/image.jpeg"
+    },
+    {
+      "title": "Learning Tinkercad",
+      "issuer": "LinkedIn Learning",
+      "description": "Course completion.",
+      "image": "/images/certificates/linkedin/items/4/image.jpeg"
+    }
+  ]
+}

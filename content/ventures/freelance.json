@@ -1,0 +1,14 @@
+{
+  "name": "Freelance",
+  "order": 2,
+  "role": "Software Developer",
+  "date": "Feb 2026 – May 2026",
+  "line": "Developing websites for paying clients, including an online watch store.",
+  "status": "Client projects delivered",
+  "href": "/projects/calibrium",
+  "cta": "View Calibrium",
+  "screenshot": {
+    "fit": "",
+    "bare": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "hero": {
+    "meta": "Food Waste App, 2026",
+    "title": "StillGood",
+    "line": "My own app that helps families waste less food. It scans your groceries, tracks every expiry date and suggests what to cook before anything goes off.",
+    "role": "Founder & Solo Developer",
+    "links": [
+      {
+        "label": "Visit the official site",
+        "href": "https://stillgoodapp.org"
+      },
+      {
+        "label": "Read the case study",
+        "href": "/projects/stillgood"
+      }
+    ],
+    "reel": [
+      "householdPantry",
+      "pantry",
+      "home",
+      "recipes",
+      "analytics"
+    ]
+  },
+  "demo": {
+    "video": "/videos/stillgood/demo/video.mp4",
+    "poster": "/images/stillgood/demo/poster.webp",
+    "alt": "StillGood scanning a banana, filling in its category and storage spot, and saving it to the pantry"
+  },
+  "features": {
+    "title": "How It Works",
+    "items": [
+      {
+        "title": "Scan the Shop",
+        "text": "Point the camera at a product, a barcode, a receipt or the whole haul at once, and Google Gemini fills in the details.",
+        "points": [
+          "One item, a whole benchful or a receipt",
+          "Name, category and storage spot filled in",
+          "Nothing is saved until you have checked it"
+        ],
+        "screen": "scan"
+      },
+      {
+        "title": "Watch the Dates",
+        "text": "Everything in the pantry counts down, so the food that needs using first is always at the top.",
+        "points": [
+          "Days left on every item",
+          "Fridge, freezer, counter and cellar filters",
+          "Expiring, expired and consumed totals"
+        ],
+        "screen": "pantry"
+      },
+      {
+        "title": "Cook What's Closest",
+        "text": "Recipes are ranked by how many of your expiring items they use, and anything you're missing goes on the shopping list.",
+        "points": [
+          "Meals that rescue the most food come first",
+          "What you have and what's missing, before you start",
+          "Recipe Studio builds a recipe from ingredients you pick"
+        ],
+        "screen": "recipes"
+      },
+      {
+        "title": "Get Told in Time",
+        "text": "Expiry alerts and recipe nudges arrive at the times you choose, with a monthly summary of what stayed out of the bin.",
+        "points": [
+          "Alerts on your own schedule",
+          "Recipe nudges for food close to expiry",
+          "Every alert kept in an inbox in the app"
+        ],
+        "screen": "alerts"
+      }
+    ]
+  },
+  "tiers": {
+    "title": "One App, Three Tiers",
+    "line": "Every tier is the same app. Upgrading raises the limits and, on Family, adds a shared household.",
+    "items": [
+      {
+        "name": "Basic",
+        "who": "For getting started",
+        "points": [
+          "The whole loop: scan, track, cook and restock",
+          "Up to 45 pantry items",
+          "2 expiry and 2 recipe alerts"
+        ],
+        "screen": "pantry"
+      },
+      {
+        "name": "Pro",
+        "who": "For serious food savers",
+        "points": [
+          "More AI scans and an unlimited pantry",
+          "Expiry dates read by the camera, or estimated",
+          "Recipe Studio and personal analytics"
+        ],
+        "screen": "analytics"
+      },
+      {
+        "name": "Family",
+        "who": "For the whole household",
+        "points": [
+          "A shared pantry beside everyone's own",
+          "Up to 8 members, with who added what",
+          "Household analytics and shared lists"
+        ],
+        "screen": "household"
+      }
+    ]
+  },
+  "builtWith": {
+    "title": "Built by Me, with an AI Pair Programmer",
+    "text": "I designed and developed the mobile app, the backend server and the website all by myself. I used Claude Code, an AI coding assistant, to work faster: I decided how everything should work and reviewed every piece of code it wrote before using it.",
+    "stack": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Fastify",
+      "Supabase",
+      "Gemini API",
+      "PostHog",
+      "Next.js",
+      "Claude Code"
+    ]
+  },
+  "screens": {
+    "home": {
+      "image": "/images/stillgood/screens/home/image.webp",
+      "alt": "StillGood home screen showing pantry health and items that need attention",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "scan": {
+      "image": "/images/stillgood/screens/scan/image.webp",
+      "alt": "StillGood scanner adding a banana to the pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "pantry": {
+      "image": "/images/stillgood/screens/pantry/image.webp",
+      "alt": "StillGood pantry list sorted by expiry date",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "householdPantry": {
+      "image": "/images/stillgood/screens/householdPantry/image.webp",
+      "alt": "StillGood shared household pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "household": {
+      "image": "/images/stillgood/screens/household/image.webp",
+      "alt": "StillGood household page listing the family's members",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "recipes": {
+      "image": "/images/stillgood/screens/recipes/image.webp",
+      "alt": "StillGood recipe suggestions that use expiring items",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "recipeStudio": {
+      "image": "/images/stillgood/screens/recipeStudio/image.webp",
+      "alt": "StillGood Recipe Studio choosing ingredients from the pantry",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "alerts": {
+      "image": "/images/stillgood/screens/alerts/image.webp",
+      "alt": "StillGood alert settings for expiry alerts, recipe nudges and the monthly waste summary",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    },
+    "analytics": {
+      "image": "/images/stillgood/screens/analytics/image.webp",
+      "alt": "StillGood analytics showing food saved and pantry use",
+      "fit": "cover",
+      "position": "top",
+      "bare": false
+    }
+  }
+}

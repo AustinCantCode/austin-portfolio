@@ -1,54 +1,45 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Navbar from "../_components/complex-ui/navbar";
-import Footer from "@components/complex-ui/footer";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
+import { site } from "@data/site";
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Serif display face, echoing the classical caps in the AS logo.
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  weight: ["500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Austin Sia | Portfolio",
+  metadataBase: new URL(site.url),
+  title: "Austin Sia | Full-stack Developer & Designer in Singapore",
   description:
-    "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
-  keywords: [
-    "Software Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Full-Stack Developer",
-    "Web Developer",
-    "Information Technology",
-    "Computer Science",
-    "Entrepreneur",
-    "Designer",
-    "Portfolio",
-    "Next.js",
-    "React",
-  ],
-  icons: {
-    icon: "/AS-Circle-Logo.png",
-  },
-  openGraph: {
-    title: "Austin Sia",
-    description:
-      "The digital portfolio of Austin Sia. Showcasing his achievements, projects in coding, design, successes in entrepreneurship and events he participated in.",
-    url: "https://austinsia.com",
-    siteName: "Austin's Portfolio",
-    images: [
-      {
-        url: "../../public/AS-Circle-Logo.png",
-        width: 500,
-        height: 500,
-        alt: "AS Logo",
-      },
-    ],
-    type: "website",
-  },
+    "The portfolio of Austin Sia, a Full-stack Software Developer and UI/UX Designer in Singapore: client platforms, mobile apps, designs and ventures.",
+  applicationName: "Austin Sia",
+  authors: [{ name: "Austin Sia", url: site.url }],
+  creator: "Austin Sia",
+  icons: { icon: "/AS-Circle-Logo.png" },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  // Dark is the default theme, so the browser chrome matches it.
+  themeColor: "#171717",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
@@ -57,36 +48,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased overflow-x-hidden`}>
-        <Navbar />
-        <SpeedInsights />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://austinsia.com" />
-        <div
-          className="fixed inset-0 bg-stars bg-black -z-20"
-          aria-hidden="true"
-        />
-        <div className="fixed inset-0 bg-twinkling -z-10" aria-hidden="true" />
-        {children}
-        <Footer />
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${inter.variable} ${cormorant.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Before first paint: the first homepage visit of a session gets
+            the hero intro (see _home/hero.tsx) without a flash of content;
+            any other first page load fades in (data-load, globals.css). */}
         <script
-          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Austin Sia",
-              url: "https://austinsia.com",
-              sameAs: [
-                "https://www.linkedin.com/in/austin-sia",
-                "https://github.com/austincantcode",
-              ],
-              jobTitle: "Web Developer",
-            }),
+            __html: `try{var d=document.documentElement;if(location.pathname==="/"&&!sessionStorage.getItem("as-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)d.dataset.intro="1";else d.dataset.load="fade"}catch(e){}`,
           }}
         />
-      </body>
+      </head>
+      {/* The site's chrome and styles live in (site)/layout.tsx, so the CMS
+          at /keystatic gets a clean page. */}
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

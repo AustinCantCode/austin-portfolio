@@ -1,0 +1,68 @@
+{
+  "groups": [
+    {
+      "name": "Frontend",
+      "plain": "Building the parts of websites and apps that users see and interact with.",
+      "items": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Motion"
+      ]
+    },
+    {
+      "name": "Mobile",
+      "plain": "Developing mobile apps for Android and iOS.",
+      "items": [
+        "React Native",
+        "Expo",
+        "NativeWind"
+      ]
+    },
+    {
+      "name": "Backend",
+      "plain": "Servers, databases and APIs that store data and keep everything running.",
+      "items": [
+        "Node.js",
+        "Express.js",
+        "Fastify",
+        "C#",
+        "Supabase",
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Prisma",
+        "GraphQL",
+        "Strapi CMS"
+      ]
+    },
+    {
+      "name": "Tools",
+      "plain": "Tools I use for version control, deployment, testing and analytics.",
+      "items": [
+        "Claude Code",
+        "PostHog",
+        "Sentry",
+        "Docker",
+        "GitHub Actions",
+        "Swagger UI",
+        "TablePlus"
+      ]
+    },
+    {
+      "name": "Design",
+      "plain": "Designing how products look and feel before they are built.",
+      "items": [
+        "Figma",
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Adobe XD",
+        "Tinkercad"
+      ]
+    }
+  ]
+}

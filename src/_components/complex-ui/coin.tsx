@@ -1,185 +1,202 @@
 "use client";
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-export default function Coin(props: {
-  className: string;
-  onLoad?: boolean;
-  onHover?: boolean;
+import { useEffect, useRef } from "react";
+import { cn } from "@lib/utils";
+
+/**
+ * The 3D AS coin: Austin's photo on one face, the AS logo on the other.
+ * Flips once, `delay` ms after its faces are drawn, taking `flipMs`;
+ * flips again on click, Enter or Space, and
+ * tilts gently towards the pointer. Reduced motion flips instantly with
+ * no tilt. three.js loads on demand so it stays out of the main bundle.
+ */
+export default function Coin({
+  className,
+  delay = 700,
+  flipMs = 1400,
+  flipOnLoad = true,
+  label = "Coin showing Austin's photo on one side and the AS logo on the other. Click to flip.",
+  onReady,
+}: {
+  className?: string;
+  delay?: number;
+  flipMs?: number;
+  flipOnLoad?: boolean;
+  label?: string;
+  /** Called once, after the first frame is drawn, with a way to flip it. */
+  onReady?: (flip: (ms?: number) => void) => void;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const readyRef = useRef(onReady);
+  readyRef.current = onReady;
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const el = ref.current;
+    if (!el) return;
+    let disposed = false;
+    let cleanup = () => {};
 
-    /** ----------------------------
-     *  SCENE SETUP
-     * ---------------------------- */
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      1000,
-    );
-    camera.position.set(0, 0, 2.6);
+    import("three").then((THREE) => {
+      if (disposed) return;
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const w = () => Math.max(1, el.clientWidth);
+      const h = () => Math.max(1, el.clientHeight);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, w() / h(), 0.1, 1000);
+      camera.position.set(0, 0, 2.6);
 
-    /** ----------------------------
-     *  LIGHTING
-     * ---------------------------- */
-    const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 2);
-    scene.add(hemi);
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+      });
+      renderer.setSize(w(), h());
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
+      renderer.domElement.style.display = "block";
+      el.appendChild(renderer.domElement);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0xffffff, 2));
 
-    /** ----------------------------
-     *  COIN GEOMETRY + TEXTURES
-     * ---------------------------- */
-    const coinGroup = new THREE.Group();
-    const coinGeometry = new THREE.CylinderGeometry(1, 1, 0.12, 64);
+      const loader = new THREE.TextureLoader();
+      // Ready means both faces are loaded and drawn (uploading them to
+      // the GPU is the heavy part), so the hero intro can start after it.
+      let loaded = 0;
+      const onTexture = () => loaded++;
+      const heads = loader.load("/coin-images/profile%20pic.png", onTexture);
+      const tails = loader.load("/coin-images/AS-Coin-1200.png", onTexture);
+      heads.colorSpace = THREE.SRGBColorSpace;
+      tails.colorSpace = THREE.SRGBColorSpace;
+      tails.rotation = Math.PI;
+      tails.center.set(0.5, 0.5);
 
-    const textureLoader = new THREE.TextureLoader();
-    const headsTexture = textureLoader.load("/coin-images/profile pic.png");
-    const tailsTexture = textureLoader.load("/coin-images/AS-Coin.png");
+      const canvas = document.createElement("canvas");
+      canvas.width = 1;
+      canvas.height = 256;
+      const ctx = canvas.getContext("2d")!;
+      const gradient = ctx.createLinearGradient(0, 0, 0, 256);
+      gradient.addColorStop(0, "black");
+      gradient.addColorStop(1, "white");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 1, 256);
+      const side = new THREE.CanvasTexture(canvas);
 
-    headsTexture.colorSpace = THREE.SRGBColorSpace;
-    tailsTexture.colorSpace = THREE.SRGBColorSpace;
-    tailsTexture.rotation = Math.PI;
-    tailsTexture.center.set(0.5, 0.5);
+      const anisotropy = renderer.capabilities.getMaxAnisotropy();
+      heads.anisotropy = tails.anisotropy = side.anisotropy = anisotropy;
 
-    // Side gradient
-    const size = 256;
-    const canvas = document.createElement("canvas");
-    canvas.width = 1;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d")!;
-    const gradient = ctx.createLinearGradient(0, 0, 0, size);
-    gradient.addColorStop(0, "black");
-    gradient.addColorStop(1, "white");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 1, size);
-    const sideTexture = new THREE.CanvasTexture(canvas);
-    sideTexture.wrapS = THREE.RepeatWrapping;
-    sideTexture.wrapT = THREE.ClampToEdgeWrapping;
+      const geometry = new THREE.CylinderGeometry(1, 1, 0.12, 64);
+      const materials = [
+        new THREE.MeshStandardMaterial({ map: side }),
+        new THREE.MeshStandardMaterial({ map: tails }),
+        new THREE.MeshStandardMaterial({ map: heads }),
+      ];
+      const coin = new THREE.Group();
+      coin.add(new THREE.Mesh(geometry, materials));
+      coin.rotation.x = Math.PI / 2;
+      const tilt = new THREE.Group();
+      tilt.add(coin);
+      scene.add(tilt);
 
-    const coinMaterials = [
-      new THREE.MeshStandardMaterial({ map: sideTexture }),
-      new THREE.MeshStandardMaterial({ map: tailsTexture }),
-      new THREE.MeshStandardMaterial({ map: headsTexture }),
-    ];
+      let flipping = false;
+      let t0 = 0;
+      let duration = 1400;
+      let from = 0;
+      let to = 0;
+      const flip = (ms: number) => {
+        if (flipping) return;
+        if (reduce) {
+          coin.rotation.z += Math.PI;
+          return;
+        }
+        flipping = true;
+        duration = ms;
+        t0 = performance.now();
+        from = coin.rotation.z;
+        to = from + Math.PI;
+      };
 
-    const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
-    headsTexture.anisotropy = maxAnisotropy;
-    tailsTexture.anisotropy = maxAnisotropy;
-    sideTexture.anisotropy = maxAnisotropy;
+      let loadTimer: ReturnType<typeof setTimeout> | undefined;
+      const onClick = () => flip(900);
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          flip(900);
+        }
+      };
+      let tx = 0;
+      let ty = 0;
+      const onMove = (e: PointerEvent) => {
+        const r = el.getBoundingClientRect();
+        tx = ((e.clientY - r.top) / r.height - 0.5) * 0.35;
+        ty = ((e.clientX - r.left) / r.width - 0.5) * 0.35;
+      };
+      const onLeave = () => {
+        tx = 0;
+        ty = 0;
+      };
+      el.addEventListener("click", onClick);
+      el.addEventListener("keydown", onKey);
+      if (!reduce) el.addEventListener("pointermove", onMove);
+      el.addEventListener("pointerleave", onLeave);
 
-    const coinMesh = new THREE.Mesh(coinGeometry, coinMaterials);
-    coinGroup.add(coinMesh);
+      let raf = 0;
+      let drawn = false;
+      const loop = () => {
+        raf = requestAnimationFrame(loop);
+        if (flipping) {
+          const p = Math.min((performance.now() - t0) / duration, 1);
+          const eased =
+            p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+          coin.rotation.z = from + (to - from) * eased;
+          if (p === 1) flipping = false;
+        }
+        tilt.rotation.x += (tx - tilt.rotation.x) * 0.08;
+        tilt.rotation.y += (ty - tilt.rotation.y) * 0.08;
+        renderer.render(scene, camera);
+        if (!drawn && loaded === 2) {
+          drawn = true;
+          readyRef.current?.((ms = flipMs) => flip(ms));
+          if (flipOnLoad) loadTimer = setTimeout(() => flip(flipMs), delay);
+        }
+      };
+      loop();
 
-    // Align coin to face forward
-    coinGroup.rotation.x = Math.PI / 2;
-    scene.add(coinGroup);
+      const ro = new ResizeObserver(() => {
+        camera.aspect = w() / h();
+        camera.updateProjectionMatrix();
+        renderer.setSize(w(), h());
+      });
+      ro.observe(el);
 
-    /** ----------------------------
-     *  ORBIT CONTROLS
-     * ---------------------------- */
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableRotate = false;
-    controls.enableZoom = false;
-    controls.enablePan = false;
-    controls.rotateSpeed = 0.3;
-
-    /** ----------------------------
-     *  FLIP LOGIC
-     * ---------------------------- */
-    let flipping = false;
-    let flipStart = 0;
-    let flipDuration;
-    let flipStartRotationZ = 0;
-    let flipEndRotationZ = 0;
-
-    const flipCoin = () => {
-      if (flipping) return;
-      flipping = true;
-      flipStart = performance.now();
-      flipStartRotationZ = coinGroup.rotation.z;
-      flipEndRotationZ = coinGroup.rotation.z + Math.PI; // flip 180°
-      controls.enableRotate = true;
-    };
-
-    setTimeout(() => {
-      if (props.onLoad) {
-        flipDuration = 1400;
-        flipCoin();
-      }
-    }, 2900);
-
-    container.addEventListener("mouseenter", () => {
-      if (props.onHover) {
-        flipDuration = 300;
-        flipCoin();
-      }
+      cleanup = () => {
+        clearTimeout(loadTimer);
+        cancelAnimationFrame(raf);
+        ro.disconnect();
+        el.removeEventListener("click", onClick);
+        el.removeEventListener("keydown", onKey);
+        el.removeEventListener("pointermove", onMove);
+        el.removeEventListener("pointerleave", onLeave);
+        geometry.dispose();
+        materials.forEach((m) => m.dispose());
+        [heads, tails, side].forEach((t) => t.dispose());
+        renderer.dispose();
+        renderer.domElement.remove();
+      };
     });
-    container.addEventListener("mouseleave", () => {
-      if (props.onHover) {
-        flipDuration = 300;
-        flipCoin();
-      }
-    });
 
-    /** ----------------------------
-     *  ANIMATION LOOP
-     * ---------------------------- */
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      if (flipping) {
-        const elapsed = performance.now() - flipStart;
-        const progress = Math.min(elapsed / flipDuration, 1);
-
-        // Smooth easing
-        const eased =
-          progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-        coinGroup.rotation.z =
-          flipStartRotationZ + (flipEndRotationZ - flipStartRotationZ) * eased;
-
-        if (progress === 1) flipping = false;
-      }
-
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    /** ----------------------------
-     *  RESIZE HANDLER
-     * ---------------------------- */
-    const resize = () => {
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    };
-    window.addEventListener("resize", resize);
-
-    /** ----------------------------
-     *  CLEANUP
-     * ---------------------------- */
     return () => {
-      window.removeEventListener("resize", resize);
-      controls.dispose();
-      renderer.dispose();
-      container.removeChild(renderer.domElement);
+      disposed = true;
+      cleanup();
     };
-  }, [props.onHover, props.onLoad]);
+  }, [delay, flipMs, flipOnLoad]);
 
   return (
-    <div ref={containerRef} className={`${props.className} cursor-pointer`} />
+    <div
+      ref={ref}
+      role="img"
+      aria-label={label}
+      tabIndex={0}
+      className={cn("aspect-square cursor-pointer rounded-full", className)}
+    />
   );
 }

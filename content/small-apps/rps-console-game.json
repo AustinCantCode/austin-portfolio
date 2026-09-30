@@ -1,0 +1,10 @@
+{
+  "title": "RPS Console Game",
+  "order": 50,
+  "tech": "Node.js",
+  "year": "2023",
+  "text": "A Rock Paper Scissors game that runs in the terminal.",
+  "image": "/images/small-apps/rps-console-game/image.png",
+  "alt": "RPS Console Game screenshot",
+  "video": "/videos/small-apps/rps-console-game/video.mp4"
+}

@@ -1,0 +1,19 @@
+{
+  "areas": [
+    {
+      "id": "dev",
+      "label": "Development",
+      "line": "Websites and apps I have built for clients, for school and for myself."
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "line": "App designs, physical products and graphic artwork I have created."
+    },
+    {
+      "id": "ventures",
+      "label": "Ventures",
+      "line": "The things I have started on my own: my app, my hackathon team and my freelance work."
+    }
+  ]
+}

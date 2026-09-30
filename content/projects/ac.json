@@ -1,0 +1,105 @@
+{
+  "title": "Amber Creative",
+  "order": 60,
+  "year": "2025",
+  "line": "The website of a digital marketing agency in Singapore.",
+  "subtext": "Digital Marketing Agency",
+  "role": "Software Developer Intern",
+  "problem": "Amber Creative is a digital marketing agency in Singapore that provides branding, web development and paid media services. Its own website needed new sections, better visibility on search engines and a way for the team to update the content themselves.",
+  "did": "As a Software Developer Intern, I built responsive UI components, connected the pages to a CMS so the team could update them on their own and implemented SEO improvements. I also worked on new features, bug fixes and optimising the codebase.",
+  "outcome": "The website now works smoothly across all devices, and the team can update its content without needing a developer.",
+  "skills": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Framer Motion",
+    "TypeScript",
+    "Directus CMS",
+    "Storyblok CMS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://ambercreative.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/ac/cover/image.png",
+    "alt": "Amber Creative website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/ac/thumbnail/image.png",
+    "alt": "Amber Creative logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/ac/gallery/0/image.png",
+      "alt": "Amber Creative home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/1/image.png",
+      "alt": "Amber Creative services",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/2/image.png",
+      "alt": "Amber Creative case studies",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/3/image.png",
+      "alt": "Amber Creative about page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/ac/gallery/4/image.png",
+      "alt": "Amber Creative contact page",
+      "fit": "",
+      "bare": false
+    }
+  ],
+  "story": [
+    {
+      "title": "Situation",
+      "body": "Amber Creative is a digital marketing agency in Singapore that provides branding, web development and paid media services. Its own website needed new sections, better visibility on search engines and a way for the team to update the content themselves."
+    },
+    {
+      "title": "Task",
+      "body": "As a Software Developer Intern, I was responsible for helping to develop and maintain the agency's own website."
+    },
+    {
+      "title": "Action",
+      "body": "I built responsive UI components with Next.js, React, Tailwind CSS and shadcn/ui, and connected the pages to Directus CMS and Storyblok CMS so the team could update them on their own. I also implemented SEO improvements, worked on new features and bug fixes, and optimised the codebase."
+    },
+    {
+      "title": "Result",
+      "body": "The website now works smoothly across all devices, and the team can update its content without needing a developer."
+    }
+  ],
+  "notes": "Written with STAR (Situation, Task, Action, Result)."
+}

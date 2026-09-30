@@ -1,0 +1,88 @@
+{
+  "title": "ITE WSDip",
+  "order": 30,
+  "year": "2025",
+  "line": "A multi-role platform for ITE's Work-Study Diploma.",
+  "subtext": "Education & Training Management",
+  "role": "Full-stack Developer, Amber Creative",
+  "problem": "ITE's Work-Study Diploma (WSDip) runs on one education management platform shared by four types of users: trainees, trainers, administrators and company representatives. Each of them needs to see different information from the same system, which makes the platform complex to build on.",
+  "did": "As a Full-stack Developer, I built responsive screens with custom ShadCN components, connected them to the backend APIs and managed the data flow across the four types of users. I also debugged issues and supported deployments using Docker, Azure Blob Storage and UNIX environments.",
+  "outcome": "A more reliable platform for all four types of users, from trainees and trainers to administrators and partner companies.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "shadcn/ui",
+    "Tailwind CSS",
+    "Zustand",
+    "Azure Blob Storage",
+    "Docker",
+    "Node.js",
+    "Swagger UI"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://wsdip.ite.edu.sg/login"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/ite/cover/image.png",
+    "alt": "ITE Work-Study Diploma platform",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/ite/thumbnail/image.png",
+    "alt": "ITE WSDip logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "story": [
+    {
+      "title": "Situation",
+      "body": "ITE's Work-Study Diploma (WSDip) runs on one education management platform shared by four types of users: trainees, trainers, administrators and company representatives. Each of them needs to see different information from the same system, which makes the platform complex to build on."
+    },
+    {
+      "title": "Task",
+      "body": "I joined the project during my internship at Amber Creative as a Full-stack Developer. My job was to build new features on both the frontend and the backend, and to keep the platform reliable for all four types of users as new versions were released."
+    },
+    {
+      "title": "Action",
+      "body": "I built responsive screens with custom ShadCN components and connected them to the platform's backend APIs, managing the data flow so that each type of user received the right information.\n\nI also debugged issues as they came up and supported the deployment of new versions, working with Docker, Azure Blob Storage and UNIX environments.\n\nThe platform is built with Next.js, React and TypeScript and styled with Tailwind CSS, with Zustand, Node.js and Swagger UI behind the scenes.",
+      "image": {
+        "image": "/images/projects/ite/story/2/image/image.png",
+        "alt": "The ITE Work-Study Diploma sign-in page",
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "Result",
+      "body": "A more reliable platform for all four types of users, from trainees and trainers to administrators and partner companies."
+    }
+  ],
+  "results": [
+    {
+      "value": "4",
+      "label": "types of users: trainees, trainers, administrators and companies"
+    }
+  ],
+  "notes": "Written with STAR (Situation, Task, Action, Result). To make the Result stronger, add real figures if you have them, e.g. how many screens or features you built, or how many trainees use the platform."
+}

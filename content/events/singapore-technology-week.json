@@ -1,0 +1,14 @@
+{
+  "title": "Singapore Technology Week",
+  "order": 40,
+  "featured": false,
+  "date": "2024",
+  "role": "Participant",
+  "text": "My friends and I visited Singapore Technology Week 2024 to learn more about cloud, DevOps, cyber security and artificial intelligence. We explored many booths and listened to presentations from companies such as GitHub, who shared valuable insights on web development with GitHub Copilot.",
+  "photo": {
+    "image": "/images/events/singapore-technology-week/photo/image.jpg",
+    "alt": "Austin at Singapore Technology Week",
+    "fit": "cover",
+    "bare": false
+  }
+}

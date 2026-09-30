@@ -1,0 +1,73 @@
+{
+  "title": "My Portfolio",
+  "order": 100,
+  "year": "2026",
+  "line": "The website you are on right now!",
+  "subtext": "My Webpage Portfolio",
+  "role": "Software Developer & UI/UX Designer",
+  "problem": "A webpage portfolio showcasing my work in software development, design, entrepreneurship and more. My previous portfolio had too many pages with too much content on each one.",
+  "did": "As the solo software developer and UI/UX designer, I redesigned the whole website around a cleaner layout and rebuilt it from scratch with Next.js, Tailwind CSS and Framer Motion. I designed the UI, developed reusable components, implemented the animations and set up a CMS so I can update my content easily.",
+  "outcome": "A cleaner website that presents my projects in a clear and visually appealing way. Feel free to explore!",
+  "skills": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Framer Motion",
+    "TypeScript"
+  ],
+  "links": [],
+  "categories": [
+    "web-apps",
+    "ui-ux"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/port/cover/image.png",
+    "alt": "The home page of this portfolio",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/port/thumbnail/image.png",
+    "alt": "My Portfolio logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/port/gallery/0/image.png",
+      "alt": "The home page of this portfolio",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/1/image.png",
+      "alt": "The What I Do section on the home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/2/image.png",
+      "alt": "A project page, showing StillGood",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/3/image.png",
+      "alt": "The About Me page",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

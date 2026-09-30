@@ -1,0 +1,51 @@
+{
+  "title": "TeleGPT",
+  "order": 120,
+  "year": "2024",
+  "line": "A Telegram chatbot powered by OpenAI's GPT-4o mini.",
+  "subtext": "ChatGPT Telegram Bot",
+  "role": "Developer",
+  "problem": "I wanted a way to ask ChatGPT questions directly in Telegram, without having to leave the chat app.",
+  "did": "I developed a Telegram chatbot integrated with OpenAI's GPT-4o mini model. The bot receives messages from Telegram, sends them to the OpenAI API through HTTP POST requests and returns the generated responses to the user in real time. I configured the bot using Telegram's BotFather for the token, and chose GPT-4o mini for its lightweight performance.",
+  "outcome": "A simple chatbot that anyone can message on Telegram.",
+  "skills": [
+    "JavaScript",
+    "Node.js",
+    "Telegram Bot API",
+    "OpenAI API",
+    "Webhooks"
+  ],
+  "links": [
+    {
+      "label": "Open in Telegram",
+      "href": "https://t.me/Teleprojectchatbot"
+    }
+  ],
+  "categories": [
+    "mobile-apps"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/telegpt/cover/image.png",
+    "alt": "TeleGPT logo",
+    "fit": "cover",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/telegpt/thumbnail/image.webp",
+    "alt": "TeleGPT logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "video": "/videos/projects/telegpt/video.mp4"
+}

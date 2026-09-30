@@ -1,0 +1,13 @@
+{
+  "issuerGroup": "SP Batey Hackathon",
+  "order": 60,
+  "items": [
+    {
+      "title": "Batey Hackathon Grand Finalist",
+      "issuer": "Singapore Polytechnic",
+      "description": "Frésko reached the grand finals, September 2024.",
+      "image": "/images/certificates/batey/items/0/image.jpg",
+      "featured": true
+    }
+  ]
+}

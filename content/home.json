@@ -1,0 +1,407 @@
+{
+  "journey": {
+    "title": "My Journey",
+    "sub": "From secondary school to launching my very own app, and what comes next.",
+    "link": {
+      "label": "View my CV ›",
+      "href": "/cv"
+    },
+    "items": [
+      {
+        "date": "2018 – 2022",
+        "title": "Compassvale Secondary School",
+        "sub": "GCE N(A) Level and GCE O Level",
+        "now": false,
+        "logo": "/images/home/journey/items/0/logo.png",
+        "links": []
+      },
+      {
+        "date": "2023 – 2026",
+        "title": "Singapore Polytechnic",
+        "sub": "Diploma in Information Technology, specializing in UI/UX design",
+        "now": false,
+        "logo": "/images/home/journey/items/1/logo.jpg",
+        "links": []
+      },
+      {
+        "date": "Sep 2024",
+        "title": "SP Batey Hackathon",
+        "sub": "Grand Finalist with Frésko, the food waste app my team designed",
+        "now": false,
+        "logo": "/images/home/journey/items/2/logo.png",
+        "links": [
+          {
+            "label": "Frésko case study",
+            "href": "/projects/fresko"
+          },
+          {
+            "label": "Certificate",
+            "href": "/about/certificates"
+          }
+        ]
+      },
+      {
+        "date": "Apr 2025 – Feb 2026",
+        "title": "Amber Creative Pte Ltd",
+        "sub": "Full-stack Software Developer Intern, developing websites and web apps for clients",
+        "now": false,
+        "logo": "/images/home/journey/items/3/logo.png",
+        "icon": "lucide:briefcase",
+        "links": [
+          {
+            "label": "Client work",
+            "href": "/development/client-work"
+          }
+        ]
+      },
+      {
+        "date": "Feb 2026 – May 2026",
+        "title": "Freelance",
+        "sub": "Software Developer, developing websites for clients such as Calibrium",
+        "now": false,
+        "logo": "/images/home/journey/items/4/logo.png",
+        "icon": "lucide:laptop",
+        "links": [
+          {
+            "label": "Calibrium",
+            "href": "/projects/calibrium"
+          }
+        ]
+      },
+      {
+        "date": "Apr 2026 – Present",
+        "title": "StillGood",
+        "sub": "Founder & Developer of my own food waste app",
+        "now": false,
+        "logo": "/images/home/journey/items/5/logo.png",
+        "icon": "lucide:leaf",
+        "links": [
+          {
+            "label": "About StillGood",
+            "href": "/stillgood"
+          }
+        ]
+      },
+      {
+        "date": "2026 – 2028",
+        "title": "National Service",
+        "sub": "Serving my National Service",
+        "now": true,
+        "logo": "/images/home/journey/items/6/logo.png",
+        "icon": "lucide:shield-check",
+        "links": []
+      },
+      {
+        "date": "2028 – 2031",
+        "title": "Singapore Institute of Technology",
+        "sub": "Bachelor of Engineering (Honours) in Software Engineering",
+        "now": false,
+        "logo": "/images/home/journey/items/7/logo.png",
+        "icon": "lucide:graduation-cap",
+        "links": []
+      }
+    ]
+  },
+  "whatIDo": {
+    "title": "What I Do",
+    "areas": [
+      {
+        "icon": "lucide:code-xml",
+        "label": "Development",
+        "headline": "Full-stack Web & Mobile Development",
+        "blurb": "I develop websites and mobile apps from start to finish, from the user interface all the way to the backend and databases.",
+        "services": [
+          {
+            "icon": "lucide:monitor",
+            "title": "Websites & Web Apps"
+          },
+          {
+            "icon": "lucide:smartphone",
+            "title": "Mobile Apps"
+          },
+          {
+            "icon": "lucide:server",
+            "title": "Backend & Databases"
+          }
+        ],
+        "stack": [
+          "Next.js",
+          "React Native",
+          "TypeScript",
+          "Node.js",
+          "Supabase",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "href": "/development",
+        "cta": "View my development projects",
+        "featuredProjects": [
+          "calibrium",
+          "ite",
+          "ksp",
+          "grx"
+        ],
+        "photo": {
+          "image": "/images/home/whatIDo/areas/0/photo/image.jpeg",
+          "alt": "My laptop showing code in an editor, on a library table beside a cup of coffee",
+          "fit": "cover",
+          "bare": false
+        },
+        "photoHint": "Photo of me coding"
+      },
+      {
+        "icon": "lucide:pen-tool",
+        "label": "Design",
+        "headline": "UI/UX, Product & Graphic Design",
+        "blurb": "I specialized in UI/UX design at Singapore Polytechnic, so every project I work on starts with the user in mind.",
+        "services": [
+          {
+            "icon": "lucide:layout-template",
+            "title": "UI/UX Design"
+          },
+          {
+            "icon": "lucide:box",
+            "title": "Product Design"
+          },
+          {
+            "icon": "lucide:palette",
+            "title": "Graphic Design"
+          }
+        ],
+        "stack": [
+          "Figma",
+          "Adobe XD",
+          "Photoshop",
+          "Illustrator",
+          "Tinkercad"
+        ],
+        "href": "/design",
+        "cta": "View my design projects",
+        "featuredProjects": [
+          "fresko",
+          "quizzy",
+          "sp",
+          "lawks"
+        ],
+        "photo": {
+          "image": "/images/home/whatIDo/areas/1/photo/image.jpeg",
+          "alt": "My product design sketches of a card holder, with red and black prototypes on the page",
+          "fit": "",
+          "bare": false
+        },
+        "photoHint": "My design work in Figma"
+      },
+      {
+        "icon": "lucide:rocket",
+        "label": "Entrepreneurship",
+        "headline": "Building Things of My Own",
+        "blurb": "I built and launched StillGood, my own app, made the grand finals of the SP Batey Hackathon with my team, Zenith Technologies, and take on freelance projects for clients.",
+        "services": [
+          {
+            "icon": "lucide:leaf",
+            "title": "StillGood"
+          },
+          {
+            "icon": "lucide:trophy",
+            "title": "Zenith Technologies"
+          },
+          {
+            "icon": "lucide:briefcase",
+            "title": "Freelance"
+          }
+        ],
+        "stack": [
+          "Product Planning",
+          "Play Store Launch",
+          "Client Management",
+          "User Analytics"
+        ],
+        "href": "/ventures",
+        "cta": "View my ventures",
+        "featuredProjects": [
+          "stillgood",
+          "fresko",
+          "calibrium",
+          "port"
+        ],
+        "photo": {
+          "image": "/images/home/whatIDo/areas/2/photo/image.jpeg",
+          "alt": "Me speaking on stage with a microphone at Singapore Polytechnic",
+          "fit": "cover",
+          "bare": false
+        },
+        "photoHint": "Photo from the StillGood launch"
+      }
+    ]
+  },
+  "tools": {
+    "title": "Tools I Use",
+    "link": {
+      "label": "See all my skills ›",
+      "href": "/about/skills"
+    }
+  },
+  "selectedWork": {
+    "title": "Featured Projects",
+    "link": {
+      "label": "See all projects ›",
+      "href": "/development"
+    },
+    "projects": [
+      "ite",
+      "stillgood",
+      "ksp",
+      "grx",
+      "quizzy",
+      "calibrium"
+    ]
+  },
+  "kindWords": {
+    "title": "Testimonials",
+    "sub": "What the people I have worked with have to say."
+  },
+  "clients": {
+    "title": "Clients I've Worked With",
+    "items": [
+      {
+        "name": "ITE",
+        "project": "ite",
+        "logo": "/images/home/clients/items/0/logo.png"
+      },
+      {
+        "name": "KiasuParents",
+        "project": "ksp",
+        "logo": "/images/home/clients/items/1/logo.png"
+      },
+      {
+        "name": "Glovida-RX",
+        "project": "grx",
+        "logo": "/images/home/clients/items/2/logo.png"
+      },
+      {
+        "name": "IAL",
+        "project": "ial",
+        "logo": "/images/home/clients/items/3/logo.png"
+      },
+      {
+        "name": "Amber Creative",
+        "project": "ac",
+        "logo": "/images/home/clients/items/4/logo.png"
+      },
+      {
+        "name": "JuzInterior",
+        "project": "jint",
+        "logo": "/images/home/clients/items/5/logo.png"
+      },
+      {
+        "name": "Calibrium",
+        "project": "calibrium",
+        "logo": "/images/home/clients/items/6/logo.png"
+      }
+    ]
+  },
+  "events": {
+    "title": "Events & Participation",
+    "link": {
+      "label": "See all events ›",
+      "href": "/about/events"
+    }
+  },
+  "recognition": {
+    "title": "Achievements",
+    "sub": "Awards and certifications I have attained along the way.",
+    "link": {
+      "label": "See all certificates ›",
+      "href": "/about/certificates"
+    }
+  },
+  "numbers": {
+    "title": "Highlights",
+    "stats": [
+      {
+        "n": "35",
+        "label": "certificates attained",
+        "cta": "See my certificates",
+        "href": "/about/certificates"
+      },
+      {
+        "n": "10+",
+        "label": "projects developed",
+        "cta": "See my projects",
+        "href": "/development"
+      },
+      {
+        "n": "3+",
+        "label": "years of full-stack development",
+        "cta": "View my CV",
+        "href": "/cv"
+      },
+      {
+        "n": "8",
+        "label": "client platforms delivered",
+        "cta": "See my client work",
+        "href": "/development/client-work"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "line": "I am currently open to software developer roles and freelance projects. Feel free to reach out to me through any of these channels!",
+    "tiles": [
+      {
+        "icon": "lucide:mail",
+        "title": "Email",
+        "value": "austin.sia1515@gmail.com",
+        "note": "Best for job opportunities, projects and detailed enquiries.",
+        "action": "Email me",
+        "href": "mailto:austin.sia1515@gmail.com",
+        "behavior": "copy-to-clipboard"
+      },
+      {
+        "icon": "lucide:phone",
+        "title": "Phone",
+        "value": "+65 9107 0598",
+        "note": "Available on weekdays, Singapore time.",
+        "action": "Call",
+        "href": "tel:+6591070598",
+        "behavior": "link"
+      },
+      {
+        "icon": "mdi:linkedin",
+        "title": "LinkedIn",
+        "value": "linkedin.com/in/austin-sia",
+        "note": "My experience, recommendations and updates.",
+        "action": "Connect",
+        "href": "https://www.linkedin.com/in/austin-sia/",
+        "behavior": "link"
+      },
+      {
+        "icon": "mdi:github",
+        "title": "GitHub",
+        "value": "github.com/austincantcode",
+        "note": "My code, contributions and side projects.",
+        "action": "Follow",
+        "href": "https://github.com/austincantcode",
+        "behavior": "link"
+      },
+      {
+        "icon": "lucide:file-text",
+        "title": "CV",
+        "value": "Austin Sia's CV",
+        "note": "My experience, education and skills on one page.",
+        "action": "View",
+        "href": "/cv",
+        "behavior": "link"
+      },
+      {
+        "icon": "lucide:map-pin",
+        "title": "Based in",
+        "value": "Singapore",
+        "note": "SGT (UTC+8). Open to both remote and on-site work.",
+        "action": "Contact page",
+        "href": "/contact",
+        "behavior": "link"
+      }
+    ]
+  }
+}

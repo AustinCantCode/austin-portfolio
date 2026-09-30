@@ -9,11 +9,37 @@ https://austinsia.com
 
 ## 🛠️ Tech Stack
 
-- **Framework:** React / Next.js
-- **Language:** TypeScript / JavaScript
-- **Styling:** Tailwind CSS / Vanilla CSS
-- **Icons:** [Iconify](https://icon-sets.iconify.design/)
+- **Framework:** Next.js 15 (App Router) / React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4, with design tokens in `src/app/globals.css` (light and dark)
+- **Motion:** Framer Motion, three.js (the 3D coin)
+- **Icons:** Lucide
+- **Analytics:** PostHog (optional) and Vercel Speed Insights
 - **Hosting:** Vercel
+
+## 🗂️ Project structure
+
+- `src/app` holds the routes: `/`, `/work`, `/work/[category]`, `/projects/[slug]`, `/stillgood`, `/about` (plus `skills`, `certificates`, `events`), `/cv` and `/contact`.
+- `src/data` holds all copy and content as typed modules. Edit these to change what the site says.
+- `src/_components` holds the shared UI: nav, footer, tiles, device frames and the coin.
+
+Old URLs (`/homepage`, `/coding`, `/designing`, `/achievements`, `/participation`) redirect to their new pages.
+
+## ⚙️ Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Environment variables are listed in `.env.example`. Copy it to `.env.local` (`cp .env.example .env.local`) and fill it in, and add the same values in Vercel. The only one that matters is `NEXT_PUBLIC_POSTHOG_KEY`: without it, analytics stays off. PostHog starts in `src/instrumentation-client.ts` and sends its events through this site's `/relay` path (see `next.config.ts`).
+
+## 📝 To do
+
+- Add a Calibrium screenshot and an IAL Success Stories screenshot, plus the two "What I do" photos (coding, and a Figma canvas). Placeholders marked "Image coming soon" show where they go; see the `MEDIA` map in `src/data/projects.ts` and `whatIDoPhotos` in `src/data/home.ts`.
+- Update `public/AustinResume.pdf`.
+
+StillGood screenshots and the Google Play badge come from the StillGood website (stillgoodapp.org).
 
 ## 📬 Contact
 

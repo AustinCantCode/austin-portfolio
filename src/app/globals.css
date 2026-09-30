@@ -1,232 +1,477 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* ------------------------------------------------------------------
+   Design tokens. Dark is the default theme ([data-theme="dark"] on
+   <html>); light stays available from the toggle.
+   ------------------------------------------------------------------ */
+:root {
+  /* "Logo gold": warm white, ink and gold, from the AS logo. */
+  --bg: #fcfbf8;
+  --bg-alt: #f3f1ec;
+  --tile: #ffffff;
+  --tile-alt: #f3f1ec;
+  --text: #1a1813;
+  --text-2: #6b665c;
+  --pill: #e8e4db;
+  --band: #1a1813;
+  --band-text: #f4f1ea;
+  --band-text-2: #a8a294;
+  --frame: #1a1813;
+  --frame-base: #d9d4c9;
+  --accent-fill: #aca650;
+  --accent-fill-hover: #9c9646;
+  --on-accent: #1a1813;
+  --accent-text: #6e6a1f;
+  /* Scrollbars: a gold thumb on this track (see "Scrollbars" below). */
+  --scrollbar-track: #e8e4db;
+  /* Errors: readable on tiles and wells in each theme (4.5:1+). */
+  --danger: #b3261e;
+  --menu: var(--bg);
+  /* Icon wells: one step off the surface they sit on. */
+  --well: #f3f1ec;
+  --well-alt: #ffffff;
+  /* Section rules: ink in light, a quiet warm grey in dark. */
+  --rule: #1a1813;
+  --hairline: rgba(26, 24, 19, 0.08);
+  --glow-accent: 0 0 0 0 transparent;
+  --shadow-tab:
+    0 1px 2px rgba(26, 24, 19, 0.06), 0 4px 14px rgba(26, 24, 19, 0.08);
+  --shadow-menu: 0 24px 48px rgba(26, 24, 19, 0.08);
+  --shadow-lift: 0 18px 40px rgba(26, 24, 19, 0.08);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-slide: cubic-bezier(0.3, 0.8, 0.2, 1);
+  --gutter: clamp(20px, 5.5vw, 104px);
+  --container: 1200px;
+  color-scheme: light;
+}
+
+/* Dark: the charcoal behind the AS logo (#171717) as the base, off-white
+   text at ~15:1, and tonal elevation in the same neutral grey: each
+   raised layer is a step lighter, with a faint hairline, since shadows
+   fade on dark. */
+[data-theme="dark"] {
+  --bg: #171717; /* elevation 0: the logo's charcoal */
+  --bg-alt: #1f1f1f; /* 1: alternate sections */
+  --menu: #1f1f1f;
+  --tile: #272727; /* 2: cards */
+  --tile-alt: #272727;
+  --pill: #343434; /* 3: chips, secondary buttons */
+  --text: #f2eee6;
+  --text-2: #bdb7a9;
+  --band: #212121;
+  --band-text: #f2eee6;
+  --frame: #474747;
+  --frame-base: #575757;
+  /* Brighter gold on dark so the accent keeps its weight. */
+  --accent-fill: #b8b35e;
+  --accent-fill-hover: #c4bf69;
+  --accent-text: #d4d27e;
+  --scrollbar-track: #171717; /* the logo's charcoal */
+  --danger: #f2877e;
+  --well: #343434;
+  --well-alt: #343434;
+  --rule: #595959;
+  --hairline: rgba(242, 238, 230, 0.09);
+  --glow-accent: 0 0 28px rgba(184, 179, 94, 0.3);
+  --shadow-tab: inset 0 0 0 1px rgba(242, 238, 230, 0.1);
+  --shadow-menu:
+    0 1px 0 rgba(235, 231, 222, 0.06), 0 24px 48px rgba(0, 0, 0, 0.5);
+  --shadow-lift:
+    inset 0 0 0 1px rgba(235, 231, 222, 0.1), 0 18px 40px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-tile: var(--tile);
+  --color-tile-alt: var(--tile-alt);
+  --color-fg: var(--text);
+  --color-fg-2: var(--text-2);
+  --color-pill: var(--pill);
+  --color-band: var(--band);
+  --color-band-fg: var(--band-text);
+  --color-band-fg-2: var(--band-text-2);
+  --color-frame: var(--frame);
+  --color-frame-base: var(--frame-base);
+  --color-accent: var(--accent-fill);
+  --color-accent-hover: var(--accent-fill-hover);
+  --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
+  --color-on-accent: var(--on-accent);
+  --color-menu: var(--menu);
+  --color-well: var(--well);
+  --color-well-alt: var(--well-alt);
+  --color-rule: var(--rule);
+  --color-hairline: var(--hairline);
+  --color-band-link: #cac873;
+  --color-live: #30d158;
+  --color-band-pill: #2b2924;
+  --color-success: #1a7f4b;
+  --ease-out: var(--ease-out);
 }
 
-:root {
-  --font-inter: "Inter", sans-serif;
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-html {
-  font-family: var(--font-inter);
-}
-
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+
+  /* Cormorant Garamond for headings; Inter stays the body and UI face. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  }
+
+  ::selection {
+    background: rgba(172, 166, 80, 0.4);
+    color: var(--text);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 3px;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 
-/* AS LOGO FLIPPING */
-#ASLogo {
-  transform: rotateY(0deg);
-  /* Initial state */
-  backface-visibility: hidden;
-}
-
-@keyframes flip {
-  from {
-    transform: rotateY(0deg);
+/* ------------------------------------------------------------------
+   Shared layout and type roles
+   ------------------------------------------------------------------ */
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
   }
 
-  to {
-    transform: rotateY(90deg);
-  }
-}
-
-@keyframes flipTwo {
-  from {
-    transform: rotateY(90deg);
+  .gutter {
+    padding-inline: var(--gutter);
   }
 
-  to {
-    transform: rotateY(0deg);
+  /* When one element is both the container and the gutter, keep its
+     content lined up with sections that nest the two. */
+  .wrap.gutter {
+    max-width: calc(var(--container) + 2 * var(--gutter));
   }
+
+  /* Section spacing also scales with viewport height, so short laptop
+     screens aren't mostly padding. */
+  .band-y {
+    padding-block: clamp(80px, min(10vw, 15vh), 160px);
+  }
+
+  .band-y-2 {
+    padding-block: clamp(72px, min(9vw, 13vh), 136px);
+  }
+
+  .t-h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .t-h2 {
+    font-size: clamp(30px, 3.8vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  .t-sub {
+    font-size: clamp(19px, 1.8vw, 23px);
+    line-height: 1.5;
+    color: var(--text-2);
+  }
+
+  .t-kicker {
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .t-link {
+    font-size: 17px;
+    color: var(--accent-text);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scrollbars: a gold thumb on a charcoal track, for the page and for
+     pop-ups (.scroll-gold). In pop-ups the track stops short of the
+     panel's rounded corners so they don't clip it. */
+  html::-webkit-scrollbar,
+  .scroll-gold::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  html::-webkit-scrollbar-track,
+  .scroll-gold::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  .scroll-gold::-webkit-scrollbar-track {
+    margin-block: 28px;
+    border-radius: 999px;
+  }
+  html::-webkit-scrollbar-thumb,
+  .scroll-gold::-webkit-scrollbar-thumb {
+    border: 2px solid var(--scrollbar-track);
+    border-radius: 999px;
+    background: var(--accent-fill);
+  }
+  html::-webkit-scrollbar-thumb:hover,
+  .scroll-gold::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-fill-hover);
+  }
+  html::-webkit-scrollbar-corner {
+    background: var(--scrollbar-track);
+  }
+  /* Firefox has no ::-webkit-scrollbar; Chrome ignores those rules once
+     scrollbar-color is set, so it's only given where they don't exist. */
+  @supports not selector(::-webkit-scrollbar) {
+    html,
+    .scroll-gold {
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-fill) var(--scrollbar-track);
+    }
+  }
+
+  .fade-edges {
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+
+  /* Phones often bleed off the bottom of their tile, so keep placeholder
+     labels in the visible top part of the screen. */
+  .phone-screen > [role="img"] {
+    justify-content: flex-start;
+    padding-top: 32%;
+  }
+
+  /* Raised surfaces get a hairline edge in dark mode. */
+  [data-theme="dark"] :is(.bg-tile, .bg-tile-alt) {
+    box-shadow: inset 0 0 0 1px var(--hairline);
+  }
+
+  /* .lift, .rise, .press and .zoom-host are hooks for GestureManager
+     (Framer Motion); they carry no styles of their own. */
 }
 
-.animate {
-  animation: flip 400ms ease-in-out forwards;
+/* ------------------------------------------------------------------
+   Serif display. Unlayered so it wins over the tight tracking utilities
+   written for the old grotesk; font-size-adjust lifts Cormorant's small
+   x-height to read at the same size as the sans. Lining figures, since
+   Cormorant's old-style 3, 4, 5, 7 and 9 drop below the line.
+   ------------------------------------------------------------------ */
+:where(h1, h2, h3, .font-display) {
+  letter-spacing: -0.005em;
+  font-size-adjust: 0.46;
+  font-variant-numeric: lining-nums;
 }
 
-.animateTwo {
-  animation: flipTwo 400ms ease-in-out forwards;
+/* ------------------------------------------------------------------
+   Homepage intro: hidden until Framer Motion animates each part in.
+   If the script never runs, a fallback reveals everything after 4s.
+   ------------------------------------------------------------------ */
+[data-intro] [data-intro-hide] {
+  opacity: 0;
+  animation: intro-fallback 0s 4s forwards;
 }
 
-/* Fade in animation */
-@keyframes fadeIn {
-  from {
+/* The typing caret in the homepage intro. */
+@keyframes caret {
+  50% {
     opacity: 0;
   }
+}
 
+@keyframes intro-fallback {
   to {
     opacity: 1;
   }
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
+/* ------------------------------------------------------------------
+   Page transitions (PageTransition): the page fades out quickly on an
+   internal link, then the next one fades in. The nav stays put.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  :is(#main, #main + footer) {
+    transition: opacity 320ms var(--ease-out);
+  }
+  [data-page="leaving"] :is(#main, #main + footer) {
+    opacity: 0;
+    transition-duration: 180ms;
+    transition-timing-function: ease-in;
+    pointer-events: none;
+  }
+  [data-page="entering"] :is(#main, #main + footer) {
+    opacity: 0;
+    transition: none;
+  }
+  /* First open of a page: fade in too (the homepage intro has its own).
+     data-load is set once before first paint (app/layout.tsx), so this
+     never restarts. "backwards" holds opacity only before it starts, so
+     the leaving fade still works afterwards. */
+  [data-load="fade"] :is(#main, #main + footer) {
+    animation: page-in 480ms var(--ease-out) backwards;
+  }
 }
 
-/* Remove link styling */
-a {
-  text-decoration: none !important;
-  color: black;
-}
-
-/* Twinkling star animation */
-@keyframes move-twinkle-back {
+@keyframes page-in {
   from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: -10000px 5000px;
+    opacity: 0;
   }
 }
 
-.bg-stars {
-  background-image: url("../../public/star-background/stars.png");
-  background-repeat: repeat;
-  background-position: top center;
-  background-size: auto;
+/* The "Now" milestone in My Journey: a ring that breathes outwards. */
+@keyframes now-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
-.bg-twinkling {
-  background-image: url("../../public/star-background/twinkling.png");
-  background-repeat: repeat;
-  background-position: top center;
-  background-size: auto;
-  animation: move-twinkle-back 400s linear infinite;
+/* ------------------------------------------------------------------
+   Hover-to-reveal: on pointer devices, secondary lines start hidden and
+   GestureManager (Framer Motion) fades them in on hover or focus.
+   Touch devices and reduced motion always show them.
+   ------------------------------------------------------------------ */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  [data-hover-card] [data-hover-detail] {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 }
 
-/* Animating Card Flip */
-.perspective {
-  perspective: 1000px;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.preserve-3d {
-  transform-style: preserve-3d;
+/* Client logos in one colour, matching the text (see _home/clients.tsx). */
+.client-logo {
+  filter: brightness(0);
+}
+[data-theme="dark"] .client-logo {
+  filter: brightness(0) invert(1);
 }
 
-.backface-hidden {
-  backface-visibility: hidden;
+/* Post text from the CMS (see src/lib/markdoc.tsx). */
+.prose-post {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.2vw, 26px);
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.7;
+  color: var(--text-2);
 }
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
+.prose-post :where(strong) {
+  color: var(--text);
+  font-weight: 600;
 }
-
-/* Override button styling and rounds it */
-button {
+.prose-post :where(ul, ol) {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.prose-post :where(blockquote) {
+  margin: 0;
+  border-radius: 20px;
+  background: var(--bg-alt);
+  padding: clamp(18px, 2vw, 24px) clamp(20px, 2.4vw, 28px);
+  color: var(--text);
+  font-weight: 500;
+}
+.prose-post :where(blockquote p) {
+  margin: 0;
+}
+.prose-post :where(:not(pre) > code) {
   border-radius: 6px;
+  background: var(--pill);
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+.prose-post :where(hr) {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+.prose-post :where(a) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-post :where(h2, h3) {
+  color: var(--text);
+}
+
+/* The soft shadow devices stand on in Selected work (_home/selected-work). */
+.floor-shadow {
+  background: rgba(26, 24, 19, 0.22);
+}
+[data-theme="dark"] .floor-shadow {
+  background: rgba(0, 0, 0, 0.7);
 }

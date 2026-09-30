@@ -1,0 +1,68 @@
+{
+  "title": "The LAWKS Mini",
+  "order": 180,
+  "year": "2024",
+  "line": "A portable card holder that props up your phone.",
+  "subtext": "Product Design",
+  "role": "Product Designer, Group Project",
+  "problem": "This was the product created with my group for my Product Design module. After interviewing multiple students around campus, we discovered that many of them had trouble propping up their phones to watch videos comfortably.",
+  "did": "We designed and 3D-printed a product that allows users to prop up their phone horizontally or vertically, while also being a portable and lightweight card holder.",
+  "outcome": "A working physical prototype of The LAWKS Mini.",
+  "skills": [
+    "3D modelling",
+    "CAD",
+    "Tinkercad"
+  ],
+  "links": [],
+  "categories": [
+    "product-design",
+    "school-projects"
+  ],
+  "frame": "none",
+  "cover": {
+    "image": "/images/projects/lawks/cover/image.png",
+    "alt": "The LAWKS Mini card holder",
+    "fit": "cover",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/lawks/gallery/0/image.png",
+      "alt": "The LAWKS Mini card holder",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/lawks/gallery/1/image.png",
+      "alt": "The LAWKS Mini holding a phone up",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/lawks/gallery/2/image.png",
+      "alt": "The LAWKS Mini from the side",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/lawks/gallery/3/image.png",
+      "alt": "LAWKS early sketch",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/lawks/gallery/4/image.png",
+      "alt": "LAWKS design sketch",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "issuerGroup": "Compassvale Secondary",
+  "order": 80,
+  "items": [
+    {
+      "title": "Edusave Certificate of Academic Achievement 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Good academic performance and conduct.",
+      "image": "/images/certificates/school/items/0/image.png",
+      "featured": true
+    },
+    {
+      "title": "Edusave Merit Bursary 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Good academic progress and conduct.",
+      "image": "/images/certificates/school/items/1/image.png",
+      "featured": false
+    },
+    {
+      "title": "YEA Award 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Completed the Young Engineer Award requirements. Officially recognised Young Engineer.",
+      "image": "/images/certificates/school/items/2/image.png",
+      "featured": true
+    },
+    {
+      "title": "CVSS GPA Award 2022",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Academic improvement in the 2022 preliminary examinations.",
+      "image": "/images/certificates/school/items/3/image.png",
+      "featured": false
+    },
+    {
+      "title": "O and N Level Certificate 2022",
+      "issuer": "Ministry of Education, SEAB",
+      "description": "GCE O-Level 2022 and N-Level 2021.",
+      "image": "/images/certificates/school/items/4/image.png",
+      "featured": false
+    },
+    {
+      "title": "VIA Champion 2021",
+      "issuer": "Compassvale Secondary School",
+      "description": "Certificate of Appreciation for my service as VIA Champion of my class, 4N1.",
+      "image": "/images/certificates/school/items/5/image.avif",
+      "featured": false
+    },
+    {
+      "title": "NCC Assistant Land Training Master 2020/2021",
+      "issuer": "Compassvale Secondary School",
+      "description": "Certificate of Appreciation for my service as Assistant Land Training Master of the National Cadet Corps (NCC).",
+      "image": "/images/certificates/school/items/6/image.avif",
+      "featured": false
+    },
+    {
+      "title": "NCC Ranks and Total Defence Badges",
+      "issuer": "National Cadet Corps (NCC)",
+      "description": "My NCC rank epaulettes, from Cadet to 3rd Sergeant, and my Total Defence Day badges.",
+      "image": "/images/certificates/school/items/7/image.avif",
+      "featured": false
+    },
+    {
+      "title": "Edusave Good Progress Award 2019",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Improvement in academic performance and good conduct in Secondary 2.",
+      "image": "/images/certificates/school/items/8/image.png",
+      "featured": false
+    },
+    {
+      "title": "VIA Champion 2018/2019",
+      "issuer": "Compassvale Secondary School",
+      "description": "Appointed VIA Champion of my class, 1N1.",
+      "image": "/images/certificates/school/items/9/image.avif",
+      "featured": false
+    },
+    {
+      "title": "Secondary 1 Student Leadership Workshop 2018",
+      "issuer": "TOUCH Leadership & Mentoring",
+      "description": "Certificate of Achievement for completing The Leadership Challenge's Student Leadership Workshop on The Five Practices of Exemplary Student Leadership.",
+      "image": "/images/certificates/school/items/10/image.avif",
+      "featured": false
+    }
+  ]
+}

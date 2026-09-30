@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "slug": "web-apps",
+      "label": "Web Apps",
+      "blurb": "Websites and web applications I have developed, from online stores to education platforms.",
+      "seoTitle": "Web App Projects: Storefronts to School Systems"
+    },
+    {
+      "slug": "mobile-apps",
+      "label": "Mobile Apps",
+      "blurb": "Mobile applications I have developed and designed.",
+      "seoTitle": "Mobile App Projects and App Designs"
+    },
+    {
+      "slug": "client-work",
+      "label": "Client Work",
+      "blurb": "Live platforms I have developed for real clients during my internship and freelance work.",
+      "seoTitle": "Client Work: Live Websites and Platforms"
+    },
+    {
+      "slug": "school-projects",
+      "label": "School Projects",
+      "blurb": "Projects I completed for my modules at Singapore Polytechnic.",
+      "seoTitle": "School Projects from Singapore Polytechnic"
+    },
+    {
+      "slug": "small-apps",
+      "label": "Small Apps",
+      "blurb": "Small applications I built while learning JavaScript, Node.js and React.",
+      "seoTitle": "Small Apps Built While Learning to Code"
+    },
+    {
+      "slug": "ui-ux",
+      "label": "UI/UX",
+      "blurb": "App designs, from user research to interactive prototypes in Figma and Adobe XD.",
+      "seoTitle": "UI/UX Design Projects and Prototypes"
+    },
+    {
+      "slug": "product-design",
+      "label": "Product Design",
+      "blurb": "Physical products I have designed, modelled in Tinkercad and 3D-printed.",
+      "seoTitle": "Product Design: 3D-Printed Prototypes"
+    },
+    {
+      "slug": "graphic-design",
+      "label": "Graphic Design",
+      "blurb": "Advertisements, posters and artwork I have created in Adobe Photoshop and Illustrator.",
+      "seoTitle": "Graphic Design Gallery: Posters and Ads"
+    },
+    {
+      "slug": "ventures",
+      "label": "Ventures",
+      "blurb": "The ventures I have started.",
+      "seoTitle": "Ventures: A Hackathon Team, Freelance and an App"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "title": "JuzInterior",
+  "order": 90,
+  "year": "2025",
+  "line": "An interior design website with an FAQ page and blog filters.",
+  "subtext": "Interior Design & Renovation Firm",
+  "role": "Developer, Amber Creative",
+  "problem": "JuzInterior is an interior design and renovation company that creates personalised living and commercial spaces. Visitors to its website had no easy way to find answers to common questions or to filter the blog articles by topic.",
+  "did": "I built a Frequently Asked Questions (FAQ) page using BetterDocs, and a category filter for the blog page using PHP and Elementor components in WordPress.",
+  "outcome": "Visitors can now find answers faster and browse the articles that interest them.",
+  "skills": [
+    "WordPress",
+    "BetterDocs",
+    "PHP",
+    "CSS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://juzinterior.com/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/jint/cover/image.png",
+    "alt": "JuzInterior website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/jint/thumbnail/image.png",
+    "alt": "JuzInterior logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "image": "/images/projects/jint/second/image.png",
+    "alt": "JuzInterior FAQ page",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/jint/gallery/0/image.png",
+      "alt": "JuzInterior home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/1/image.png",
+      "alt": "JuzInterior FAQ page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/2/image.png",
+      "alt": "JuzInterior articles",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/jint/gallery/3/image.png",
+      "alt": "JuzInterior project gallery",
+      "fit": "",
+      "bare": false
+    }
+  ],
+  "story": [
+    {
+      "title": "Situation",
+      "body": "JuzInterior is an interior design and renovation company that creates personalised living and commercial spaces. Visitors to its website had no easy way to find answers to common questions or to filter the blog articles by topic."
+    },
+    {
+      "title": "Task",
+      "body": "As a Developer at Amber Creative, my task was to add a Frequently Asked Questions (FAQ) page and a way to filter the blog by category."
+    },
+    {
+      "title": "Action",
+      "body": "I built the FAQ page using BetterDocs, and created a category filter for the blog page using PHP and Elementor components in WordPress."
+    },
+    {
+      "title": "Result",
+      "body": "Visitors can now find answers faster and browse the articles that interest them."
+    }
+  ],
+  "notes": "Written with STAR (Situation, Task, Action, Result)."
+}

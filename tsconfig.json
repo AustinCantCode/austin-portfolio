@@ -18,11 +18,10 @@
     "paths": {
       "@components/*": ["./src/_components/*"],
       "@data/*": ["./src/data/*"],
-      "@lib/*": ["./src/_lib/*"]
+      "@lib/*": ["./src/lib/*"]
     }
   },
   "include": [
-    "video.d.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",

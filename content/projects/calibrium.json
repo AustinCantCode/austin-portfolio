@@ -1,0 +1,89 @@
+{
+  "title": "Calibrium",
+  "order": 20,
+  "year": "2026",
+  "line": "An online watch store I turned into a full shopping experience.",
+  "subtext": "Online Watch Store",
+  "role": "Freelance Full-stack Developer",
+  "problem": "Calibrium is an online watch store based in Singapore. Their website could display watches, but customers were not able to create an account, place an order or save the watches they liked.",
+  "did": "As a freelance Full-stack Developer, I added every feature a shopper needs: registration and login, a profile page, checkout with payment, order history, favourites and automatic order confirmation emails.",
+  "outcome": "Customers can now go from browsing watches to a paid order and a confirmation email all in one smooth flow.",
+  "ai": "I used Claude Code, an AI coding assistant, to speed up the more repetitive parts of the build. I agreed on the scope of work with the client beforehand, and I reviewed and tested every change myself before it went live, so I was responsible for everything that was shipped.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Zustand",
+    "Strapi CMS",
+    "Node.js",
+    "Claude Code"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://calibrium.sg"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/calibrium/cover/image.png",
+    "alt": "Calibrium's online watch store",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/calibrium/thumbnail/image.png",
+    "alt": "Calibrium logo",
+    "fit": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "story": [
+    {
+      "title": "The Brief",
+      "body": "Calibrium is an online watch store based in Singapore. When I started, their website could display their watches, but that was about it. Customers were not able to create an account, place an order or save the watches they liked.\n\nAs a freelance developer, my job was to turn the website into a proper online store that could take orders from customers.",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
+    },
+    {
+      "title": "What I Added",
+      "body": "I developed everything a shopper needs from start to finish: registration and login, a profile page, checkout with payment, order history, favourites and an automatic confirmation email after every order.",
+      "image": {
+        "fit": "",
+        "bare": false
+      },
+      "callout": "Browsing, paying and receiving a confirmation email now all happen in one smooth flow."
+    },
+    {
+      "title": "How I Built It",
+      "body": "The store is built with Next.js, React and TypeScript, together with Tailwind CSS, Zustand, Strapi CMS and Node.js.\n\nI agreed on the scope of work with the client at the start, then tested every change myself before it went live.",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
+    }
+  ],
+  "results": [
+    {
+      "value": "6",
+      "label": "shopper features added, from registration to order emails"
+    }
+  ],
+  "notes": "Drafted from the existing Calibrium text and your CV. Check: the list of features and dates. Add a screenshot of the shop (the cover is still empty) and, if Calibrium is happy to, a quote."
+}

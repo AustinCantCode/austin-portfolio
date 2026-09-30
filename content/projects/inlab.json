@@ -1,0 +1,71 @@
+{
+  "title": "IAL InLab",
+  "order": 80,
+  "year": "2025",
+  "line": "An innovation platform made more reliable.",
+  "subtext": "Institute for Adult Learning",
+  "role": "Frontend Developer, Amber Creative",
+  "problem": "IAL InLab is a platform that supports innovation initiatives within the Institute for Adult Learning (IAL). Some parts of the platform would break whenever certain content fields were left empty in Storyblok CMS.",
+  "did": "As a Frontend Developer, I worked with the project managers to find and fix functional bugs across the platform. One key fix used the nullish coalescing operator (??) to give content fields safe fallback values, so the interface handles empty values from Storyblok CMS without breaking.",
+  "outcome": "A more reliable platform for both visitors and the content team, with pages that keep working even when a content field is left empty.",
+  "skills": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Storyblok CMS"
+  ],
+  "links": [
+    {
+      "label": "Visit live site",
+      "href": "https://inlab.ial.edu.sg/"
+    }
+  ],
+  "categories": [
+    "web-apps",
+    "client-work"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/inlab/cover/image.png",
+    "alt": "IAL InLab website",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/inlab/thumbnail/image.png",
+    "alt": "IAL InLab logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "story": [
+    {
+      "title": "Situation",
+      "body": "IAL InLab is a platform that supports innovation initiatives within the Institute for Adult Learning (IAL). Some parts of the platform would break whenever certain content fields were left empty in Storyblok CMS."
+    },
+    {
+      "title": "Task",
+      "body": "As a Frontend Developer at Amber Creative, I worked with the project managers to find and fix the functional bugs across the platform."
+    },
+    {
+      "title": "Action",
+      "body": "Together with the project managers, I identified the functional bugs across the platform and fixed them. One key fix was for the content fields that could come back empty from the CMS: I used the nullish coalescing operator (??) to give them safe fallback values, so the interface handles empty values without breaking."
+    },
+    {
+      "title": "Result",
+      "body": "A more reliable platform for both visitors and the content team, with pages that keep working even when a content field is left empty."
+    }
+  ],
+  "notes": "Written with STAR (Situation, Task, Action, Result)."
+}

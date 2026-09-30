@@ -1,0 +1,49 @@
+{
+  "title": "SP Mobile v3",
+  "order": 170,
+  "year": "2023",
+  "line": "A redesign of the Singapore Polytechnic mobile app.",
+  "subtext": "App Redesign",
+  "role": "UI/UX Designer, Group Project",
+  "problem": "This was a project done with my group for my User Experience Fundamentals (UXF) module. The Singapore Polytechnic app had received a lot of negative feedback about its user experience.",
+  "did": "We redesigned the app so that it has a modern and minimalist look, without compromising any of its key features such as attendance taking.",
+  "outcome": "A complete interactive prototype designed in Figma.",
+  "skills": [
+    "Figma"
+  ],
+  "links": [
+    {
+      "label": "View Figma prototype",
+      "href": "https://www.figma.com/proto/Pup2sAqLTUNiIh5MbZTfNH/Class-02__Group-01?page-id=1216%3A2&node-id=1216-5&starting-point-node-id=1216%3A5&t=Uvatm2YP2QAmnenr-1"
+    }
+  ],
+  "categories": [
+    "mobile-apps",
+    "ui-ux",
+    "school-projects"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/sp/cover/image.png",
+    "alt": "SP Mobile v3 app screens",
+    "fit": "",
+    "bare": true
+  },
+  "thumbnail": {
+    "image": "/images/projects/sp/thumbnail/image.png",
+    "alt": "The SP Mobile v3 logo",
+    "fit": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "story": [],
+  "results": []
+}

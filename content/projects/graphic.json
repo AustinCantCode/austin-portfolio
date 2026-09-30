@@ -1,0 +1,72 @@
+{
+  "title": "Graphic Design",
+  "order": 190,
+  "year": "2023",
+  "line": "Advertisements, posters and artwork I have designed.",
+  "subtext": "Graphic Design",
+  "role": "Graphic Designer",
+  "problem": "A collection of advertisements and posters I created for school assignments and personal projects.",
+  "did": "I designed watch advertisements, posters and brand artwork using Adobe Photoshop and Adobe Illustrator.",
+  "outcome": "Six finished pieces of artwork.",
+  "skills": [
+    "Adobe Photoshop",
+    "Adobe Illustrator"
+  ],
+  "links": [],
+  "categories": [
+    "graphic-design"
+  ],
+  "frame": "none",
+  "cover": {
+    "image": "/images/projects/graphic/cover/image.jpg",
+    "alt": "Citizen Corso watch advertisement with a city skyline",
+    "fit": "cover",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/graphic/gallery/0/image.jpg",
+      "alt": "Citizen Corso watch advertisement with a city skyline",
+      "fit": "cover",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/graphic/gallery/1/image.jpg",
+      "alt": "Citizen Corso watch advertisement with floral artwork",
+      "fit": "cover",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/graphic/gallery/2/image.jpg",
+      "alt": "Citizen Corso watch advertisement with city buildings",
+      "fit": "cover",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/graphic/gallery/3/image.jpg",
+      "alt": "The word FIRE made out of flames",
+      "fit": "cover",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/graphic/gallery/4/image.jpg",
+      "alt": "Samsung Galaxy S20 advertisement with butterflies and a rabbit",
+      "fit": "cover",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/graphic/gallery/5/image.jpg",
+      "alt": "Chupa Chups lollipop advertisement on a watermelon background",
+      "fit": "cover",
+      "bare": false
+    }
+  ]
+}

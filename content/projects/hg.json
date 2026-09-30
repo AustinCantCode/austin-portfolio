@@ -1,0 +1,49 @@
+{
+  "title": "Hidden Gems",
+  "order": 160,
+  "year": "2023",
+  "line": "An app design to help tourists find Singapore's lesser-known places.",
+  "subtext": "Travel App Design",
+  "role": "UI/UX Designer, Group Project",
+  "problem": "This was a project done with my group for my Design for User Interaction module. With Singapore becoming an increasingly popular tourist destination, we wanted to help tourists find places that are rarely known.",
+  "did": "We designed an app with a concept similar to Tinder, where users swipe right to like a place and left to skip it, together with a feed like Instagram where users can share places and experiences. We also designed a nearby feature that shows places and events of interest around the user.",
+  "outcome": "A complete interactive prototype designed in Figma.",
+  "skills": [
+    "Figma"
+  ],
+  "links": [
+    {
+      "label": "View Figma prototype",
+      "href": "https://www.figma.com/proto/j9XKNokz1Ng8EkSr6oz6wQ/DEUI-CA2?page-id=0%3A1&node-id=471-80509&viewport=299%2C298%2C0.02&t=v6l5Ng3Hn27IVNAD-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=471%3A80509&show-proto-sidebar=1"
+    }
+  ],
+  "categories": [
+    "mobile-apps",
+    "ui-ux",
+    "school-projects"
+  ],
+  "frame": "phone",
+  "cover": {
+    "image": "/images/projects/hg/cover/image.png",
+    "alt": "Hidden Gems app screens",
+    "fit": "",
+    "bare": true
+  },
+  "thumbnail": {
+    "image": "/images/projects/hg/thumbnail/image.png",
+    "alt": "The Hidden Gems app icon: a location pin over two photos",
+    "fit": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [],
+  "story": [],
+  "results": []
+}

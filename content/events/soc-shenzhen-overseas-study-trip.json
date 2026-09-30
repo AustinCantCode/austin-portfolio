@@ -1,0 +1,14 @@
+{
+  "title": "SOC Shenzhen Overseas Study Trip",
+  "order": 20,
+  "featured": false,
+  "date": "September 2024",
+  "role": "Singapore Polytechnic Student",
+  "text": "During my semester break, I joined Singapore Polytechnic's School of Computing Overseas Study Trip to Shenzhen, China. We visited technology companies like Sandstone and VoiceAI, technology exhibitions and Shenzhen Technology University. I learnt a lot about China's technology landscape and made some new friends along the way!",
+  "photo": {
+    "image": "/images/events/soc-shenzhen-overseas-study-trip/photo/image.jpg",
+    "alt": "Group photo on the Shenzhen study trip",
+    "fit": "cover",
+    "bare": false
+  }
+}

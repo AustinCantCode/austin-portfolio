@@ -1,0 +1,86 @@
+{
+  "title": "Shoply",
+  "order": 130,
+  "year": "2024",
+  "line": "My first full-stack project, a simple online store.",
+  "subtext": "Simple Online Store",
+  "role": "Full-stack Developer",
+  "problem": "This is the first full-stack project I developed, for the Database Systems module I was taking in Singapore Polytechnic. The goal was to build a working online store from start to finish.",
+  "did": "I built a simple online shopping website where users can view, review, favourite and checkout multiple products. Using JavaScript and Node.js for the logic, PostgreSQL and MySQL for the database and Prisma as the ORM, I ensured the backend could create, retrieve, update and delete data. I also designed the user interface with HTML and CSS.",
+  "outcome": "My first project where the frontend, backend and database all worked together from end to end.",
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "MySQL",
+    "PostgreSQL",
+    "Prisma"
+  ],
+  "links": [],
+  "categories": [
+    "web-apps",
+    "school-projects"
+  ],
+  "frame": "laptop",
+  "cover": {
+    "image": "/images/projects/shoply/cover/image.png",
+    "alt": "Shoply online shop",
+    "fit": "cover",
+    "position": "top",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/shoply/thumbnail/image.webp",
+    "alt": "Shoply logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
+  "second": {
+    "fit": "",
+    "bare": false
+  },
+  "screen": {
+    "fit": "",
+    "bare": false
+  },
+  "gallery": [
+    {
+      "image": "/images/projects/shoply/gallery/0/image.png",
+      "alt": "Shoply welcome page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/shoply/gallery/1/image.png",
+      "alt": "Shoply product list",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/shoply/gallery/2/image.png",
+      "alt": "Shoply product page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/shoply/gallery/3/image.png",
+      "alt": "Shoply cart",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/shoply/gallery/4/image.png",
+      "alt": "Shoply checkout",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/shoply/gallery/5/image.png",
+      "alt": "Shoply orders",
+      "fit": "",
+      "bare": false
+    }
+  ]
+}
