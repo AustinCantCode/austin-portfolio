@@ -14,9 +14,6 @@
         "now": false,
         "logo": "/images/home/journey/items/0/logo.png",
         "links": []
-        "now": false,
-        "logo": "/images/home/journey/items/0/logo.png",
-        "links": []
       },
       {
         "date": "2023 – 2026",
@@ -25,16 +22,11 @@
         "now": false,
         "logo": "/images/home/journey/items/1/logo.jpg",
         "links": []
-        "now": false,
-        "logo": "/images/home/journey/items/1/logo.jpg",
-        "links": []
       },
       {
         "date": "Sep 2024",
         "title": "SP Batey Hackathon",
         "sub": "Grand Finalist with Frésko, the idea that later became StillGood",
-        "now": false,
-        "logo": "/images/home/journey/items/2/logo.png",
         "now": false,
         "logo": "/images/home/journey/items/2/logo.png",
         "links": [
@@ -46,7 +38,6 @@
             "label": "Certificate",
             "href": "/about/certificates"
           }
-        ]
         ]
       },
       {
@@ -62,7 +53,6 @@
             "href": "/development/client-work"
           }
         ]
-        ]
       },
       {
         "date": "Feb 2026 – May 2026",
@@ -76,7 +66,6 @@
             "label": "Calibrium",
             "href": "/projects/calibrium"
           }
-        ]
         ]
       },
       {
@@ -101,7 +90,6 @@
         "logo": "/images/home/journey/items/6/logo.png",
         "icon": "lucide:shield-check",
         "links": []
-        "links": []
       },
       {
         "date": "2028 – 2031",
@@ -118,7 +106,6 @@
     "title": "What I Do",
     "areas": [
       {
-        "id": "ventures",
         "icon": "lucide:code-xml",
         "label": "Development",
         "count": 21,
@@ -203,7 +190,6 @@
         "photoHint": "My design work in Figma"
       },
       {
-        "id": "dev",
         "icon": "lucide:rocket",
         "label": "Entrepreneurship",
         "count": 3,
