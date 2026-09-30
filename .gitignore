@@ -50,3 +50,6 @@ public/_next-video
 
 # CMS output (scripts/content.mjs)
 /src/data/generated/
+
+# content export for backups (pnpm export)
+/export/

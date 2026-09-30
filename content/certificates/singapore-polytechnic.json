@@ -1,0 +1,13 @@
+{
+  "issuerGroup": "Singapore Polytechnic",
+  "order": 75,
+  "items": [
+    {
+      "title": "Edusave Certificate of Academic Achievement 2026",
+      "issuer": "Ministry of Education, People's Association",
+      "description": "Good academic performance and conduct in my Diploma in Information Technology at Singapore Polytechnic.",
+      "image": "/images/certificates/singapore-polytechnic/items/0/image.jpeg",
+      "featured": true
+    }
+  ]
+}

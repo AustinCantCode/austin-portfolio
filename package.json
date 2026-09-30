@@ -12,7 +12,8 @@
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,md}'",
     "format:write": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,md}'",
     "postinstall": "node scripts/content.mjs",
-    "cv:pdf": "node scripts/cv-pdf.mjs"
+    "cv:pdf": "node scripts/cv-pdf.mjs",
+    "export": "node scripts/export-content.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.3.1",
