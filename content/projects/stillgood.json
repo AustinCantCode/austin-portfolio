@@ -43,6 +43,13 @@
     "position": "top",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/stillgood/thumbnail/image.webp",
+    "alt": "StillGood app icon",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "image": "/images/projects/stillgood/second/image.webp",
     "alt": "StillGood pantry list sorted by expiry date",

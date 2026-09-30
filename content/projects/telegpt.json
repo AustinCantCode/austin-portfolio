@@ -31,6 +31,13 @@
     "fit": "cover",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/telegpt/thumbnail/image.webp",
+    "alt": "TeleGPT logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false

@@ -31,8 +31,14 @@
   ],
   "frame": "laptop",
   "cover": {
-    "image": "/images/projects/calibrium/cover/image.png",
     "fit": "",
+    "bare": false
+  },
+  "thumbnail": {
+    "image": "/images/projects/calibrium/thumbnail/image.png",
+    "alt": "Calibrium logo",
+    "fit": "",
+    "position": "",
     "bare": false
   },
   "second": {

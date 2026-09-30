@@ -29,6 +29,13 @@
     "fit": "contain",
     "bare": true
   },
+  "thumbnail": {
+    "image": "/images/projects/fresko/thumbnail/image.png",
+    "alt": "Frésko logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false
