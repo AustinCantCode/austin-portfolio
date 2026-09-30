@@ -46,7 +46,7 @@ export function AreaView({ groups }: { groups: WorkGroup[] }) {
             key={g.anchor}
             id={g.anchor}
             aria-labelledby={`${g.anchor}-title`}
-            className="flex min-w-0 scroll-mt-32 flex-col gap-[clamp(20px,2.4vw,32px)]"
+            className="flex min-w-0 scroll-mt-20 flex-col gap-[clamp(20px,2.4vw,32px)]"
             style={{ flex: g.flex }}
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">

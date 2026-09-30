@@ -27,19 +27,24 @@ export const aboutPhotos = (
 
 type RawLetter = {
   image?: Img;
+  pages?: Img[];
   name?: string;
   role?: string;
   org?: string;
+  link?: string;
   date?: string;
   excerpt?: string;
   text?: string;
 };
 
 export type Letter = {
-  image: NonNullable<Img>;
+  /** The scanned pages, first page first; none until one is uploaded. */
+  pages: NonNullable<Img>[];
   name: string;
   role: string;
   org: string;
+  /** Their website, which their name links to. */
+  link?: string;
   date: string;
   excerpt: string;
   /** The full letter, one string per paragraph. */
@@ -51,12 +56,15 @@ export const letters: Letter[] = (
   ((aboutRaw as { recommendations?: RawLetter[] }).recommendations ??
     []) as RawLetter[]
 )
-  .filter((l): l is RawLetter & { image: NonNullable<Img> } => !!l.image)
+  .filter((l) => l.image || l.excerpt?.trim() || l.text?.trim())
   .map((l) => ({
-    image: l.image,
+    pages: [l.image, ...(l.pages ?? [])].filter(
+      (p): p is NonNullable<Img> => !!p,
+    ),
     name: l.name ?? "",
     role: l.role ?? "",
     org: l.org ?? "",
+    link: l.link?.trim() || undefined,
     date: l.date ?? "",
     excerpt: l.excerpt ?? "",
     paragraphs: (l.text ?? "")

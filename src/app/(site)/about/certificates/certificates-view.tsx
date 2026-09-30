@@ -17,7 +17,7 @@ export function CertificatesView({ groups }: { groups: CertificateGroup[] }) {
 
   return (
     <>
-      <div className="sticky top-14 z-10 bg-bg">
+      <div className="sticky top-[52px] z-10 bg-bg">
         <div className="wrap gutter pt-2 pb-4">
           <SegmentedControl
             label="Filter by issuer"

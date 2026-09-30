@@ -24,7 +24,6 @@ export const metadata = pageMetadata({
   title: pageCopy.home.title,
   description: pageCopy.home.description,
   path: "/",
-  absoluteTitle: true,
 });
 
 export default function HomePage() {

@@ -53,7 +53,7 @@ export function EventsCarousel() {
         tabIndex={0}
         role="region"
         aria-label="Events"
-        className="no-scrollbar flex snap-x snap-mandatory items-start gap-4 overflow-x-auto pt-1 pb-2"
+        className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto pt-1 pb-2"
         style={{ paddingInline: pad, scrollPaddingInline: pad }}
       >
         {events.map((e) => (
@@ -67,12 +67,21 @@ export function EventsCarousel() {
               title={e.title}
               sizes="(max-width: 768px) 80vw, 420px"
             />
+            {/* Every card's text takes the same room: one line of date,
+                two of title and three of text, with longer text cut off
+                with an ellipsis. */}
             <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
-              <p className="text-[13px] font-semibold text-fg-2">{e.date}</p>
-              <p className="font-display text-[19px] leading-[1.3] font-bold tracking-[-0.01em]">
+              <p className="truncate text-[13px] font-semibold text-fg-2">
+                {e.date}
+              </p>
+              <p className="font-display line-clamp-2 h-[2.6em] text-[19px] leading-[1.3] font-bold tracking-[-0.01em]">
                 {e.title}
               </p>
-              <p data-hover-detail="" className="text-[14px] text-fg-2">
+              <p
+                data-hover-detail=""
+                title={e.text}
+                className="line-clamp-3 h-[4.5em] text-[14px] leading-[1.5] text-fg-2"
+              >
                 {e.text}
               </p>
             </div>

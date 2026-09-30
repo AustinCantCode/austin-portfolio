@@ -19,8 +19,8 @@ import { cn } from "@lib/utils";
 export type NavSection = { id: string; label: string };
 
 // Where a section counts as reached: just under the sticky bars, where a
-// jump to it lands (the sections' scroll-mt-32 is 128px).
-const LINE = 140;
+// jump to it lands (the sections' scroll-mt-20 is 80px).
+const LINE = 92;
 
 /**
  * The page's own selector bar as a guide to the page itself, like the
@@ -28,9 +28,9 @@ const LINE = 140;
  * glides to the section you've scrolled to, and a tab scrolls down to
  * its section rather than opening another page.
  *
- * The pill stays on a tab while you read that section and only moves
- * over the last stretch before the next one reaches the top, so it
- * changes a little after the next section comes into view.
+ * The pill always rests on a tab. It switches once the next section's
+ * heading has come a little way up the screen, then glides across on a
+ * spring, so it never stops halfway between two tabs.
  */
 export function SectionNav({
   title,
@@ -51,32 +51,25 @@ export function SectionNav({
   const [active, setActive] = useState(0);
   const [measured, setMeasured] = useState(false);
 
-  // Page scroll → a position from 0 to the last tab's index.
+  // Page scroll → the index of the section being read.
   useEffect(() => {
     const els = sections
       .map((s) => document.getElementById(s.id))
       .filter((e): e is HTMLElement => !!e);
     if (!els.length) return;
     const read = () => {
-      const y = window.scrollY + LINE;
-      const max =
-        document.documentElement.scrollHeight - window.innerHeight + LINE;
-      const zone = Math.min(260, window.innerHeight * 0.3);
-      // A section too near the foot to reach the line counts as reached
-      // at the bottom of the page, each a little before the next.
-      const tops = els.map((e, i) =>
-        Math.min(
-          e.getBoundingClientRect().top + window.scrollY,
-          max - (els.length - 1 - i) * zone,
-        ),
-      );
-      let p = 0;
-      for (let i = 1; i < tops.length; i++) {
-        const f = (y - (tops[i] - zone)) / zone;
-        p += Math.max(0, Math.min(1, f));
-      }
-      raw.set(p);
-      setActive(Math.round(p));
+      // A section is reached once its top is this far under the bar.
+      const lead = Math.min(260, window.innerHeight * 0.3);
+      const y = window.scrollY + LINE + lead;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      let i = 0;
+      els.forEach((e, k) => {
+        if (e.getBoundingClientRect().top + window.scrollY <= y) i = k;
+      });
+      // The last section may be too short to reach the line.
+      if (window.scrollY >= max - 2) i = els.length - 1;
+      raw.set(i);
+      setActive(i);
     };
     read();
     pos.jump(raw.get());
@@ -91,7 +84,7 @@ export function SectionNav({
     };
   }, [sections, raw, pos]);
 
-  // Place the pill between the two tabs either side of the position.
+  // Place the pill along its glide between the two nearest tabs.
   const glide = useCallback(() => {
     const t = tabs.current;
     if (!t.length) return;
@@ -150,7 +143,7 @@ export function SectionNav({
   return (
     <nav
       aria-label={`${title} sections`}
-      className="sticky top-14 z-10 border-b border-hairline bg-bg/90 backdrop-blur-md"
+      className="sticky top-0 z-40 border-b border-hairline bg-bg/90 backdrop-blur-md"
     >
       <div className="wrap gutter flex h-[52px] items-center gap-6">
         <Link

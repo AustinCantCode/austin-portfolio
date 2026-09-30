@@ -28,7 +28,7 @@
   "cover": {
     "image": "/images/projects/quizzy/cover/image.png",
     "alt": "Quizzy app screens",
-    "fit": "contain",
+    "fit": "",
     "bare": true
   },
   "thumbnail": {

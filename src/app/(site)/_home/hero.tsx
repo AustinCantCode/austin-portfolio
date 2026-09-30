@@ -166,7 +166,7 @@ export function Hero() {
             <Coin
               className="mx-auto w-[clamp(220px,28vw,400px)] max-w-full"
               delay={1500}
-              flipMs={2800}
+              flipMs={3500}
               onReady={() => begin.current()}
             />
           </div>

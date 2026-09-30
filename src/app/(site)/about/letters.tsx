@@ -7,6 +7,7 @@ import { cn } from "@lib/utils";
 import type { Letter } from "@data/about";
 import { Icon } from "@components/icon";
 import { Lightbox } from "@components/client/lightbox";
+import { PersonName } from "@components/person-name";
 
 const byline = (l: Letter) =>
   [l.role, [l.org, l.date].filter(Boolean).join(", ")]
@@ -14,12 +15,30 @@ const byline = (l: Letter) =>
     .join(", ");
 
 /**
- * Each letter as its scan beside a line from it. The scan opens full
- * screen; the typed-out text sits under a disclosure for screen readers
- * and anyone who'd rather read it than zoom in.
+ * Each letter as its first page beside a line from it. The pages open
+ * full screen, one after another; the typed-out text sits under a
+ * disclosure for screen readers and anyone who'd rather read it than
+ * zoom in. A letter whose scan isn't uploaded yet shows its text alone.
  */
 export function Letters({ letters }: { letters: Letter[] }) {
   const [open, setOpen] = useState<number | null>(null);
+  // Every page of every letter, in order, for the viewer.
+  const pages = letters.flatMap((l) =>
+    l.pages.map((src, j) => ({
+      title:
+        l.pages.length > 1
+          ? `Letter from ${l.name}, page ${j + 1} of ${l.pages.length}`
+          : `Letter from ${l.name}`,
+      caption: byline(l),
+      media: {
+        src,
+        alt: `Page ${j + 1} of the letter from ${l.name}`,
+        fit: "contain" as const,
+      },
+    })),
+  );
+  const firstPage = (i: number) =>
+    letters.slice(0, i).reduce((n, l) => n + l.pages.length, 0);
 
   return (
     <>
@@ -28,32 +47,40 @@ export function Letters({ letters }: { letters: Letter[] }) {
           <article
             key={l.name}
             data-reveal=""
-            className="grid items-center gap-x-[clamp(40px,6vw,96px)] gap-y-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
+            className={cn(
+              "grid items-center gap-x-[clamp(40px,6vw,96px)] gap-y-8",
+              l.pages.length > 0
+                ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
+                : "max-w-[820px]",
+            )}
           >
-            <button
-              type="button"
-              onClick={() => setOpen(i)}
-              aria-label={`Enlarge the letter from ${l.name}`}
-              className={cn(
-                "group relative block w-full max-w-[440px] cursor-zoom-in justify-self-center border-0 bg-transparent p-0",
-                i % 2 === 1 && "md:order-2",
-              )}
-            >
-              {/* Every letter in the same A4 page frame, shown whole. */}
-              <span className="relative block aspect-[1/1.414] w-full bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,.35)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.02]">
-                <Image
-                  quality={100}
-                  src={l.image}
-                  alt={`Letter of recommendation from ${l.name}`}
-                  fill
-                  sizes="(max-width: 768px) 90vw, 440px"
-                  className="object-contain"
-                />
-              </span>
-              <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-black/70 text-white">
-                <Icon name="maximize-2" size={16} />
-              </span>
-            </button>
+            {l.pages.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setOpen(firstPage(i))}
+                aria-label={`Enlarge the letter from ${l.name}`}
+                className={cn(
+                  "group relative block w-full max-w-[440px] cursor-zoom-in justify-self-center border-0 bg-transparent p-0",
+                  i % 2 === 1 && "md:order-2",
+                )}
+              >
+                {/* Every letter in the same A4 page frame, shown whole. */}
+                <span className="relative block aspect-[1/1.414] w-full bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,.35)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.02]">
+                  <Image
+                    quality={100}
+                    src={l.pages[0]}
+                    alt={`Letter of recommendation from ${l.name}`}
+                    fill
+                    sizes="(max-width: 768px) 90vw, 440px"
+                    className="object-contain"
+                  />
+                </span>
+                <span className="absolute right-3 bottom-3 flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-full bg-black/70 px-2.5 text-[13px] font-medium text-white">
+                  {l.pages.length > 1 && `${l.pages.length} pages`}
+                  <Icon name="maximize-2" size={16} />
+                </span>
+              </button>
+            )}
 
             <figure className="m-0 flex min-w-0 flex-col gap-6">
               <blockquote className="m-0">
@@ -62,7 +89,11 @@ export function Letters({ letters }: { letters: Letter[] }) {
                 </p>
               </blockquote>
               <figcaption className="flex flex-col gap-0.5">
-                <span className="text-[17px] font-semibold">{l.name}</span>
+                <PersonName
+                  name={l.name}
+                  href={l.link}
+                  className="text-[17px] font-semibold"
+                />
                 <span className="text-[15px] text-fg-2">{byline(l)}</span>
               </figcaption>
               {l.paragraphs.length > 0 && (
@@ -97,15 +128,7 @@ export function Letters({ letters }: { letters: Letter[] }) {
           <Lightbox
             variant="certificate"
             noun="letter"
-            items={letters.map((l) => ({
-              title: `Letter from ${l.name}`,
-              caption: byline(l),
-              media: {
-                src: l.image,
-                alt: `Letter of recommendation from ${l.name}`,
-                fit: "contain",
-              },
-            }))}
+            items={pages}
             index={open}
             onIndex={setOpen}
             onClose={() => setOpen(null)}

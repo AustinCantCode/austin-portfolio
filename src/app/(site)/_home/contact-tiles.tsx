@@ -11,7 +11,10 @@ type Tile = (typeof home.contact.tiles)[number];
 
 const channel = (t: Tile) => t.title.toLowerCase().replace(/\s+/g, "-");
 
-/** Six contact tiles. Email copies the address instead of opening mail. */
+/**
+ * The contact tiles, one compact row each: icon, channel and address.
+ * Email copies the address instead of opening mail.
+ */
 export function ContactTiles({
   tiles = home.contact.tiles,
 }: {
@@ -35,7 +38,7 @@ export function ContactTiles({
   };
 
   return (
-    <div className="wrap mt-[clamp(40px,5vw,72px)] grid grid-cols-[repeat(auto-fit,minmax(max(240px,calc((100%_-_2_*_clamp(12px,1.6vw,20px))/3)),1fr))] gap-[clamp(12px,1.6vw,20px)]">
+    <div className="wrap mt-[clamp(32px,4vw,56px)] grid grid-cols-[repeat(auto-fill,minmax(min(100%,300px),1fr))] gap-3">
       {tiles.map((t) => {
         const isCopy = t.behavior === "copy-to-clipboard";
         const on = isCopy && copied;
@@ -47,46 +50,37 @@ export function ContactTiles({
             aria-label={
               isCopy ? `Copy email, ${t.value}` : `${t.title}, ${t.value}`
             }
-            data-hover-card=""
             data-track={isCopy ? undefined : "contact_click"}
             data-track-channel={channel(t)}
-            className="relative flex min-h-[clamp(150px,14vw,210px)] flex-col justify-start gap-[clamp(20px,2.4vw,32px)] overflow-hidden rounded-[24px] bg-tile p-[clamp(18px,2.2vw,32px)] text-fg rise press [--rise:4] transition-[box-shadow] duration-[400ms] hover:no-underline hover:shadow-[var(--shadow-lift)]"
+            title={t.note || undefined}
+            className="relative flex items-center gap-3.5 rounded-[18px] bg-tile px-4 py-3.5 text-fg rise press [--rise:3] transition-[box-shadow] duration-[400ms] hover:no-underline hover:shadow-[var(--shadow-lift)]"
           >
-            <span className="flex items-start justify-between gap-3">
-              <span className="grid size-[clamp(44px,4vw,56px)] flex-none place-items-center rounded-full bg-well">
-                <Icon name={t.icon} size={24} />
-              </span>
-              <span
-                data-hover-detail=""
-                className={cn(
-                  "inline-flex h-9 min-w-9 flex-none items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold transition-colors duration-300",
-                  isCopy ? "px-3" : "px-0",
-                  on ? "bg-success text-white" : "bg-accent text-on-accent",
-                )}
-              >
-                <Icon
-                  name={isCopy ? (on ? "check" : "copy") : "arrow-up-right"}
-                  size={18}
-                />
-                {isCopy && (on ? "Copied" : "Copy")}
-              </span>
+            <span className="grid size-10 flex-none place-items-center rounded-full bg-well">
+              <Icon name={t.icon} size={20} />
             </span>
-            <span className="flex min-w-0 flex-col gap-1">
-              <span className="font-display text-[clamp(20px,2.2vw,28px)] leading-[1.15] font-bold tracking-[-0.02em]">
-                {t.title}
-              </span>
-              <span
-                data-hover-detail=""
-                className="text-[clamp(14px,1.3vw,16px)] font-semibold [overflow-wrap:anywhere]"
-              >
+            <span className="flex min-w-0 flex-1 flex-col">
+              <span className="text-[13px] text-fg-2">{t.title}</span>
+              <span className="text-[clamp(14px,3.8vw,15px)] font-semibold [overflow-wrap:anywhere]">
                 {t.value}
               </span>
-              <span
-                data-hover-detail=""
-                className="text-[clamp(13px,1.2vw,14px)] text-fg-2"
-              >
-                {t.note}
-              </span>
+            </span>
+            <span
+              className={cn(
+                "inline-flex h-8 min-w-8 flex-none items-center justify-center gap-1 rounded-full text-[12px] font-semibold transition-colors duration-300",
+                isCopy ? "sm:px-2.5" : "px-0",
+                on ? "bg-success text-white" : "bg-accent text-on-accent",
+              )}
+            >
+              <Icon
+                name={isCopy ? (on ? "check" : "copy") : "arrow-up-right"}
+                size={16}
+              />
+              {/* On phones the icon alone, so the address fits on a line. */}
+              {isCopy && (
+                <span className="hidden sm:inline">
+                  {on ? "Copied" : "Copy"}
+                </span>
+              )}
             </span>
             {isCopy && (
               <span className="sr-only" aria-live="polite">
