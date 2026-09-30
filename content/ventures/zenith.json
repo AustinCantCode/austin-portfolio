@@ -1,10 +1,14 @@
 {
   "name": "Zenith Technologies",
-  "order": 20,
+  "order": 3,
   "role": "Co-founder & Designer",
   "date": "Sep 2024",
   "line": "My team for the SP Batey Hackathon, where we designed Frésko and made it to the grand finals.",
   "status": "Grand Finalist, SP Batey Hackathon 2024",
   "href": "/projects/fresko",
-  "cta": "View Frésko"
+  "cta": "View Frésko",
+  "screenshot": {
+    "fit": "",
+    "bare": false
+  }
 }

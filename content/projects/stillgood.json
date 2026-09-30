@@ -47,7 +47,6 @@
     "image": "/images/projects/stillgood/thumbnail/image.webp",
     "alt": "StillGood app icon",
     "fit": "",
-    "position": "",
     "bare": false
   },
   "second": {
@@ -108,11 +107,19 @@
   "story": [
     {
       "title": "The Problem",
-      "body": "Many families throw away food that they forgot they had. Expiry dates get lost at the back of the fridge, and by the time you notice, it is usually too late.\n\nI wanted to create an app that remembers everything for you: what you bought, when it expires and what you can cook with it before then."
+      "body": "Many families throw away food that they forgot they had. Expiry dates get lost at the back of the fridge, and by the time you notice, it is usually too late.\n\nI wanted to create an app that remembers everything for you: what you bought, when it expires and what you can cook with it before then.",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
     },
     {
       "title": "Where It Started",
       "body": "I started StillGood on my own in April 2026, and designed and built it alongside my freelance projects.",
+      "image": {
+        "fit": "",
+        "bare": false
+      },
       "callout": "From the first line of code to the Google Play Store in about four months."
     },
     {
@@ -137,7 +144,11 @@
     },
     {
       "title": "The Launch",
-      "body": "StillGood went live on the Google Play Store on 26 August 2026, and anyone with an Android phone can now download it for free!"
+      "body": "StillGood went live on the Google Play Store on 26 August 2026, and anyone with an Android phone can now download it for free!",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
     }
   ],
   "results": [

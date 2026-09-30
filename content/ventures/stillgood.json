@@ -1,6 +1,6 @@
 {
   "name": "StillGood",
-  "order": 10,
+  "order": 1,
   "role": "Founder & Developer",
   "date": "Apr 2026 – Present",
   "line": "My own app that helps families reduce their food waste.",
@@ -11,7 +11,6 @@
     "image": "/images/ventures/stillgood/screenshot/image.png",
     "alt": "The StillGood website, stillgoodapp.org",
     "fit": "",
-    "position": "",
     "bare": false
   }
 }
