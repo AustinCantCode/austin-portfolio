@@ -3,44 +3,41 @@ import type { StaticImageData } from "next/image";
 import raw from "./generated/stillgood.json";
 import type { StillgoodScreen } from "./stillgood-screens";
 
-type RawDemo = Omit<typeof raw.demo, "poster" | "video"> & {
-  poster?: StaticImageData | null;
+type RawDemo = {
   video?: string | null;
+  poster?: StaticImageData | null;
+  alt?: string;
 };
 
 const demo = raw.demo as unknown as RawDemo;
+const pick = (s: string) => s as StillgoodScreen;
 
 export const stillgoodPage = {
   hero: {
     ...raw.hero,
-    site:
-      raw.hero.site?.label && raw.hero.site.href ? raw.hero.site : undefined,
-  },
-  problem: {
-    ...raw.problem,
-    stats: raw.problem.stats.filter((s) => s.value),
+    links: raw.hero.links.filter((l) => l.label && l.href),
+    reel: raw.hero.reel.map(pick),
   },
   demo: {
-    ...demo,
-    poster: demo.poster ?? undefined,
     video: demo.video || undefined,
-    points: demo.points.filter(Boolean),
+    poster: demo.poster ?? undefined,
+    alt: demo.alt ?? "",
   },
   features: {
     title: raw.features.title,
     items: raw.features.items.map((f) => ({
       ...f,
-      screen: f.screen as StillgoodScreen,
+      points: f.points.filter(Boolean),
+      screen: pick(f.screen),
     })),
   },
-  plans: {
-    ...raw.plans,
-    items: raw.plans.items.map((p) => ({
-      ...p,
-      points: p.points.filter(Boolean),
+  tiers: {
+    ...raw.tiers,
+    items: raw.tiers.items.map((t) => ({
+      ...t,
+      points: t.points.filter(Boolean),
+      screen: pick(t.screen),
     })),
   },
-  story: raw.story,
   builtWith: raw.builtWith,
-  cta: raw.cta,
 };

@@ -7,7 +7,7 @@
   "role": "Founder & Solo Developer",
   "problem": "Many families throw away food that they forgot they had, because expiry dates get lost at the back of the fridge. StillGood is my own app that I started, designed and built to solve this problem.",
   "did": "As the founder and solo developer, I came up with the idea, designed every screen and developed the whole product myself, including the mobile app, the backend server and the website. Users can snap a photo of their groceries and the app lists the items for them, reminds them before anything expires and suggests recipes to use them up.",
-  "outcome": "StillGood has been live on the Google Play Store since 26 August 2026, two years after it started as a hackathon idea.",
+  "outcome": "StillGood has been live on the Google Play Store since 26 August 2026.",
   "ai": "I used Claude Code, an AI coding assistant, as a very fast pair programmer. I decided how the app should work, gave the AI clear written rules to follow and reviewed every piece of code it wrote before adding it. The idea, the design, the testing and the launch were all my own.",
   "skills": [
     "React Native",
@@ -112,8 +112,8 @@
     },
     {
       "title": "Where It Started",
-      "body": "The idea started at the SP Batey Hackathon in September 2024. My team, Zenith Technologies, designed Frésko, an app to reduce food waste, which brought us to the grand finals.\n\nIn April 2026, I picked the idea back up and started building it for real on my own as StillGood.",
-      "callout": "From a hackathon design to a real app on the Google Play Store in about two years."
+      "body": "I started StillGood on my own in April 2026, and designed and built it alongside my freelance projects.",
+      "callout": "From the first line of code to the Google Play Store in about four months."
     },
     {
       "title": "What I Built",
@@ -142,8 +142,8 @@
   ],
   "results": [
     {
-      "value": "2 years",
-      "label": "from hackathon idea to the Play Store"
+      "value": "4 months",
+      "label": "from the first line of code to the Play Store"
     },
     {
       "value": "Solo",

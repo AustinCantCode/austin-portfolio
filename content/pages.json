@@ -53,12 +53,12 @@
     "formLine": "Your message will go straight to my inbox."
   },
   "stillgood": {
-    "title": "StillGood: A Food Waste App for Android",
-    "description": "StillGood helps families reduce their food waste: snap your groceries, get reminded before they expire and find recipes to use them up. Free on Google Play."
+    "title": "StillGood: My Food Waste App",
+    "description": "StillGood, my food waste app: how it scans groceries, tracks expiry dates and suggests recipes, and what its Basic, Pro and Family tiers add."
   },
   "writing": {
     "title": "Writing: Notes on Building Apps and Websites",
-    "description": "My posts on building StillGood, turning a hackathon idea into a real app and what I learnt working on client platforms in Singapore.",
+    "description": "My posts on building StillGood, taking part in hackathons and what I learnt working on client platforms in Singapore.",
     "heading": "Writing",
     "intro": "My thoughts on the things I build and what I learn along the way."
   }

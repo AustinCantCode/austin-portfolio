@@ -767,6 +767,27 @@ const skills = singleton({
 
 const screen = (label: string) => media("stillgood", label);
 
+const screenOptions = [
+  { label: "Home screen", value: "home" },
+  { label: "Scanner", value: "scan" },
+  { label: "Pantry", value: "pantry" },
+  { label: "Household pantry", value: "householdPantry" },
+  { label: "Household members", value: "household" },
+  { label: "Recipes", value: "recipes" },
+  { label: "Recipe Studio", value: "recipeStudio" },
+  { label: "Alerts", value: "alerts" },
+  { label: "Analytics", value: "analytics" },
+];
+
+/** Picks one of the app screenshots (StillGood page → App screenshots). */
+const screenPick = (label: string, description?: string) =>
+  fields.select({
+    label,
+    description,
+    options: screenOptions,
+    defaultValue: "home",
+  });
+
 const stillgood = singleton({
   label: "StillGood page",
   path: "content/stillgood",
@@ -775,40 +796,30 @@ const stillgood = singleton({
   schema: {
     hero: fields.object(
       {
-        status: line("Status pill"),
+        meta: line("Line above the title", 'e.g. "Food Waste App, 2026".'),
         title: line("Title"),
-        tagline: line("Tagline"),
-        line: para("Line"),
-        site: link("Official site button"),
+        line: para("Summary"),
+        role: line("My role"),
+        links: fields.array(link("Link"), {
+          label: "Links",
+          description: "e.g. the official site and the case study.",
+          itemLabel: (p) => p.fields.label.value,
+        }),
+        reel: fields.array(screenPick("Screenshot"), {
+          label: "Screens under the title",
+          description: "Shown in a row, in this order.",
+          itemLabel: (p) =>
+            screenOptions.find((o) => o.value === p.value)?.label ?? p.value,
+        }),
       },
       { label: "Hero" },
     ),
-    problem: fields.object(
-      {
-        title: line("Title"),
-        text: para("Text"),
-        stats: fields.array(
-          fields.object({
-            value: line("Figure", 'e.g. "$2,500" or "70%".'),
-            unit: line("Unit", 'e.g. "AUD a year".'),
-            label: line("What it means"),
-            source: line("Source name"),
-            href: line("Source link"),
-          }),
-          { label: "Figures", itemLabel: (p) => p.fields.value.value },
-        ),
-      },
-      { label: "The problem" },
-    ),
     demo: fields.object(
       {
-        title: line("Title"),
-        text: para("Text"),
-        points: list("Points"),
         video: fields.file({
-          label: "Demo video (MP4)",
+          label: "Scanner demo video (MP4)",
           description:
-            "Shown in its own phone frame, so export it with the bezel.",
+            "Plays in the first step. Export it with the phone bezel.",
           directory: "public/videos/stillgood",
           publicPath: "/videos/stillgood/",
         }),
@@ -826,78 +837,50 @@ const stillgood = singleton({
         title: line("Title"),
         items: fields.array(
           fields.object({
-            icon,
             title: line("Title"),
             text: para("Text"),
-            screen: fields.select({
-              label: "Screenshot",
-              description: "One of the app screenshots below.",
-              options: [
-                { label: "Home screen", value: "home" },
-                { label: "Pantry", value: "pantry" },
-                { label: "Household pantry", value: "householdPantry" },
-                { label: "Recipes", value: "recipes" },
-                { label: "Scanner", value: "scan" },
-                { label: "Recipe Studio", value: "recipeStudio" },
-                { label: "Alerts", value: "alerts" },
-              ],
-              defaultValue: "home",
-            }),
+            points: list("Details"),
+            screen: screenPick(
+              "Screenshot",
+              "The first step shows the scanner demo video instead, if there is one.",
+            ),
           }),
           { label: "Steps", itemLabel: (p) => p.fields.title.value },
         ),
       },
       { label: "How it works" },
     ),
-    plans: fields.object(
+    tiers: fields.object(
       {
         title: line("Title"),
-        note: para("Line under the plans"),
+        line: para("Line under the title"),
         items: fields.array(
           fields.object({
-            name: line("Plan"),
-            price: line("Price", 'e.g. "Free" or "AU$7.99".'),
-            period: line("Per", 'e.g. "/month". Leave empty for free.'),
-            line: line("Who it's for"),
-            points: list("What's included"),
-            popular: fields.checkbox({ label: "Highlight this plan" }),
+            name: line("Tier"),
+            who: line("Who it's for"),
+            points: list("What it adds"),
+            screen: screenPick("Screenshot"),
           }),
-          { label: "Plans", itemLabel: (p) => p.fields.name.value },
+          { label: "Tiers", itemLabel: (p) => p.fields.name.value },
         ),
       },
-      { label: "Plans" },
-    ),
-    story: fields.object(
-      {
-        title: line("Title"),
-        items: fields.array(
-          fields.object({
-            date: line("Date"),
-            title: line("Title"),
-            text: para("Text"),
-          }),
-          { label: "Steps", itemLabel: (p) => p.fields.title.value },
-        ),
-      },
-      { label: "Story" },
+      { label: "Tiers" },
     ),
     builtWith: fields.object(
       { title: line("Title"), text: para("Text"), stack: list("Tools") },
       { label: "Built with" },
     ),
-    cta: fields.object(
-      { title: line("Title"), line: para("Line") },
-      { label: "Call to action" },
-    ),
     screens: fields.object(
       {
         home: screen("Home screen"),
+        scan: screen("Scanner"),
         pantry: screen("Pantry"),
         householdPantry: screen("Household pantry"),
+        household: screen("Household members"),
         recipes: screen("Recipes"),
-        scan: screen("Scanner"),
         recipeStudio: screen("Recipe Studio"),
         alerts: screen("Alerts"),
+        analytics: screen("Analytics"),
       },
       { label: "App screenshots" },
     ),
