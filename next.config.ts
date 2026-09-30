@@ -1,4 +1,3 @@
-import { withNextVideo } from "next-video/process";
 import type { NextConfig } from "next";
 import { CATEGORY_STRUCTURE } from "./src/data/structure";
 
@@ -49,4 +48,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withNextVideo(nextConfig);
+export default nextConfig;
