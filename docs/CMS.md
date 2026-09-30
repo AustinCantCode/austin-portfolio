@@ -93,7 +93,9 @@ Also:
 made from it), pick categories and a device frame (Laptop for websites, Phone
 for apps, None for photos and artwork), then add a cover image. **Order**
 decides where it appears (lower first). To show it on the homepage, add it to
-Homepage → Featured projects.
+Homepage → Featured projects. **Thumbnail** is an optional square picture
+(like a logo) for the small tiles on the homepage's What I Do; it's cropped
+to a square, and the cover is used when it's empty.
 
 **Write a longer case study.** Open the project → **Case study sections** →
 **Add** a section per part of the story (for example "The challenge", "What

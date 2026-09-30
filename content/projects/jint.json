@@ -32,6 +32,13 @@
     "position": "top",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/jint/thumbnail/image.png",
+    "alt": "JuzInterior logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "image": "/images/projects/jint/second/image.png",
     "alt": "JuzInterior FAQ page",

@@ -36,6 +36,13 @@
     "position": "top",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/ac/thumbnail/image.png",
+    "alt": "Amber Creative logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false

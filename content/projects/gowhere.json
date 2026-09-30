@@ -30,6 +30,13 @@
     "position": "top",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/gowhere/thumbnail/image.jpg",
+    "alt": "GoWhere logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false

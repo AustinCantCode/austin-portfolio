@@ -30,6 +30,13 @@
     "position": "top",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/shoply/thumbnail/image.png",
+    "alt": "Shoply logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false

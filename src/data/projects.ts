@@ -19,6 +19,7 @@ type RawProject = {
   categories: CategorySlug[];
   frame: Frame;
   cover: RawMedia;
+  thumbnail?: RawMedia;
   second: RawMedia;
   screen: RawMedia;
   gallery: RawMedia[];
@@ -62,6 +63,8 @@ export const projects: Project[] = (raw as unknown as RawProject[]).map((r) => {
   const second = toMedia(r.second);
   const screen = toMedia(r.screen);
   if (cover) p.cover = cover;
+  const thumbnail = toMedia(r.thumbnail);
+  if (thumbnail) p.thumbnail = thumbnail;
   if (second) p.second = second;
   if (screen) p.screen = screen;
   // Pop-up carousels: every image for a project, in order. An empty

@@ -158,6 +158,11 @@ const projects = collection({
       defaultValue: "laptop",
     }),
     cover: media("projects", "Cover image"),
+    thumbnail: media(
+      "projects",
+      "Thumbnail",
+      "Optional square picture (e.g. the logo) for the small project tiles on the homepage's What I Do. Cropped to a square. If empty, the cover is used.",
+    ),
     second: media("projects", "Second image", "Optional second screen."),
     screen: media(
       "projects",

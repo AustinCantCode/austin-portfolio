@@ -28,6 +28,13 @@
     "fit": "",
     "bare": false
   },
+  "thumbnail": {
+    "image": "/images/projects/ial/thumbnail/image.png",
+    "alt": "IAL logo",
+    "fit": "",
+    "position": "",
+    "bare": false
+  },
   "second": {
     "fit": "",
     "bare": false

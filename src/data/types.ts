@@ -52,6 +52,8 @@ export type Project = {
   categories: CategorySlug[];
   frame: Frame;
   cover?: Media;
+  /** Square picture for small tiles (What I Do); falls back to the cover. */
+  thumbnail?: Media;
   second?: Media;
   /** A single app screen, for device frames when `cover` is a mockup. */
   screen?: Media;
