@@ -71,7 +71,7 @@ export default function AboutPage() {
           )}
           <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-5">
             <h1 className="t-h1">{pageCopy.about.heading}</h1>
-            <p className="max-w-[680px] text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-fg-2">
+            <p className="max-w-[680px] text-[clamp(16px,1.3vw,18px)] leading-[1.6] text-fg-2">
               {about.intro}
             </p>
           </div>
