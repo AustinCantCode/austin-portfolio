@@ -24,7 +24,7 @@
   "frame": "laptop",
   "cover": {
     "image": "/images/projects/port/cover/image.png",
-    "alt": "The previous version of this portfolio",
+    "alt": "The home page of this portfolio",
     "fit": "cover",
     "position": "top",
     "bare": false
@@ -47,13 +47,25 @@
   "gallery": [
     {
       "image": "/images/projects/port/gallery/0/image.png",
-      "alt": "The previous portfolio home page",
+      "alt": "The home page of this portfolio",
       "fit": "",
       "bare": false
     },
     {
       "image": "/images/projects/port/gallery/1/image.png",
-      "alt": "The previous portfolio projects page",
+      "alt": "The What I Do section on the home page",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/2/image.png",
+      "alt": "A project page, showing StillGood",
+      "fit": "",
+      "bare": false
+    },
+    {
+      "image": "/images/projects/port/gallery/3/image.png",
+      "alt": "The About Me page",
       "fit": "",
       "bare": false
     }
