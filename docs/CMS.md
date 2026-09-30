@@ -30,30 +30,26 @@ about a minute. Nothing needs a database.
 The live editor logs you in with GitHub and commits for you. Setting that up
 takes about five minutes:
 
-1. Create `.env.local` in the repo root with this line:
-   ```
-   NEXT_PUBLIC_KEYSTATIC_STORAGE=github
-   ```
-2. Run `pnpm dev` and open <http://127.0.0.1:3000/keystatic>. Keystatic offers
-   to **create a GitHub App**. Follow it and install the app on the
+1. Run `pnpm cms:github` (the CMS in GitHub mode) and open
+   <http://127.0.0.1:3000/keystatic>. Click **Log in with GitHub**: with no app
+   yet, it opens **Keystatic Setup**, which offers to **create a GitHub App**. Follow it and install the app on the
    `austincantcode/austin-portfolio` repo. Keystatic then adds four values to
    your `.env` file:
    `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`,
    `KEYSTATIC_SECRET` and `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
-3. In the GitHub App's settings (GitHub → Settings → Developer settings →
+2. In the GitHub App's settings (GitHub → Settings → Developer settings →
    GitHub Apps → your app):
    - add this **Callback URL**:
      `https://austinsia.com/api/keystatic/github/oauth/callback`
    - under **Advanced → Make this GitHub App private** (or "Where can this
      GitHub App be installed?"), choose **Only on this account**.
-4. In Vercel → Project → Settings → Environment Variables, add those four
+3. In Vercel → Project → Settings → Environment Variables, add those four
    values, plus the two locks from [Security](#security) (`CMS_PASSWORD` and
    `CMS_ALLOWED_USERS`), for Production (and Preview if you want to edit on
    previews).
-5. Redeploy, then open `https://austinsia.com/keystatic`: enter the CMS
+4. Redeploy, then open `https://austinsia.com/keystatic`: enter the CMS
    password, then sign in with GitHub.
-6. Remove the `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` line from `.env.local`,
-   so editing on your computer saves to local files again.
+5. Stop `pnpm cms:github` and go back to `pnpm dev`, which edits local files.
 
 Until this is done, `/keystatic` on the live site shows a "CMS not connected
 yet" page, and the site itself works normally.

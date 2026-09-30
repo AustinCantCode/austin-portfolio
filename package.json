@@ -6,6 +6,7 @@
     "sync": "npx next-video sync",
     "content": "node scripts/content.mjs",
     "dev": "concurrently -k -n content,next -c yellow,cyan \"node scripts/content.mjs --watch\" \"next dev --turbopack -H 127.0.0.1\"",
+    "cms:github": "node scripts/cms-github.mjs",
     "build": "node scripts/content.mjs && next build",
     "start": "next start",
     "lint": "next lint",
