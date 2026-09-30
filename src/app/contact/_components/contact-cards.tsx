@@ -21,13 +21,7 @@ export default function ContactCards() {
             target="_blank"
             className=" hover:scale-105 active:scale-102 transition-all"
           >
-            <Card
-              onClick={() => {
-                if (details.title === "Curriculum Vitae (CV)") {
-                  window.open("/AustinResume.pdf", "_blank");
-                }
-              }}
-            >
+            <Card>
               <CardHeader>
                 <CardTitle>{details.title || ""}</CardTitle>
                 <CardDescription>{details.content || ""}</CardDescription>

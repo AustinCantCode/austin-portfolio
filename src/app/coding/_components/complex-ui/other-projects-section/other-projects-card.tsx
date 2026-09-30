@@ -12,6 +12,7 @@ import Image from "next/image";
 
 // TYPES
 import type { StaticImageData } from "next/image";
+import type { Asset } from "next-video/dist/assets.js";
 import Tags from "@components/complex-ui/tags";
 
 export interface VideoCardProps {
@@ -19,7 +20,7 @@ export interface VideoCardProps {
   title: string;
   date?: string;
   thumbnail: string | StaticImageData;
-  src: string;
+  src: Asset | string;
   description?: string;
   skills: string[];
 }

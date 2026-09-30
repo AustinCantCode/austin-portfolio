@@ -27,15 +27,18 @@ export async function generateMetadata(): Promise<Metadata> {
       "Next.js",
       "React",
     ],
+    alternates: {
+      canonical: "/coding",
+    },
     openGraph: {
       title: "Austin Sia | Coding Projects",
       description:
         "My projects highlight frontend, backend, and full-stack skills, showcasing clean code, problem-solving, and practical, user-focused solutions.",
-      url: "https://austinsia.com",
+      url: "https://austinsia.com/coding",
       siteName: "Austin's Portfolio",
       images: [
         {
-          url: "../../public/AS-Circle-Logo.png",
+          url: "/AS-Circle-Logo.png",
           width: 500,
           height: 500,
         },

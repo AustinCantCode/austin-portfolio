@@ -9,6 +9,8 @@ import Logo from "../../../../../../public/AS-Circle-Logo.png";
 import projects from "@data/other-coding-projects";
 
 // TYPES
+import type { Asset } from "next-video/dist/assets.js";
+
 export interface OtherProjectsGridProps {
   selectedSkills: string[];
 }
@@ -29,7 +31,7 @@ export default function OtherProjectsGrid() {
               title={project.title || "Untitled Video"}
               date={project.date || "Unknown Date"}
               thumbnail={project.thumbnail || Logo}
-              src={typeof project.src === "string" ? project.src : ""}
+              src={project.src as Asset}
               description={project.description || ""}
               skills={
                 Array.isArray(project.skills)

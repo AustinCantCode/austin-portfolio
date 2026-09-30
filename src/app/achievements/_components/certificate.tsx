@@ -17,7 +17,6 @@ export default function Certificate(props: CardProps) {
         alt="Picture of Certificate"
         quality={100}
         className="w-full min-w-full p-2"
-        priority={true}
       />
       <div className="card-body">
         <p className="font-medium text-sm md:text-lg">{props.title}</p>

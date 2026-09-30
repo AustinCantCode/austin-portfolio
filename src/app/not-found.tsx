@@ -15,14 +15,13 @@ export default function ErrorPage() {
         width={400}
         height={400}
         quality={100}
-        priority={true}
         className="rounded-md"
       />
 
       <p className="text-center text-base md:text-lg">
         Just kidding!
         <br />
-        Click below to return to the homepage .
+        Click below to return to the homepage.
       </p>
       <Link href="/homepage">
         <Button variant={"austin"} size={"lg"}>

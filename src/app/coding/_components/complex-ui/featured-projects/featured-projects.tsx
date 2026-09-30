@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
                   priority={true}
                 />
                 <div className="flex text-left col-span-1 p-3 lg:p-4">
-                  <div className="whitespace-nowrap my-auto">
+                  <div className="my-auto">
                     <p className="font-medium text-base md:text-lg">
                       {project.title}
                     </p>

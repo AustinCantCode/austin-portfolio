@@ -112,31 +112,28 @@ export default function Coin(props: {
       controls.enableRotate = true;
     };
 
-    setTimeout(() => {
+    const loadFlipTimer = setTimeout(() => {
       if (props.onLoad) {
         flipDuration = 1400;
         flipCoin();
       }
     }, 2900);
 
-    container.addEventListener("mouseenter", () => {
+    const hoverFlip = () => {
       if (props.onHover) {
         flipDuration = 300;
         flipCoin();
       }
-    });
-    container.addEventListener("mouseleave", () => {
-      if (props.onHover) {
-        flipDuration = 300;
-        flipCoin();
-      }
-    });
+    };
+    container.addEventListener("mouseenter", hoverFlip);
+    container.addEventListener("mouseleave", hoverFlip);
 
     /** ----------------------------
      *  ANIMATION LOOP
      * ---------------------------- */
+    let frameId: number;
     const animate = () => {
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
 
       if (flipping) {
         const elapsed = performance.now() - flipStart;
@@ -172,6 +169,10 @@ export default function Coin(props: {
      *  CLEANUP
      * ---------------------------- */
     return () => {
+      cancelAnimationFrame(frameId);
+      clearTimeout(loadFlipTimer);
+      container.removeEventListener("mouseenter", hoverFlip);
+      container.removeEventListener("mouseleave", hoverFlip);
       window.removeEventListener("resize", resize);
       controls.dispose();
       renderer.dispose();

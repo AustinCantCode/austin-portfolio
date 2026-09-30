@@ -194,7 +194,7 @@ const featuredProjects = [
       "This application was developed to assist users in discovering and booking tourist attractions across Singapore. It aims to enhance the travel experience by offering a user-friendly platform for exploring available destinations and managing bookings efficiently.\n\nAs a Full-stack Software Developer, I was responsible for implementing key user and admin functionalities. My contributions included developing authentication features such as login, registration, and password recovery, as well as user profile management and a rewards system. On the admin side, I built dashboards and tools for managing users and rewards, ensuring administrative control over the platform.",
     src: GOWHERE,
     images: [],
-    video: ["/videos/GoWhere Demo.mp4"],
+    video: ["/coding-projects/others/video-demo/GoWhere Demo.mp4"],
     date: "2025",
     skills: [
       "HTML",
@@ -214,7 +214,7 @@ const featuredProjects = [
     description: `Developed a Telegram chatbot integrated with OpenAI's GPT-4o mini model. The bot receives messages from Telegram, sends them to the OpenAI API via HTTP POST requests, and returns the generated responses to the user in real-time.\n\nThe bot was configured using Telegram's BotFather for token generation, and OpenAI's API key was used for model access. GPT-4o mini was chosen for its lightweight performance and versatility in handling general-purpose conversational tasks.`,
     src: TELEGPT_THUMBNAIL,
     images: [],
-    video: ["/videos/Telegram Bot Demo.mp4"],
+    video: ["/coding-projects/others/video-demo/Telegram Bot Demo.mp4"],
     date: "2024",
     skills: [
       "JavaScript",

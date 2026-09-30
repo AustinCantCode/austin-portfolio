@@ -1,4 +1,5 @@
 // COMPONENTS
+import { Fragment } from "react";
 import Image from "next/image";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
@@ -49,18 +50,12 @@ export default function UIUXProjects() {
         );
 
         return (
-          <>
-            <div
-              key={index}
-              className="grid lg:hidden rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black"
-            >
+          <Fragment key={index}>
+            <div className="grid lg:hidden rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black">
               {ProjectImage}
               {ProjectContent}
             </div>
-            <div
-              key={index}
-              className="hidden lg:grid rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black"
-            >
+            <div className="hidden lg:grid rounded-md overflow-hidden transition-all sm:grid-cols-1 lg:grid-cols-2 bg-white text-black">
               {index % 2 === 0 ? (
                 <>
                   {ProjectImage}
@@ -73,7 +68,7 @@ export default function UIUXProjects() {
                 </>
               )}
             </div>
-          </>
+          </Fragment>
         );
       })}
     </div>
