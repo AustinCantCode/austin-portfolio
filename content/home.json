@@ -143,7 +143,8 @@
           "grx"
         ],
         "photo": {
-          "fit": "contain",
+          "image": "/images/home/whatIDo/areas/0/photo/image.jpeg",
+          "fit": "cover",
           "bare": false
         },
         "photoHint": "Photo of me coding"
@@ -184,6 +185,7 @@
           "sp"
         ],
         "photo": {
+          "image": "/images/home/whatIDo/areas/1/photo/image.jpeg",
           "fit": "",
           "bare": false
         },
@@ -224,6 +226,7 @@
           "port"
         ],
         "photo": {
+          "image": "/images/home/whatIDo/areas/2/photo/image.jpeg",
           "fit": "cover",
           "bare": false
         },

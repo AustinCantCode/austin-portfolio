@@ -31,6 +31,7 @@
   ],
   "frame": "laptop",
   "cover": {
+    "image": "/images/projects/calibrium/cover/image.png",
     "fit": "",
     "bare": false
   },
@@ -46,16 +47,28 @@
   "story": [
     {
       "title": "The Brief",
-      "body": "Calibrium is an online watch store based in Singapore. When I started, their website could display their watches, but that was about it. Customers were not able to create an account, place an order or save the watches they liked.\n\nAs a freelance developer, my job was to turn the website into a proper online store that could take orders from customers."
+      "body": "Calibrium is an online watch store based in Singapore. When I started, their website could display their watches, but that was about it. Customers were not able to create an account, place an order or save the watches they liked.\n\nAs a freelance developer, my job was to turn the website into a proper online store that could take orders from customers.",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
     },
     {
       "title": "What I Added",
       "body": "I developed everything a shopper needs from start to finish: registration and login, a profile page, checkout with payment, order history, favourites and an automatic confirmation email after every order.",
+      "image": {
+        "fit": "",
+        "bare": false
+      },
       "callout": "Browsing, paying and receiving a confirmation email now all happen in one smooth flow."
     },
     {
       "title": "How I Built It",
-      "body": "The store is built with Next.js, React and TypeScript, together with Tailwind CSS, Zustand, Strapi CMS and Node.js.\n\nI agreed on the scope of work with the client at the start, then tested every change myself before it went live."
+      "body": "The store is built with Next.js, React and TypeScript, together with Tailwind CSS, Zustand, Strapi CMS and Node.js.\n\nI agreed on the scope of work with the client at the start, then tested every change myself before it went live.",
+      "image": {
+        "fit": "",
+        "bare": false
+      }
     }
   ],
   "results": [
