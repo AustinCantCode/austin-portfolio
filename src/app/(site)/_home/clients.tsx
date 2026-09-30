@@ -8,14 +8,16 @@ export type Client = {
   logo?: StaticImageData | null;
 };
 
+/** A typical logo's height; it scales with the screen (see --logo-h). */
+const BASE = 48;
+
 /**
  * Logos of different shapes look equally big at about the same area, not
  * the same height: a wide wordmark is set shorter, a compact mark taller.
+ * Returns a multiple of the typical height.
  */
-const logoHeight = (l: StaticImageData) =>
-  Math.round(
-    Math.min(40, Math.max(22, 28 * Math.sqrt(2.5 / (l.width / l.height)))),
-  );
+const logoScale = (l: StaticImageData) =>
+  Math.min(1.35, Math.max(0.8, Math.sqrt(2.5 / (l.width / l.height))));
 
 /**
  * A quiet line of the clients behind the work, each linking to its case
@@ -29,14 +31,15 @@ export function Clients({ title, items }: { title: string; items: Client[] }) {
       className="flex flex-col gap-4 border-t border-hairline pt-[clamp(28px,3vw,40px)]"
     >
       <p className="text-[14px] text-fg-2">{title}</p>
-      <ul className="m-0 flex list-none flex-wrap items-center gap-x-[clamp(28px,3.4vw,52px)] gap-y-4 p-0">
+      <ul className="m-0 flex list-none flex-wrap items-center gap-x-[clamp(28px,3.6vw,56px)] gap-y-5 p-0 [--logo-h:clamp(34px,3.4vw,48px)]">
         {items.map((c) => {
           const mark = c.logo ? (
             <Image
               src={c.logo}
               alt={c.name}
-              height={logoHeight(c.logo)}
-              style={{ height: logoHeight(c.logo) }}
+              quality={100}
+              height={Math.round(BASE * logoScale(c.logo))}
+              style={{ height: `calc(var(--logo-h) * ${logoScale(c.logo)})` }}
               className="client-logo w-auto opacity-60 transition-opacity duration-200 group-hover:opacity-100"
             />
           ) : (

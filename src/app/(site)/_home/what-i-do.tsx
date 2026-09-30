@@ -153,7 +153,7 @@ export function WhatIDo() {
         className={cn(
           "gutter flex flex-col justify-center overflow-hidden",
           pinned
-            ? "sticky top-0 h-screen py-[clamp(16px,2.6vh,36px)]"
+            ? "sticky top-0 h-screen py-[clamp(28px,6vh,64px)]"
             : "band-y",
         )}
       >
