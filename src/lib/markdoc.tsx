@@ -76,7 +76,7 @@ function Heading({
   return (
     <h3
       id={id}
-      className="mt-4 scroll-mt-[96px] text-[clamp(21px,2vw,24px)] leading-[1.25] font-semibold"
+      className="mt-4 scroll-mt-[72px] text-[clamp(21px,2vw,24px)] leading-[1.25] font-semibold"
     >
       {children}
     </h3>

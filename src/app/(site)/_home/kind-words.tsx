@@ -9,6 +9,7 @@ import { projectBySlug } from "@data/projects";
 import type { Testimonial } from "@data/testimonials";
 import { SectionHeader } from "@components/ui";
 import { Modal } from "@components/client/modal";
+import { PersonName } from "@components/person-name";
 
 /** Quotes longer than this are shortened, with the rest in a pop-up. */
 const SHORT = 260;
@@ -28,7 +29,11 @@ function Person({ t, size = 44 }: { t: Testimonial; size?: number }) {
         />
       )}
       <span className="flex min-w-0 flex-col">
-        <span className="text-[16px] font-semibold">{t.name}</span>
+        <PersonName
+          name={t.name}
+          href={t.link}
+          className="text-[16px] font-semibold"
+        />
         <span className="text-[14px] text-fg-2">
           {[t.role, t.org].filter(Boolean).join(", ")}
           {project && (

@@ -362,6 +362,10 @@ const testimonials = collection({
     quote: para("Quote", "Their words, as they wrote them."),
     role: line("Their role", 'e.g. "Director"'),
     org: line("Company or school"),
+    link: line(
+      "Their website or LinkedIn (optional)",
+      "A full link, e.g. https://www.julienheng.com/. Their name links to it.",
+    ),
     project: fields.relationship({
       label: "Project it's about",
       description: "Also shown on that project's case study.",
@@ -611,7 +615,7 @@ const home = singleton({
             icon,
             title: line("Title"),
             value: line("Value"),
-            note: line("Note"),
+            note: line("Note", "Shown when hovering over the tile."),
             action: line("Action text"),
             href: line("Link"),
             behavior: fields.select({
@@ -666,10 +670,19 @@ const about = singleton({
     ),
     recommendations: fields.array(
       fields.object({
-        image: img("about", "Scan of the letter"),
+        image: img("about", "Scan of the letter", "Its first page."),
+        pages: fields.array(img("about", "Page"), {
+          label: "More pages (optional)",
+          description: "The letter's other pages, in order.",
+          itemLabel: (p) => p.value?.filename ?? "Page",
+        }),
         name: line("Their name"),
         role: line("Their role", 'e.g. "Form Teacher"'),
         org: line("Company or school"),
+        link: line(
+          "Their website or LinkedIn (optional)",
+          "A full link. Their name links to it.",
+        ),
         date: line("Date (optional)", 'e.g. "2022"'),
         excerpt: para(
           "Excerpt",
@@ -902,7 +915,10 @@ const categories = singleton({
         }),
         label: line("Label"),
         blurb: line("Blurb"),
-        seoTitle: line("Search title", "Under 50 characters."),
+        seoTitle: line(
+          "Search title",
+          'Shown after "Austin Sia | ". Under 50 characters.',
+        ),
       }),
       { label: "Categories", itemLabel: (p) => p.fields.label.value },
     ),
@@ -912,7 +928,10 @@ const categories = singleton({
 const pageFields = (label: string, heading: boolean, intro = false) =>
   fields.object(
     {
-      title: line("Search title", "About 60 characters at most."),
+      title: line(
+        "Search title",
+        'Shown after "Austin Sia | ". About 50 characters at most.',
+      ),
       description: para("Search description", "About 160 characters at most."),
       ...(heading ? { heading: line("Page heading") } : {}),
       ...(intro ? { intro: para("Line under the heading") } : {}),
@@ -936,7 +955,10 @@ const pages = singleton({
     cv: pageFields("CV", false),
     contact: fields.object(
       {
-        title: line("Search title", "About 60 characters at most."),
+        title: line(
+          "Search title",
+          'Shown after "Austin Sia | ". About 50 characters at most.',
+        ),
         description: para(
           "Search description",
           "About 160 characters at most.",
@@ -951,7 +973,10 @@ const pages = singleton({
     stillgood: pageFields("StillGood", false),
     writing: fields.object(
       {
-        title: line("Search title", "About 60 characters at most."),
+        title: line(
+          "Search title",
+          'Shown after "Austin Sia | ". About 50 characters at most.',
+        ),
         description: para(
           "Search description",
           "About 160 characters at most.",

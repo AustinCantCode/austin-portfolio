@@ -64,14 +64,11 @@ export function Nav() {
   const active = activeSection(usePathname());
   return (
     <>
-      {/* Sticky everywhere except the homepage, where it scrolls away
-          with the hero to leave the whole screen for the content. */}
+      {/* Sits at the top of every page and scrolls away with it; a
+          page's own section bar is what stays in view. */}
       <header
         data-intro-hide=""
-        className={cn(
-          "top-0 z-50 w-full bg-bg text-fg",
-          active === "home" ? "relative" : "sticky",
-        )}
+        className="relative z-50 w-full bg-bg text-fg"
       >
         <nav
           aria-label="Main"

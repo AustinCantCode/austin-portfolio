@@ -26,7 +26,7 @@
   "cover": {
     "image": "/images/projects/fresko/cover/image.png",
     "alt": "Frésko app screens",
-    "fit": "contain",
+    "fit": "",
     "bare": true
   },
   "thumbnail": {
@@ -62,8 +62,7 @@
     },
     {
       "title": "What Happened Next",
-      "body": "Frésko brought us all the way to the grand finals of the hackathon! The idea stuck with me after the competition, and in 2026 I decided to build it for real as StillGood, which is now live on the Google Play Store.",
-      "callout": "This hackathon design became the starting point for StillGood."
+      "body": "Frésko brought us all the way to the grand finals of the hackathon!"
     }
   ],
   "results": [

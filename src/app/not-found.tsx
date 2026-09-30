@@ -5,7 +5,7 @@ import { SiteChrome } from "@components/site-chrome";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Page not found | Austin Sia",
+  title: "Austin Sia | Page Not Found",
   robots: { index: false },
 };
 

@@ -32,7 +32,7 @@ export function LocalNav({
   return (
     <nav
       aria-label={`${title} pages`}
-      className="sticky top-14 z-10 border-b border-hairline bg-bg/90 backdrop-blur-md"
+      className="sticky top-0 z-40 border-b border-hairline bg-bg/90 backdrop-blur-md"
     >
       <div className="wrap gutter flex h-[52px] items-center gap-6">
         <Link

@@ -2,26 +2,24 @@ import type { Metadata } from "next";
 
 /**
  * Title, description, canonical URL, OpenGraph and Twitter tags for a page.
- * `title` gets " | Austin Sia" appended unless `absoluteTitle` is set.
+ * Every title starts with the name: "Austin Sia | <title>".
  * The share image defaults to the generated /opengraph-image card.
  */
 export function pageMetadata({
   title,
   description,
   path,
-  absoluteTitle,
   type = "website",
   image = "/opengraph-image",
 }: {
   title: string;
   description: string;
   path: string;
-  absoluteTitle?: boolean;
   type?: "website" | "article" | "profile";
   /** Path of the share image; defaults to the site-wide card. */
   image?: string;
 }): Metadata {
-  const fullTitle = absoluteTitle ? title : `${title} | Austin Sia`;
+  const fullTitle = `Austin Sia | ${title.replace(/^Austin Sia\s*[|–:-]\s*/, "")}`;
   return {
     title: { absolute: fullTitle },
     description,

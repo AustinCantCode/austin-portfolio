@@ -19,7 +19,7 @@ export function AnchorHeading({
       id={id}
       tabIndex={-1}
       className={cn(
-        "group relative scroll-mt-[128px] text-[clamp(28px,3.2vw,40px)] leading-[1.1] font-bold tracking-[-0.02em] outline-none",
+        "group relative scroll-mt-[84px] text-[clamp(28px,3.2vw,40px)] leading-[1.1] font-bold tracking-[-0.02em] outline-none",
         className,
       )}
     >

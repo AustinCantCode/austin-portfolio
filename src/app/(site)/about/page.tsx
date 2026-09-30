@@ -9,13 +9,13 @@ import { pageMetadata } from "@lib/metadata";
 import { pageCopy } from "@data/pages";
 import { IconCircle, TextLink } from "@components/ui";
 import GitHubCalendar from "@components/complex-ui/github-calendar";
-import { AboutNav, AboutPager } from "@components/local-nav";
+import { AboutPager } from "@components/local-nav";
+import { SectionNav } from "@components/client/section-nav";
 
 export const metadata = pageMetadata({
   title: pageCopy.about.title,
   description: pageCopy.about.description,
   path: "/about",
-  absoluteTitle: true,
   type: "profile",
 });
 
@@ -34,8 +34,25 @@ export default function AboutPage() {
           breadcrumbLd([{ name: "About", path: "/about" }]),
         )}
       />
-      <AboutNav current="/about" />
-      <section className="gutter pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(72px,min(9vw,13vh),136px)]">
+      {/* On About itself, the bar follows the page's own sections; the
+          other About pages keep it as links between pages. */}
+      <SectionNav
+        title="About"
+        titleHref="/about"
+        sections={[
+          { id: "about-me", label: "About Me" },
+          { id: "journey", label: "My Journey" },
+          ...(letters.length
+            ? [{ id: "recommendations", label: "Recommendations" }]
+            : []),
+          { id: "contributions", label: "GitHub" },
+          { id: "more-about-me", label: "More About Me" },
+        ]}
+      />
+      <section
+        id="about-me"
+        className="gutter scroll-mt-[52px] pt-[clamp(48px,min(8vw,11vh),112px)] pb-[clamp(72px,min(9vw,13vh),136px)]"
+      >
         <div className="wrap flex flex-wrap items-center gap-[clamp(40px,7vw,104px)]">
           {aboutPhotos.length >= 2 ? (
             <PhotoStack photos={aboutPhotos} />
@@ -62,8 +79,9 @@ export default function AboutPage() {
       </section>
 
       <section
+        id="journey"
         aria-labelledby="so-far"
-        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
+        className="gutter scroll-mt-[52px] bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="so-far" data-reveal="" className="t-h2">
@@ -100,7 +118,7 @@ export default function AboutPage() {
         <section
           id="recommendations"
           aria-labelledby="letters"
-          className="gutter scroll-mt-28 py-[clamp(72px,min(9vw,13vh),136px)]"
+          className="gutter scroll-mt-[52px] py-[clamp(72px,min(9vw,13vh),136px)]"
         >
           <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
             <h2 id="letters" data-reveal="" className="t-h2">
@@ -112,8 +130,9 @@ export default function AboutPage() {
       )}
 
       <section
+        id="contributions"
         aria-labelledby="github"
-        className="gutter bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
+        className="gutter scroll-mt-[52px] bg-bg-alt py-[clamp(72px,min(9vw,13vh),136px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(24px,4vw,40px)]">
           <div
@@ -140,8 +159,9 @@ export default function AboutPage() {
       </section>
 
       <section
+        id="more-about-me"
         aria-labelledby="more"
-        className="gutter py-[clamp(72px,min(9vw,13vh),136px)]"
+        className="gutter scroll-mt-[52px] py-[clamp(72px,min(9vw,13vh),136px)]"
       >
         <div className="wrap flex flex-col gap-[clamp(40px,6vw,80px)]">
           <h2 id="more" data-reveal="" className="t-h2">
