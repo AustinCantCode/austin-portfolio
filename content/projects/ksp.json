@@ -5,9 +5,9 @@
   "line": "Singapore's online community and resource hub for parents.",
   "subtext": "Parenting Community & Content",
   "role": "Full-stack Developer, Amber Creative",
-  "problem": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and busy forums. It needed new features and pages without slowing the website down.",
-  "did": "I worked on enhancing the platform through new feature development, bug fixes and continuous content updates based on the client's requirements. My contributions included implementing new webpages, improving application performance and maintaining stability across key modules.",
-  "outcome": "New features for thousands of parents, on a faster and more stable website.",
+  "problem": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and very active forums. The website brings several systems together: WordPress, Strapi CMS, Mautic and NodeBB, behind a Next.js frontend.",
+  "did": "As part of the Amber Creative team, I implemented new webpages, improved the application's performance and fixed bugs across its key modules. I also handled continuous content updates based on the client's requirements.",
+  "outcome": "New features for thousands of parents in Singapore, on a faster and more stable website.",
   "skills": [
     "Next.js",
     "React",
@@ -67,27 +67,27 @@
   ],
   "story": [
     {
-      "title": "The Challenge",
-      "body": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and very active forums. The website needed new pages and features without slowing it down for its users."
+      "title": "Situation",
+      "body": "KiasuParents is a widely-used online community and resource hub for parents in Singapore, with lots of articles and very active forums. The website brings several systems together: WordPress, Strapi CMS, Mautic and NodeBB, behind a Next.js frontend."
     },
     {
-      "title": "What I Did",
-      "body": "As part of the Amber Creative team, I implemented new webpages, improved the application's performance and fixed bugs across its key modules. I also handled continuous content updates guided by the client's requirements, and gained experience with managing content workflows, administrative tasks and backend operations.",
+      "title": "Task",
+      "body": "As part of the Amber Creative team, my job was to add the new pages and features the client asked for, while keeping the website fast and stable for its users."
+    },
+    {
+      "title": "Action",
+      "body": "I implemented new webpages with Next.js, React, TypeScript and Tailwind CSS, and improved the application's performance. I fixed bugs across its key modules and handled continuous content updates based on the client's requirements.\n\nAlong the way, I gained experience with managing content workflows, administrative tasks and backend operations.",
       "image": {
-        "image": "/images/projects/ksp/story/1/image/image.png",
+        "image": "/images/projects/ksp/story/2/image/image.png",
         "alt": "A KiasuParents article page",
         "fit": "",
         "bare": false
       }
     },
     {
-      "title": "The Tools",
-      "body": "The website brings several systems together: Next.js, React, TypeScript and Tailwind CSS, alongside WordPress, Strapi CMS, Mautic and NodeBB."
-    },
-    {
-      "title": "The Result",
+      "title": "Result",
       "body": "New features for thousands of parents in Singapore, on a faster and more stable website."
     }
   ],
-  "notes": "Drafted from the existing KiasuParents text. Check: add which pages you built or any speed numbers you have."
+  "notes": "Written with STAR (Situation, Task, Action, Result). To make the Result stronger, add real figures if you have them, e.g. which pages you built or any speed improvements you measured."
 }

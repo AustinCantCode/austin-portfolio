@@ -5,8 +5,8 @@
   "line": "A Success Stories page with search and filters.",
   "subtext": "Institute for Adult Learning",
   "role": "Full-stack Developer, Amber Creative",
-  "problem": "The Institute for Adult Learning (IAL), an autonomous institute under SUSS, focuses on professionalizing adult education through training, research, innovation and lifelong learning initiatives. Visitors needed an easier way to browse IAL's success stories.",
-  "did": "As a Full-stack Developer, I collaborated with the project manager to build a Success Stories page with search and filtering features. Using C# and Kentico CMS, I retrieved and structured the page data, implemented category and year filters and optimized the Razor views to ensure consistent card layouts.",
+  "problem": "The Institute for Adult Learning (IAL), an autonomous institute under SUSS, focuses on professionalising adult education through training, research, innovation and lifelong learning. Visitors to its website needed an easier way to browse IAL's success stories.",
+  "did": "As a Full-stack Developer, I built a Success Stories page with search and filters. Using C# and Kentico CMS, I retrieved and structured the page data, implemented category and year filters and optimised the Razor views to keep the card layouts consistent.",
   "outcome": "Visitors can now find the success stories that matter to them in just a few clicks.",
   "skills": [
     "C#",
@@ -44,6 +44,24 @@
     "bare": false
   },
   "gallery": [],
-  "story": [],
-  "results": []
+  "story": [
+    {
+      "title": "Situation",
+      "body": "The Institute for Adult Learning (IAL), an autonomous institute under SUSS, focuses on professionalising adult education through training, research, innovation and lifelong learning. Visitors to its website needed an easier way to browse IAL's success stories."
+    },
+    {
+      "title": "Task",
+      "body": "Working with the project manager, my task was to build a Success Stories page where visitors could search and filter the stories."
+    },
+    {
+      "title": "Action",
+      "body": "Using C# and Kentico CMS, I retrieved the page data and structured it for the new page. I then implemented category and year filters alongside the search, and optimised the Razor views so that every story card keeps a consistent layout."
+    },
+    {
+      "title": "Result",
+      "body": "Visitors can now find the success stories that matter to them in just a few clicks."
+    }
+  ],
+  "results": [],
+  "notes": "Written with STAR (Situation, Task, Action, Result). Add a screenshot of the Success Stories page if IAL allows."
 }

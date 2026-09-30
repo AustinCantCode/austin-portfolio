@@ -5,8 +5,8 @@
   "line": "The website of a digital marketing agency in Singapore.",
   "subtext": "Digital Marketing Agency",
   "role": "Software Developer Intern",
-  "problem": "Amber Creative is a digital marketing agency in Singapore that provides branding, web development and paid media services. Their own website needed new sections, better search engine visibility and a way for the team to update content on their own.",
-  "did": "As a Software Developer Intern, I contributed to the development and maintenance of the Amber Creative website. I built responsive UI components, integrated CMS-driven content so the team could update pages themselves and implemented SEO improvements. I also worked on new features, bug fixes and optimizing the codebase.",
+  "problem": "Amber Creative is a digital marketing agency in Singapore that provides branding, web development and paid media services. Its own website needed new sections, better visibility on search engines and a way for the team to update the content themselves.",
+  "did": "As a Software Developer Intern, I built responsive UI components, connected the pages to a CMS so the team could update them on their own and implemented SEO improvements. I also worked on new features, bug fixes and optimising the codebase.",
   "outcome": "The website now works smoothly across all devices, and the team can update its content without needing a developer.",
   "skills": [
     "Next.js",
@@ -82,5 +82,24 @@
       "fit": "",
       "bare": false
     }
-  ]
+  ],
+  "story": [
+    {
+      "title": "Situation",
+      "body": "Amber Creative is a digital marketing agency in Singapore that provides branding, web development and paid media services. Its own website needed new sections, better visibility on search engines and a way for the team to update the content themselves."
+    },
+    {
+      "title": "Task",
+      "body": "As a Software Developer Intern, I was responsible for helping to develop and maintain the agency's own website."
+    },
+    {
+      "title": "Action",
+      "body": "I built responsive UI components with Next.js, React, Tailwind CSS and shadcn/ui, and connected the pages to Directus CMS and Storyblok CMS so the team could update them on their own. I also implemented SEO improvements, worked on new features and bug fixes, and optimised the codebase."
+    },
+    {
+      "title": "Result",
+      "body": "The website now works smoothly across all devices, and the team can update its content without needing a developer."
+    }
+  ],
+  "notes": "Written with STAR (Situation, Task, Action, Result)."
 }

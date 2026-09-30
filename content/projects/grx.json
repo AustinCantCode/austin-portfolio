@@ -5,9 +5,9 @@
   "line": "A healthcare platform for managing medical prescriptions.",
   "subtext": "Medical Prescription Management",
   "role": "Full-stack Developer, Amber Creative",
-  "problem": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the doctor and pharmacist roles.",
-  "did": "As a Full-stack Developer, I resolved issues with dynamic state updates in key UI components, ensuring that product prices and medication details updated accurately in real time. I also improved the backend state handling between the pharmacist and doctor roles so the data reflected correctly across the platform.",
-  "outcome": "Doctors and pharmacists now see accurate information straight away, allowing for faster and more reliable decisions.",
+  "problem": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the doctor and pharmacist roles, so someone could end up looking at outdated information.",
+  "did": "As a Full-stack Developer, I fixed the dynamic state updates in key UI components, so product prices and medication details now update accurately in real time. I also improved the backend state handling between the pharmacist and doctor roles.",
+  "outcome": "Doctors and pharmacists now see accurate prices and medication details in real time, so they can make faster and more reliable decisions.",
   "skills": [
     "Next.js",
     "React",
@@ -52,23 +52,27 @@
   "gallery": [],
   "story": [
     {
-      "title": "The Problem",
-      "body": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the different roles, which meant someone could end up looking at outdated information."
+      "title": "Situation",
+      "body": "Glovida-RX is a digital healthcare platform that streamlines prescription management between doctors, pharmacists and patients. Product prices and medication details were not always updating correctly between the doctor and pharmacist roles, so someone could end up looking at outdated information."
     },
     {
-      "title": "What I Did",
-      "body": "As a Full-stack Developer, I resolved the issues with dynamic state updates in key UI components, so a change made by one role now shows up correctly for everyone else. I also improved the backend state handling between the pharmacist and doctor roles. For this project, I worked with Next.js, React, TypeScript and GraphQL, and used TablePlus to inspect the data.",
+      "title": "Task",
+      "body": "As a Full-stack Developer at Amber Creative, I was responsible for fixing these updates, so that every role would see the same, up-to-date information."
+    },
+    {
+      "title": "Action",
+      "body": "I fixed the dynamic state updates in the key UI components, so a change made by one role now shows up correctly for everyone else. I then improved the backend state handling between the pharmacist and doctor roles.\n\nI worked with Next.js, React, TypeScript and GraphQL, and used TablePlus to inspect the data while tracing the issues.",
       "image": {
-        "image": "/images/projects/grx/story/1/image/image.png",
+        "image": "/images/projects/grx/story/2/image/image.png",
         "alt": "The Glovida-RX pharmacy website",
         "fit": "",
         "bare": false
       }
     },
     {
-      "title": "The Result",
-      "body": "Doctors and pharmacists now see accurate information in real time, allowing them to make faster and more reliable decisions."
+      "title": "Result",
+      "body": "Doctors and pharmacists now see accurate prices and medication details in real time, so they can make faster and more reliable decisions."
     }
   ],
-  "notes": "Drafted from the existing Glovida-RX text. Check: add what caused the problem, if you can share it."
+  "notes": "Written with STAR (Situation, Task, Action, Result). If you can share it, add what caused the problem to the Action."
 }

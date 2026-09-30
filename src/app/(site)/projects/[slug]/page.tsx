@@ -293,7 +293,7 @@ export default async function ProjectPage({
       ? [
           {
             id: "results",
-            title: "Results",
+            title: "At a Glance",
             body: <Results items={p.results} />,
           },
         ]

@@ -199,7 +199,7 @@ const projects = collection({
         label: line("What it means", 'e.g. "types of user in one system".'),
       }),
       {
-        label: "Results (big figures)",
+        label: "At a Glance (big figures)",
         description: "Only real, checkable facts.",
         itemLabel: (p) => `${p.fields.value.value} ${p.fields.label.value}`,
       },

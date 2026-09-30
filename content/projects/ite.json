@@ -5,9 +5,9 @@
   "line": "A multi-role platform for ITE's Work-Study Diploma.",
   "subtext": "Education & Training Management",
   "role": "Full-stack Developer, Amber Creative",
-  "problem": "ITE Work-Study Diploma (WSDip) is a multi-role education management platform supporting trainees, trainers, administrators and company representatives. Each type of user needs to see different information from the same system.",
-  "did": "As a Full-stack Developer, I built features that improved both the user experience and backend reliability. My work involved developing responsive UI with custom ShadCN components, integrating backend APIs and managing data flow across the different user types. I also handled debugging and supported deployments using Docker, Azure Blob Storage and UNIX environments.",
-  "outcome": "A more reliable platform for everyone who uses it, from trainees to partner companies.",
+  "problem": "ITE's Work-Study Diploma (WSDip) runs on one education management platform shared by four types of users: trainees, trainers, administrators and company representatives. Each of them needs to see different information from the same system, which makes the platform complex to build on.",
+  "did": "As a Full-stack Developer, I built responsive screens with custom ShadCN components, connected them to the backend APIs and managed the data flow across the four types of users. I also debugged issues and supported deployments using Docker, Azure Blob Storage and UNIX environments.",
+  "outcome": "A more reliable platform for all four types of users, from trainees and trainers to administrators and partner companies.",
   "skills": [
     "Next.js",
     "React",
@@ -56,26 +56,26 @@
   "gallery": [],
   "story": [
     {
-      "title": "The Challenge",
-      "body": "ITE Work-Study Diploma (WSDip) is a multi-role education management platform that supports trainees, trainers, administrators and company representatives. All four types of users share one system, but each of them needs to see different information.\n\nKeeping the platform clear and reliable for all of them was the main challenge."
+      "title": "Situation",
+      "body": "ITE's Work-Study Diploma (WSDip) runs on one education management platform shared by four types of users: trainees, trainers, administrators and company representatives. Each of them needs to see different information from the same system, which makes the platform complex to build on."
     },
     {
-      "title": "What I Did",
-      "body": "During my internship at Amber Creative, I contributed as a Full-stack Developer, developing responsive UI with custom ShadCN components, integrating backend APIs and managing the data flow across the different user types. I also handled debugging, dynamic data handling and supported deployments of new versions of the platform.",
+      "title": "Task",
+      "body": "I joined the project during my internship at Amber Creative as a Full-stack Developer. My job was to build new features on both the frontend and the backend, and to keep the platform reliable for all four types of users as new versions were released."
+    },
+    {
+      "title": "Action",
+      "body": "I built responsive screens with custom ShadCN components and connected them to the platform's backend APIs, managing the data flow so that each type of user received the right information.\n\nI also debugged issues as they came up and supported the deployment of new versions, working with Docker, Azure Blob Storage and UNIX environments.\n\nThe platform is built with Next.js, React and TypeScript and styled with Tailwind CSS, with Zustand, Node.js and Swagger UI behind the scenes.",
       "image": {
-        "image": "/images/projects/ite/story/1/image/image.png",
+        "image": "/images/projects/ite/story/2/image/image.png",
         "alt": "The ITE Work-Study Diploma sign-in page",
         "fit": "",
         "bare": false
       }
     },
     {
-      "title": "The Tools",
-      "body": "The platform is built with Next.js, React and TypeScript, using ShadCN and Tailwind CSS for the interface. Behind the scenes, it uses Zustand, Azure Blob Storage, Docker, Node.js and Swagger UI, deployed in UNIX environments."
-    },
-    {
-      "title": "The Result",
-      "body": "A more reliable platform for everyone who uses it, from trainees and trainers to administrators and partner companies."
+      "title": "Result",
+      "body": "A more reliable platform for all four types of users, from trainees and trainers to administrators and partner companies."
     }
   ],
   "results": [
@@ -84,5 +84,5 @@
       "label": "types of users: trainees, trainers, administrators and companies"
     }
   ],
-  "notes": "Drafted from the existing ITE text. Check: name the four kinds of user (students, teachers, companies and who else?). Add screenshots of the screens you built, if ITE allows."
+  "notes": "Written with STAR (Situation, Task, Action, Result). To make the Result stronger, add real figures if you have them, e.g. how many screens or features you built, or how many trainees use the platform."
 }
