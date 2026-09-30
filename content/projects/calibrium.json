@@ -31,7 +31,10 @@
   ],
   "frame": "laptop",
   "cover": {
-    "fit": "",
+    "image": "/images/projects/calibrium/cover/image.png",
+    "alt": "Calibrium's online watch store",
+    "fit": "cover",
+    "position": "top",
     "bare": false
   },
   "thumbnail": {

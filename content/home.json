@@ -265,27 +265,33 @@
     "items": [
       {
         "name": "ITE",
-        "project": "ite"
+        "project": "ite",
+        "logo": "/images/home/clients/items/0/logo.png"
       },
       {
         "name": "KiasuParents",
-        "project": "ksp"
+        "project": "ksp",
+        "logo": "/images/home/clients/items/1/logo.png"
       },
       {
         "name": "Glovida-RX",
-        "project": "grx"
+        "project": "grx",
+        "logo": "/images/home/clients/items/2/logo.png"
       },
       {
         "name": "IAL",
-        "project": "ial"
+        "project": "ial",
+        "logo": "/images/home/clients/items/3/logo.png"
       },
       {
         "name": "Amber Creative",
-        "project": "ac"
+        "project": "ac",
+        "logo": "/images/home/clients/items/4/logo.png"
       },
       {
         "name": "JuzInterior",
-        "project": "jint"
+        "project": "jint",
+        "logo": "/images/home/clients/items/5/logo.png"
       },
       {
         "name": "Calibrium",

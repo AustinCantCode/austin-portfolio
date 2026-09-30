@@ -9,6 +9,15 @@ export type Client = {
 };
 
 /**
+ * Logos of different shapes look equally big at about the same area, not
+ * the same height: a wide wordmark is set shorter, a compact mark taller.
+ */
+const logoHeight = (l: StaticImageData) =>
+  Math.round(
+    Math.min(40, Math.max(22, 28 * Math.sqrt(2.5 / (l.width / l.height)))),
+  );
+
+/**
  * A quiet line of the clients behind the work, each linking to its case
  * study. Names are set as wordmarks until a logo is added in the CMS.
  */
@@ -26,8 +35,9 @@ export function Clients({ title, items }: { title: string; items: Client[] }) {
             <Image
               src={c.logo}
               alt={c.name}
-              height={28}
-              className="client-logo h-7 w-auto opacity-60 transition-opacity duration-200 group-hover:opacity-100"
+              height={logoHeight(c.logo)}
+              style={{ height: logoHeight(c.logo) }}
+              className="client-logo w-auto opacity-60 transition-opacity duration-200 group-hover:opacity-100"
             />
           ) : (
             <span className="font-display text-[clamp(21px,2vw,27px)] leading-none font-semibold tracking-[-0.01em] text-fg-2 transition-colors duration-200 group-hover:text-fg">

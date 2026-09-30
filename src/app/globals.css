@@ -22,6 +22,8 @@
   --accent-fill-hover: #9c9646;
   --on-accent: #1a1813;
   --accent-text: #6e6a1f;
+  /* Scrollbars: a gold thumb on this track (see "Scrollbars" below). */
+  --scrollbar-track: #e8e4db;
   /* Errors: readable on tiles and wells in each theme (4.5:1+). */
   --danger: #b3261e;
   --menu: var(--bg);
@@ -64,6 +66,7 @@
   --accent-fill: #b8b35e;
   --accent-fill-hover: #c4bf69;
   --accent-text: #d4d27e;
+  --scrollbar-track: #171717; /* the logo's charcoal */
   --danger: #f2877e;
   --well: #343434;
   --well-alt: #343434;
@@ -240,36 +243,42 @@
     display: none;
   }
 
-  /* Pop-up scrollbars: a gold thumb on a charcoal track, kept clear of
-     the panel's rounded corners (the track stops short of them). */
-  .scroll-gold {
-    --sb-track: var(--pill);
-  }
-  [data-theme="dark"] .scroll-gold {
-    --sb-track: var(--bg); /* the logo's charcoal */
-  }
+  /* Scrollbars: a gold thumb on a charcoal track, for the page and for
+     pop-ups (.scroll-gold). In pop-ups the track stops short of the
+     panel's rounded corners so they don't clip it. */
+  html::-webkit-scrollbar,
   .scroll-gold::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
+  }
+  html::-webkit-scrollbar-track,
+  .scroll-gold::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
   }
   .scroll-gold::-webkit-scrollbar-track {
     margin-block: 28px;
     border-radius: 999px;
-    background: var(--sb-track);
   }
+  html::-webkit-scrollbar-thumb,
   .scroll-gold::-webkit-scrollbar-thumb {
-    border: 2px solid var(--sb-track);
+    border: 2px solid var(--scrollbar-track);
     border-radius: 999px;
     background: var(--accent-fill);
   }
+  html::-webkit-scrollbar-thumb:hover,
   .scroll-gold::-webkit-scrollbar-thumb:hover {
     background: var(--accent-fill-hover);
+  }
+  html::-webkit-scrollbar-corner {
+    background: var(--scrollbar-track);
   }
   /* Firefox has no ::-webkit-scrollbar; Chrome ignores those rules once
      scrollbar-color is set, so it's only given where they don't exist. */
   @supports not selector(::-webkit-scrollbar) {
+    html,
     .scroll-gold {
       scrollbar-width: thin;
-      scrollbar-color: var(--accent-fill) var(--sb-track);
+      scrollbar-color: var(--accent-fill) var(--scrollbar-track);
     }
   }
 
